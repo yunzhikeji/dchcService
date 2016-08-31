@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+<!-- 商品管理的service -->
+<bean id="itemsService" class="com.yz.service.impl.ItemsServiceImpl"/>
+<!-- 用户管理的service -->
+<bean id="userService" class="com.yz.service.impl.UserServiceImpl"/>
+<!-- 摄像头管理的service -->
+<bean id="cameraService" class="com.yz.service.impl.CameraServiceImpl"/>
+<!-- 工地管理的service -->
+<bean id="siteService" class="com.yz.service.impl.SiteServiceImpl"/>
+<!-- App版本号管理的service -->
+<bean id="clientversionService" class="com.yz.service.impl.ClientversionServiceImpl"/>
+</beans>

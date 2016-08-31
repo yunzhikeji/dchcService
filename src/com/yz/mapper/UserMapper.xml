@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yz.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.yz.po.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="idcard" property="idcard" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="regaddress" property="regaddress" jdbcType="VARCHAR" />
+    <result column="otherinfo" property="otherinfo" jdbcType="VARCHAR" />
+    <result column="liveaddress" property="liveaddress" jdbcType="VARCHAR" />
+    <result column="creditcard" property="creditcard" jdbcType="VARCHAR" />
+    <result column="carid" property="carid" jdbcType="VARCHAR" />
+    <result column="scene" property="scene" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="avanta" property="avanta" jdbcType="VARCHAR" />
+    <result column="bodypic" property="bodypic" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, realname, gender, birthday, qq, wechat, idcard, phone, regaddress, otherinfo, 
+    liveaddress, creditcard, carid, scene, category, avanta, bodypic
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yz.po.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yz.po.UserExample" >
+    delete from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yz.po.User" >
+    insert into user (id, realname, gender, 
+      birthday, qq, wechat, 
+      idcard, phone, regaddress, 
+      otherinfo, liveaddress, creditcard, 
+      carid, scene, category, 
+      avanta, bodypic)
+    values (#{id,jdbcType=INTEGER}, #{realname,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{idcard,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{regaddress,jdbcType=VARCHAR}, 
+      #{otherinfo,jdbcType=VARCHAR}, #{liveaddress,jdbcType=VARCHAR}, #{creditcard,jdbcType=VARCHAR}, 
+      #{carid,jdbcType=VARCHAR}, #{scene,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{avanta,jdbcType=VARCHAR}, #{bodypic,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yz.po.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="realname != null" >
+        realname,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="wechat != null" >
+        wechat,
+      </if>
+      <if test="idcard != null" >
+        idcard,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="regaddress != null" >
+        regaddress,
+      </if>
+      <if test="otherinfo != null" >
+        otherinfo,
+      </if>
+      <if test="liveaddress != null" >
+        liveaddress,
+      </if>
+      <if test="creditcard != null" >
+        creditcard,
+      </if>
+      <if test="carid != null" >
+        carid,
+      </if>
+      <if test="scene != null" >
+        scene,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="avanta != null" >
+        avanta,
+      </if>
+      <if test="bodypic != null" >
+        bodypic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="regaddress != null" >
+        #{regaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="otherinfo != null" >
+        #{otherinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="liveaddress != null" >
+        #{liveaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="creditcard != null" >
+        #{creditcard,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null" >
+        #{carid,jdbcType=VARCHAR},
+      </if>
+      <if test="scene != null" >
+        #{scene,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="avanta != null" >
+        #{avanta,jdbcType=VARCHAR},
+      </if>
+      <if test="bodypic != null" >
+        #{bodypic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yz.po.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.realname != null" >
+        realname = #{record.realname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gender != null" >
+        gender = #{record.gender,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        birthday = #{record.birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qq != null" >
+        qq = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null" >
+        wechat = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcard != null" >
+        idcard = #{record.idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regaddress != null" >
+        regaddress = #{record.regaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherinfo != null" >
+        otherinfo = #{record.otherinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.liveaddress != null" >
+        liveaddress = #{record.liveaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditcard != null" >
+        creditcard = #{record.creditcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carid != null" >
+        carid = #{record.carid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scene != null" >
+        scene = #{record.scene,jdbcType=VARCHAR},
+      </if>
+      <if test="record.category != null" >
+        category = #{record.category,jdbcType=VARCHAR},
+      </if>
+      <if test="record.avanta != null" >
+        avanta = #{record.avanta,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bodypic != null" >
+        bodypic = #{record.bodypic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user
+    set id = #{record.id,jdbcType=INTEGER},
+      realname = #{record.realname,jdbcType=VARCHAR},
+      gender = #{record.gender,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=VARCHAR},
+      qq = #{record.qq,jdbcType=VARCHAR},
+      wechat = #{record.wechat,jdbcType=VARCHAR},
+      idcard = #{record.idcard,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      regaddress = #{record.regaddress,jdbcType=VARCHAR},
+      otherinfo = #{record.otherinfo,jdbcType=VARCHAR},
+      liveaddress = #{record.liveaddress,jdbcType=VARCHAR},
+      creditcard = #{record.creditcard,jdbcType=VARCHAR},
+      carid = #{record.carid,jdbcType=VARCHAR},
+      scene = #{record.scene,jdbcType=VARCHAR},
+      category = #{record.category,jdbcType=VARCHAR},
+      avanta = #{record.avanta,jdbcType=VARCHAR},
+      bodypic = #{record.bodypic,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yz.po.User" >
+    update user
+    <set >
+      <if test="realname != null" >
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="regaddress != null" >
+        regaddress = #{regaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="otherinfo != null" >
+        otherinfo = #{otherinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="liveaddress != null" >
+        liveaddress = #{liveaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="creditcard != null" >
+        creditcard = #{creditcard,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null" >
+        carid = #{carid,jdbcType=VARCHAR},
+      </if>
+      <if test="scene != null" >
+        scene = #{scene,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="avanta != null" >
+        avanta = #{avanta,jdbcType=VARCHAR},
+      </if>
+      <if test="bodypic != null" >
+        bodypic = #{bodypic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yz.po.User" >
+    update user
+    set realname = #{realname,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      regaddress = #{regaddress,jdbcType=VARCHAR},
+      otherinfo = #{otherinfo,jdbcType=VARCHAR},
+      liveaddress = #{liveaddress,jdbcType=VARCHAR},
+      creditcard = #{creditcard,jdbcType=VARCHAR},
+      carid = #{carid,jdbcType=VARCHAR},
+      scene = #{scene,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      avanta = #{avanta,jdbcType=VARCHAR},
+      bodypic = #{bodypic,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
