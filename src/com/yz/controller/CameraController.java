@@ -17,7 +17,7 @@ import com.yz.service.CameraService;
 import com.yz.service.SiteService;
 
 @Controller
-@RequestMapping("/camera")
+@RequestMapping("/camera")  
 public class CameraController {
 
 	@Autowired

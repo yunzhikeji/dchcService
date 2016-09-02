@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.yz.po.User;
 import com.yz.po.UserCustom;
-import com.yz.po.UserQueryVo;
 import com.yz.po.Userrole;
 
 public interface UserService {
@@ -22,7 +21,6 @@ public interface UserService {
 	public List<User> findUserList() throws Exception;
 	
 	// 修改用户 信息
-	
 	public void updateUser(Integer id,UserCustom userCustom)throws Exception;
 	
 	//验证用户登录
