@@ -1,9 +1,13 @@
 package com.yz.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.sun.swing.internal.plaf.metal.resources.metal_zh_TW;
+import com.yz.po.Jpushperson;
+import com.yz.po.Userrole;
 import com.yz.service.JPushService;
 
 import cn.jpush.api.JPushClient;
@@ -21,13 +25,11 @@ public class JPushServiceImpl implements JPushService {
 	private Logger logger = Logger.getLogger("JPushServiceImpl");
 
 	private String masterSecret;
-
 	private String appKey;
 
+	@Override
 	public void testPush(String content) {
-
 		JPushClient jpushClient = new JPushClient(masterSecret, appKey);
-
 		PushPayload payload = buildPushObject_all_all_alert(content);
 		try {
 			PushResult result = jpushClient.sendPush(payload);
@@ -35,10 +37,8 @@ public class JPushServiceImpl implements JPushService {
 			logger.info("Got result - " + result);
 
 		} catch (APIConnectionException e) {
-			// Connection error, should retry later
 			logger.error("Connection error, should retry later", e);
 		} catch (APIRequestException e) {
-			// Should review the error, and fix the request
 			logger.error("Should review the error, and fix the request", e);
 			logger.info("HTTP Status: " + e.getStatus());
 			logger.info("Error Code: " + e.getErrorCode());
@@ -46,14 +46,45 @@ public class JPushServiceImpl implements JPushService {
 		}
 	}
 
+	@Override
+	public void pushCheckPersonToUser(Jpushperson person, List<Userrole> userRoles,String content) {
+		JPushClient jpushClient = new JPushClient(masterSecret, appKey);
+		
+		List<String> aliases = new ArrayList<String>();
+		
+		if(userRoles!=null)
+		{
+			for(Userrole userRole:userRoles)
+			{
+				aliases.add(userRole.getRealname());
+			}
+		}
+		
+		PushPayload payload = buildPushObject_andorid_alias_alert(aliases,content);
+		try {
+			PushResult result = jpushClient.sendPush(payload);
+			System.out.println(result);
+			logger.info("Got result - " + result);
+
+		} catch (APIConnectionException e) {
+			logger.error("Connection error, should retry later", e);
+		} catch (APIRequestException e) {
+			logger.error("Should review the error, and fix the request", e);
+			logger.info("HTTP Status: " + e.getStatus());
+			logger.info("Error Code: " + e.getErrorCode());
+			logger.info("Error Message: " + e.getErrorMessage());
+		}
+
+	}
+
 	public PushPayload buildPushObject_all_all_alert(String content) {
 		return PushPayload.alertAll(content);
 	}
 
-	public static PushPayload buildPushObject_andorid_alias_alert(List<String> aliases,String content) {
-		return PushPayload.newBuilder().setPlatform(Platform.android()).setAudience(Audience.newBuilder()
-                .addAudienceTarget(AudienceTarget.alias(aliases))
-                .build()).setNotification(Notification.alert(content)).build();
+	public static PushPayload buildPushObject_andorid_alias_alert(List<String> aliases, String content) {
+		return PushPayload.newBuilder().setPlatform(Platform.android())
+				.setAudience(Audience.newBuilder().addAudienceTarget(AudienceTarget.alias(aliases)).build())
+				.setNotification(Notification.alert(content)).build();
 	}
 
 	public String getMasterSecret() {
