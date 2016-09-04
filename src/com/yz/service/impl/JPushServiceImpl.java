@@ -2,11 +2,8 @@ package com.yz.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.log4j.Logger;
 
-import com.sun.swing.internal.plaf.metal.resources.metal_zh_TW;
-import com.yz.po.Jpushperson;
 import com.yz.po.Userrole;
 import com.yz.service.JPushService;
 
@@ -47,11 +44,23 @@ public class JPushServiceImpl implements JPushService {
 	}
 
 	@Override
-	public void pushCheckPersonToUser(Jpushperson person, List<Userrole> userRoles,String content) {
+	public void pushCheckPersonToUser(List<Userrole> userRoles,String content) {
+		this.push(userRoles, content);
+	}
+	
+	
+	@Override
+	public void pushCheckResult(Userrole userrole,String content) {
+		List<Userrole> userroles = new ArrayList<Userrole>();
+		userroles.add(userrole);
+		this.push(userroles, content);
+	}
+	
+	
+	public void push(List<Userrole> userRoles,String content) {
 		JPushClient jpushClient = new JPushClient(masterSecret, appKey);
 		
 		List<String> aliases = new ArrayList<String>();
-		
 		if(userRoles!=null)
 		{
 			for(Userrole userRole:userRoles)
@@ -59,13 +68,11 @@ public class JPushServiceImpl implements JPushService {
 				aliases.add(userRole.getRealname());
 			}
 		}
-		
 		PushPayload payload = buildPushObject_andorid_alias_alert(aliases,content);
 		try {
 			PushResult result = jpushClient.sendPush(payload);
 			System.out.println(result);
 			logger.info("Got result - " + result);
-
 		} catch (APIConnectionException e) {
 			logger.error("Connection error, should retry later", e);
 		} catch (APIRequestException e) {
@@ -102,5 +109,6 @@ public class JPushServiceImpl implements JPushService {
 	public void setAppKey(String appKey) {
 		this.appKey = appKey;
 	}
+
 
 }

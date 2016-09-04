@@ -227,7 +227,7 @@ public class DateTimeKit {
      * 计算两个日期之间相差的分钟  
      * @param smdate 较小的时间 
      * @param bdate  较大的时间 
-     * @return 相差天数 
+     * @return 相差分钟 
      * @throws ParseException  
      */    
     public static int minutesBetweenStr(String smdate,String bdate) throws java.text.ParseException    

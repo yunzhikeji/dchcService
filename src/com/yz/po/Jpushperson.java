@@ -1,53 +1,94 @@
 package com.yz.po;
 
 public class Jpushperson {
-    private Integer id;
+	private Integer id;
 
-    private String idcard;
+	private String idcard;
 
-    private String realname;
+	private String realname;
 
-    private String picurl;
+	private String picurl;
 
-    private Integer istrue;
+	private Integer istrue;
 
-    public Integer getId() {
-        return id;
-    }
+	private Integer userrole_id;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	private String checkStartTime;
 
-    public String getIdcard() {
-        return idcard;
-    }
+	private String backCheckResultTime;
 
-    public void setIdcard(String idcard) {
-        this.idcard = idcard == null ? null : idcard.trim();
-    }
+	private Integer isOutOfTime;
 
-    public String getRealname() {
-        return realname;
-    }
+	public Integer getUserrole_id() {
+		return userrole_id;
+	}
 
-    public void setRealname(String realname) {
-        this.realname = realname == null ? null : realname.trim();
-    }
+	public void setUserrole_id(Integer userrole_id) {
+		this.userrole_id = userrole_id;
+	}
 
-    public String getPicurl() {
-        return picurl;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setPicurl(String picurl) {
-        this.picurl = picurl == null ? null : picurl.trim();
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getIstrue() {
-        return istrue;
-    }
+	public String getIdcard() {
+		return idcard;
+	}
 
-    public void setIstrue(Integer istrue) {
-        this.istrue = istrue;
-    }
+	public void setIdcard(String idcard) {
+		this.idcard = idcard == null ? null : idcard.trim();
+	}
+
+	public String getRealname() {
+		return realname;
+	}
+
+	public void setRealname(String realname) {
+		this.realname = realname == null ? null : realname.trim();
+	}
+
+	public String getPicurl() {
+		return picurl;
+	}
+
+	public void setPicurl(String picurl) {
+		this.picurl = picurl == null ? null : picurl.trim();
+	}
+
+	public Integer getIstrue() {
+		return istrue;
+	}
+
+	public void setIstrue(Integer istrue) {
+		this.istrue = istrue;
+	}
+
+	public String getCheckStartTime() {
+		return checkStartTime;
+	}
+
+	public void setCheckStartTime(String checkStartTime) {
+		this.checkStartTime = checkStartTime;
+	}
+
+	public String getBackCheckResultTime() {
+		return backCheckResultTime;
+	}
+
+	public void setBackCheckResultTime(String backCheckResultTime) {
+		this.backCheckResultTime = backCheckResultTime;
+	}
+
+	public Integer getIsOutOfTime() {
+		return isOutOfTime;
+	}
+
+	public void setIsOutOfTime(Integer isOutOfTime) {
+		this.isOutOfTime = isOutOfTime;
+	}
+
 }

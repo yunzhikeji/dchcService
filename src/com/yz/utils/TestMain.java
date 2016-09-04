@@ -1,11 +1,21 @@
 package com.yz.utils;
 
+import java.text.ParseException;
+
 public class TestMain {
 	
 	public static void main(String[] args) {
-		String v = "V";
+		String time1 = "2016-09-04 21:08";
 		
-		System.out.println(v.equals("V"));;
+		String time2 = "2016-09-04 21:28";
+		
+		
+		try {
+			System.out.println(DateTimeKit.minutesBetweenStr(time1, time2)>10);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
