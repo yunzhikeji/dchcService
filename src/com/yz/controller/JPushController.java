@@ -15,6 +15,7 @@ import com.yz.po.Jpushperson;
 import com.yz.po.Userrole;
 import com.yz.service.JPushService;
 import com.yz.service.JpushpersonService;
+import com.yz.service.UserRoleService;
 import com.yz.utils.DateTimeKit;
 
 @Controller
@@ -26,6 +27,9 @@ public class JPushController {
 
 	@Autowired
 	private JpushpersonService personService;
+	
+	@Autowired
+	private UserRoleService userRoleService;
 
 	@RequestMapping(value = "test")
 	public String test() throws Exception {
@@ -61,7 +65,8 @@ public class JPushController {
 		String content = "最新消息：判断人员信息是否准确";
 
 		// 查询出userRole的type=1说明是大厅用户，需要下发
-		List<Userrole> userRoles = new ArrayList<Userrole>();
+		int type = 1;
+		List<Userrole> userRoles = userRoleService.findUserByType(type);
 
 		jpushService.pushCheckPersonToUser(userRoles, content);
 
@@ -96,7 +101,7 @@ public class JPushController {
 			content = content + "不正确";
 		}
 
-		Userrole userRole = new Userrole();// 这里是查询，根据person的userrole_id查询出Userrole
+		Userrole userRole = userRoleService.findUserById(person.getUserroleId());// 这里是查询，根据person的userroleid查询出Userrole
 
 		jpushService.pushCheckResult(userRole, content);
 
