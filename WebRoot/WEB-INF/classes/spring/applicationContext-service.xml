@@ -30,4 +30,6 @@
 		<property name="appKey" value="5b90780eab25c1241de82299"></property>
 		<property name="masterSecret" value="6c8c165a1a25bde0691b2ee1"></property>
 </bean>
+<!-- 检查人员的service -->
+<bean id="personService" class="com.yz.service.impl.JpushpersonServiceImpl"/>
 </beans>
