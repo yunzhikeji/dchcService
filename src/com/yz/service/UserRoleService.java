@@ -6,7 +6,7 @@ import com.yz.po.User;
 import com.yz.po.UserCustom;
 import com.yz.po.Userrole;
 
-public interface UserService {
+public interface UserRoleService {
 
 	// 添加一个用户
 	public void insert(User user) throws Exception;
@@ -24,6 +24,6 @@ public interface UserService {
 	public void updateUser(Integer id,UserCustom userCustom)throws Exception;
 	
 	//验证用户登录
-	public Userrole findByUserNameAndPassword(Userrole user) throws Exception;
+	public Userrole findByUserNameAndPassword(Userrole userrole) throws Exception;
 
 }

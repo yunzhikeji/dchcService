@@ -10,9 +10,9 @@ import com.yz.po.User;
 import com.yz.po.UserCustom;
 import com.yz.po.UserQueryVo;
 import com.yz.po.Userrole;
-import com.yz.service.UserService;
+import com.yz.service.UserRoleService;
 
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserRoleService {
 	
 	@Autowired
 	private UserMapper userMapper;

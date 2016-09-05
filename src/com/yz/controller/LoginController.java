@@ -8,25 +8,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yz.po.User;
 import com.yz.po.Userrole;
-import com.yz.service.UserService;
+import com.yz.service.UserRoleService;
 
 @Controller
 public class LoginController {
 	
 	@Autowired
-	private UserService userService;
+	private UserRoleService userRoleService;
 	// 登陆
 	@RequestMapping("/login/{username}/{password}")
 	public @ResponseBody Userrole login(@PathVariable("username") String username,@PathVariable("password") String password)
 			throws Exception {
-		Userrole user = new Userrole();
-		user.setUsername(username);
-		user.setPassword(password);
+		Userrole userrole = new Userrole();
+		userrole.setUsername(username);
+		userrole.setPassword(password);
 		// 调用service进行用户身份验证
 		
-		Userrole userQuery = userService.findByUserNameAndPassword(user);
+		Userrole userQuery = userRoleService.findByUserNameAndPassword(userrole);
 		if (userQuery == null){
 			Userrole ur = new Userrole();
 			ur.setUnitid(-1);
