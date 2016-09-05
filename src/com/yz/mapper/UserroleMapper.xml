@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yz.mapper.UserroleMapper" >
   <resultMap id="BaseResultMap" type="com.yz.po.Userrole" >
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="unitid" property="unitid" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    unitid, username, password, telephone, jobnumber, realname, photo
+    id, unitid, username, password, telephone, jobnumber, realname, photo
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yz.po.UserroleExample" >
     select
@@ -85,6 +86,16 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from userrole
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from userrole
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByExample" parameterType="com.yz.po.UserroleExample" >
     delete from userrole
     <if test="_parameter != null" >
@@ -92,16 +103,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.yz.po.Userrole" >
-    insert into userrole (unitid, username, password, 
-      telephone, jobnumber, realname, 
-      photo)
-    values (#{unitid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{telephone,jdbcType=VARCHAR}, #{jobnumber,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, 
-      #{photo,jdbcType=VARCHAR})
+    insert into userrole (id, unitid, username, 
+      password, telephone, jobnumber, 
+      realname, photo)
+    values (#{id,jdbcType=INTEGER}, #{unitid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{jobnumber,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{photo,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yz.po.Userrole" >
     insert into userrole
     <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
       <if test="unitid != null" >
         unitid,
       </if>
@@ -125,6 +139,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
       <if test="unitid != null" >
         #{unitid,jdbcType=INTEGER},
       </if>
@@ -157,6 +174,9 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update userrole
     <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
       <if test="record.unitid != null" >
         unitid = #{record.unitid,jdbcType=INTEGER},
       </if>
@@ -185,7 +205,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update userrole
-    set unitid = #{record.unitid,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=INTEGER},
+      unitid = #{record.unitid,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       telephone = #{record.telephone,jdbcType=VARCHAR},
@@ -195,5 +216,43 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yz.po.Userrole" >
+    update userrole
+    <set >
+      <if test="unitid != null" >
+        unitid = #{unitid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="jobnumber != null" >
+        jobnumber = #{jobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yz.po.Userrole" >
+    update userrole
+    set unitid = #{unitid,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      jobnumber = #{jobnumber,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

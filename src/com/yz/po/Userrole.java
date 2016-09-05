@@ -1,6 +1,8 @@
 package com.yz.po;
 
 public class Userrole {
+    private Integer id;
+
     private Integer unitid;
 
     private String username;
@@ -14,6 +16,14 @@ public class Userrole {
     private String realname;
 
     private String photo;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getUnitid() {
         return unitid;

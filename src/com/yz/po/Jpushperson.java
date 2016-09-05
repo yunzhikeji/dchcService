@@ -1,94 +1,93 @@
 package com.yz.po;
 
 public class Jpushperson {
-	private Integer id;
+    private Integer id;
 
-	private String idcard;
+    private String idcard;
 
-	private String realname;
+    private String realname;
 
-	private String picurl;
+    private String picurl;
 
-	private Integer istrue;
+    private Integer istrue;
 
-	private Integer userrole_id;
+    private Integer userroleId;
 
-	private String checkStartTime;
+    private String checkstarttime;
 
-	private String backCheckResultTime;
+    private String backcheckresulttime;
 
-	private Integer isOutOfTime;
+    private Integer isoutoftime;
 
-	public Integer getUserrole_id() {
-		return userrole_id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setUserrole_id(Integer userrole_id) {
-		this.userrole_id = userrole_id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public String getIdcard() {
+        return idcard;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setIdcard(String idcard) {
+        this.idcard = idcard == null ? null : idcard.trim();
+    }
 
-	public String getIdcard() {
-		return idcard;
-	}
+    public String getRealname() {
+        return realname;
+    }
 
-	public void setIdcard(String idcard) {
-		this.idcard = idcard == null ? null : idcard.trim();
-	}
+    public void setRealname(String realname) {
+        this.realname = realname == null ? null : realname.trim();
+    }
 
-	public String getRealname() {
-		return realname;
-	}
+    public String getPicurl() {
+        return picurl;
+    }
 
-	public void setRealname(String realname) {
-		this.realname = realname == null ? null : realname.trim();
-	}
+    public void setPicurl(String picurl) {
+        this.picurl = picurl == null ? null : picurl.trim();
+    }
 
-	public String getPicurl() {
-		return picurl;
-	}
+    public Integer getIstrue() {
+        return istrue;
+    }
 
-	public void setPicurl(String picurl) {
-		this.picurl = picurl == null ? null : picurl.trim();
-	}
+    public void setIstrue(Integer istrue) {
+        this.istrue = istrue;
+    }
 
-	public Integer getIstrue() {
-		return istrue;
-	}
+    public Integer getUserroleId() {
+        return userroleId;
+    }
 
-	public void setIstrue(Integer istrue) {
-		this.istrue = istrue;
-	}
+    public void setUserroleId(Integer userroleId) {
+        this.userroleId = userroleId;
+    }
 
-	public String getCheckStartTime() {
-		return checkStartTime;
-	}
+    public String getCheckstarttime() {
+        return checkstarttime;
+    }
 
-	public void setCheckStartTime(String checkStartTime) {
-		this.checkStartTime = checkStartTime;
-	}
+    public void setCheckstarttime(String checkstarttime) {
+        this.checkstarttime = checkstarttime == null ? null : checkstarttime.trim();
+    }
 
-	public String getBackCheckResultTime() {
-		return backCheckResultTime;
-	}
+    public String getBackcheckresulttime() {
+        return backcheckresulttime;
+    }
 
-	public void setBackCheckResultTime(String backCheckResultTime) {
-		this.backCheckResultTime = backCheckResultTime;
-	}
+    public void setBackcheckresulttime(String backcheckresulttime) {
+        this.backcheckresulttime = backcheckresulttime == null ? null : backcheckresulttime.trim();
+    }
 
-	public Integer getIsOutOfTime() {
-		return isOutOfTime;
-	}
+    public Integer getIsoutoftime() {
+        return isoutoftime;
+    }
 
-	public void setIsOutOfTime(Integer isOutOfTime) {
-		this.isOutOfTime = isOutOfTime;
-	}
-
+    public void setIsoutoftime(Integer isoutoftime) {
+        this.isoutoftime = isoutoftime;
+    }
 }

@@ -53,7 +53,7 @@ public class JPushController {
 		// 改检查人员表中包含上传用户的用户名，作为推送的别名，以后使用进行下发,同时记录当前时间
 		
 		String checkStartTime = DateTimeKit.getLocal_Time();
-		person.setCheckStartTime(checkStartTime);
+		person.setCheckstarttime(checkStartTime);
 		personService.insert(person);
 
 		String content = "最新消息：判断人员信息是否准确";
@@ -73,16 +73,16 @@ public class JPushController {
 		
 		String backCheckResultTime  = DateTimeKit.getLocal_Time();
 		
-		person.setBackCheckResultTime(backCheckResultTime);
+		person.setBackcheckresulttime(backCheckResultTime);
 		
-		int isOutOfTime = (DateTimeKit.minutesBetweenStr(person.getCheckStartTime(), backCheckResultTime)-10);
+		int isOutOfTime = (DateTimeKit.minutesBetweenStr(person.getCheckstarttime(), backCheckResultTime)-10);
 		
 		if(isOutOfTime>0)
 		{
-			person.setIsOutOfTime(1);//大于10 就说明超期了
+			person.setIsoutoftime(1);//大于10 就说明超期了
 		}else
 		{
-			person.setIsOutOfTime(0);
+			person.setIsoutoftime(0);
 		}
 
 		personService.updateJPushPerson(pid, person);

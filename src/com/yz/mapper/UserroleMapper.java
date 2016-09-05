@@ -10,13 +10,21 @@ public interface UserroleMapper {
 
     int deleteByExample(UserroleExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(Userrole record);
 
     int insertSelective(Userrole record);
 
     List<Userrole> selectByExample(UserroleExample example);
 
+    Userrole selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") Userrole record, @Param("example") UserroleExample example);
 
     int updateByExample(@Param("record") Userrole record, @Param("example") UserroleExample example);
+
+    int updateByPrimaryKeySelective(Userrole record);
+
+    int updateByPrimaryKey(Userrole record);
 }
