@@ -4,21 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.yz.mapper.UserMapper;
-import com.yz.mapper.UserMapperCustom;
-import com.yz.po.User;
-import com.yz.po.UserCustom;
-import com.yz.po.UserQueryVo;
+import com.yz.mapper.UserRoleMapperCustom;
 import com.yz.po.Userrole;
 import com.yz.service.UserRoleService;
 
 public class UserRoleServiceImpl implements UserRoleService {
 
 	@Autowired
-	private UserMapper userMapper;
-
-	@Autowired
-	private UserMapperCustom userMapperCustom;
+	UserRoleMapperCustom userRoleMapperCustom;
 
 	@Override
 	public Userrole findUserById(Integer id) throws Exception {
@@ -32,9 +25,9 @@ public class UserRoleServiceImpl implements UserRoleService {
 	}
 
 	@Override
-	public Userrole findByUserNameAndPassword(Userrole user) throws Exception {
+	public Userrole findByUserNameAndPassword(Userrole userrole) throws Exception {
 
-		Userrole userQuery = userMapperCustom.findByUserNameAndPassword(user);
+		Userrole userQuery = userRoleMapperCustom.findByUserNameAndPassword(userrole);
 
 		return userQuery;
 	}

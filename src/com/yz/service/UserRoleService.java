@@ -2,7 +2,6 @@ package com.yz.service;
 
 import java.util.List;
 
-import com.yz.po.User;
 import com.yz.po.Userrole;
 
 public interface UserRoleService {

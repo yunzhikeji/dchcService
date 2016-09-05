@@ -17,6 +17,8 @@ public class Userrole {
 
     private String photo;
 
+    private Integer type;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +81,13 @@ public class Userrole {
 
     public void setPhoto(String photo) {
         this.photo = photo == null ? null : photo.trim();
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }
