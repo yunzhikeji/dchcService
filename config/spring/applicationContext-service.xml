@@ -22,6 +22,9 @@
 <bean id="siteService" class="com.yz.service.impl.SiteServiceImpl"/>
 <!-- App版本号管理的service -->
 <bean id="clientversionService" class="com.yz.service.impl.ClientversionServiceImpl"/>
+
+<!-- person管理的service -->
+<bean id="personService" class="com.yz.service.impl.PersonServiceImpl"/>
 <!-- 推送的service -->
 <bean id="jpushService" class="com.yz.service.impl.JPushServiceImpl">
 		<property name="appKey" value="5b90780eab25c1241de82299"></property>
