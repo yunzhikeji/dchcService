@@ -39,7 +39,7 @@ public class JPushController {
 	public @ResponseBody int checkPerson(Jpushperson person, MultipartFile photo) throws Exception {
 		// 存储图片的物理路径
 		
-		System.out.println(person.getUserrole_id());
+		System.out.println(person.getUserroleId());
 		String pic_path = "C:\\develop\\upload\\temp\\";
 		if (photo != null) {
 			String filename = photo.getOriginalFilename();
