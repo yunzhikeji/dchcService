@@ -90,7 +90,10 @@
 		<property name="cacheSeconds" value="120" />
 	</bean>
 
-	
+		<!-- 全局异常处理器
+	只要实现HandlerExceptionResolver接口就是全局异常处理器
+	 -->
+	<bean class="com.yz.exception.CustomExceptionResolver"></bean>
 	
 	<!-- 文件上传 -->
 	<bean id="multipartResolver"
@@ -101,7 +104,25 @@
 		</property>
 	</bean>
 	
-
+	<!--拦截器 -->
+<mvc:interceptors>
+	<!--多个拦截器,顺序执行 -->
+	<!-- 登陆认证拦截器 -->
+	<mvc:interceptor>
+		<mvc:mapping path="/**"/>
+		<bean class="com.yz.interceptor.LoginInterceptor"></bean>
+	</mvc:interceptor>
+	<mvc:interceptor>
+		<!-- /**表示所有url包括子url路径 -->
+		<mvc:mapping path="/**"/>
+		<bean class="com.yz.interceptor.HandlerInterceptor1"></bean>
+	</mvc:interceptor>
+	<mvc:interceptor>
+		<mvc:mapping path="/**"/>
+		<bean class="com.yz.interceptor.HandlerInterceptor2"></bean>
+	</mvc:interceptor>
+</mvc:interceptors>
+	
 	
 	
 </beans>
