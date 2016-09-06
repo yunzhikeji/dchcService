@@ -13,6 +13,7 @@ import com.yz.po.Userrole;
 import com.yz.service.UserRoleService;
 
 @Controller
+@RequestMapping("/login")
 public class LoginController {
 	
 	@Autowired

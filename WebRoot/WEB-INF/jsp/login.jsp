@@ -41,7 +41,7 @@
 
 				</c:if>
 
-				<form action="${pageContext.request.contextPath }/weblogin.action"
+				<form action="${pageContext.request.contextPath }/login/weblogin.action"
 					method="post">
 					<div class="tabCon">
 						<li class="inputbox"><label class="u-label"></label> <input
