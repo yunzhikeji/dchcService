@@ -12,24 +12,17 @@
 		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
-<!-- 商品管理的service -->
-<bean id="itemsService" class="com.yz.service.impl.ItemsServiceImpl"/>
-<!-- 用户管理的service -->
-<bean id="userService" class="com.yz.service.impl.UserServiceImpl"/>
-<!-- 摄像头管理的service -->
-<bean id="cameraService" class="com.yz.service.impl.CameraServiceImpl"/>
-<!-- 工地管理的service -->
-<bean id="siteService" class="com.yz.service.impl.SiteServiceImpl"/>
-<!-- App版本号管理的service -->
-<bean id="clientversionService" class="com.yz.service.impl.ClientversionServiceImpl"/>
-
-<!-- person管理的service -->
-<bean id="personService" class="com.yz.service.impl.PersonServiceImpl"/>
-<!-- 推送的service -->
-<bean id="jpushService" class="com.yz.service.impl.JPushServiceImpl">
+	<!-- App版本号管理的service -->
+	<bean id="clientversionService" class="com.yz.service.impl.ClientversionServiceImpl" />
+	<!-- person管理的service -->
+	<bean id="personService" class="com.yz.service.impl.PersonServiceImpl" />
+	<!-- 推送的service -->
+	<bean id="jpushService" class="com.yz.service.impl.JPushServiceImpl">
 		<property name="appKey" value="5b90780eab25c1241de82299"></property>
 		<property name="masterSecret" value="6c8c165a1a25bde0691b2ee1"></property>
-</bean>
-<!-- 检查人员的service -->
-<bean id="personService" class="com.yz.service.impl.JpushpersonServiceImpl"/>
+	</bean>
+	<!-- 检查人员的service -->
+	<bean id="jpushpersonService" class="com.yz.service.impl.JpushpersonServiceImpl" />
+	<!-- 用户的service -->
+	<bean id="userRoleService" class="com.yz.service.impl.UserRoleServiceImpl" />
 </beans>

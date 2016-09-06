@@ -26,7 +26,7 @@ public class JPushController {
 	private JPushService jpushService;
 
 	@Autowired
-	private JpushpersonService personService;
+	private JpushpersonService jpushpersonService;
 	
 	@Autowired
 	private UserRoleService userRoleService;
@@ -60,7 +60,7 @@ public class JPushController {
 		
 		String checkStartTime = DateTimeKit.getLocal_Time();
 		person.setCheckstarttime(checkStartTime);
-		personService.insert(person);
+		jpushpersonService.insert(person);
 
 		String content = "最新消息：判断人员信息是否准确";
 
@@ -92,7 +92,7 @@ public class JPushController {
 			person.setIsoutoftime(0);
 		}
 
-		personService.updateJPushPerson(pid, person);
+		jpushpersonService.updateJPushPerson(pid, person);
 
 		String content = "人员信息:姓名为"+person.getRealname()+",身份证为:"+person.getIdcard();
 		if (isTrue == 1) {
