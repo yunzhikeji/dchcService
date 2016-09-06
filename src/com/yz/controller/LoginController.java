@@ -70,5 +70,14 @@ public class LoginController {
 		// 重定向到商品列表页面
 		return "redirect:/login";
 	}
+	
+	
+	@RequestMapping("/index")
+	public String index(HttpSession session) throws Exception {
+
+		return "index";
+	}
+	
+	
 
 }

@@ -65,9 +65,11 @@ public class JPushServiceImpl implements JPushService {
 		{
 			for(Userrole userRole:userRoles)
 			{
-				aliases.add(userRole.getRealname());
+				aliases.add(userRole.getUsername());
 			}
 		}
+		System.out.println(content);
+		System.out.println(aliases);
 		PushPayload payload = buildPushObject_andorid_alias_alert(aliases,content);
 		try {
 			PushResult result = jpushClient.sendPush(payload);

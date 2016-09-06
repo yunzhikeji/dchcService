@@ -44,6 +44,7 @@ public class JPushController {
 		// 存储图片的物理路径
 		
 		System.out.println(person.getUserroleId());
+		System.out.println(person.getRealname());
 		String pic_path = "C:\\develop\\upload\\temp\\";
 		if (photo != null) {
 			String filename = photo.getOriginalFilename();
