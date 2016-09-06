@@ -32,12 +32,12 @@
 </head>
 <body>
 	<header class="Hui-header cl">
-		<a class="Hui-logo l" href="#"><img src="images/logo.png"
+		<a class="Hui-logo l" href="#"><img src="${pageContext.request.contextPath }/images/logo.png"
 			width="489" height="70"> </a>
 		<ul class="nav" style="margin-right: 30px;">
 			<li><a href="javascript:;"
 				onClick="location='userRoleAction!logout'" title="注销"><img
-					src="images/icon06.png" title="注销" />
+					src="${pageContext.request.contextPath }/images/icon06.png" title="注销" />
 					<h4>注销</h4> </a></li>
 		</ul>
 
@@ -51,7 +51,7 @@
 		<div class="my-profile dropDown dropDown_click ">
 				<a href="javascript:;" class="my-profile-pic dropDown_A"
 					aria-expanded="false" aria-haspopup="true" data-toggle="dropdown">
-					<img src="images/touxiang.jpg" alt="暂无照片" /> </a>
+					<img src="${pageContext.request.contextPath }/images/touxiang.jpg" alt="暂无照片" /> </a>
 				<div class="dropDown-menu box-shadow text-c pt-10 mr-10">
 					<ul style="color: #333; text-shadow: none">
 						<p>

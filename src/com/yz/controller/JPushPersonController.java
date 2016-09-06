@@ -17,6 +17,7 @@ public class JPushPersonController {
 
 	@RequestMapping("/jpushpersons")
 	public List<Jpushperson> findJPushPersonList() throws Exception {
+		System.out.println("pushhhhh");
 		return jpushpersonService.findJPushPersonList();
 	}
 

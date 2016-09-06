@@ -57,7 +57,7 @@ public class LoginController {
 		// 在session中保存用户身份信息
 		session.setAttribute("username", userrole.getUsername());
 		// 重定向到商品列表页面
-		return "redirect:/index.action";
+		return "redirect:/login/index.action";
 		}
 	}
 
