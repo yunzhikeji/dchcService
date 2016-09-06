@@ -17,7 +17,12 @@
  </select>
  
   <select id="findUserList" resultType="com.yz.po.Userrole">
- 	SELECT user.* FROM userrole 
+ 	SELECT userrole.* FROM userrole 
 
 </select>
+  <select id="findUserRoleByType" parameterType="java.lang.Integer" resultType="com.yz.po.Userrole">
+ 	SELECT userrole.* FROM userrole where type = #{type} 
+
+</select>
+
 </mapper>

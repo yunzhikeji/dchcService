@@ -66,7 +66,7 @@ public class JPushController {
 
 		// 查询出userRole的type=1说明是大厅用户，需要下发
 		int type = 1;
-		List<Userrole> userRoles = userRoleService.findUserByType(type);
+		List<Userrole> userRoles = userRoleService.findUserRoleByType(type);
 
 		jpushService.pushCheckPersonToUser(userRoles, content);
 
@@ -101,7 +101,7 @@ public class JPushController {
 			content = content + "不正确";
 		}
 
-		Userrole userRole = userRoleService.findUserById(person.getUserroleId());// 这里是查询，根据person的userroleid查询出Userrole
+		Userrole userRole = userRoleService.findUserRoleById(person.getUserroleId());// 这里是查询，根据person的userroleid查询出Userrole
 
 		jpushService.pushCheckResult(userRole, content);
 

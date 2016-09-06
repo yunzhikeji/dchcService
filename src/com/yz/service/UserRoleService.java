@@ -8,14 +8,14 @@ public interface UserRoleService {
 
 
 	// 根据id查询用户
-	public Userrole findUserById(Integer id) throws Exception;
+	public Userrole findUserRoleById(Integer id) throws Exception;
 	
 	// 用户查询列表
-	public List<Userrole> findUserList() throws Exception;
+	public List<Userrole> findUserRoleList() throws Exception;
 	
 	//验证用户登录
 	public Userrole findByUserNameAndPassword(Userrole userrole) throws Exception;
 
-	public List<Userrole> findUserByType(int type);
+	public List<Userrole> findUserRoleByType(int type);
 
 }
