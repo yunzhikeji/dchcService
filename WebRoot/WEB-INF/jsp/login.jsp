@@ -29,7 +29,7 @@
 			<div id="tab">
 				<div class="tabList">
 					<ul>
-						<li>云知账号登录</li>
+						<li>账号登录</li>
 					</ul>
 				</div>
 				<!-- 显示错误信息 -->
@@ -41,24 +41,20 @@
 
 				</c:if>
 
-				<form action="${pageContext.request.contextPath }/login.action"
+				<form action="${pageContext.request.contextPath }/weblogin.action"
 					method="post">
 					<div class="tabCon">
 						<li class="inputbox"><label class="u-label"></label> <input
-							name="user.username" type="text" class="j-inputtext" tabindex="1" id="username"
-							autocomplete="off" placeholder="云知账号"
+							name="username" type="text" class="j-inputtext" tabindex="1" id="username"
+							autocomplete="off" placeholder="账号"
 							style="font-family: Microsoft YaHei; background: url(images/login.png) no-repeat 0% 50%; padding-left: 18px"
 							spellcheck="false"></li>
 						<li class="inputboxp"><label class="p-label"></label> <input
-							name="user.password" class="j-inputtext" type="password"
+							name="password" class="j-inputtext" type="password"
 							autocomplete="off" tabindex="2" placeholder="密码"
 							style="font-family: Microsoft YaHei; background: url(images/loginp.png) no-repeat 0% 50%; padding-left: 18px"
 							spellcheck="false"></li>
-						<li class="inputboxs"><input class="y-inputtext" type="text"
-							placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}"
-							onclick="if(this.value=='验证码:'){this.value='';}"> <img
-							class="y-inputtext" src="${pageContext.request.contextPath }/images/20160623142829.png"> <a
-							href="javascript:;" style="background: #CCC">看不清，换一张</a></li>
+
 						<li class="inputboxs"><input class="u-loginbtn" tabindex="6"
 							type="submit" value="登&nbsp;&nbsp;录" /> <a class="u-loginbtnp"
 							href="http://www.baidu.com" target="_blank" tabindex="7"
