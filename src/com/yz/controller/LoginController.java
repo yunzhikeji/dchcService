@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,6 +43,22 @@ public class LoginController {
 		return userQuery;
 		}
 	
+	
+	//页面登录
+	@RequestMapping("/weblogin")
+	public String weblogin(HttpSession session,Userrole userrole,Model model) throws Exception{
+		// 调用service进行用户身份验证
+		Userrole userQuery = userRoleService.findByUserNameAndPassword(userrole);
+		if (userQuery == null){
+			model.addAttribute("loginError", "用户名或密码不正确！");
+		return "login";	
+		}else{
+		// 在session中保存用户身份信息
+		session.setAttribute("username", userrole.getUsername());
+		// 重定向到商品列表页面
+		return "redirect:/index.action";
+		}
+	}
 
 	// 退出
 	@RequestMapping("/logout")
