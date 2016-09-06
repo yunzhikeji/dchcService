@@ -11,13 +11,12 @@ import com.yz.service.JpushpersonService;
 
 @Controller
 public class JPushPersonController {
-	
+
 	@Autowired
 	private JpushpersonService jpushpersonService;
-	
+
 	@RequestMapping("/jpushpersons")
 	public List<Jpushperson> findJPushPersonList() throws Exception {
-		
 		return jpushpersonService.findJPushPersonList();
 	}
 

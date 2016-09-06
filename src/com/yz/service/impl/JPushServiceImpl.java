@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
 
+import com.google.gson.JsonObject;
+import com.yz.jpush.model.JPushResult;
 import com.yz.po.Userrole;
 import com.yz.service.JPushService;
 
@@ -44,21 +46,26 @@ public class JPushServiceImpl implements JPushService {
 	}
 
 	@Override
-	public void pushCheckPersonToUser(List<Userrole> userRoles,String content) {
-		this.push(userRoles, content);
+	public void pushCheckPersonToUser(List<Userrole> userRoles,String content,JPushResult jPushResult) {
+		
+		jPushResult.setUploadResult(1);
+		this.push(userRoles, content,jPushResult);
 	}
 	
 	
 	@Override
-	public void pushCheckResult(Userrole userrole,String content) {
+	public void pushCheckResult(Userrole userrole,String content,JPushResult jPushResult) {
 		List<Userrole> userroles = new ArrayList<Userrole>();
 		userroles.add(userrole);
-		this.push(userroles, content);
+		jPushResult.setUploadResult(1);
+		this.push(userroles, content,jPushResult);
 	}
 	
 	
-	public void push(List<Userrole> userRoles,String content) {
+	public JPushResult push(List<Userrole> userRoles,String content,JPushResult jPushResult) {
 		JPushClient jpushClient = new JPushClient(masterSecret, appKey);
+		
+		JPushResult pushResult = new JPushResult();
 		
 		List<String> aliases = new ArrayList<String>();
 		if(userRoles!=null)
@@ -73,7 +80,14 @@ public class JPushServiceImpl implements JPushService {
 		PushPayload payload = buildPushObject_andorid_alias_alert(aliases,content);
 		try {
 			PushResult result = jpushClient.sendPush(payload);
-			System.out.println(result);
+			
+			if(result.toString().contains("sendno"))
+			{
+				pushResult.setPushResult(1);
+			}else
+			{
+				pushResult.setPushResult(-1);
+			}
 			logger.info("Got result - " + result);
 		} catch (APIConnectionException e) {
 			logger.error("Connection error, should retry later", e);
@@ -83,6 +97,8 @@ public class JPushServiceImpl implements JPushService {
 			logger.info("Error Code: " + e.getErrorCode());
 			logger.info("Error Message: " + e.getErrorMessage());
 		}
+		
+		return pushResult;
 
 	}
 

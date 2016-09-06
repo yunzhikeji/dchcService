@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yz.jpush.model.JPushResult;
 import com.yz.po.Jpushperson;
 import com.yz.po.Userrole;
 import com.yz.service.JPushService;
@@ -40,8 +41,10 @@ public class JPushController {
 	}
 
 	@RequestMapping("/check")
-	public @ResponseBody int checkPerson(Jpushperson person, MultipartFile photo) throws Exception {
+	public @ResponseBody JPushResult checkPerson(Jpushperson person, MultipartFile photo) throws Exception {
 		// 存储图片的物理路径
+		
+		JPushResult jPushResult = new JPushResult();
 		
 		System.out.println(person.getUserroleId());
 		System.out.println(person.getRealname());
@@ -69,13 +72,15 @@ public class JPushController {
 		int type = 1;
 		List<Userrole> userRoles = userRoleService.findUserRoleByType(type);
 
-		jpushService.pushCheckPersonToUser(userRoles, content);
+		jpushService.pushCheckPersonToUser(userRoles, content,jPushResult);
 
-		return 1;
+		return jPushResult;
 	}
 
 	@RequestMapping("/result")
-	public @ResponseBody String result(Integer pid,Jpushperson person, Integer isTrue) throws Exception {
+	public @ResponseBody JPushResult result(Integer pid,Jpushperson person, Integer isTrue) throws Exception {
+		
+		JPushResult jPushResult = new JPushResult();
 
 		person.setIstrue(isTrue);
 		
@@ -104,9 +109,9 @@ public class JPushController {
 
 		Userrole userRole = userRoleService.findUserRoleById(person.getUserroleId());// 这里是查询，根据person的userroleid查询出Userrole
 
-		jpushService.pushCheckResult(userRole, content);
+		jpushService.pushCheckResult(userRole, content,jPushResult);
 
-		return "1";// 这里是跳转到一个页面
+		return jPushResult;// 这里是跳转到一个页面
 
 	}
 

@@ -16,15 +16,15 @@ h4{line-height:30px}
 }
 .Hui-aside{position: absolute;top:100px;bottom:0;left:0;padding-top:10px;width:149px;z-index:99;overflow:auto; background-color:#EFEEF0;border-right: 1px solid #e5e5e5}
 .Hui-article-box{position: absolute;top:100px;right:0;bottom: 0;left:149px; overflow:hidden; z-index:1; background-color:#fff}
-.Hui-article{position: absolute;top:35px;bottom:0;left:0; right:0;overflow:hidden;z-index:1}
+.Hui-article{position: absolute;top:35px;bottom:0;left:0; right:0;overflow:auto;z-index:1}
 .Hui-container{ padding:45px 0 0}
-.Hui-aside,.Hui-article-box,.dislpayArrow,.ce{-moz-transition: all 0.2s ease 0s;-webkit-transition: all 0.2s ease 0s;-ms-transition: all 0.2s ease 0s;-o-transition: all 0.2s ease 0s;transition: all 0.2s ease 0s}
+.Hui-aside,.Hui-article-box,.dislpayArrow{-moz-transition: all 0.2s ease 0s;-webkit-transition: all 0.2s ease 0s;-ms-transition: all 0.2s ease 0s;-o-transition: all 0.2s ease 0s;transition: all 0.2s ease 0s}
 .big-page .Hui-article-box,.big-page .dislpayArrow,.big-page .breadcrumb{left:0px}
 .big-page .Hui-aside{ left:-200px}
 
 /*组件*/
 	/*logo*/
-	.Hui-logo,.Hui-logo-m{height:100px; margin-left:20px;cursor:pointer;font-size:24px; font-weight:bold; line-height:100px}
+	.Hui-logo,.Hui-logo-m{height:80px; margin-left:20px;cursor:pointer;font-size:24px; font-weight:bold; line-height:80px}
 	.Hui-logo{display:inline-block;padding-right:5px}
 	.Hui-logo:hover,.Hui-logo-m:hover{text-decoration:none; color:#0C0}
 	.Hui-logo-m{display:none;width:45px;margin-left:10px}
@@ -60,17 +60,12 @@ h4{line-height:30px}
 	padding: 1px 5px
 }
 .nav{float:right;}
-.nav li{
-	float: left;
-	width: 87px;
-	height: 100px;
-	text-align: center;
-}
-.nav li a{display:block;width:87px;height:100px;-moz-transition: none; transition: background-color 0.3s linear; -moz-transition: background-color 0.3s linear; -webkit-transition: background-color 0.3s linear; -o-transition: background-color 0.3s linear; }
+.nav li{float:left;width:87px;height:75px; text-align:center;}
+.nav li a{display:block;width:87px;height:75px;-moz-transition: none; transition: background-color 0.3s linear; -moz-transition: background-color 0.3s linear; -webkit-transition: background-color 0.3s linear; -o-transition: background-color 0.3s linear; }
 .nav li a.selected{}
 .nav li a:hover{display:block;background:#000;color:#fff;background: none repeat scroll 0% 0% #1D8FC5;}
 .nav li img{
-	margin-top: 25px;
+	margin-top: 5px;
 	width: 45px;
 	height: 45px;
 	overflow: hidden;
@@ -97,11 +92,7 @@ h4{line-height:30px}
 	.Hui-aside .menu_dropdown dt.selected .menu_dropdown-arrow{transform: rotate(180deg)}
 	.Hui-aside .menu_dropdown dd.selected{display:block; margin-left:0px}
 	.Hui-aside .menu_dropdown ul{padding:0px}
-	.Hui-aside .menu_dropdown li{
-	line-height: 25px;
-	overflow: hidden;
-	zoom: 1
-}
+	.Hui-aside .menu_dropdown li{line-height:35px;overflow:hidden;zoom:1}
 	.Hui-aside .menu_dropdown li a{padding-left:15px; display:block;font-weight: bold; margin:0}
 	.Hui-aside .menu_dropdown li a i{ font-weight: normal}
 	.Hui-aside .menu_dropdown dd ul{padding:3px 8px}
@@ -109,11 +100,8 @@ h4{line-height:30px}
 	.Hui-aside .menu_dropdown dd li a{line-height:32px;padding-left:26px; border-bottom:none; font-weight:normal}
 	.Hui-aside .menu_dropdown li a:hover{text-decoration:none}
 	.Hui-aside .menu_dropdown li.current a,.menu_dropdown li.current a:hover{background-color:rgba(255,255,255,0.2)}
-	.Hui-aside .menu_dropdown dd li ul {display:none;}
 	
-		
-/* 左侧树形菜单开始 */
-.clear{clear:both;}
+	.clear{clear:both;}
 .ce{
 	display: block;
 	color: #FFF;
@@ -151,8 +139,7 @@ h4{line-height:30px}
 	background-repeat: no-repeat;
 	background-position: 10px center;
 }
-
-.er{
+	.er{
 	display: none;
 	width: 149px;
 	background: rgb(100,100,100);
@@ -195,7 +182,6 @@ h4{line-height:30px}
 .tu1{width: 29px;height:29px;float: left;padding-top: 3px;cursor: pointer;text-align: center;margin-right: 10px;margin-top:40px;margin-left:20px;background:url(../images/22.png) no-repeat;}
 .span1{color:#f00;float:left;display:block;padding:4px 40px 0px 0px;}
 .span2{color:#000;}
-
 	/*菜单收缩切换*/
 	.dislpayArrow{position: absolute;top: 0;bottom: 0;left:150px;width:0px; height:100%;z-index:10}
 	.dislpayArrow a{ position:absolute; display:block; width:17px; height:61px;top:50%; margin-top:-30px;outline:none}
