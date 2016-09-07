@@ -20,5 +20,7 @@ public interface JpushpersonService {
 
 	// 修改人员信息
 	public void updateJPushPerson(Integer id, Jpushperson person) throws Exception;
+	
+ 	public List<Jpushperson> jpushpersonCheck() throws Exception;
 
 }

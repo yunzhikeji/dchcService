@@ -52,4 +52,9 @@ public class JpushpersonServiceImpl implements JpushpersonService {
 
 	}
 
+	@Override
+	public List<Jpushperson> jpushpersonCheck() throws Exception {
+		return jpushpersonMapperCustom.jpushpersonCheck();
+	}
+
 }

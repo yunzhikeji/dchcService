@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -116,6 +118,12 @@ public class JPushController {
 
 		return jPushResult;// 这里是跳转到一个页面
 
+	}
+	
+	@RequestMapping("/jpushpersons")
+	public String index(HttpSession session) throws Exception {
+
+		return "jpushpersons";
 	}
 
 }

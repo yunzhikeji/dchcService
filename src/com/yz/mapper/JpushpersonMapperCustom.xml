@@ -3,7 +3,10 @@
 <mapper namespace="com.yz.mapper.JpushpersonMapperCustom">
 
 	<select id="findJpushpersonList" resultType="com.yz.po.Jpushperson">
-		select * from jpushperson
+		select * from jpushperson where backcheckresulttime is not null
+	</select>
+		<select id="jpushpersonCheck" resultType="com.yz.po.Jpushperson">
+		select * from jpushperson where backcheckresulttime is null
 	</select>
 
 </mapper>

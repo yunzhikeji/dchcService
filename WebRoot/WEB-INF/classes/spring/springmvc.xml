@@ -109,7 +109,7 @@
 	<!--多个拦截器,顺序执行 -->
 	<!-- 登陆认证拦截器 -->
 	<mvc:interceptor>
-		<mvc:mapping path="/*/**"/>
+		<mvc:mapping path="/**"/>
 		<mvc:exclude-mapping path="/login/**"/>
 		<mvc:exclude-mapping path="/appversion"/>
 		<mvc:exclude-mapping path="/push/**"/>
