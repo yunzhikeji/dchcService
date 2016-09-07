@@ -35,8 +35,8 @@
 		<a class="Hui-logo l" href="#"><img src="${pageContext.request.contextPath }/images/logo.png"
 			width="489" height="70"> </a>
 		<ul class="nav" style="margin-right: 30px;">
-			<li><a href="javascript:;"
-				onClick="location='userRoleAction!logout'" title="注销"><img
+			<li><a href="${pageContext.request.contextPath }/login/logout.action"
+				 title="注销"><img
 					src="${pageContext.request.contextPath }/images/icon06.png" title="注销" />
 					<h4>注销</h4> </a></li>
 		</ul>

@@ -83,7 +83,7 @@ public class JPushController {
 	}
 
 	@RequestMapping("/result")
-	public @ResponseBody JPushResult result(Integer pid,Jpushperson person, Integer isTrue) throws Exception {
+	public  String result(Integer pid,Jpushperson person, Integer isTrue) throws Exception {
 		
 		JPushResult jPushResult = new JPushResult();
 
@@ -116,7 +116,7 @@ public class JPushController {
 
 		jpushService.pushCheckResult(userRole, content,jPushResult);
 
-		return jPushResult;// 这里是跳转到一个页面
+		return "redirect:jcheck";// 这里是跳转到一个页面
 
 	}
 	

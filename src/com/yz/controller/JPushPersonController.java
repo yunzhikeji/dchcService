@@ -64,7 +64,7 @@ public class JPushPersonController {
 		Jpushperson jpushperson = jpushpersonService.findJPushPersonById(id);
 		jpushperson.setIstrue(1);
 		jpushpersonService.updateJPushPerson(id, jpushperson);
-		return "index";
+		return "redirect:jcheck";
 	}
 	
 	@RequestMapping("/incorrect")
@@ -72,7 +72,7 @@ public class JPushPersonController {
 		Jpushperson jpushperson = jpushpersonService.findJPushPersonById(id);
 		jpushperson.setIstrue(0);
 		jpushpersonService.updateJPushPerson(id, jpushperson);
-		return "index";
+		return "redirect:jcheck";
 	}
 
 }
