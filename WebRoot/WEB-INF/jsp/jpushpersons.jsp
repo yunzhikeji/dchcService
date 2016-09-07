@@ -80,10 +80,10 @@
 								src="${pageContext.request.contextPath }/pic/${jpushperson.picurl }" width="40%" /></td>
 								<td>
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
-		<span class="l"><a href="javascript:;" onclick="checknow()"
+		<span class="l"><a href="${pageContext.request.contextPath }/correct.action?id=${jpushperson.id}" 
 			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a7;</i>
-				正确</a> <a class="btn btn-primary radius" onclick="history()"
-			href="javascript:;"><i class="Hui-iconfont">&#xe6a6;</i> 不正确</a></span> <span
+				正确</a> <a class="btn btn-primary radius" 
+			href="${pageContext.request.contextPath }/incorrect.action?id=${jpushperson.id}"><i class="Hui-iconfont">&#xe6a6;</i> 不正确</a></span> <span
 			class="r"> </span>
 	</div>
 	</td>

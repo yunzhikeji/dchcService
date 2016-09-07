@@ -63,7 +63,15 @@ public class JPushPersonController {
 	public String correct(HttpServletRequest request,Integer id) throws Exception {
 		Jpushperson jpushperson = jpushpersonService.findJPushPersonById(id);
 		jpushperson.setIstrue(1);
-		
+		jpushpersonService.updateJPushPerson(id, jpushperson);
+		return "index";
+	}
+	
+	@RequestMapping("/incorrect")
+	public String incorrect(HttpServletRequest request,Integer id) throws Exception {
+		Jpushperson jpushperson = jpushpersonService.findJPushPersonById(id);
+		jpushperson.setIstrue(0);
+		jpushpersonService.updateJPushPerson(id, jpushperson);
 		return "index";
 	}
 
