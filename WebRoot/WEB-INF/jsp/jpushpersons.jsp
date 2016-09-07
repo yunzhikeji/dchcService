@@ -81,9 +81,9 @@
 								<td>
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l"><a href="javascript:;" onclick="checknow()"
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe665;</i>
+			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a7;</i>
 				正确</a> <a class="btn btn-primary radius" onclick="history()"
-			href="javascript:;"><i class="Hui-iconfont">&#xe603;</i> 不正确</a></span> <span
+			href="javascript:;"><i class="Hui-iconfont">&#xe6a6;</i> 不正确</a></span> <span
 			class="r"> </span>
 	</div>
 	</td>
