@@ -46,26 +46,28 @@ public class JPushServiceImpl implements JPushService {
 	}
 
 	@Override
-	public void pushCheckPersonToUser(List<Userrole> userRoles,String content,JPushResult jPushResult) {
+	public JPushResult pushCheckPersonToUser(List<Userrole> userRoles,String content,JPushResult jPushResult) {
 		
 		jPushResult.setUploadResult(1);
-		this.push(userRoles, content,jPushResult);
+		jPushResult = this.push(userRoles, content,jPushResult);
+		System.out.println("pushCheckPersonToUser:"+jPushResult.getPushResult());
+		return jPushResult;
 	}
 	
 	
 	@Override
-	public void pushCheckResult(Userrole userrole,String content,JPushResult jPushResult) {
+	public JPushResult pushCheckResult(Userrole userrole,String content,JPushResult jPushResult) {
 		List<Userrole> userroles = new ArrayList<Userrole>();
 		userroles.add(userrole);
 		jPushResult.setUploadResult(1);
-		this.push(userroles, content,jPushResult);
+		jPushResult = this.push(userroles, content,jPushResult);
+		System.out.println("pushCheckResult:"+jPushResult.getPushResult());
+		return jPushResult;
 	}
 	
 	
 	public JPushResult push(List<Userrole> userRoles,String content,JPushResult jPushResult) {
 		JPushClient jpushClient = new JPushClient(masterSecret, appKey);
-		
-		JPushResult pushResult = new JPushResult();
 		
 		List<String> aliases = new ArrayList<String>();
 		if(userRoles!=null)
@@ -81,12 +83,10 @@ public class JPushServiceImpl implements JPushService {
 		try {
 			PushResult result = jpushClient.sendPush(payload);
 			
-			if(result.toString().contains("sendno"))
+			jPushResult.setPushResult(1);
+			if(result.toString().contains("error"))
 			{
-				pushResult.setPushResult(1);
-			}else
-			{
-				pushResult.setPushResult(-1);
+				jPushResult.setPushResult(-1);
 			}
 			logger.info("Got result - " + result);
 		} catch (APIConnectionException e) {
@@ -98,7 +98,7 @@ public class JPushServiceImpl implements JPushService {
 			logger.info("Error Message: " + e.getErrorMessage());
 		}
 		
-		return pushResult;
+		return jPushResult;
 
 	}
 

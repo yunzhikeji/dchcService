@@ -9,7 +9,7 @@ public interface JPushService {
 
 	public void testPush(String content);
 	
-	public void pushCheckPersonToUser(List<Userrole> userRoles,String content,JPushResult jPushResult);
+	public JPushResult pushCheckPersonToUser(List<Userrole> userRoles,String content,JPushResult jPushResult);
 	
-	public void pushCheckResult(Userrole userrole,String content,JPushResult jPushResult);
+	public JPushResult pushCheckResult(Userrole userrole,String content,JPushResult jPushResult);
 }
