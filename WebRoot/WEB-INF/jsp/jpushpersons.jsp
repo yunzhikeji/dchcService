@@ -73,7 +73,7 @@
 							<td>${jpushperson.realname }</td>
 							<td><img
 								src="${pageContext.request.contextPath }/pic/${jpushperson.picurl }" width="40%" /></td>
-								<td><c:if test="${jpushperson.istrue =null }">
+								<td><c:if test="${jpushperson.istrue ==null }">
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l"><a href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&isTrue=0" 
 			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
