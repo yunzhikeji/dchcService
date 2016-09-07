@@ -82,8 +82,12 @@
 			class="r"> </span>
 	</div>
 	</c:if>
-	<c:if test="${jpushperson.istrue !=null }">
-		已审核
+	<c:if test="${jpushperson.istrue ==1 }">
+		正确
+	</c:if>
+	
+		<c:if test="${jpushperson.istrue ==1 }">
+		不正确
 	</c:if>
 	</td>
 						</tr>
