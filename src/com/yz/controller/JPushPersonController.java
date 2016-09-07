@@ -58,5 +58,13 @@ public class JPushPersonController {
 		
 		return modelAndView;
 	}
+	
+	@RequestMapping("/correct")
+	public String correct(HttpServletRequest request,Integer id) throws Exception {
+		Jpushperson jpushperson = jpushpersonService.findJPushPersonById(id);
+		jpushperson.setIstrue(1);
+		
+		return "index";
+	}
 
 }
