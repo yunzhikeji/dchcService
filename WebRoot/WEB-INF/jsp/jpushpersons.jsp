@@ -68,22 +68,17 @@
 					<c:forEach items="${jpushpersonList }" var="jpushperson"
 						varStatus="index">
 						<tr>
-							<!-- <td><input type="checkbox" name="items_id"
-								value="${item.id}" /></td> -->
 							<td class="f-14 td-manage">${index.count }</td>
 							<td>${jpushperson.idcard }</td>
 							<td>${jpushperson.realname }</td>
-
-
-
 							<td><img
 								src="${pageContext.request.contextPath }/pic/${jpushperson.picurl }" width="40%" /></td>
 								<td><c:if test="${jpushperson.istrue =null }">
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
-		<span class="l"><a href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0" 
+		<span class="l"><a href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&isTrue=0" 
 			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
 				不正确</a> <a class="btn btn-primary radius" 
-			href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a></span> <span
+			href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&isTrue=0"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a></span> <span
 			class="r"> </span>
 	</div>
 	</c:if>

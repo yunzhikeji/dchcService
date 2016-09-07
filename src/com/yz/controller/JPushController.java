@@ -30,7 +30,7 @@ public class JPushController {
 
 	@Autowired
 	private JpushpersonService jpushpersonService;
-	
+
 	@Autowired
 	private UserRoleService userRoleService;
 
@@ -45,9 +45,9 @@ public class JPushController {
 	@RequestMapping("/check")
 	public @ResponseBody JPushResult checkPerson(Jpushperson person, MultipartFile photo) throws Exception {
 		// 存储图片的物理路径
-		
+
 		JPushResult jPushResult = new JPushResult();
-		
+
 		System.out.println(person.getUserroleId());
 		System.out.println(person.getRealname());
 		String pic_path = "C:\\develop\\upload\\temp\\";
@@ -63,7 +63,7 @@ public class JPushController {
 		}
 		// 插入人员数据库
 		// 改检查人员表中包含上传用户的用户名，作为推送的别名，以后使用进行下发,同时记录当前时间
-		
+
 		String checkStartTime = DateTimeKit.getLocal_Time();
 		person.setCheckstarttime(checkStartTime);
 		jpushpersonService.insert(person);
@@ -74,8 +74,8 @@ public class JPushController {
 		int type = 1;
 		List<Userrole> userRoles = userRoleService.findUserRoleByType(type);
 
-		jPushResult = jpushService.pushCheckPersonToUser(userRoles, content,jPushResult);
-		
+		jPushResult = jpushService.pushCheckPersonToUser(userRoles, content, jPushResult);
+
 		System.out.println(jPushResult.getUploadResult());
 		System.out.println(jPushResult.getPushResult());
 
@@ -83,29 +83,32 @@ public class JPushController {
 	}
 
 	@RequestMapping("/result")
-	public  String result(Integer pid,Jpushperson person, Integer isTrue) throws Exception {
-		
+	public String result(Integer id, Integer isTrue) throws Exception {
+
 		JPushResult jPushResult = new JPushResult();
 
+		Jpushperson person = jpushpersonService.findJPushPersonById(id);
+
 		person.setIstrue(isTrue);
-		
-		String backCheckResultTime  = DateTimeKit.getLocal_Time();
-		
+
+		String backCheckResultTime = DateTimeKit.getLocal_Time();
+
 		person.setBackcheckresulttime(backCheckResultTime);
-		
-		int isOutOfTime = (DateTimeKit.minutesBetweenStr(person.getCheckstarttime(), backCheckResultTime)-10);
-		
-		if(isOutOfTime>0)
-		{
-			person.setIsoutoftime(1);//大于10 就说明超期了
-		}else
-		{
+
+		int isOutOfTime = 0;
+		if (person.getCheckstarttime() != null && !person.getCheckstarttime().replace(" ", "").equals("")) {
+			isOutOfTime = (DateTimeKit.minutesBetweenStr(person.getCheckstarttime(), backCheckResultTime) - 10);
+		}
+
+		if (isOutOfTime > 0) {
+			person.setIsoutoftime(1);// 大于10 就说明超期了
+		} else {
 			person.setIsoutoftime(0);
 		}
 
-		jpushpersonService.updateJPushPerson(pid, person);
+		jpushpersonService.updateJPushPerson(id, person);
 
-		String content = "人员信息:姓名为"+person.getRealname()+",身份证为:"+person.getIdcard();
+		String content = "人员信息:姓名为" + person.getRealname() + ",身份证为:" + person.getIdcard();
 		if (isTrue == 1) {
 			content = content + "正确";
 		} else {
@@ -114,12 +117,12 @@ public class JPushController {
 
 		Userrole userRole = userRoleService.findUserRoleById(person.getUserroleId());// 这里是查询，根据person的userroleid查询出Userrole
 
-		jpushService.pushCheckResult(userRole, content,jPushResult);
+		jpushService.pushCheckResult(userRole, content, jPushResult);
 
-		return "redirect:jcheck";// 这里是跳转到一个页面
+		return "redirect:/jcheck";// 这里是跳转到一个页面
 
 	}
-	
+
 	@RequestMapping("/jpushpersons")
 	public String index(HttpSession session) throws Exception {
 
