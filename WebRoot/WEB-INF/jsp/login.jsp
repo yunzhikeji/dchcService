@@ -19,7 +19,7 @@
 			window.parent.location.reload(true);
 		}
 	</script>
-<link href="css/logo.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/logo.css" rel="stylesheet" type="text/css" />
 <title>系统登录</title>
 </head>
 

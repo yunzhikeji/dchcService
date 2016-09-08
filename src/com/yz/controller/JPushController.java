@@ -83,13 +83,13 @@ public class JPushController {
 	}
 
 	@RequestMapping("/result")
-	public String result(Integer id, Integer isTrue) throws Exception {
+	public String result(Integer id, Integer istrue) throws Exception {
 
 		JPushResult jPushResult = new JPushResult();
 
 		Jpushperson person = jpushpersonService.findJPushPersonById(id);
 
-		person.setIstrue(isTrue);
+		person.setIstrue(istrue);
 
 		String backCheckResultTime = DateTimeKit.getLocal_Time();
 
@@ -108,8 +108,8 @@ public class JPushController {
 
 		jpushpersonService.updateJPushPerson(id, person);
 
-		String content = "人员信息:姓名为" + person.getRealname() + ",身份证为:" + person.getIdcard();
-		if (isTrue == 1) {
+		String content = "姓名:" + person.getRealname() + ",身份证:" + person.getIdcard()+",信息";
+		if (istrue == 1) {
 			content = content + "正确";
 		} else {
 			content = content + "不正确";
