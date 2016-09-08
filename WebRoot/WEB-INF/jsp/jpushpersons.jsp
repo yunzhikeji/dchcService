@@ -45,11 +45,12 @@
 			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe665;</i>
 				当前检测</a> <a class="btn btn-primary radius" onclick="history()"
 			href="javascript:;"><i class="Hui-iconfont">&#xe603;</i> 历史数据</a></span> 
-			
+				&nbsp;
 			<a href="${pageContext.request.contextPath }/person/export.action" 
 			class="btn btn-danger radius"><i class="Hui-iconfont"></i>
-				导出EXCEL</a><span
-			class="r"> </span>
+				导出EXCEL</a>
+				
+			
 	</div>
 	<div class="mt-20">
 		<form name="jpushForm"
@@ -81,11 +82,14 @@
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l"><a href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0" 
 			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
-				不正确</a> <a class="btn btn-primary radius" 
-			href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}&istrue=0"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a><a href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0" 
+				不正确</a> 
+				
+			<a class="btn btn-primary radius" href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a>
+			
+			<a href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" 
 			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
-				删除</a></span> <span
-			class="r"> </span>
+				删除</a></span> 
+				<span class="r"> </span>
 	</div>
 	</c:if>
 	<c:if test="${jpushperson.istrue ==1 }">
