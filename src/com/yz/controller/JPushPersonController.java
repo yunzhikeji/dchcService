@@ -1,8 +1,12 @@
 package com.yz.controller;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yz.po.Jpushperson;
 import com.yz.service.JpushpersonService;
+import com.yz.utils.ExcelFileGenerator;
 
 @Controller
 
@@ -74,5 +79,13 @@ public class JPushPersonController {
 		jpushpersonService.updateJPushPerson(id, jpushperson);
 		return "redirect:jcheck";
 	}
+	
+	@RequestMapping("/jdelete")
+	public String delete(HttpServletRequest request,Integer id) throws Exception {
+		jpushpersonService.deleteJPushPersonById(id);
+		return "redirect:jcheck";
+	}
+	
+
 
 }
