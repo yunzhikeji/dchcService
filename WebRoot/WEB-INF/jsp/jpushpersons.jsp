@@ -86,18 +86,23 @@
 				
 			<a class="btn btn-primary radius" href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a>
 			
-			<a href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" 
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
-				删除</a></span> 
+	</span> 
 				<span class="r"> </span>
 	</div>
 	</c:if>
 	<c:if test="${jpushperson.istrue ==1 }">
 		正确
+				<a href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" 
+			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
+				删除</a>
 	</c:if>
 	
 		<c:if test="${jpushperson.istrue ==0 }">
 		不正确
+		
+				<a href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" 
+			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
+				删除</a>
 	</c:if>
 	</td>
 						</tr>

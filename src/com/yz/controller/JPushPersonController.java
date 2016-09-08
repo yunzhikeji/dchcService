@@ -83,7 +83,7 @@ public class JPushPersonController {
 	@RequestMapping("/jdelete")
 	public String delete(HttpServletRequest request,Integer id) throws Exception {
 		jpushpersonService.deleteJPushPersonById(id);
-		return "redirect:jcheck";
+		return "redirect:jlist";
 	}
 	
 
