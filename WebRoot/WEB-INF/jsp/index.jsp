@@ -62,9 +62,9 @@
 						</p>
 					</ul>
 				</div>
-				<span class="first-child">您好 ，<strong>${session.userRoleo.username}</strong>
+				<span class="first-child">您好 ，<strong>${session.username}</strong>
 				</span>
-				<span>警号：${session.userRoleo.number}</span>
+				<span>警号：${session.jobnumber}</span>
 			</div>
 
 		<div class="divider"></div>
@@ -72,8 +72,8 @@
 		<ul class="ce">
 			<li><a href="#"><i class="Hui-iconfont ">&#xe62c;</i> 日常工作 </a>
 				<ul class="er" style="display: block;">
-					<li class="e_li"><a href="#">人员信息检测 </a></li>
-					<!-- <li class="e_li"><a href="#">人员信息导出</a></li> -->
+					<li class="e_li"><a href="${pageContext.request.contextPath }/jcheck.action" target="f">人员信息检测 </a></li>
+					<li class="e_li"><a href="${pageContext.request.contextPath }/person/list.action">人员信息导出</a></li>
 				</ul>
 		</div>
 

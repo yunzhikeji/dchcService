@@ -41,16 +41,13 @@
 <body>
 
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
-		<span class="l"><a href="javascript:;" onclick="checknow()"
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe665;</i>
-				当前检测</a> <a class="btn btn-primary radius" onclick="history()"
-			href="javascript:;"><i class="Hui-iconfont">&#xe603;</i> 历史数据</a></span> 
-	<!-- 		&nbsp;
-			<a href="${pageContext.request.contextPath }/person/export.action" 
+		<span class="l"><a
+			href="${pageContext.request.contextPath }/person/export.action"
 			class="btn btn-danger radius"><i class="Hui-iconfont"></i>
-				导出EXCEL</a>  -->	
-				
-			
+				导出EXCEL</a></span>
+
+
+
 	</div>
 	<div class="mt-20">
 		<form name="jpushForm"
@@ -64,47 +61,23 @@
 						<th width="5%">序号ID</th>
 						<th width="20%">身份证号</th>
 						<th width="10%">姓名</th>
-						<th width="45%">图片</th>
-						<th width="20%">审核</th>
+						<th width="10%">性别</th>
+						<th width="10%">出生日期</th>
+						<th width="10%">户籍</th>
+
 
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${jpushpersonList }" var="jpushperson"
-						varStatus="index">
+					<c:forEach items="${personList }" var="person" varStatus="index">
 						<tr>
 							<td class="f-14 td-manage">${index.count }</td>
-							<td>${jpushperson.idcard }</td>
-							<td>${jpushperson.realname }</td>
-							<td><img
-								src="${pageContext.request.contextPath }/pic/${jpushperson.picurl }" width="40%" /></td>
-								<td><c:if test="${jpushperson.istrue ==null }">
-	<div class="cl pd-5 bg-1 bk-gray mt-20">
-		<span class="l"><a href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0" 
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
-				不正确</a> 
-				
-			<a class="btn btn-primary radius" href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a>
-			
-	</span> 
-				<span class="r"> </span>
-	</div>
-	</c:if>
-	<c:if test="${jpushperson.istrue ==1 }">
-		正确
-				<a href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" 
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
-				删除</a>
-	</c:if>
-	
-		<c:if test="${jpushperson.istrue ==0 }">
-		不正确
-		
-				<a href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" 
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
-				删除</a>
-	</c:if>
-	</td>
+							<td>${person.idcard }</td>
+							<td>${person.realname }</td>
+							<td><c:if test="${person.gender ==1 }">男</c:if>
+								<c:if test="${person.gender ==2 }">女</c:if></td>
+							<td>${person.birthday }</td>
+							<td>${person.regaddress }</td>
 						</tr>
 					</c:forEach>
 

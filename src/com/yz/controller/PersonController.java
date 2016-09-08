@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.yz.po.Jpushperson;
 import com.yz.po.Person;
 import com.yz.service.PersonService;
 import com.yz.utils.ExcelFileGenerator;
@@ -84,6 +88,10 @@ public class PersonController {
 		OutputStream out = response.getOutputStream();
 		
 		response.reset();
+		
+		String excelName = "person.xls"; 
+		 response.setHeader("Content-Disposition", "attachment; filename="  
+                 + excelName); 
 		//设置excel报表的形式
 		response.setContentType("application/vnd.ms-excel");
 		ExcelFileGenerator generator = new ExcelFileGenerator(fieldName, fieldData);
@@ -99,6 +107,15 @@ public class PersonController {
 		}
 		return "redirect:/jcheck";
 		
+	}
+	
+	@RequestMapping("/list")
+	public ModelAndView list(HttpServletRequest request, Jpushperson jpushperson) throws Exception {
+		List<Person> personList = personService.findPersonList();
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("personList", personList);
+		modelAndView.setViewName("personlist");
+		return modelAndView;
 	}
 
 }
