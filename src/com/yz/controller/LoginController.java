@@ -69,7 +69,7 @@ public class LoginController {
 		session.invalidate();
 
 		// 重定向到商品列表页面
-		return "redirect:/login";
+		return "redirect:/index";
 	}
 	
 	

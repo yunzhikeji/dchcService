@@ -1,7 +1,13 @@
 package com.yz.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.yz.po.Person;
 import com.yz.service.PersonService;
+import com.yz.utils.ExcelFileGenerator;
 
 @Controller
 @RequestMapping("/person")
@@ -65,5 +72,33 @@ public class PersonController {
 		return ps;
 	}
 	
+	
+	
+	@RequestMapping("/export")
+	public String export(HttpServletResponse response) throws Exception {
+		//获取导出的表头和数据
+		//获取表头,存放到ArrayList对象中(人员编号 姓名  出生日期  QQ 微信号 身份证号  户籍地址 户籍区域)
+		ArrayList fieldName = personService.getExcelFieldNameList();
+		//获取数据
+		ArrayList fieldData = personService.getExcelFieldDataList();
+		OutputStream out = response.getOutputStream();
+		
+		response.reset();
+		//设置excel报表的形式
+		response.setContentType("application/vnd.ms-excel");
+		ExcelFileGenerator generator = new ExcelFileGenerator(fieldName, fieldData);
+		generator.expordExcel(out);
+		//设置输出形式
+		System.setOut(new PrintStream(out));
+		//刷新输出流
+		out.flush();
+		//关闭输出流
+		if(out !=null){
+			out.close();
+			
+		}
+		return "redirect:/jcheck";
+		
+	}
 
 }

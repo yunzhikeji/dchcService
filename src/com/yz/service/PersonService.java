@@ -1,5 +1,6 @@
 package com.yz.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.yz.po.Person;
@@ -20,5 +21,10 @@ public interface PersonService {
 	
 	//修改人员信息
 	public void updatePerson(Integer id,Person person) throws Exception;
+
+	//获取excel的标题数据集
+	public ArrayList getExcelFieldNameList();
+
+	public ArrayList getExcelFieldDataList() throws Exception;
 
 }
