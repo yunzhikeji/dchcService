@@ -74,8 +74,11 @@
 							<td class="f-14 td-manage">${index.count }</td>
 							<td>${person.idcard }</td>
 							<td>${person.realname }</td>
-							<td><c:if test="${person.gender ==1 }">男</c:if>
-								<c:if test="${person.gender ==2 }">女</c:if></td>
+							<td><c:if test="${person.gender ==null||person.gender ==''}"></c:if>
+								<c:if test="${person.gender !=null&&person.gender !=''}">
+									<c:if test="${person.gender ==1 }">男</c:if>
+									<c:if test="${person.gender ==2 }">女</c:if>
+								</c:if></td>
 							<td>${person.birthday }</td>
 							<td>${person.regaddress }</td>
 						</tr>

@@ -72,8 +72,8 @@
 		<ul class="ce">
 			<li><a href="#"><i class="Hui-iconfont ">&#xe62c;</i> 日常工作 </a>
 				<ul class="er" style="display: block;">
-					<li class="e_li"><a href="${pageContext.request.contextPath }/jcheck.action" target="f">人员信息检测 </a></li>
-					<li class="e_li"><a href="${pageContext.request.contextPath }/person/list.action">人员信息导出</a></li>
+					<li class="e_li"><a href="${pageContext.request.contextPath }/jcheck.action" target="myiframe">人员信息检测 </a></li>
+					<li class="e_li"><a href="${pageContext.request.contextPath }/person/list.action" target="myiframe">人员信息导出</a></li>
 				</ul>
 		</div>
 
@@ -87,7 +87,7 @@
 		<div id="iframe_box" class="Hui-article">
 			<div class="show_iframe">
 				<div style="display: none" class="loading"></div>
-				<iframe scrolling="yes" frameborder="0" src="${pageContext.request.contextPath }/jcheck.action"></iframe>
+				<iframe name="myiframe" scrolling="yes" frameborder="0" src="${pageContext.request.contextPath }/jcheck.action"></iframe>
 			</div>
 		</div>
 		<div id="Hui-tabNav" class="Hui-tabNav">
