@@ -70,7 +70,7 @@
 		<div class="divider"></div>
 
 		<ul class="ce">
-			<li><a href="#"><i class="Hui-iconfont ">&#xe62c;</i> 日常工作 </a>
+			<li><i class="Hui-iconfont ">&#xe62c;</i> 日常工作
 				<ul class="er" style="display: block;">
 					<li class="e_li"><a href="${pageContext.request.contextPath }/jcheck.action" target="myiframe">人员信息检测 </a></li>
 					<li class="e_li"><a href="${pageContext.request.contextPath }/person/list.action" target="myiframe">人员信息导出</a></li>
