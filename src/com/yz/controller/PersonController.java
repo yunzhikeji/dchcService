@@ -105,7 +105,7 @@ public class PersonController {
 			out.close();
 			
 		}
-		return "redirect:/jcheck";
+		return null;
 		
 	}
 	
