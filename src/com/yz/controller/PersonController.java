@@ -117,5 +117,16 @@ public class PersonController {
 		modelAndView.setViewName("personlist");
 		return modelAndView;
 	}
+	
+	@RequestMapping("/delete")
+	public String delete(Integer id)throws Exception{
+		personService.deletePersonById(id);
+		return "redirect:/person/list";
+	}
 
+	@RequestMapping("/clean")
+	public String truncate() throws Exception {
+		personService.truncate();
+		return "redirect:/person/list";
+	}
 }

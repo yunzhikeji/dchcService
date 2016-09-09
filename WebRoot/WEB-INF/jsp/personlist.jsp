@@ -44,10 +44,10 @@
 		<span class="l"><a
 			href="${pageContext.request.contextPath }/person/export.action"
 			class="btn btn-danger radius"><i class="Hui-iconfont"></i>
-				导出EXCEL</a></span>
-
-
-
+				导出EXCEL</a>&nbsp;<a
+			href="${pageContext.request.contextPath }/person/clean.action"
+			class="btn btn-danger radius"><i class="Hui-iconfont"></i>
+				清空</a></span>
 	</div>
 	<div class="mt-20">
 		<form name="jpushForm"
@@ -64,7 +64,7 @@
 						<th width="10%">性别</th>
 						<th width="10%">出生日期</th>
 						<th width="10%">户籍</th>
-
+						<th width="10%">删除</th>
 
 					</tr>
 				</thead>
@@ -77,10 +77,13 @@
 							<td><c:if test="${person.gender ==null||person.gender ==''}"></c:if>
 								<c:if test="${person.gender !=null&&person.gender !=''}">
 									<c:if test="${person.gender ==1 }">男</c:if>
-									<c:if test="${person.gender ==2 }">女</c:if>
+									<c:if test="${person.gender ==0 }">女</c:if>
 								</c:if></td>
 							<td>${person.birthday }</td>
 							<td>${person.regaddress }</td>
+							<td>				<a href="${pageContext.request.contextPath }/person/delete.action?id=${person.id}" 
+			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
+				删除</a></td>
 						</tr>
 					</c:forEach>
 

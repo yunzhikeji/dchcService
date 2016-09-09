@@ -84,4 +84,10 @@ public class PersonServiceImpl implements PersonService {
 		return fieldData;
 	}
 
+	@Override
+	public void truncate() {
+		personMapperCustom.clean();
+		
+	}
+
 }

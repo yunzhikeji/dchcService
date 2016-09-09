@@ -7,4 +7,7 @@ import com.yz.po.Person;
 public interface PersonMapperCustom {
 	//人员查询列表
 	public List<Person> findPersonList() throws Exception;
+	
+	//清空
+	public void clean();
 }

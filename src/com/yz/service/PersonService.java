@@ -27,4 +27,6 @@ public interface PersonService {
 
 	public ArrayList getExcelFieldDataList() throws Exception;
 
+	public void truncate();
+
 }
