@@ -84,7 +84,7 @@
 			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
 				不正确</a> 
 				
-			<a class="btn btn-primary radius" href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a>
+			<a class="btn btn-primary radius" href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=1"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a>
 			
 	</span> 
 				<span class="r"> </span>

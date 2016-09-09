@@ -8,17 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.js"></script>
-<script type="text/javascript">
-//解决页面嵌套问题
-		$(function(){
-			document.forms[0].username.focus();
-		});
-		
-		// 在被嵌套时就刷新上级窗口
-		if(window.parent != window){
-			window.parent.location.reload(true);
-		}
-	</script>
+
 <link href="${pageContext.request.contextPath }/css/logo.css" rel="stylesheet" type="text/css" />
 <title>系统登录</title>
 </head>

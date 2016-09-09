@@ -43,7 +43,7 @@ public class JPushController {
 	}
 
 	@RequestMapping("/check")
-	public @ResponseBody JPushResult checkPerson(Jpushperson person, MultipartFile photo) throws Exception {
+	public @ResponseBody JPushResult checkPerson(Jpushperson person, MultipartFile facepic) throws Exception {
 		// 存储图片的物理路径
 
 		JPushResult jPushResult = new JPushResult();
@@ -51,12 +51,12 @@ public class JPushController {
 		System.out.println(person.getUserroleId());
 		System.out.println(person.getRealname());
 		String pic_path = "C:\\develop\\upload\\temp\\";
-		if (photo != null) {
-			String filename = photo.getOriginalFilename();
+		if (facepic != null) {
+			String filename = facepic.getOriginalFilename();
 			if (filename != null && filename.length() > 0) {
 				String realFilename = UUID.randomUUID() + filename.substring(filename.lastIndexOf("."));
 				File file = new File(pic_path + realFilename);
-				photo.transferTo(file);
+				facepic.transferTo(file);
 				person.setPicurl(realFilename);
 
 			}
