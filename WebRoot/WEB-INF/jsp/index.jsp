@@ -62,9 +62,12 @@
 						</p>
 					</ul>
 				</div>
-				<span class="first-child">您好 ，<strong>${session.username}</strong>
+				<span class="first-child">您好 ，<strong>${username}</strong>
 				</span>
-				<span>警号：${session.jobnumber}</span>
+			
+				<span>警号：	<c:if test="${jobnumber!=null }">
+				${jobnumber}
+				</c:if></span>
 			</div>
 
 		<div class="divider"></div>

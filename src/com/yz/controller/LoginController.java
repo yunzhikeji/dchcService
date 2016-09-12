@@ -56,7 +56,7 @@ public class LoginController {
 		}else{
 		// 在session中保存用户身份信息
 		session.setAttribute("username", userrole.getUsername());
-		session.setAttribute("jobnumber",userrole.getJobnumber());
+		session.setAttribute("jobnumber",userQuery.getJobnumber());
 		// 重定向到商品列表页面
 		return "redirect:/login/index.action";
 		}
