@@ -42,7 +42,7 @@
 
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l"><a href="javascript:;" onclick="checknow()"
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe665;</i>
+			class="btn btn-success radius"><i class="Hui-iconfont">&#xe665;</i>
 				当前检测</a> <a class="btn btn-primary radius" onclick="history()"
 			href="javascript:;"><i class="Hui-iconfont">&#xe603;</i> 历史数据</a></span> 
 	<!-- 		&nbsp;
@@ -64,7 +64,7 @@
 						<th width="5%">序号ID</th>
 						<th width="20%">身份证号</th>
 						<th width="10%">姓名</th>
-						<th width="45%">图片</th>
+						<th width="40%">图片</th>
 						<th width="20%">审核</th>
 
 					</tr>
@@ -77,31 +77,33 @@
 							<td>${jpushperson.idcard }</td>
 							<td>${jpushperson.realname }</td>
 							<td><img
-								src="${pageContext.request.contextPath }/pic/${jpushperson.picurl }" width="40%" /></td>
+								src="${pageContext.request.contextPath }/pic/${jpushperson.picurl }" width="40%" height="100px" /></td>
 								<td><c:if test="${jpushperson.istrue ==null }">
-	<div class="cl pd-5 bg-1 bk-gray mt-20">
-		<span class="l"><a href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0" 
+	<div>
+		<span class="l">
+                <a class="btn btn-primary radius" href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=1" style="padding-left:16px;padding-right:16px;"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a>
+                <a href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=0" 
 			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
 				不正确</a> 
 				
-			<a class="btn btn-primary radius" href="${pageContext.request.contextPath }/push/result.action?id=${jpushperson.id}&istrue=1"><i class="Hui-iconfont">&#xe6a7;</i> 正确</a>
+			
 			
 	</span> 
 				<span class="r"> </span>
 	</div>
 	</c:if>
 	<c:if test="${jpushperson.istrue ==1 }">
-		正确
+		<span style="font-size:16px; color:#5eb95e;border:1px solid #5eb95e;padding-left:8px;padding-right:8px;"><strong>&nbsp;正确&nbsp;</strong></span>
 				<a href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" 
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
+			class="btn btn-danger radius" style="margin-left:50px"><i class="Hui-iconfont">&#xe6a6;</i>
 				删除</a>
 	</c:if>
 	
 		<c:if test="${jpushperson.istrue ==0 }">
-		不正确
+		<span style="font-size:16px; color:#dd514c;border:1px solid #dd514c;padding-left:5px;padding-right:5px;"><strong>不正确</strong></span>
 		
 				<a href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" 
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
+			class="btn btn-danger radius" style="margin-left:50px"><i class="Hui-iconfont">&#xe6a6;</i>
 				删除</a>
 	</c:if>
 	</td>

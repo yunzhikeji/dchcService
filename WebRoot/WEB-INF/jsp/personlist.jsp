@@ -43,10 +43,10 @@
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l"><a
 			href="${pageContext.request.contextPath }/person/export.action"
-			class="btn btn-danger radius"><i class="Hui-iconfont"></i>
+			class="btn btn-success radius"><i class="Hui-iconfont">&#xe644;</i>
 				导出EXCEL</a>&nbsp;<a
 			href="${pageContext.request.contextPath }/person/clean.action"
-			class="btn btn-danger radius"><i class="Hui-iconfont"></i>
+			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe609;</i>
 				清空</a></span>
 	</div>
 	<div class="mt-20">

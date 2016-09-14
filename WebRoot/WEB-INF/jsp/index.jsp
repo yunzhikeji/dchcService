@@ -14,6 +14,13 @@
 <meta name="viewport"
 	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="${pageContext.request.contextPath }/lib/html5.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/lib/respond.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/lib/PIE_IE678.js"></script>
+<![endif]-->
+
 <link href="${pageContext.request.contextPath }/css/H-ui.min.css"
 	rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath }/css/H-ui.admin.css"
@@ -27,6 +34,10 @@
 	rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath }/css/style.css"
 	rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
 <title>管理系统</title>
 <meta name="keywords" content="">
 </head>
@@ -44,9 +55,9 @@
 		<a aria-hidden="false" class="Hui-nav-toggle" href="#"></a>
 	</header>
 	<aside class="Hui-aside"
-		style="overflow-y: auto; overflow-x: hidden; overflow-y: hidden;">
+		style="overflow-y: auto; overflow-x: hidden;">
 		
-		
+		<div class="menu_dropdown bk_2">
 		
 		<div class="my-profile dropDown dropDown_click ">
 				<a href="javascript:;" class="my-profile-pic dropDown_A"
@@ -73,13 +84,17 @@
 		<div class="divider"></div>
 
 		<ul class="ce">
-			<li><i class="Hui-iconfont ">&#xe62c;</i> 日常工作
+			<li><i class="Hui-iconfont" style="padding-left:10px">&#xe62c;</i> <strong>日常工作</strong>
 				<ul class="er" style="display: block;">
 					<li class="e_li"><a href="${pageContext.request.contextPath }/jcheck.action" target="myiframe">人员信息检测 </a></li>
 					<li class="e_li"><a href="${pageContext.request.contextPath }/person/list.action" target="myiframe">人员信息导出</a></li>
 				</ul>
+                         </li>
+                 <div class="clear"></div>
+		
+                </ul>
 		</div>
-
+         </div>
 
 	</aside>
 	<div class="dislpayArrow">
