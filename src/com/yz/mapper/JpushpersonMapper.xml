@@ -7,7 +7,7 @@
     <result column="realname" property="realname" jdbcType="VARCHAR" />
     <result column="picUrl" property="picurl" jdbcType="VARCHAR" />
     <result column="isTrue" property="istrue" jdbcType="INTEGER" />
-    <result column="userrole_id" property="userroleId" jdbcType="INTEGER" />
+    <result column="userroleid" property="userroleId" jdbcType="INTEGER" />
     <result column="checkStartTime" property="checkstarttime" jdbcType="VARCHAR" />
     <result column="backCheckResultTime" property="backcheckresulttime" jdbcType="VARCHAR" />
     <result column="isOutOfTime" property="isoutoftime" jdbcType="INTEGER" />

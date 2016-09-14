@@ -2,6 +2,7 @@ package com.yz.service;
 
 import java.util.List;
 
+import com.yz.po.JpushPersonVo;
 import com.yz.po.Jpushperson;
 
 public interface JpushpersonService {
@@ -22,5 +23,10 @@ public interface JpushpersonService {
 	public void updateJPushPerson(Integer id, Jpushperson person) throws Exception;
 	
  	public List<Jpushperson> jpushpersonCheck() throws Exception;
+ 	
+ 	public int count(Integer userroleid) throws Exception;
+
+	public List<Jpushperson> findJpushPersonByUserOnApp(JpushPersonVo jpushPersonVo);
+
 
 }

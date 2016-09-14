@@ -3,10 +3,26 @@
 <mapper namespace="com.yz.mapper.JpushpersonMapperCustom">
 
 	<select id="findJpushpersonList" resultType="com.yz.po.Jpushperson">
-		select * from jpushperson where backcheckresulttime is not null
+		select * from
+		jpushperson where backcheckresulttime is not null
 	</select>
-		<select id="jpushpersonCheck" resultType="com.yz.po.Jpushperson">
-		select * from jpushperson where backcheckresulttime is null
+	<select id="jpushpersonCheck" resultType="com.yz.po.Jpushperson">
+		select * from
+		jpushperson where backcheckresulttime is null
 	</select>
+
+	<select id="count" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM jpushperson WHERE userroleid =
+		#{id,jdbcType=INTEGER}
+	</select>
+	
+	<select id="findJpushPersonByUserOnApp" parameterType="com.yz.po.JpushPersonVo"
+		resultType="com.yz.po.Jpushperson">
+		SELECT * FROM jpushperson WHERE userroleid =
+		#{userroleid,jdbcType=INTEGER} ORDER BY id DESC LIMIT
+		#{begin,jdbcType=INTEGER},#{limit,jdbcType=INTEGER};
+	</select>
+
+
 
 </mapper>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.yz.mapper.JpushpersonMapper;
 import com.yz.mapper.JpushpersonMapperCustom;
+import com.yz.po.JpushPersonVo;
 import com.yz.po.Jpushperson;
 import com.yz.service.JpushpersonService;
 
@@ -56,5 +57,18 @@ public class JpushpersonServiceImpl implements JpushpersonService {
 	public List<Jpushperson> jpushpersonCheck() throws Exception {
 		return jpushpersonMapperCustom.jpushpersonCheck();
 	}
+	
+	@Override
+	public int count(Integer userroleid) throws Exception {
+		return jpushpersonMapperCustom.count(userroleid);
+	}
+
+	@Override
+	public List<Jpushperson> findJpushPersonByUserOnApp(JpushPersonVo jpushPersonVo) {
+		 
+		return jpushpersonMapperCustom.findJpushPersonByUserOnApp(jpushPersonVo);
+	}
+	
+	
 
 }

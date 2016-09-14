@@ -6,9 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yz.po.JpushPersonVo;
 import com.yz.po.Jpushperson;
 import com.yz.service.JpushpersonService;
 
@@ -63,5 +66,22 @@ public class JPushPersonController {
 		jpushpersonService.deleteJPushPersonById(id);
 		return "redirect:jlist";
 	}
+	
+	@RequestMapping("/clientList/{begin}/{limit}/{userroleid}")
+	public @ResponseBody List<Jpushperson> clientList(@PathVariable("begin") Integer begin, @PathVariable("limit") Integer limit,
+			@PathVariable("userroleid") Integer userroleid) throws Exception {
+		JpushPersonVo jpushPersonVo = new JpushPersonVo();
+		jpushPersonVo.setBegin(begin);
+		jpushPersonVo.setLimit(limit);
+		jpushPersonVo.setUserroleid(userroleid);
+		
+		return jpushpersonService.findJpushPersonByUserOnApp(jpushPersonVo);
+	}
+
+	@RequestMapping("/checkCount/{userroleid}")
+	public @ResponseBody Integer count(@PathVariable("userroleid") Integer userroleid) throws Exception {
+		return jpushpersonService.count(userroleid);
+	}
+
 
 }

@@ -1,5 +1,6 @@
 package com.yz.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,6 @@ public class LoginController {
 		userrole.setUsername(username);
 		userrole.setPassword(password);
 		// 调用service进行用户身份验证
-		
 		Userrole userQuery = userRoleService.findByUserNameAndPassword(userrole);
 		if (userQuery == null){
 			Userrole ur = new Userrole();
@@ -57,7 +57,7 @@ public class LoginController {
 		// 在session中保存用户身份信息
 		session.setAttribute("username", userrole.getUsername());
 		session.setAttribute("jobnumber",userQuery.getJobnumber());
-		// 重定向到商品列表页面
+		// 重定向到主页面
 		return "redirect:/login/index.action";
 		}
 	}
@@ -75,7 +75,9 @@ public class LoginController {
 	
 	
 	@RequestMapping("/index")
-	public String index(HttpSession session) throws Exception {
+	public String index(HttpServletRequest request,HttpSession session) throws Exception {
+		
+		System.out.println(request.getServletContext());
 
 		return "index";
 	}
