@@ -1,6 +1,7 @@
 package com.yz.controller;
 
 import java.io.File;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -47,9 +48,6 @@ public class JPushController {
 		// 存储图片的物理路径
 
 		JPushResult jPushResult = new JPushResult();
-
-		System.out.println(person.getUserroleId());
-		System.out.println(person.getRealname());
 		String pic_path = "C:\\develop\\upload\\temp\\";
 		if (facepic != null) {
 			String filename = facepic.getOriginalFilename();
@@ -58,7 +56,6 @@ public class JPushController {
 				File file = new File(pic_path + realFilename);
 				facepic.transferTo(file);
 				person.setPicurl(realFilename);
-
 			}
 		}
 		// 插入人员数据库
@@ -76,20 +73,24 @@ public class JPushController {
 
 		jPushResult = jpushService.pushCheckPersonToUser(userRoles, content, jPushResult);
 
-		System.out.println(jPushResult.getUploadResult());
-		System.out.println(jPushResult.getPushResult());
-
 		return jPushResult;
 	}
 
 	@RequestMapping("/result")
-	public String result(Integer id, Integer istrue) throws Exception {
+	public String result(Integer id, Integer istrue, String remark) throws Exception {
+		
+		if (remark != null && !remark.equals("")) {
+			remark = URLDecoder.decode(remark, "utf-8");
+		}
 
 		JPushResult jPushResult = new JPushResult();
 
 		Jpushperson person = jpushpersonService.findJPushPersonById(id);
 
+		System.out.println("remark" + remark);
+
 		person.setIstrue(istrue);
+		person.setRemark(remark);
 
 		String backCheckResultTime = DateTimeKit.getLocal_Time();
 
@@ -108,11 +109,14 @@ public class JPushController {
 
 		jpushpersonService.updateJPushPerson(id, person);
 
-		String content = "姓名:" + person.getRealname() + ",身份证:" + person.getIdcard()+",信息";
+		String content = "姓名:" + person.getRealname() + ",信息";
 		if (istrue == 1) {
 			content = content + "正确";
 		} else {
 			content = content + "不正确";
+		}
+		if (remark != null && !remark.equals("")) {
+			content = content + "备注:" + remark;
 		}
 
 		Userrole userRole = userRoleService.findUserRoleById(person.getUserroleId());// 这里是查询，根据person的userroleid查询出Userrole

@@ -11,6 +11,7 @@
     <result column="checkStartTime" property="checkstarttime" jdbcType="VARCHAR" />
     <result column="backCheckResultTime" property="backcheckresulttime" jdbcType="VARCHAR" />
     <result column="isOutOfTime" property="isoutoftime" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -72,7 +73,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, idcard, realname, picUrl, isTrue, userrole_id, checkStartTime, backCheckResultTime, 
-    isOutOfTime
+    isOutOfTime,remark
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yz.po.JpushpersonExample" >
     select
@@ -107,11 +108,11 @@
   <insert id="insert" parameterType="com.yz.po.Jpushperson" >
     insert into jpushperson (id, idcard, realname, 
       picUrl, isTrue, userrole_id, 
-      checkStartTime, backCheckResultTime, isOutOfTime
+      checkStartTime, backCheckResultTime, isOutOfTime,remark
       )
     values (#{id,jdbcType=INTEGER}, #{idcard,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, 
       #{picurl,jdbcType=VARCHAR}, #{istrue,jdbcType=INTEGER}, #{userroleId,jdbcType=INTEGER}, 
-      #{checkstarttime,jdbcType=VARCHAR}, #{backcheckresulttime,jdbcType=VARCHAR}, #{isoutoftime,jdbcType=INTEGER}
+      #{checkstarttime,jdbcType=VARCHAR}, #{backcheckresulttime,jdbcType=VARCHAR}, #{isoutoftime,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.yz.po.Jpushperson" >
@@ -144,6 +145,9 @@
       <if test="isoutoftime != null" >
         isOutOfTime,
       </if>
+      <if test="remark != null" >
+        remark,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -172,6 +176,9 @@
       </if>
       <if test="isoutoftime != null" >
         #{isoutoftime,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -211,6 +218,9 @@
       <if test="record.isoutoftime != null" >
         isOutOfTime = #{record.isoutoftime,jdbcType=INTEGER},
       </if>
+        <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -226,7 +236,8 @@
       userrole_id = #{record.userroleId,jdbcType=INTEGER},
       checkStartTime = #{record.checkstarttime,jdbcType=VARCHAR},
       backCheckResultTime = #{record.backcheckresulttime,jdbcType=VARCHAR},
-      isOutOfTime = #{record.isoutoftime,jdbcType=INTEGER}
+      isOutOfTime = #{record.isoutoftime,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -258,6 +269,9 @@
       <if test="isoutoftime != null" >
         isOutOfTime = #{isoutoftime,jdbcType=INTEGER},
       </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -270,7 +284,8 @@
       userrole_id = #{userroleId,jdbcType=INTEGER},
       checkStartTime = #{checkstarttime,jdbcType=VARCHAR},
       backCheckResultTime = #{backcheckresulttime,jdbcType=VARCHAR},
-      isOutOfTime = #{isoutoftime,jdbcType=INTEGER}
+      isOutOfTime = #{isoutoftime,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

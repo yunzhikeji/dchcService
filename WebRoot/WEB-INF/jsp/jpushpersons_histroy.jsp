@@ -36,24 +36,7 @@
 		document.jpushForm.action = "${pageContext.request.contextPath }/jlist.action";
 		document.jpushForm.submit();
 	}
-	
-	function result( pid, istrue)
-	{
-		var url = "${pageContext.request.contextPath }/push/result.action?id="+pid+"&istrue="+istrue;
-		
-		var textremark =  document.getElementById("remark"+pid).value;
-			
-		if (textremark == null || textremark == undefined || textremark == '') { 
-			textremark = ''; 
-		}
-		url = url + "&remark=" + textremark;
-		console.log(url);
-		url = encodeURI(url);
-		url = encodeURI(url);
-		console.log(url);
-		window.location = url;
-		
-	}
+
 </script>
 </head>
 <body>
@@ -73,18 +56,16 @@
 				class="table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
 					<tr class="text-c">
-						<!-- <th width="41">&nbsp;</th> -->
 						<th width="5%">序号ID</th>
 						<th width="20%">身份证号</th>
 						<th width="5%">姓名</th>
 						<th width="30%">图片</th>
 						<th width="20%">备注</th>
 						<th width="20%">审核</th>
-
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${jpushpersonList }" var="jpushperson"
+					<c:forEach items="${jpushpersonList}" var="jpushperson"
 						varStatus="index">
 						<tr>
 							<td class="f-14 td-manage">${index.count }</td>
@@ -93,22 +74,23 @@
 							<td><img
 								src="${pageContext.request.contextPath }/pic/${jpushperson.picurl }"
 								width="40%" height="100px" /></td>
-							<td><textarea id="remark${jpushperson.id}" rows="4"
-									style="height: 100%; width: 100%" name=""></textarea></td>
-							<td><c:if test="${jpushperson.istrue ==null }">
-									<div>
-										<span class="l"> <a class="btn btn-primary radius"
-											href="javascript:void(0);"
-											onclick="result(${jpushperson.id},1);"
-											style="padding-left: 16px; padding-right: 16px;"><i
-												class="Hui-iconfont">&#xe6a7;</i> 正确</a> <a
-											href="javascript:void(0);"
-											onclick="result(${jpushperson.id},0);"
-											class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
-												不正确</a>
-										</span> <span class="r"> </span>
-									</div>
-								</c:if> 
+							<td>${jpushperson.remark}</td>
+							<td><c:if test="${jpushperson.istrue ==1 }">
+									<span
+										style="font-size: 16px; color: #5eb95e; border: 1px solid #5eb95e; padding-left: 8px; padding-right: 8px;"><strong>&nbsp;正确&nbsp;</strong></span>
+									<a
+										href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}"
+										class="btn btn-danger radius" style="margin-left: 50px"><i
+										class="Hui-iconfont">&#xe6a6;</i> 删除</a>
+								</c:if> <c:if test="${jpushperson.istrue ==0 }">
+									<span
+										style="font-size: 16px; color: #dd514c; border: 1px solid #dd514c; padding-left: 5px; padding-right: 5px;"><strong>不正确</strong></span>
+
+									<a
+										href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}"
+										class="btn btn-danger radius" style="margin-left: 50px"><i
+										class="Hui-iconfont">&#xe6a6;</i> 删除</a>
+								</c:if></td>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -11,7 +11,6 @@ a{color:#fff}a:hover,a:focus,.maincolor,.maincolor a{color:#fff}
 .Hui-userbar > li > a{ color:#fff}
 .Hui-userbar > li > a:hover,.Hui-userbar > li.current > a{ color:#fff}/*用户信息条高亮*/
 .Hui-aside{
-	background-image: url(../../images/userbg.jpg);
 	background-repeat: repeat-x;	
 	}/*侧边栏*/
 	.Hui-aside .menu_dropdown dt{
