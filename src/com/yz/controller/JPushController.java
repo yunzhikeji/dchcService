@@ -63,6 +63,7 @@ public class JPushController {
 
 		String checkStartTime = DateTimeKit.getLocal_Time();
 		person.setCheckstarttime(checkStartTime);
+		person.setIstrue(0);
 		jpushpersonService.insert(person);
 
 		String content = "最新消息：判断人员信息是否准确";

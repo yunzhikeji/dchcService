@@ -59,8 +59,10 @@
 						<th width="5%">序号ID</th>
 						<th width="20%">身份证号</th>
 						<th width="5%">姓名</th>
-						<th width="30%">图片</th>
+						<th width="20%">图片</th>
 						<th width="20%">备注</th>
+						<th width="5%">上传时间</th>
+						<th width="5%">返回时间</th>
 						<th width="20%">审核</th>
 					</tr>
 				</thead>
@@ -75,6 +77,8 @@
 								src="${pageContext.request.contextPath }/pic/${jpushperson.picurl }"
 								width="40%" height="100px" /></td>
 							<td>${jpushperson.remark}</td>
+							<td>${jpushperson.checkstarttime}</td>
+							<td>${jpushperson.backcheckresulttime}</td>
 							<td><c:if test="${jpushperson.istrue ==1 }">
 									<span
 										style="font-size: 16px; color: #5eb95e; border: 1px solid #5eb95e; padding-left: 8px; padding-right: 8px;"><strong>&nbsp;正确&nbsp;</strong></span>
