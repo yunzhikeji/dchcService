@@ -28,5 +28,6 @@ public interface JpushpersonService {
 
 	public List<Jpushperson> findJpushPersonByUserOnApp(JpushPersonVo jpushPersonVo);
 
-
+	public void deleteAllJpushpersons();
+	
 }

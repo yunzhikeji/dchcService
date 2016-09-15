@@ -10,7 +10,7 @@ import com.yz.po.JpushPersonVo;
 import com.yz.po.Jpushperson;
 import com.yz.service.JpushpersonService;
 
-public class JpushpersonServiceImpl implements JpushpersonService {
+public  class JpushpersonServiceImpl implements JpushpersonService {
 
 	@Autowired
 	private JpushpersonMapper jpushpersonMapper;
@@ -69,6 +69,11 @@ public class JpushpersonServiceImpl implements JpushpersonService {
 		return jpushpersonMapperCustom.findJpushPersonByUserOnApp(jpushPersonVo);
 	}
 	
+	@Override
+	public void deleteAllJpushpersons(){
+		
+		jpushpersonMapperCustom.deleteAllJpushpersons();
+	}
 	
 
 }

@@ -13,15 +13,22 @@
 
 	<select id="count" parameterType="java.lang.Integer" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM jpushperson WHERE userroleid =
-		#{id,jdbcType=INTEGER} where backcheckresulttime is not null
+		#{id,jdbcType=INTEGER} and backcheckresulttime is not null;
 	</select>
 	
 	<select id="findJpushPersonByUserOnApp" parameterType="com.yz.po.JpushPersonVo"
 		resultType="com.yz.po.Jpushperson">
-		SELECT * FROM jpushperson WHERE userroleid =
+		SELECT * FROM jpushperson WHERE backcheckresulttime is not null and userroleid =
 		#{userroleid,jdbcType=INTEGER} ORDER BY id DESC LIMIT
-		#{begin,jdbcType=INTEGER},#{limit,jdbcType=INTEGER} where backcheckresulttime is not null;
+		#{begin,jdbcType=INTEGER},#{limit,jdbcType=INTEGER};
 	</select>
+	
+	
+	<select id="deleteAllJpushpersons">
+		delete  from
+		jpushperson 
+	</select>
+	
 
 
 

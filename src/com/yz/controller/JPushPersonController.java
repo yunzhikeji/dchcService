@@ -14,9 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yz.po.JpushPersonVo;
 import com.yz.po.Jpushperson;
 import com.yz.service.JpushpersonService;
+import com.yz.utils.DateTimeKit;
 
 @Controller
-
 public class JPushPersonController {
 
 	@Autowired
@@ -66,15 +66,15 @@ public class JPushPersonController {
 		jpushpersonService.deleteJPushPersonById(id);
 		return "redirect:jlist";
 	}
-	
+
 	@RequestMapping("/clientList/{begin}/{limit}/{userroleid}")
-	public @ResponseBody List<Jpushperson> clientList(@PathVariable("begin") Integer begin, @PathVariable("limit") Integer limit,
-			@PathVariable("userroleid") Integer userroleid) throws Exception {
+	public @ResponseBody List<Jpushperson> clientList(@PathVariable("begin") Integer begin,
+			@PathVariable("limit") Integer limit, @PathVariable("userroleid") Integer userroleid) throws Exception {
 		JpushPersonVo jpushPersonVo = new JpushPersonVo();
 		jpushPersonVo.setBegin(begin);
 		jpushPersonVo.setLimit(limit);
 		jpushPersonVo.setUserroleid(userroleid);
-		
+
 		return jpushpersonService.findJpushPersonByUserOnApp(jpushPersonVo);
 	}
 
@@ -83,5 +83,41 @@ public class JPushPersonController {
 		return jpushpersonService.count(userroleid);
 	}
 
+	@RequestMapping("/insertJpushpersons/{number}")
+	public @ResponseBody Integer insertJpushpersons(@PathVariable("number") Integer number) throws Exception {
+
+		int insertResult = 0;
+		String name = "姓名";
+		String idcard = "身份证号";
+
+		for (int i = 0; i < number; i++) {
+
+			Jpushperson person = new Jpushperson();
+			person.setRealname(name + "_" + i);
+			person.setIdcard(idcard + "_" + i);
+			person.setIstrue(1);
+			person.setUserroleId(3);
+			person.setCheckstarttime(DateTimeKit.getLocal_Time());
+			person.setBackcheckresulttime(DateTimeKit.getLocal_Time());
+			try {
+				jpushpersonService.insert(person);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		insertResult = 1;
+		return insertResult;
+	}
+	
+	@RequestMapping("/deleteJpushpersons")
+	public @ResponseBody Integer deleteJpushpersons() throws Exception {
+
+		int deleteResult = 0;
+		
+		jpushpersonService.deleteAllJpushpersons();
+		deleteResult = 1;
+		return deleteResult;
+	}
 
 }

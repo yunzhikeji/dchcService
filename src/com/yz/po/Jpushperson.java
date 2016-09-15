@@ -9,7 +9,7 @@ public class Jpushperson {
 
 	private String picurl;// 人脸照片地址
 
-	private Integer istrue;// 判断接口（0:未审批，1：正确,2:错误,其他：错误）
+	private Integer istrue;// 判断接口（0:未处理，1：已处理(正确),2:已处理（错误）,其他：错误）
 
 	private Integer userroleId;// 客户端用户id
 

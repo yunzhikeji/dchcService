@@ -17,6 +17,8 @@ public interface JpushpersonMapperCustom {
 	public int count(Integer userroleid);
 
 	public List<Jpushperson> findJpushPersonByUserOnApp(JpushPersonVo jpushPersonVo);
+
+	public void deleteAllJpushpersons();
 	
 
 }
