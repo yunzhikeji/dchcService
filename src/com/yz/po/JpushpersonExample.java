@@ -435,62 +435,62 @@ public class JpushpersonExample {
         }
 
         public Criteria andUserroleIdIsNull() {
-            addCriterion("userrole_id is null");
+            addCriterion("userroleid is null");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdIsNotNull() {
-            addCriterion("userrole_id is not null");
+            addCriterion("userroleid is not null");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdEqualTo(Integer value) {
-            addCriterion("userrole_id =", value, "userroleId");
+            addCriterion("userroleid =", value, "userroleId");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdNotEqualTo(Integer value) {
-            addCriterion("userrole_id <>", value, "userroleId");
+            addCriterion("userroleid <>", value, "userroleId");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdGreaterThan(Integer value) {
-            addCriterion("userrole_id >", value, "userroleId");
+            addCriterion("userroleid >", value, "userroleId");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("userrole_id >=", value, "userroleId");
+            addCriterion("userroleid >=", value, "userroleId");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdLessThan(Integer value) {
-            addCriterion("userrole_id <", value, "userroleId");
+            addCriterion("userroleid <", value, "userroleId");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdLessThanOrEqualTo(Integer value) {
-            addCriterion("userrole_id <=", value, "userroleId");
+            addCriterion("userroleid <=", value, "userroleId");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdIn(List<Integer> values) {
-            addCriterion("userrole_id in", values, "userroleId");
+            addCriterion("userroleid in", values, "userroleId");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdNotIn(List<Integer> values) {
-            addCriterion("userrole_id not in", values, "userroleId");
+            addCriterion("userroleid not in", values, "userroleId");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdBetween(Integer value1, Integer value2) {
-            addCriterion("userrole_id between", value1, value2, "userroleId");
+            addCriterion("userroleid between", value1, value2, "userroleId");
             return (Criteria) this;
         }
 
         public Criteria andUserroleIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("userrole_id not between", value1, value2, "userroleId");
+            addCriterion("userroleid not between", value1, value2, "userroleId");
             return (Criteria) this;
         }
 

@@ -56,7 +56,7 @@ public class JPushPersonController {
 	@RequestMapping("/incorrect")
 	public String incorrect(HttpServletRequest request, Integer id) throws Exception {
 		Jpushperson jpushperson = jpushpersonService.findJPushPersonById(id);
-		jpushperson.setIstrue(0);
+		jpushperson.setIstrue(2);
 		jpushpersonService.updateJPushPerson(id, jpushperson);
 		return "redirect:jcheck";
 	}

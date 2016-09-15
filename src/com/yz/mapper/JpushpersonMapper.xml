@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, idcard, realname, picUrl, isTrue, userrole_id, checkStartTime, backCheckResultTime, 
+    id, idcard, realname, picUrl, isTrue, userroleid, checkStartTime, backCheckResultTime, 
     isOutOfTime,remark
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yz.po.JpushpersonExample" >
@@ -107,7 +107,7 @@
   </delete>
   <insert id="insert" parameterType="com.yz.po.Jpushperson" >
     insert into jpushperson (id, idcard, realname, 
-      picUrl, isTrue, userrole_id, 
+      picUrl, isTrue, userroleid, 
       checkStartTime, backCheckResultTime, isOutOfTime,remark
       )
     values (#{id,jdbcType=INTEGER}, #{idcard,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, 
@@ -134,7 +134,7 @@
         isTrue,
       </if>
       <if test="userroleId != null" >
-        userrole_id,
+        userroleid,
       </if>
       <if test="checkstarttime != null" >
         checkStartTime,
@@ -207,7 +207,7 @@
         isTrue = #{record.istrue,jdbcType=INTEGER},
       </if>
       <if test="record.userroleId != null" >
-        userrole_id = #{record.userroleId,jdbcType=INTEGER},
+        userroleid = #{record.userroleId,jdbcType=INTEGER},
       </if>
       <if test="record.checkstarttime != null" >
         checkStartTime = #{record.checkstarttime,jdbcType=VARCHAR},
@@ -233,7 +233,7 @@
       realname = #{record.realname,jdbcType=VARCHAR},
       picUrl = #{record.picurl,jdbcType=VARCHAR},
       isTrue = #{record.istrue,jdbcType=INTEGER},
-      userrole_id = #{record.userroleId,jdbcType=INTEGER},
+      userroleid = #{record.userroleId,jdbcType=INTEGER},
       checkStartTime = #{record.checkstarttime,jdbcType=VARCHAR},
       backCheckResultTime = #{record.backcheckresulttime,jdbcType=VARCHAR},
       isOutOfTime = #{record.isoutoftime,jdbcType=INTEGER},
@@ -258,7 +258,7 @@
         isTrue = #{istrue,jdbcType=INTEGER},
       </if>
       <if test="userroleId != null" >
-        userrole_id = #{userroleId,jdbcType=INTEGER},
+        userroleid = #{userroleId,jdbcType=INTEGER},
       </if>
       <if test="checkstarttime != null" >
         checkStartTime = #{checkstarttime,jdbcType=VARCHAR},
@@ -281,7 +281,7 @@
       realname = #{realname,jdbcType=VARCHAR},
       picUrl = #{picurl,jdbcType=VARCHAR},
       isTrue = #{istrue,jdbcType=INTEGER},
-      userrole_id = #{userroleId,jdbcType=INTEGER},
+      userroleid = #{userroleId,jdbcType=INTEGER},
       checkStartTime = #{checkstarttime,jdbcType=VARCHAR},
       backCheckResultTime = #{backcheckresulttime,jdbcType=VARCHAR},
       isOutOfTime = #{isoutoftime,jdbcType=INTEGER},

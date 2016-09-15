@@ -86,7 +86,7 @@
 										href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}"
 										class="btn btn-danger radius" style="margin-left: 50px"><i
 										class="Hui-iconfont">&#xe6a6;</i> 删除</a>
-								</c:if> <c:if test="${jpushperson.istrue ==0 }">
+								</c:if> <c:if test="${jpushperson.istrue ==2 }">
 									<span
 										style="font-size: 16px; color: #dd514c; border: 1px solid #dd514c; padding-left: 5px; padding-right: 5px;"><strong>不正确</strong></span>
 

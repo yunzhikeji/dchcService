@@ -113,7 +113,7 @@ public class JPushController {
 		String content = "姓名:" + person.getRealname() + ",信息";
 		if (istrue == 1) {
 			content = content + "正确";
-		} else {
+		} else if(istrue==2){
 			content = content + "不正确";
 		}
 		if (remark != null && !remark.equals("")) {

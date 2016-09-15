@@ -95,7 +95,7 @@
 								width="40%" height="100px" /></td>
 							<td><textarea id="remark${jpushperson.id}" rows="4"
 									style="height: 100%; width: 100%" name=""></textarea></td>
-							<td><c:if test="${jpushperson.istrue ==null }">
+							<td>
 									<div>
 										<span class="l"> <a class="btn btn-primary radius"
 											href="javascript:void(0);"
@@ -103,12 +103,11 @@
 											style="padding-left: 16px; padding-right: 16px;"><i
 												class="Hui-iconfont">&#xe6a7;</i> 正确</a> <a
 											href="javascript:void(0);"
-											onclick="result(${jpushperson.id},0);"
+											onclick="result(${jpushperson.id},2);"
 											class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
 												不正确</a>
 										</span> <span class="r"> </span>
 									</div>
-								</c:if> 
 						</tr>
 					</c:forEach>
 				</tbody>
