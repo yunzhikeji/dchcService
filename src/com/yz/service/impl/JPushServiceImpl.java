@@ -50,7 +50,6 @@ public class JPushServiceImpl implements JPushService {
 		
 		jPushResult.setUploadResult(1);
 		jPushResult = this.push(userRoles, content,jPushResult);
-		System.out.println("pushCheckPersonToUser:"+jPushResult.getPushResult());
 		return jPushResult;
 	}
 	
@@ -61,7 +60,6 @@ public class JPushServiceImpl implements JPushService {
 		userroles.add(userrole);
 		jPushResult.setUploadResult(1);
 		jPushResult = this.push(userroles, content,jPushResult);
-		System.out.println("pushCheckResult:"+jPushResult.getPushResult());
 		return jPushResult;
 	}
 	
@@ -77,8 +75,6 @@ public class JPushServiceImpl implements JPushService {
 				aliases.add(userRole.getUsername());
 			}
 		}
-		System.out.println(content);
-		System.out.println(aliases);
 		PushPayload payload = buildPushObject_andorid_alias_alert(aliases,content);
 		try {
 			PushResult result = jpushClient.sendPush(payload);
