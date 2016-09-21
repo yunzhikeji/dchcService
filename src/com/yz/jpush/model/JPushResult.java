@@ -52,4 +52,12 @@ public class JPushResult {
 		this.pushResult = pushResult;
 	}
 
+	@Override
+	public String toString() {
+		return "JPushResult [id=" + id + ", pushResult=" + pushResult + ", uploadResult=" + uploadResult
+				+ ", checkResult=" + checkResult + ", checkResultMsg=" + checkResultMsg + "]";
+	}
+	
+	
+
 }

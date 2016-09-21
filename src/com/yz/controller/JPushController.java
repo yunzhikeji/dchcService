@@ -73,6 +73,8 @@ public class JPushController {
 		List<Userrole> userRoles = userRoleService.findUserRoleByType(type);
 
 		jPushResult = jpushService.pushCheckPersonToUser(userRoles, content, jPushResult);
+		
+		System.out.println("jPushResult:"+jPushResult);
 
 		return jPushResult;
 	}
