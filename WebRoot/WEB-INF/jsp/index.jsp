@@ -16,9 +16,9 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
 <!--[if lt IE 9]>
-<script type="text/javascript" src="${pageContext.request.contextPath }/lib/html5.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/lib/respond.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/lib/PIE_IE678.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/html5.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/respond.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/PIE_IE678.js"></script>
 <![endif]-->
 
 <link href="${pageContext.request.contextPath }/css/H-ui.min.css"
