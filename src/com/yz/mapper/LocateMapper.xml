@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yz.mapper.LocateMapper" >
+  <resultMap id="BaseResultMap" type="com.yz.po.Locate" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="isLetHouse" property="islethouse" jdbcType="INTEGER" />
+    <result column="belongPlace" property="belongplace" jdbcType="VARCHAR" />
+    <result column="policeName" property="policename" jdbcType="VARCHAR" />
+    <result column="registerName" property="registername" jdbcType="VARCHAR" />
+    <result column="realRegisterName" property="realregistername" jdbcType="VARCHAR" />
+    <result column="openTime" property="opentime" jdbcType="VARCHAR" />
+    <result column="wifiPwd" property="wifipwd" jdbcType="VARCHAR" />
+    <result column="numberOfRelperson" property="numberofrelperson" jdbcType="INTEGER" />
+    <result column="businessLicenseNumber" property="businesslicensenumber" jdbcType="VARCHAR" />
+    <result column="hygieneLicenseNumber" property="hygienelicensenumber" jdbcType="VARCHAR" />
+    <result column="taxRegistrationCertificateNumber" property="taxregistrationcertificatenumber" jdbcType="VARCHAR" />
+    <result column="placeType" property="placetype" jdbcType="INTEGER" />
+    <result column="entertainmentPlaceType" property="entertainmentplacetype" jdbcType="INTEGER" />
+    <result column="servicePlaceType" property="serviceplacetype" jdbcType="INTEGER" />
+    <result column="specialPlaceType" property="specialplacetype" jdbcType="INTEGER" />
+    <result column="nineSmallPlaceType" property="ninesmallplacetype" jdbcType="INTEGER" />
+    <result column="placeArea" property="placearea" jdbcType="VARCHAR" />
+    <result column="numberOfFloor" property="numberoffloor" jdbcType="INTEGER" />
+    <result column="numberOfChannelport" property="numberofchannelport" jdbcType="INTEGER" />
+    <result column="numberOfRoom" property="numberofroom" jdbcType="INTEGER" />
+    <result column="numberOfHoldperson" property="numberofholdperson" jdbcType="INTEGER" />
+    <result column="certificateOfQualification" property="certificateofqualification" jdbcType="INTEGER" />
+    <result column="fireFacilities" property="firefacilities" jdbcType="VARCHAR" />
+    <result column="chargePersonName" property="chargepersonname" jdbcType="VARCHAR" />
+    <result column="chargePersonPhone" property="chargepersonphone" jdbcType="VARCHAR" />
+    <result column="numberOfStaffPerson" property="numberofstaffperson" jdbcType="INTEGER" />
+    <result column="numberOfExternalMonitor" property="numberofexternalmonitor" jdbcType="INTEGER" />
+    <result column="numberOfInsideMonitor" property="numberofinsidemonitor" jdbcType="INTEGER" />
+    <result column="protectCondition" property="protectcondition" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yz.po.Locate" extends="BaseResultMap" >
+    <result column="businessScope" property="businessscope" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, address, isLetHouse, belongPlace, policeName, registerName, realRegisterName, 
+    openTime, wifiPwd, numberOfRelperson, businessLicenseNumber, hygieneLicenseNumber, 
+    taxRegistrationCertificateNumber, placeType, entertainmentPlaceType, servicePlaceType, 
+    specialPlaceType, nineSmallPlaceType, placeArea, numberOfFloor, numberOfChannelport, 
+    numberOfRoom, numberOfHoldperson, certificateOfQualification, fireFacilities, chargePersonName, 
+    chargePersonPhone, numberOfStaffPerson, numberOfExternalMonitor, numberOfInsideMonitor, 
+    protectCondition
+  </sql>
+  <sql id="Blob_Column_List" >
+    businessScope
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from locate
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from locate
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yz.po.Locate" >
+    insert into locate (id, address, isLetHouse, 
+      belongPlace, policeName, registerName, 
+      realRegisterName, openTime, wifiPwd, 
+      numberOfRelperson, businessLicenseNumber, 
+      hygieneLicenseNumber, taxRegistrationCertificateNumber, 
+      placeType, entertainmentPlaceType, servicePlaceType, 
+      specialPlaceType, nineSmallPlaceType, placeArea, 
+      numberOfFloor, numberOfChannelport, numberOfRoom, 
+      numberOfHoldperson, certificateOfQualification, 
+      fireFacilities, chargePersonName, chargePersonPhone, 
+      numberOfStaffPerson, numberOfExternalMonitor, 
+      numberOfInsideMonitor, protectCondition, 
+      businessScope)
+    values (#{id,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{islethouse,jdbcType=INTEGER}, 
+      #{belongplace,jdbcType=VARCHAR}, #{policename,jdbcType=VARCHAR}, #{registername,jdbcType=VARCHAR}, 
+      #{realregistername,jdbcType=VARCHAR}, #{opentime,jdbcType=VARCHAR}, #{wifipwd,jdbcType=VARCHAR}, 
+      #{numberofrelperson,jdbcType=INTEGER}, #{businesslicensenumber,jdbcType=VARCHAR}, 
+      #{hygienelicensenumber,jdbcType=VARCHAR}, #{taxregistrationcertificatenumber,jdbcType=VARCHAR}, 
+      #{placetype,jdbcType=INTEGER}, #{entertainmentplacetype,jdbcType=INTEGER}, #{serviceplacetype,jdbcType=INTEGER}, 
+      #{specialplacetype,jdbcType=INTEGER}, #{ninesmallplacetype,jdbcType=INTEGER}, #{placearea,jdbcType=VARCHAR}, 
+      #{numberoffloor,jdbcType=INTEGER}, #{numberofchannelport,jdbcType=INTEGER}, #{numberofroom,jdbcType=INTEGER}, 
+      #{numberofholdperson,jdbcType=INTEGER}, #{certificateofqualification,jdbcType=INTEGER}, 
+      #{firefacilities,jdbcType=VARCHAR}, #{chargepersonname,jdbcType=VARCHAR}, #{chargepersonphone,jdbcType=VARCHAR}, 
+      #{numberofstaffperson,jdbcType=INTEGER}, #{numberofexternalmonitor,jdbcType=INTEGER}, 
+      #{numberofinsidemonitor,jdbcType=INTEGER}, #{protectcondition,jdbcType=VARCHAR}, 
+      #{businessscope,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yz.po.Locate" >
+    insert into locate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="islethouse != null" >
+        isLetHouse,
+      </if>
+      <if test="belongplace != null" >
+        belongPlace,
+      </if>
+      <if test="policename != null" >
+        policeName,
+      </if>
+      <if test="registername != null" >
+        registerName,
+      </if>
+      <if test="realregistername != null" >
+        realRegisterName,
+      </if>
+      <if test="opentime != null" >
+        openTime,
+      </if>
+      <if test="wifipwd != null" >
+        wifiPwd,
+      </if>
+      <if test="numberofrelperson != null" >
+        numberOfRelperson,
+      </if>
+      <if test="businesslicensenumber != null" >
+        businessLicenseNumber,
+      </if>
+      <if test="hygienelicensenumber != null" >
+        hygieneLicenseNumber,
+      </if>
+      <if test="taxregistrationcertificatenumber != null" >
+        taxRegistrationCertificateNumber,
+      </if>
+      <if test="placetype != null" >
+        placeType,
+      </if>
+      <if test="entertainmentplacetype != null" >
+        entertainmentPlaceType,
+      </if>
+      <if test="serviceplacetype != null" >
+        servicePlaceType,
+      </if>
+      <if test="specialplacetype != null" >
+        specialPlaceType,
+      </if>
+      <if test="ninesmallplacetype != null" >
+        nineSmallPlaceType,
+      </if>
+      <if test="placearea != null" >
+        placeArea,
+      </if>
+      <if test="numberoffloor != null" >
+        numberOfFloor,
+      </if>
+      <if test="numberofchannelport != null" >
+        numberOfChannelport,
+      </if>
+      <if test="numberofroom != null" >
+        numberOfRoom,
+      </if>
+      <if test="numberofholdperson != null" >
+        numberOfHoldperson,
+      </if>
+      <if test="certificateofqualification != null" >
+        certificateOfQualification,
+      </if>
+      <if test="firefacilities != null" >
+        fireFacilities,
+      </if>
+      <if test="chargepersonname != null" >
+        chargePersonName,
+      </if>
+      <if test="chargepersonphone != null" >
+        chargePersonPhone,
+      </if>
+      <if test="numberofstaffperson != null" >
+        numberOfStaffPerson,
+      </if>
+      <if test="numberofexternalmonitor != null" >
+        numberOfExternalMonitor,
+      </if>
+      <if test="numberofinsidemonitor != null" >
+        numberOfInsideMonitor,
+      </if>
+      <if test="protectcondition != null" >
+        protectCondition,
+      </if>
+      <if test="businessscope != null" >
+        businessScope,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="islethouse != null" >
+        #{islethouse,jdbcType=INTEGER},
+      </if>
+      <if test="belongplace != null" >
+        #{belongplace,jdbcType=VARCHAR},
+      </if>
+      <if test="policename != null" >
+        #{policename,jdbcType=VARCHAR},
+      </if>
+      <if test="registername != null" >
+        #{registername,jdbcType=VARCHAR},
+      </if>
+      <if test="realregistername != null" >
+        #{realregistername,jdbcType=VARCHAR},
+      </if>
+      <if test="opentime != null" >
+        #{opentime,jdbcType=VARCHAR},
+      </if>
+      <if test="wifipwd != null" >
+        #{wifipwd,jdbcType=VARCHAR},
+      </if>
+      <if test="numberofrelperson != null" >
+        #{numberofrelperson,jdbcType=INTEGER},
+      </if>
+      <if test="businesslicensenumber != null" >
+        #{businesslicensenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="hygienelicensenumber != null" >
+        #{hygienelicensenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="taxregistrationcertificatenumber != null" >
+        #{taxregistrationcertificatenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="placetype != null" >
+        #{placetype,jdbcType=INTEGER},
+      </if>
+      <if test="entertainmentplacetype != null" >
+        #{entertainmentplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="serviceplacetype != null" >
+        #{serviceplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="specialplacetype != null" >
+        #{specialplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="ninesmallplacetype != null" >
+        #{ninesmallplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="placearea != null" >
+        #{placearea,jdbcType=VARCHAR},
+      </if>
+      <if test="numberoffloor != null" >
+        #{numberoffloor,jdbcType=INTEGER},
+      </if>
+      <if test="numberofchannelport != null" >
+        #{numberofchannelport,jdbcType=INTEGER},
+      </if>
+      <if test="numberofroom != null" >
+        #{numberofroom,jdbcType=INTEGER},
+      </if>
+      <if test="numberofholdperson != null" >
+        #{numberofholdperson,jdbcType=INTEGER},
+      </if>
+      <if test="certificateofqualification != null" >
+        #{certificateofqualification,jdbcType=INTEGER},
+      </if>
+      <if test="firefacilities != null" >
+        #{firefacilities,jdbcType=VARCHAR},
+      </if>
+      <if test="chargepersonname != null" >
+        #{chargepersonname,jdbcType=VARCHAR},
+      </if>
+      <if test="chargepersonphone != null" >
+        #{chargepersonphone,jdbcType=VARCHAR},
+      </if>
+      <if test="numberofstaffperson != null" >
+        #{numberofstaffperson,jdbcType=INTEGER},
+      </if>
+      <if test="numberofexternalmonitor != null" >
+        #{numberofexternalmonitor,jdbcType=INTEGER},
+      </if>
+      <if test="numberofinsidemonitor != null" >
+        #{numberofinsidemonitor,jdbcType=INTEGER},
+      </if>
+      <if test="protectcondition != null" >
+        #{protectcondition,jdbcType=VARCHAR},
+      </if>
+      <if test="businessscope != null" >
+        #{businessscope,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yz.po.Locate" >
+    update locate
+    <set >
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="islethouse != null" >
+        isLetHouse = #{islethouse,jdbcType=INTEGER},
+      </if>
+      <if test="belongplace != null" >
+        belongPlace = #{belongplace,jdbcType=VARCHAR},
+      </if>
+      <if test="policename != null" >
+        policeName = #{policename,jdbcType=VARCHAR},
+      </if>
+      <if test="registername != null" >
+        registerName = #{registername,jdbcType=VARCHAR},
+      </if>
+      <if test="realregistername != null" >
+        realRegisterName = #{realregistername,jdbcType=VARCHAR},
+      </if>
+      <if test="opentime != null" >
+        openTime = #{opentime,jdbcType=VARCHAR},
+      </if>
+      <if test="wifipwd != null" >
+        wifiPwd = #{wifipwd,jdbcType=VARCHAR},
+      </if>
+      <if test="numberofrelperson != null" >
+        numberOfRelperson = #{numberofrelperson,jdbcType=INTEGER},
+      </if>
+      <if test="businesslicensenumber != null" >
+        businessLicenseNumber = #{businesslicensenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="hygienelicensenumber != null" >
+        hygieneLicenseNumber = #{hygienelicensenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="taxregistrationcertificatenumber != null" >
+        taxRegistrationCertificateNumber = #{taxregistrationcertificatenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="placetype != null" >
+        placeType = #{placetype,jdbcType=INTEGER},
+      </if>
+      <if test="entertainmentplacetype != null" >
+        entertainmentPlaceType = #{entertainmentplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="serviceplacetype != null" >
+        servicePlaceType = #{serviceplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="specialplacetype != null" >
+        specialPlaceType = #{specialplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="ninesmallplacetype != null" >
+        nineSmallPlaceType = #{ninesmallplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="placearea != null" >
+        placeArea = #{placearea,jdbcType=VARCHAR},
+      </if>
+      <if test="numberoffloor != null" >
+        numberOfFloor = #{numberoffloor,jdbcType=INTEGER},
+      </if>
+      <if test="numberofchannelport != null" >
+        numberOfChannelport = #{numberofchannelport,jdbcType=INTEGER},
+      </if>
+      <if test="numberofroom != null" >
+        numberOfRoom = #{numberofroom,jdbcType=INTEGER},
+      </if>
+      <if test="numberofholdperson != null" >
+        numberOfHoldperson = #{numberofholdperson,jdbcType=INTEGER},
+      </if>
+      <if test="certificateofqualification != null" >
+        certificateOfQualification = #{certificateofqualification,jdbcType=INTEGER},
+      </if>
+      <if test="firefacilities != null" >
+        fireFacilities = #{firefacilities,jdbcType=VARCHAR},
+      </if>
+      <if test="chargepersonname != null" >
+        chargePersonName = #{chargepersonname,jdbcType=VARCHAR},
+      </if>
+      <if test="chargepersonphone != null" >
+        chargePersonPhone = #{chargepersonphone,jdbcType=VARCHAR},
+      </if>
+      <if test="numberofstaffperson != null" >
+        numberOfStaffPerson = #{numberofstaffperson,jdbcType=INTEGER},
+      </if>
+      <if test="numberofexternalmonitor != null" >
+        numberOfExternalMonitor = #{numberofexternalmonitor,jdbcType=INTEGER},
+      </if>
+      <if test="numberofinsidemonitor != null" >
+        numberOfInsideMonitor = #{numberofinsidemonitor,jdbcType=INTEGER},
+      </if>
+      <if test="protectcondition != null" >
+        protectCondition = #{protectcondition,jdbcType=VARCHAR},
+      </if>
+      <if test="businessscope != null" >
+        businessScope = #{businessscope,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yz.po.Locate" >
+    update locate
+    set address = #{address,jdbcType=VARCHAR},
+      isLetHouse = #{islethouse,jdbcType=INTEGER},
+      belongPlace = #{belongplace,jdbcType=VARCHAR},
+      policeName = #{policename,jdbcType=VARCHAR},
+      registerName = #{registername,jdbcType=VARCHAR},
+      realRegisterName = #{realregistername,jdbcType=VARCHAR},
+      openTime = #{opentime,jdbcType=VARCHAR},
+      wifiPwd = #{wifipwd,jdbcType=VARCHAR},
+      numberOfRelperson = #{numberofrelperson,jdbcType=INTEGER},
+      businessLicenseNumber = #{businesslicensenumber,jdbcType=VARCHAR},
+      hygieneLicenseNumber = #{hygienelicensenumber,jdbcType=VARCHAR},
+      taxRegistrationCertificateNumber = #{taxregistrationcertificatenumber,jdbcType=VARCHAR},
+      placeType = #{placetype,jdbcType=INTEGER},
+      entertainmentPlaceType = #{entertainmentplacetype,jdbcType=INTEGER},
+      servicePlaceType = #{serviceplacetype,jdbcType=INTEGER},
+      specialPlaceType = #{specialplacetype,jdbcType=INTEGER},
+      nineSmallPlaceType = #{ninesmallplacetype,jdbcType=INTEGER},
+      placeArea = #{placearea,jdbcType=VARCHAR},
+      numberOfFloor = #{numberoffloor,jdbcType=INTEGER},
+      numberOfChannelport = #{numberofchannelport,jdbcType=INTEGER},
+      numberOfRoom = #{numberofroom,jdbcType=INTEGER},
+      numberOfHoldperson = #{numberofholdperson,jdbcType=INTEGER},
+      certificateOfQualification = #{certificateofqualification,jdbcType=INTEGER},
+      fireFacilities = #{firefacilities,jdbcType=VARCHAR},
+      chargePersonName = #{chargepersonname,jdbcType=VARCHAR},
+      chargePersonPhone = #{chargepersonphone,jdbcType=VARCHAR},
+      numberOfStaffPerson = #{numberofstaffperson,jdbcType=INTEGER},
+      numberOfExternalMonitor = #{numberofexternalmonitor,jdbcType=INTEGER},
+      numberOfInsideMonitor = #{numberofinsidemonitor,jdbcType=INTEGER},
+      protectCondition = #{protectcondition,jdbcType=VARCHAR},
+      businessScope = #{businessscope,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yz.po.Locate" >
+    update locate
+    set address = #{address,jdbcType=VARCHAR},
+      isLetHouse = #{islethouse,jdbcType=INTEGER},
+      belongPlace = #{belongplace,jdbcType=VARCHAR},
+      policeName = #{policename,jdbcType=VARCHAR},
+      registerName = #{registername,jdbcType=VARCHAR},
+      realRegisterName = #{realregistername,jdbcType=VARCHAR},
+      openTime = #{opentime,jdbcType=VARCHAR},
+      wifiPwd = #{wifipwd,jdbcType=VARCHAR},
+      numberOfRelperson = #{numberofrelperson,jdbcType=INTEGER},
+      businessLicenseNumber = #{businesslicensenumber,jdbcType=VARCHAR},
+      hygieneLicenseNumber = #{hygienelicensenumber,jdbcType=VARCHAR},
+      taxRegistrationCertificateNumber = #{taxregistrationcertificatenumber,jdbcType=VARCHAR},
+      placeType = #{placetype,jdbcType=INTEGER},
+      entertainmentPlaceType = #{entertainmentplacetype,jdbcType=INTEGER},
+      servicePlaceType = #{serviceplacetype,jdbcType=INTEGER},
+      specialPlaceType = #{specialplacetype,jdbcType=INTEGER},
+      nineSmallPlaceType = #{ninesmallplacetype,jdbcType=INTEGER},
+      placeArea = #{placearea,jdbcType=VARCHAR},
+      numberOfFloor = #{numberoffloor,jdbcType=INTEGER},
+      numberOfChannelport = #{numberofchannelport,jdbcType=INTEGER},
+      numberOfRoom = #{numberofroom,jdbcType=INTEGER},
+      numberOfHoldperson = #{numberofholdperson,jdbcType=INTEGER},
+      certificateOfQualification = #{certificateofqualification,jdbcType=INTEGER},
+      fireFacilities = #{firefacilities,jdbcType=VARCHAR},
+      chargePersonName = #{chargepersonname,jdbcType=VARCHAR},
+      chargePersonPhone = #{chargepersonphone,jdbcType=VARCHAR},
+      numberOfStaffPerson = #{numberofstaffperson,jdbcType=INTEGER},
+      numberOfExternalMonitor = #{numberofexternalmonitor,jdbcType=INTEGER},
+      numberOfInsideMonitor = #{numberofinsidemonitor,jdbcType=INTEGER},
+      protectCondition = #{protectcondition,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

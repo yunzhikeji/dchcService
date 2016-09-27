@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yz.mapper.RelpersonMapper" >
+  <resultMap id="BaseResultMap" type="com.yz.po.Relperson" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="rtype" property="rtype" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="IDCard" property="idcard" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="QQ" property="qq" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="registerAddress" property="registeraddress" jdbcType="VARCHAR" />
+    <result column="currentAddress" property="currentaddress" jdbcType="VARCHAR" />
+    <result column="workdUnit" property="workdunit" jdbcType="VARCHAR" />
+    <result column="workdUnitAddress" property="workdunitaddress" jdbcType="VARCHAR" />
+    <result column="telphone" property="telphone" jdbcType="VARCHAR" />
+    <result column="isPermit" property="ispermit" jdbcType="INTEGER" />
+    <result column="belongPlace" property="belongplace" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yz.po.Relperson" extends="BaseResultMap" >
+    <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, rtype, name, sex, nation, IDCard, birthday, QQ, wechat, registerAddress, currentAddress, 
+    workdUnit, workdUnitAddress, telphone, isPermit, belongPlace
+  </sql>
+  <sql id="Blob_Column_List" >
+    remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from relperson
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from relperson
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yz.po.Relperson" >
+    insert into relperson (id, rtype, name, 
+      sex, nation, IDCard, 
+      birthday, QQ, wechat, 
+      registerAddress, currentAddress, workdUnit, 
+      workdUnitAddress, telphone, isPermit, 
+      belongPlace, remark)
+    values (#{id,jdbcType=INTEGER}, #{rtype,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=INTEGER}, #{nation,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{registeraddress,jdbcType=VARCHAR}, #{currentaddress,jdbcType=VARCHAR}, #{workdunit,jdbcType=VARCHAR}, 
+      #{workdunitaddress,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, #{ispermit,jdbcType=INTEGER}, 
+      #{belongplace,jdbcType=VARCHAR}, #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yz.po.Relperson" >
+    insert into relperson
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="rtype != null" >
+        rtype,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="idcard != null" >
+        IDCard,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="qq != null" >
+        QQ,
+      </if>
+      <if test="wechat != null" >
+        wechat,
+      </if>
+      <if test="registeraddress != null" >
+        registerAddress,
+      </if>
+      <if test="currentaddress != null" >
+        currentAddress,
+      </if>
+      <if test="workdunit != null" >
+        workdUnit,
+      </if>
+      <if test="workdunitaddress != null" >
+        workdUnitAddress,
+      </if>
+      <if test="telphone != null" >
+        telphone,
+      </if>
+      <if test="ispermit != null" >
+        isPermit,
+      </if>
+      <if test="belongplace != null" >
+        belongPlace,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="rtype != null" >
+        #{rtype,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="registeraddress != null" >
+        #{registeraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="currentaddress != null" >
+        #{currentaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="workdunit != null" >
+        #{workdunit,jdbcType=VARCHAR},
+      </if>
+      <if test="workdunitaddress != null" >
+        #{workdunitaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="ispermit != null" >
+        #{ispermit,jdbcType=INTEGER},
+      </if>
+      <if test="belongplace != null" >
+        #{belongplace,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update relperson
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.rtype != null" >
+        rtype = #{record.rtype,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex,jdbcType=INTEGER},
+      </if>
+      <if test="record.nation != null" >
+        nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcard != null" >
+        IDCard = #{record.idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        birthday = #{record.birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qq != null" >
+        QQ = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null" >
+        wechat = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registeraddress != null" >
+        registerAddress = #{record.registeraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currentaddress != null" >
+        currentAddress = #{record.currentaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workdunit != null" >
+        workdUnit = #{record.workdunit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workdunitaddress != null" >
+        workdUnitAddress = #{record.workdunitaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telphone != null" >
+        telphone = #{record.telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ispermit != null" >
+        isPermit = #{record.ispermit,jdbcType=INTEGER},
+      </if>
+      <if test="record.belongplace != null" >
+        belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update relperson
+    set id = #{record.id,jdbcType=INTEGER},
+      rtype = #{record.rtype,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=INTEGER},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      IDCard = #{record.idcard,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=VARCHAR},
+      QQ = #{record.qq,jdbcType=VARCHAR},
+      wechat = #{record.wechat,jdbcType=VARCHAR},
+      registerAddress = #{record.registeraddress,jdbcType=VARCHAR},
+      currentAddress = #{record.currentaddress,jdbcType=VARCHAR},
+      workdUnit = #{record.workdunit,jdbcType=VARCHAR},
+      workdUnitAddress = #{record.workdunitaddress,jdbcType=VARCHAR},
+      telphone = #{record.telphone,jdbcType=VARCHAR},
+      isPermit = #{record.ispermit,jdbcType=INTEGER},
+      belongPlace = #{record.belongplace,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yz.po.Relperson" >
+    update relperson
+    <set >
+      <if test="rtype != null" >
+        rtype = #{rtype,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        IDCard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="registeraddress != null" >
+        registerAddress = #{registeraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="currentaddress != null" >
+        currentAddress = #{currentaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="workdunit != null" >
+        workdUnit = #{workdunit,jdbcType=VARCHAR},
+      </if>
+      <if test="workdunitaddress != null" >
+        workdUnitAddress = #{workdunitaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        telphone = #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="ispermit != null" >
+        isPermit = #{ispermit,jdbcType=INTEGER},
+      </if>
+      <if test="belongplace != null" >
+        belongPlace = #{belongplace,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yz.po.Relperson" >
+    update relperson
+    set rtype = #{rtype,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      nation = #{nation,jdbcType=VARCHAR},
+      IDCard = #{idcard,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      registerAddress = #{registeraddress,jdbcType=VARCHAR},
+      currentAddress = #{currentaddress,jdbcType=VARCHAR},
+      workdUnit = #{workdunit,jdbcType=VARCHAR},
+      workdUnitAddress = #{workdunitaddress,jdbcType=VARCHAR},
+      telphone = #{telphone,jdbcType=VARCHAR},
+      isPermit = #{ispermit,jdbcType=INTEGER},
+      belongPlace = #{belongplace,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yz.po.Relperson" >
+    update relperson
+    set rtype = #{rtype,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      nation = #{nation,jdbcType=VARCHAR},
+      IDCard = #{idcard,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      registerAddress = #{registeraddress,jdbcType=VARCHAR},
+      currentAddress = #{currentaddress,jdbcType=VARCHAR},
+      workdUnit = #{workdunit,jdbcType=VARCHAR},
+      workdUnitAddress = #{workdunitaddress,jdbcType=VARCHAR},
+      telphone = #{telphone,jdbcType=VARCHAR},
+      isPermit = #{ispermit,jdbcType=INTEGER},
+      belongPlace = #{belongplace,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
