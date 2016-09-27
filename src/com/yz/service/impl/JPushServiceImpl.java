@@ -2,9 +2,9 @@ package com.yz.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.log4j.Logger;
 
-import com.google.gson.JsonObject;
 import com.yz.jpush.model.JPushResult;
 import com.yz.po.Userrole;
 import com.yz.service.JPushService;
