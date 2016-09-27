@@ -10,8 +10,6 @@ public interface UserRoleMapperCustom {
 	
 	List<Userrole> findUserRoleByType(int type);
 
-	
-
 	List<Userrole> findUserRoleList();
 
 }
