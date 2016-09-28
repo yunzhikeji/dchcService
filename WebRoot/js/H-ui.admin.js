@@ -14,7 +14,7 @@ function tabNavallwidth(){
 	if(taballwidth+25>w){
 		$tabNavmore.show()}
 	else{
-		$tabNavmore.hide();
+		$tabNavmore.show();
 		$tabNav.css({left:0})}
 }
 
@@ -45,14 +45,15 @@ $(function(){
 	
 	$(".Hui-nav-toggle").click(function(){
 		$(".Hui-aside").slideToggle();
+
 	});
 	$(".Hui-aside").on("click",".menu_dropdown dd li a",function(){
 		if($(window).width()<768){
 			$(".Hui-aside").slideToggle();
+			
 		}
 	});
-	/*左侧菜单*/
-	$.Huifold(".menu_dropdown dl dt",".menu_dropdown dl dd","fast",1,"click");
+	
 	/*选项卡导航*/
 	
 	$(".Hui-aside").on("click",".menu_dropdown a",function(){
@@ -81,6 +82,7 @@ $(function(){
 			}
 		}
 	});
+	
 	
 	function min_titleList(){
 		var topWindow=$(window.parent.document);
@@ -135,6 +137,21 @@ $(function(){
 	});
 	tabNavallwidth();
 	
+
+	
+	$('#js-tabNav-del').click(function(){
+		var r=confirm('是否需要关闭所有对话框？')
+  if (r==true)
+    {
+    parent.location.reload();
+    }
+  else
+    {
+   return false;
+    }
+	
+	});
+	
 	$('#js-tabNav-next').click(function(){
 		num==oUl.find('li').length-1?num=oUl.find('li').length-1:num++;
 		toNavPos();
@@ -148,13 +165,12 @@ $(function(){
 		oUl.stop().animate({'left':-num*100},100);
 	}
 	
-	/*换肤*/
-	$("#Hui-skin .dropDown-menu a").click(function(){
-		var v = $(this).attr("data-val");
-		setCookie("Huiskin", v);
-		$("#skin").attr("href","skin/"+v+"/skin.css");
-	});
+
 }); 
+
+
+
+
 /*弹出层*/
 /*
 	参数解释：

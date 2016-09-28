@@ -88,7 +88,7 @@ h4{line-height:30px}
 	.Hui-aside .menu_dropdown dl{ margin-bottom:0; font-size:14px;}
 	.Hui-aside .menu_dropdown dt{display:block; font-size:16px; line-height:35px;padding-left:15px;cursor:pointer;position:relative;border-bottom: 0px solid #e5e5e5;font-weight:normal}
 	.Hui-aside .menu_dropdown dt .menu_dropdown-arrow{ position:absolute;overflow: hidden; top:0; right:15px;transition-duration:0.3s ;transition-property:all}
-	.Hui-aside .menu_dropdown dd{ display:none}
+	.Hui-aside .menu_dropdown dd{ display: block}
 	.Hui-aside .menu_dropdown dt.selected .menu_dropdown-arrow{transform: rotate(180deg)}
 	.Hui-aside .menu_dropdown dd.selected{display:block; margin-left:0px}
 	.Hui-aside .menu_dropdown ul{padding:0px}
@@ -100,88 +100,6 @@ h4{line-height:30px}
 	.Hui-aside .menu_dropdown dd li a{line-height:32px;padding-left:26px; border-bottom:none; font-weight:normal}
 	.Hui-aside .menu_dropdown li a:hover{text-decoration:none}
 	.Hui-aside .menu_dropdown li.current a,.menu_dropdown li.current a:hover{background-color:rgba(255,255,255,0.2)}
-	
-	.clear{clear:both;}
-.ce{
-	display: block;
-	color: #FFF;
-	width: 149px;
-	font-size: 14px;
-	/* [disabled]position: fixed; */
-	z-index: 5;
-	top: 300px;
-	left: 0px;
-}
-.ce li{
-	background-attachment: scroll;
-	background-color: #1D8FC5;
-	background-image: none;
-	background-repeat: repeat;
-	background-position: 0% 0%;
-}
-.more{margin-left: 30px;}
-.ce li a{
-	padding: 5px 5px 5px 20px;
-	color: #FFF;
-	display: block;
-	cursor: pointer;
-	background-repeat: no-repeat;
-	background-position: 10px center;
-}
-.ce li a:hover{
-	background-repeat: no-repeat;
-	background-position: center;
-	transition-duration: 0.3s;
-}
-.ce li .dqian{background:none}
-.ce li .xz{
-	background-color: #1D8FC5;
-	background-repeat: no-repeat;
-	background-position: 10px center;
-}
-	.er{
-	display: none;
-	width: 149px;
-	background: rgb(100,100,100);
-	color: #555;
-}
-.er li{
-	border: 0px solid rgb(140,140,140);
-	background:#EFEEF0;
-	padding-left:10px;
-}
-.er li a{display:block; padding:5px 5px 5px 20px; color:#555; background:none; font-size: 13px;}
-.er .e_li a{
-}
-.er li a:hover,.er li .sen_x{
-}
-.er .e_li a:hover,.er .e_li .sen_x{}
-
-.thr{background:#EFEEF0;display:none;}
-.thr li{
-	margin-bottom: 1px;
-	border-top: 0px solid rgb(180,180,180);
-	position: relative;
-	width: 82%;
-	background-color: #FCFCFC;
-}
-.er .e_li .thr li a{background:none;}
-.er .e_li .thr li a:hover{
-}
-.er .e_li .thr li .xuan{}
-.more1{margin-left: 28px;margin-top: -4px;}
-.thr_nr{width:300px;position:absolute;top:0px;left:150px;z-index:10;border:1px solid rgb(201,201,201);display:none;}
-.thr_nr h3{font-weight:normal;font-size:18px;display:block;text-align:center;width:100%;padding:10px 0px;}
-.thr_nr img{width:100%;}
-
-
-
-.ti {width: 29px;height:29px;float: left;padding-top: 3px;cursor: pointer;text-align: center;margin-right: 10px;margin-top:40px;margin-left:20px;background: url(../images/11.png) no-repeat;}
-.inpu {cursor: pointer;filter:alpha(opacity=0);-moz-opacity:0; opacity:0;width:29px;height:29px;}
-.span{float:left;display:block;padding:4px 40px 0px 0px;color:#000;}
-.tu1{width: 29px;height:29px;float: left;padding-top: 3px;cursor: pointer;text-align: center;margin-right: 10px;margin-top:40px;margin-left:20px;background:url(../images/22.png) no-repeat;}
-.span1{color:#f00;float:left;display:block;padding:4px 40px 0px 0px;}
-.span2{color:#000;}
 	/*菜单收缩切换*/
 	.dislpayArrow{position: absolute;top: 0;bottom: 0;left:150px;width:0px; height:100%;z-index:10}
 	.dislpayArrow a{ position:absolute; display:block; width:17px; height:61px;top:50%; margin-top:-30px;outline:none}

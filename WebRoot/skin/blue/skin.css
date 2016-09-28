@@ -11,6 +11,7 @@ a{color:#fff}a:hover,a:focus,.maincolor,.maincolor a{color:#fff}
 .Hui-userbar > li > a{ color:#fff}
 .Hui-userbar > li > a:hover,.Hui-userbar > li.current > a{ color:#fff}/*用户信息条高亮*/
 .Hui-aside{
+	background-image: url(../../images/userbg.jpg);
 	background-repeat: repeat-x;	
 	}/*侧边栏*/
 	.Hui-aside .menu_dropdown dt{
@@ -18,12 +19,10 @@ a{color:#fff}a:hover,a:focus,.maincolor,.maincolor a{color:#fff}
 	background-color: #1D8FC5;
 	border-bottom: 1px solid #fff
 }/*左侧二级导航菜单*/
-	.Hui-aside .menu_dropdown dt:hover{background: none repeat scroll 0% 0% #FF9135; transition: background-color 0.3s linear; -moz-transition: background-color 0.3s linear; -webkit-transition: background-color 0.3s linear; -o-transition: background-color 0.3s linear;}
-	.Hui-aside .menu_dropdown dt:hover [class^="icon-"]{ color:#7e8795}
-	.Hui-aside .menu_dropdown li a{
-		border-bottom: 0px solid #e5e5e5
-}
-	.Hui-aside .menu_dropdown li a:hover{}
+	
+	
+	.Hui-aside .menu_dropdown li a{color:#555;border-bottom: 1px solid #e5e5e5}
+	.Hui-aside .menu_dropdown li a:hover{color: #555;background-color: #F5F7F8}
 	.Hui-aside .menu_dropdown li.current a,.menu_dropdown li.current a:hover{color:#148cf1}
 	.Hui-aside .menu_dropdown dt .Hui-iconfont{color: #FFF}
 	.Hui-aside .menu_dropdown dt .menu_dropdown-arrow{ color:#FFF}	

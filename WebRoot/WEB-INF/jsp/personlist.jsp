@@ -70,7 +70,7 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${personList }" var="person" varStatus="index">
-						<tr>
+						<tr class="text-c">
 							<td class="f-14 td-manage">${index.count }</td>
 							<td>${person.idcard }</td>
 							<td>${person.realname }</td>
@@ -81,9 +81,9 @@
 								</c:if></td>
 							<td>${person.birthday }</td>
 							<td>${person.regaddress }</td>
-							<td>				<a href="${pageContext.request.contextPath }/person/delete.action?id=${person.id}" 
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6a6;</i>
-				删除</a></td>
+							<td class="f-14 td-manage">			
+							
+							<a style="text-decoration:none;" class="ml-5" onClick="article_del(this,'10001')" href="${pageContext.request.contextPath }/person/delete.action?id=${person.id}" title="删除"><i class="Hui-iconfont">&#xe6dd;</i></a></td>
 						</tr>
 					</c:forEach>
 

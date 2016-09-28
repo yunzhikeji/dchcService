@@ -25,4 +25,8 @@
 	<bean id="jpushpersonService" class="com.yz.service.impl.JpushpersonServiceImpl" />
 	<!-- 用户的service -->
 	<bean id="userRoleService" class="com.yz.service.impl.UserRoleServiceImpl" />
+	<!-- 地点的service -->
+	<bean id="locateService" class="com.yz.service.impl.LocateServiceImpl" />
+	<!-- 相关人员的service -->
+	<bean id="relpersonService" class="com.yz.service.impl.RelpersonServiceImpl" />
 </beans>

@@ -16,6 +16,7 @@ import com.yz.service.LocateService;
 @Controller
 @RequestMapping("/locate")
 public class LocateController {
+	
 	@Autowired
 	private LocateService locateService;
 
