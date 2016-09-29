@@ -18,6 +18,7 @@
     <result column="telphone" property="telphone" jdbcType="VARCHAR" />
     <result column="isPermit" property="ispermit" jdbcType="INTEGER" />
     <result column="belongPlace" property="belongplace" jdbcType="VARCHAR" />
+    <result column="uploadTime" property="uploadtime" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.yz.po.Relperson" extends="BaseResultMap" >
     <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
@@ -82,11 +83,41 @@
   </sql>
   <sql id="Base_Column_List" >
     id, rtype, name, sex, nation, IDCard, birthday, QQ, wechat, registerAddress, currentAddress, 
-    workdUnit, workdUnitAddress, telphone, isPermit, belongPlace
+    workdUnit, workdUnitAddress, telphone, isPermit, belongPlace, uploadTime
   </sql>
   <sql id="Blob_Column_List" >
     remark
   </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.yz.po.RelpersonExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from relperson
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yz.po.RelpersonExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from relperson
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -99,19 +130,27 @@
     delete from relperson
     where id = #{id,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteByExample" parameterType="com.yz.po.RelpersonExample" >
+    delete from relperson
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
   <insert id="insert" parameterType="com.yz.po.Relperson" >
     insert into relperson (id, rtype, name, 
       sex, nation, IDCard, 
       birthday, QQ, wechat, 
       registerAddress, currentAddress, workdUnit, 
       workdUnitAddress, telphone, isPermit, 
-      belongPlace, remark)
+      belongPlace, uploadTime, remark
+      )
     values (#{id,jdbcType=INTEGER}, #{rtype,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{nation,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
       #{birthday,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
       #{registeraddress,jdbcType=VARCHAR}, #{currentaddress,jdbcType=VARCHAR}, #{workdunit,jdbcType=VARCHAR}, 
       #{workdunitaddress,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, #{ispermit,jdbcType=INTEGER}, 
-      #{belongplace,jdbcType=VARCHAR}, #{remark,jdbcType=LONGVARCHAR})
+      #{belongplace,jdbcType=VARCHAR}, #{uploadtime,jdbcType=VARCHAR}, #{remark,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.yz.po.Relperson" >
     insert into relperson
@@ -163,6 +202,9 @@
       </if>
       <if test="belongplace != null" >
         belongPlace,
+      </if>
+      <if test="uploadtime != null" >
+        uploadTime,
       </if>
       <if test="remark != null" >
         remark,
@@ -217,11 +259,20 @@
       <if test="belongplace != null" >
         #{belongplace,jdbcType=VARCHAR},
       </if>
+      <if test="uploadtime != null" >
+        #{uploadtime,jdbcType=VARCHAR},
+      </if>
       <if test="remark != null" >
         #{remark,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.yz.po.RelpersonExample" resultType="java.lang.Integer" >
+    select count(*) from relperson
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update relperson
     <set >
@@ -273,10 +324,37 @@
       <if test="record.belongplace != null" >
         belongPlace = #{record.belongplace,jdbcType=VARCHAR},
       </if>
+      <if test="record.uploadtime != null" >
+        uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
+      </if>
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=LONGVARCHAR},
       </if>
     </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update relperson
+    set id = #{record.id,jdbcType=INTEGER},
+      rtype = #{record.rtype,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=INTEGER},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      IDCard = #{record.idcard,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=VARCHAR},
+      QQ = #{record.qq,jdbcType=VARCHAR},
+      wechat = #{record.wechat,jdbcType=VARCHAR},
+      registerAddress = #{record.registeraddress,jdbcType=VARCHAR},
+      currentAddress = #{record.currentaddress,jdbcType=VARCHAR},
+      workdUnit = #{record.workdunit,jdbcType=VARCHAR},
+      workdUnitAddress = #{record.workdunitaddress,jdbcType=VARCHAR},
+      telphone = #{record.telphone,jdbcType=VARCHAR},
+      isPermit = #{record.ispermit,jdbcType=INTEGER},
+      belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -298,7 +376,8 @@
       workdUnitAddress = #{record.workdunitaddress,jdbcType=VARCHAR},
       telphone = #{record.telphone,jdbcType=VARCHAR},
       isPermit = #{record.ispermit,jdbcType=INTEGER},
-      belongPlace = #{record.belongplace,jdbcType=VARCHAR}
+      belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      uploadTime = #{record.uploadtime,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -351,6 +430,9 @@
       <if test="belongplace != null" >
         belongPlace = #{belongplace,jdbcType=VARCHAR},
       </if>
+      <if test="uploadtime != null" >
+        uploadTime = #{uploadtime,jdbcType=VARCHAR},
+      </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=LONGVARCHAR},
       </if>
@@ -374,6 +456,7 @@
       telphone = #{telphone,jdbcType=VARCHAR},
       isPermit = #{ispermit,jdbcType=INTEGER},
       belongPlace = #{belongplace,jdbcType=VARCHAR},
+      uploadTime = #{uploadtime,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -393,7 +476,8 @@
       workdUnitAddress = #{workdunitaddress,jdbcType=VARCHAR},
       telphone = #{telphone,jdbcType=VARCHAR},
       isPermit = #{ispermit,jdbcType=INTEGER},
-      belongPlace = #{belongplace,jdbcType=VARCHAR}
+      belongPlace = #{belongplace,jdbcType=VARCHAR},
+      uploadTime = #{uploadtime,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

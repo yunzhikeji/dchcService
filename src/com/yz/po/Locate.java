@@ -1,74 +1,71 @@
 package com.yz.po;
 
-/**
- * 地点场所类
- * @author Administrator
- *
- */
 public class Locate {
     private Integer id;
 
-    private String address;//场所地址（详细地址,门牌号）
+    private String address;
 
-    private Integer islethouse;//是否出租房(0:否 1：是)
+    private Integer islethouse;
 
-    private String belongplace;//所属派出所或社区
+    private String belongplace;
 
-    private String policename;//社区民警姓名
+    private String policename;
 
-    private String registername;//注册名称
+    private String registername;
 
-    private String realregistername;//实际经营名称
+    private String realregistername;
 
-    private String opentime;//开业时间
+    private String opentime;
 
-    private String wifipwd;//wifi密码
+    private String wifipwd;
 
-    private Integer numberofrelperson;//从业人数
+    private Integer numberofrelperson;
 
-    private String businesslicensenumber;//营业执照号码
+    private String businesslicensenumber;
 
-    private String hygienelicensenumber;//卫生许可证号码
+    private String hygienelicensenumber;
 
-    private String taxregistrationcertificatenumber;//税务登记证
+    private String taxregistrationcertificatenumber;
 
-    private Integer placetype;//场所性质(1:娱乐场所 2：服务场所 3：特种行业 4：九小场所 5：物流快递)
+    private Integer placetype;
 
-    private Integer entertainmentplacetype;//娱乐场所(1:歌厅 2：卡拉OK厅 3：迪吧 4：夜总会 5：电子游戏厅 6：棋牌室 7：其他)注意：当选中娱乐场所再也是此选项
+    private Integer entertainmentplacetype;
 
-    private Integer serviceplacetype;//服务场所(1:桑拿洗浴 2：美容美发 3：足疗按摩 4：咖啡馆 5：小餐桌 6：网吧 7：娱乐城 8：茶馆 9：其他)同上
+    private Integer serviceplacetype;
 
-    private Integer specialplacetype;//特种行业（1:旅馆 2：开锁 3：刻字印刷 4：复印 5：废旧金属回收 6：二手机动车交易 7：机动车拆解 8：旧货业回收 9：机动车电动车修理）同上
+    private Integer specialplacetype;
 
-    private Integer ninesmallplacetype;//九小场所(1:小学校 2：小商场 3：小医院 4：小旅馆 5：小歌舞娱乐 6：小餐饮 7：小网吧 8：小美容洗浴 9：小生产加工 10：其他)同上
+    private Integer ninesmallplacetype;
 
-    private String placearea;//经营面积
+    private String placearea;
 
-    private Integer numberoffloor;//层数
+    private Integer numberoffloor;
 
-    private Integer numberofchannelport;//通道口个数
+    private Integer numberofchannelport;
 
-    private Integer numberofroom;//包间数量
+    private Integer numberofroom;
 
-    private Integer numberofholdperson;//容纳人数
+    private Integer numberofholdperson;
 
-    private Integer certificateofqualification;//合格证号
+    private Integer certificateofqualification;
 
-    private String firefacilities;//是否配备以下消防设施（灭火器 应急灯 消防拴 其他）多选
+    private String firefacilities;
 
-    private String chargepersonname;//保卫负责人姓名
+    private String chargepersonname;
 
-    private String chargepersonphone;//保卫负责人电话
+    private String chargepersonphone;
 
-    private Integer numberofstaffperson;//保安人数
+    private Integer numberofstaffperson;
 
-    private Integer numberofexternalmonitor;//外部监控数量
+    private Integer numberofexternalmonitor;
 
-    private Integer numberofinsidemonitor;//内部监控数量
+    private Integer numberofinsidemonitor;
 
-    private String protectcondition;//物防情况（防盗门 防盗窗 报警器 其他）
+    private String protectcondition;
 
-    private String businessscope;//经营范围
+    private String uploadtime;
+
+    private String businessscope;
 
     public Integer getId() {
         return id;
@@ -316,6 +313,14 @@ public class Locate {
 
     public void setProtectcondition(String protectcondition) {
         this.protectcondition = protectcondition == null ? null : protectcondition.trim();
+    }
+
+    public String getUploadtime() {
+        return uploadtime;
+    }
+
+    public void setUploadtime(String uploadtime) {
+        this.uploadtime = uploadtime == null ? null : uploadtime.trim();
     }
 
     public String getBusinessscope() {

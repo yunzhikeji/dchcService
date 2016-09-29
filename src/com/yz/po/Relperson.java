@@ -1,44 +1,41 @@
 package com.yz.po;
 
-/**
- * 与地点场所相关人员类
- * @author Administrator
- *
- */
 public class Relperson {
-    private Integer id;//相关人员id
+    private Integer id;
 
-    private Integer rtype;//相关人员类别（1：房东 2：房客 3：业主 4：从业人员）
+    private Integer rtype;
 
-    private String name;//姓名
+    private String name;
 
-    private Integer sex;//性别(1:男 2：女)
+    private Integer sex;
 
-    private String nation;//民族
+    private String nation;
 
-    private String idcard;//身份证号
+    private String idcard;
 
-    private String birthday;//出身日期
+    private String birthday;
 
-    private String qq;//qq
+    private String qq;
 
-    private String wechat;//微信号
+    private String wechat;
 
-    private String registeraddress;//户籍所在地址
+    private String registeraddress;
 
-    private String currentaddress;//现居住地址(用于与场所地址比较)
+    private String currentaddress;
 
-    private String workdunit;//工作单位名称
+    private String workdunit;
 
-    private String workdunitaddress;//工作单位地址(用于与场所地址比较)
+    private String workdunitaddress;
 
-    private String telphone;//联系电话
+    private String telphone;
 
-    private Integer ispermit;//是否办理居住证(0:否 1：是)
+    private Integer ispermit;
 
-    private String belongplace;//所属派出所或社区
+    private String belongplace;
 
-    private String remark;//备注
+    private String uploadtime;
+
+    private String remark;
 
     public Integer getId() {
         return id;
@@ -166,6 +163,14 @@ public class Relperson {
 
     public void setBelongplace(String belongplace) {
         this.belongplace = belongplace == null ? null : belongplace.trim();
+    }
+
+    public String getUploadtime() {
+        return uploadtime;
+    }
+
+    public void setUploadtime(String uploadtime) {
+        this.uploadtime = uploadtime == null ? null : uploadtime.trim();
     }
 
     public String getRemark() {

@@ -33,6 +33,7 @@
     <result column="numberOfExternalMonitor" property="numberofexternalmonitor" jdbcType="INTEGER" />
     <result column="numberOfInsideMonitor" property="numberofinsidemonitor" jdbcType="INTEGER" />
     <result column="protectCondition" property="protectcondition" jdbcType="VARCHAR" />
+    <result column="uploadTime" property="uploadtime" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.yz.po.Locate" extends="BaseResultMap" >
     <result column="businessScope" property="businessscope" jdbcType="LONGVARCHAR" />
@@ -102,11 +103,41 @@
     specialPlaceType, nineSmallPlaceType, placeArea, numberOfFloor, numberOfChannelport, 
     numberOfRoom, numberOfHoldperson, certificateOfQualification, fireFacilities, chargePersonName, 
     chargePersonPhone, numberOfStaffPerson, numberOfExternalMonitor, numberOfInsideMonitor, 
-    protectCondition
+    protectCondition, uploadTime
   </sql>
   <sql id="Blob_Column_List" >
     businessScope
   </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.yz.po.LocateExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from locate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yz.po.LocateExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from locate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -118,6 +149,12 @@
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from locate
     where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yz.po.LocateExample" >
+    delete from locate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
   </delete>
   <insert id="insert" parameterType="com.yz.po.Locate" >
     insert into locate (id, address, isLetHouse, 
@@ -132,7 +169,7 @@
       fireFacilities, chargePersonName, chargePersonPhone, 
       numberOfStaffPerson, numberOfExternalMonitor, 
       numberOfInsideMonitor, protectCondition, 
-      businessScope)
+      uploadTime, businessScope)
     values (#{id,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{islethouse,jdbcType=INTEGER}, 
       #{belongplace,jdbcType=VARCHAR}, #{policename,jdbcType=VARCHAR}, #{registername,jdbcType=VARCHAR}, 
       #{realregistername,jdbcType=VARCHAR}, #{opentime,jdbcType=VARCHAR}, #{wifipwd,jdbcType=VARCHAR}, 
@@ -145,7 +182,7 @@
       #{firefacilities,jdbcType=VARCHAR}, #{chargepersonname,jdbcType=VARCHAR}, #{chargepersonphone,jdbcType=VARCHAR}, 
       #{numberofstaffperson,jdbcType=INTEGER}, #{numberofexternalmonitor,jdbcType=INTEGER}, 
       #{numberofinsidemonitor,jdbcType=INTEGER}, #{protectcondition,jdbcType=VARCHAR}, 
-      #{businessscope,jdbcType=LONGVARCHAR})
+      #{uploadtime,jdbcType=VARCHAR}, #{businessscope,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yz.po.Locate" >
     insert into locate
@@ -242,6 +279,9 @@
       </if>
       <if test="protectcondition != null" >
         protectCondition,
+      </if>
+      <if test="uploadtime != null" >
+        uploadTime,
       </if>
       <if test="businessscope != null" >
         businessScope,
@@ -341,11 +381,204 @@
       <if test="protectcondition != null" >
         #{protectcondition,jdbcType=VARCHAR},
       </if>
+      <if test="uploadtime != null" >
+        #{uploadtime,jdbcType=VARCHAR},
+      </if>
       <if test="businessscope != null" >
         #{businessscope,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.yz.po.LocateExample" resultType="java.lang.Integer" >
+    select count(*) from locate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update locate
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.islethouse != null" >
+        isLetHouse = #{record.islethouse,jdbcType=INTEGER},
+      </if>
+      <if test="record.belongplace != null" >
+        belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policename != null" >
+        policeName = #{record.policename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registername != null" >
+        registerName = #{record.registername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realregistername != null" >
+        realRegisterName = #{record.realregistername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opentime != null" >
+        openTime = #{record.opentime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wifipwd != null" >
+        wifiPwd = #{record.wifipwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numberofrelperson != null" >
+        numberOfRelperson = #{record.numberofrelperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.businesslicensenumber != null" >
+        businessLicenseNumber = #{record.businesslicensenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hygienelicensenumber != null" >
+        hygieneLicenseNumber = #{record.hygienelicensenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxregistrationcertificatenumber != null" >
+        taxRegistrationCertificateNumber = #{record.taxregistrationcertificatenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.placetype != null" >
+        placeType = #{record.placetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.entertainmentplacetype != null" >
+        entertainmentPlaceType = #{record.entertainmentplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.serviceplacetype != null" >
+        servicePlaceType = #{record.serviceplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.specialplacetype != null" >
+        specialPlaceType = #{record.specialplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.ninesmallplacetype != null" >
+        nineSmallPlaceType = #{record.ninesmallplacetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.placearea != null" >
+        placeArea = #{record.placearea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numberoffloor != null" >
+        numberOfFloor = #{record.numberoffloor,jdbcType=INTEGER},
+      </if>
+      <if test="record.numberofchannelport != null" >
+        numberOfChannelport = #{record.numberofchannelport,jdbcType=INTEGER},
+      </if>
+      <if test="record.numberofroom != null" >
+        numberOfRoom = #{record.numberofroom,jdbcType=INTEGER},
+      </if>
+      <if test="record.numberofholdperson != null" >
+        numberOfHoldperson = #{record.numberofholdperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.certificateofqualification != null" >
+        certificateOfQualification = #{record.certificateofqualification,jdbcType=INTEGER},
+      </if>
+      <if test="record.firefacilities != null" >
+        fireFacilities = #{record.firefacilities,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chargepersonname != null" >
+        chargePersonName = #{record.chargepersonname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chargepersonphone != null" >
+        chargePersonPhone = #{record.chargepersonphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numberofstaffperson != null" >
+        numberOfStaffPerson = #{record.numberofstaffperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.numberofexternalmonitor != null" >
+        numberOfExternalMonitor = #{record.numberofexternalmonitor,jdbcType=INTEGER},
+      </if>
+      <if test="record.numberofinsidemonitor != null" >
+        numberOfInsideMonitor = #{record.numberofinsidemonitor,jdbcType=INTEGER},
+      </if>
+      <if test="record.protectcondition != null" >
+        protectCondition = #{record.protectcondition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uploadtime != null" >
+        uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessscope != null" >
+        businessScope = #{record.businessscope,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update locate
+    set id = #{record.id,jdbcType=INTEGER},
+      address = #{record.address,jdbcType=VARCHAR},
+      isLetHouse = #{record.islethouse,jdbcType=INTEGER},
+      belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      policeName = #{record.policename,jdbcType=VARCHAR},
+      registerName = #{record.registername,jdbcType=VARCHAR},
+      realRegisterName = #{record.realregistername,jdbcType=VARCHAR},
+      openTime = #{record.opentime,jdbcType=VARCHAR},
+      wifiPwd = #{record.wifipwd,jdbcType=VARCHAR},
+      numberOfRelperson = #{record.numberofrelperson,jdbcType=INTEGER},
+      businessLicenseNumber = #{record.businesslicensenumber,jdbcType=VARCHAR},
+      hygieneLicenseNumber = #{record.hygienelicensenumber,jdbcType=VARCHAR},
+      taxRegistrationCertificateNumber = #{record.taxregistrationcertificatenumber,jdbcType=VARCHAR},
+      placeType = #{record.placetype,jdbcType=INTEGER},
+      entertainmentPlaceType = #{record.entertainmentplacetype,jdbcType=INTEGER},
+      servicePlaceType = #{record.serviceplacetype,jdbcType=INTEGER},
+      specialPlaceType = #{record.specialplacetype,jdbcType=INTEGER},
+      nineSmallPlaceType = #{record.ninesmallplacetype,jdbcType=INTEGER},
+      placeArea = #{record.placearea,jdbcType=VARCHAR},
+      numberOfFloor = #{record.numberoffloor,jdbcType=INTEGER},
+      numberOfChannelport = #{record.numberofchannelport,jdbcType=INTEGER},
+      numberOfRoom = #{record.numberofroom,jdbcType=INTEGER},
+      numberOfHoldperson = #{record.numberofholdperson,jdbcType=INTEGER},
+      certificateOfQualification = #{record.certificateofqualification,jdbcType=INTEGER},
+      fireFacilities = #{record.firefacilities,jdbcType=VARCHAR},
+      chargePersonName = #{record.chargepersonname,jdbcType=VARCHAR},
+      chargePersonPhone = #{record.chargepersonphone,jdbcType=VARCHAR},
+      numberOfStaffPerson = #{record.numberofstaffperson,jdbcType=INTEGER},
+      numberOfExternalMonitor = #{record.numberofexternalmonitor,jdbcType=INTEGER},
+      numberOfInsideMonitor = #{record.numberofinsidemonitor,jdbcType=INTEGER},
+      protectCondition = #{record.protectcondition,jdbcType=VARCHAR},
+      uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
+      businessScope = #{record.businessscope,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update locate
+    set id = #{record.id,jdbcType=INTEGER},
+      address = #{record.address,jdbcType=VARCHAR},
+      isLetHouse = #{record.islethouse,jdbcType=INTEGER},
+      belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      policeName = #{record.policename,jdbcType=VARCHAR},
+      registerName = #{record.registername,jdbcType=VARCHAR},
+      realRegisterName = #{record.realregistername,jdbcType=VARCHAR},
+      openTime = #{record.opentime,jdbcType=VARCHAR},
+      wifiPwd = #{record.wifipwd,jdbcType=VARCHAR},
+      numberOfRelperson = #{record.numberofrelperson,jdbcType=INTEGER},
+      businessLicenseNumber = #{record.businesslicensenumber,jdbcType=VARCHAR},
+      hygieneLicenseNumber = #{record.hygienelicensenumber,jdbcType=VARCHAR},
+      taxRegistrationCertificateNumber = #{record.taxregistrationcertificatenumber,jdbcType=VARCHAR},
+      placeType = #{record.placetype,jdbcType=INTEGER},
+      entertainmentPlaceType = #{record.entertainmentplacetype,jdbcType=INTEGER},
+      servicePlaceType = #{record.serviceplacetype,jdbcType=INTEGER},
+      specialPlaceType = #{record.specialplacetype,jdbcType=INTEGER},
+      nineSmallPlaceType = #{record.ninesmallplacetype,jdbcType=INTEGER},
+      placeArea = #{record.placearea,jdbcType=VARCHAR},
+      numberOfFloor = #{record.numberoffloor,jdbcType=INTEGER},
+      numberOfChannelport = #{record.numberofchannelport,jdbcType=INTEGER},
+      numberOfRoom = #{record.numberofroom,jdbcType=INTEGER},
+      numberOfHoldperson = #{record.numberofholdperson,jdbcType=INTEGER},
+      certificateOfQualification = #{record.certificateofqualification,jdbcType=INTEGER},
+      fireFacilities = #{record.firefacilities,jdbcType=VARCHAR},
+      chargePersonName = #{record.chargepersonname,jdbcType=VARCHAR},
+      chargePersonPhone = #{record.chargepersonphone,jdbcType=VARCHAR},
+      numberOfStaffPerson = #{record.numberofstaffperson,jdbcType=INTEGER},
+      numberOfExternalMonitor = #{record.numberofexternalmonitor,jdbcType=INTEGER},
+      numberOfInsideMonitor = #{record.numberofinsidemonitor,jdbcType=INTEGER},
+      protectCondition = #{record.protectcondition,jdbcType=VARCHAR},
+      uploadTime = #{record.uploadtime,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.yz.po.Locate" >
     update locate
     <set >
@@ -439,6 +672,9 @@
       <if test="protectcondition != null" >
         protectCondition = #{protectcondition,jdbcType=VARCHAR},
       </if>
+      <if test="uploadtime != null" >
+        uploadTime = #{uploadtime,jdbcType=VARCHAR},
+      </if>
       <if test="businessscope != null" >
         businessScope = #{businessscope,jdbcType=LONGVARCHAR},
       </if>
@@ -477,6 +713,7 @@
       numberOfExternalMonitor = #{numberofexternalmonitor,jdbcType=INTEGER},
       numberOfInsideMonitor = #{numberofinsidemonitor,jdbcType=INTEGER},
       protectCondition = #{protectcondition,jdbcType=VARCHAR},
+      uploadTime = #{uploadtime,jdbcType=VARCHAR},
       businessScope = #{businessscope,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -511,7 +748,8 @@
       numberOfStaffPerson = #{numberofstaffperson,jdbcType=INTEGER},
       numberOfExternalMonitor = #{numberofexternalmonitor,jdbcType=INTEGER},
       numberOfInsideMonitor = #{numberofinsidemonitor,jdbcType=INTEGER},
-      protectCondition = #{protectcondition,jdbcType=VARCHAR}
+      protectCondition = #{protectcondition,jdbcType=VARCHAR},
+      uploadTime = #{uploadtime,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
