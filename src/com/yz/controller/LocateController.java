@@ -35,7 +35,7 @@ public class LocateController {
 		List<Locate> locateList = locateService.findLocateList();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("locateList", locateList);
-		modelAndView.setViewName("locatelist");
+		modelAndView.setViewName("locates");
 		return modelAndView;
 	}
 

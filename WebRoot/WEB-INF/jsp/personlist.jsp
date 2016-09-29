@@ -26,8 +26,7 @@
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>人员信息列表</title>
-
+<title>人员信息导出</title>
 <script type="text/javascript">
 	function checknow() {
 		//提交form
@@ -42,40 +41,29 @@
 </script>
 </head>
 <body>
-	
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><span class="c-gray en">&gt;</span>人员信息导出
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><span class="c-gray en">&gt;</span>人员信息导出
 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-	
-	<div class="cl pd-5 bg-1 bk-gray mt-20">
-		<span class="l"><a
-			href="${pageContext.request.contextPath }/person/export.action"
-			class="btn btn-success radius"><i class="Hui-iconfont">&#xe644;</i>
-				导出EXCEL</a>&nbsp;<a
-			href="${pageContext.request.contextPath }/person/clean.action"
-			class="btn btn-danger radius"><i class="Hui-iconfont">&#xe609;</i>
-				清空</a></span>
-	</div>
-	<div class="mt-20">
-		<form name="jpushForm"
-			action="${pageContext.request.contextPath }/jcheck.action"
-			method="post">
-			<table
-				class="table table-border table-bordered table-bg table-hover table-sort">
-				<thead>
-					<tr class="text-c">
-						<!-- <th width="41">&nbsp;</th> -->
-						<th width="5%">序号ID</th>
-						<th width="20%">身份证号</th>
-						<th width="10%">姓名</th>
-						<th width="10%">性别</th>
-						<th width="10%">出生日期</th>
-						<th width="10%">户籍</th>
-						<th width="10%">删除</th>
 
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${personList }" var="person" varStatus="index">
+
+<div class="pd-20">
+  <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="${pageContext.request.contextPath }/person/export.action" class="btn btn-success radius"><i class="Hui-iconfont">&#xe644;</i> 导出EXCEL</a> <a href="${pageContext.request.contextPath }/person/clean.action"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 清空</a></span> <span class="r">共有数据：<strong>${personList.size()}</strong> 条</span> </div>
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg">
+			<thead>
+				<tr class="text-c">
+					
+					<th width="80">序号ID</th>
+					<th width="200">身份证号</th>
+					<th width="200">姓名</th>
+					<th width="200">性别</th>
+					<th width="200">出生日期</th>
+                    <th width="200">户籍</th>
+					<th width="100">操作</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${personList }" var="person" varStatus="index">
 						<tr class="text-c">
 							<td class="f-14 td-manage">${index.count }</td>
 							<td>${person.idcard }</td>
@@ -87,15 +75,18 @@
 								</c:if></td>
 							<td>${person.birthday }</td>
 							<td>${person.regaddress }</td>
-							<td class="f-14 td-manage">			
-							
-							<a style="text-decoration:none;" class="ml-5"  onclick="return confirm('你确定删除该信息吗？')"  href="${pageContext.request.contextPath }/person/delete.action?id=${person.id}" title="删除"><i class="Hui-iconfont">&#xe6dd;</i></a></td>
+							<td class="f-14 td-manage"><a style="text-decoration: none;"
+								class="ml-5" onclick="return confirm('你确定删除该信息吗？')"
+								href="${pageContext.request.contextPath }/person/delete.action?id=${person.id}"
+								title="删除"><i class="Hui-iconfont">&#xe6dd;</i></a></td>
 						</tr>
 					</c:forEach>
-				</tbody>
-			</table>
-		</form>
+                
+                
+			</tbody>
+		</table>
 	</div>
-
+    
+</div>
 </body>
 </html>
