@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -11,11 +15,11 @@
 <script type="text/javascript" src="hui/respond.min.js"></script>
 <script type="text/javascript" src="hui/PIE_IE678.js"></script>
 <![endif]-->
-<link href="css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="css/ncss.css" rel="stylesheet" type="text/css" />
-<link href="hui/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
-<link href="hui/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/ncss.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/hui/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/hui/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -130,12 +134,12 @@
 </div></div>
 
 </div></div>
-<script type="text/javascript" src="hui/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="hui/layer/1.9.3/layer.js"></script> 
-<script type="text/javascript" src="hui/My97DatePicker/WdatePicker.js"></script> 
-<script type="text/javascript" src="hui/datatables/1.10.0/jquery.dataTables.min.js"></script> 
-<script type="text/javascript" src="js/H-ui.js"></script> 
-<script type="text/javascript" src="js/H-ui.admin.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/H-ui.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/H-ui.admin.js"></script>
 <script type="text/javascript">
 $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序

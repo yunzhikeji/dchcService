@@ -1,4 +1,8 @@
-﻿<!DOCTYPE HTML>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -11,10 +15,10 @@
 <script type="text/javascript" src="hui/respond.min.js"></script>
 <script type="text/javascript" src="hui/PIE_IE678.js"></script>
 <![endif]-->
-<link href="css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="hui/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/hui/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -40,7 +44,7 @@
       </table>
     </form>
   </div>
-  <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="article_add('相关人员人口登记','relevant-add.html')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+  <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="article_add('相关人员人口登记','${pageContext.request.contextPath }/relperson/toAdd')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg">
 			<thead>
@@ -80,12 +84,12 @@
 	</div>
     
 </div>
-<script type="text/javascript" src="hui/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="hui/layer/1.9.3/layer.js"></script> 
-<script type="text/javascript" src="hui/My97DatePicker/WdatePicker.js"></script> 
-<script type="text/javascript" src="hui/datatables/1.10.0/jquery.dataTables.min.js"></script> 
-<script type="text/javascript" src="js/H-ui.js"></script> 
-<script type="text/javascript" src="js/H-ui.admin.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/H-ui.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/H-ui.admin.js"></script>
 <script type="text/javascript">
 $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序

@@ -55,7 +55,7 @@
 					<li><a href="${pageContext.request.contextPath }/jcheck.action" target="myiframe">人员信息检测 </a></li>
 					<li><a href="${pageContext.request.contextPath }/person/list.action" target="myiframe">人员信息导出</a></li>
                     <li><a href="${pageContext.request.contextPath }/locate/list.action" target="myiframe">地点(场所)</a></li>
-                    <li><a href="${pageContext.request.contextPath }/relevant-list.html" target="myiframe">相关人员</a></li>
+                    <li><a href="${pageContext.request.contextPath }/relperson/list" target="myiframe">相关人员</a></li>
 				</ul>
 			</dd>
 		</dl>		

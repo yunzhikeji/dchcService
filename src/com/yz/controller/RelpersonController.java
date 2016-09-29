@@ -28,13 +28,17 @@ public class RelpersonController {
 		return ps;
 	}
 
+	@RequestMapping("/toAdd")
+	public String toAdd() throws Exception {
+		return "relperson/relpersonAdd";
+	}
 
 	@RequestMapping("/list")
 	public ModelAndView list(HttpServletRequest request) throws Exception {
 		List<Relperson> relpersonList = relpersonService.findRelpersonList();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("relpersonList", relpersonList);
-		modelAndView.setViewName("relpersonlist");
+		modelAndView.setViewName("relperson/relpersonList");
 		return modelAndView;
 	}
 
