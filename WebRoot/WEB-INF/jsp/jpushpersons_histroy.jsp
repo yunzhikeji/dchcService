@@ -80,15 +80,11 @@
 							<td>${jpushperson.backcheckresulttime}</td>
 							<td class="f-14 td-manage"><c:if test="${jpushperson.istrue ==1 }">
 									<img src="${pageContext.request.contextPath }/images/tg.png">
-									  <a style="text-decoration:none;" class="ml-5" onclick="" href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" title="删除"><i class="Hui-iconfont" style="font-size:30px; color:#F00;">&#xe6dd;</i></a>
-
-
-
-
+									  <a style="text-decoration:none;" class="ml-5" onclick="return confirm('你确定删除该信息吗？')" href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" title="删除"><i class="Hui-iconfont" style="font-size:30px; color:#F00;">&#xe6dd;</i></a>
 								</c:if> <c:if test="${jpushperson.istrue ==2 }">
 									 <img src="${pageContext.request.contextPath }/images/wtg.png">
 
-									 <a style="text-decoration:none;" class="ml-5" onclick="" href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" title="删除"><i class="Hui-iconfont" style="font-size:30px; color:#F00;">&#xe6dd;</i></a>
+									 <a style="text-decoration:none;" class="ml-5" onclick="return confirm('你确定删除该信息吗？')"  href="${pageContext.request.contextPath }/jdelete.action?id=${jpushperson.id}" title="删除"><i class="Hui-iconfont" style="font-size:30px; color:#F00;">&#xe6dd;</i></a>
 								</c:if></td>
 						</tr>
 					</c:forEach>

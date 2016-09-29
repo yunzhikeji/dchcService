@@ -36,7 +36,6 @@
 <ul class="nav" style="margin-right:20px;margin-top:25px">
     <li><a href="${pageContext.request.contextPath }/login/logout.action" title="注销"><img src="${pageContext.request.contextPath }/images/icon07.png" title="注销" /><h4>注销</h4> </a></li>
     </ul>
-    
 	<a aria-hidden="false" class="Hui-nav-toggle" href="#"></a> </header>
 <aside class="Hui-aside" style="overflow-y:auto; overflow-x:hidden;">
 	<div class="menu_dropdown bk_2">
