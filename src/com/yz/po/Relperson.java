@@ -1,183 +1,183 @@
 package com.yz.po;
 
 public class Relperson {
-    private Integer id;
+	private Integer id;// 相关人员id
 
-    private Integer rtype;
+	private Integer rtype;// 相关人员类别（1：房东 2：房客 3：业主 4：从业人员）
 
-    private String name;
+	private String name;// 姓名
 
-    private Integer sex;
+	private Integer sex;// 性别(1:男 2：女)
 
-    private String nation;
+	private String nation;// 民族
 
-    private String idcard;
+	private String idcard;// 身份证号
 
-    private String birthday;
+	private String birthday;// 出身日期
 
-    private String qq;
+	private String qq;// qq
 
-    private String wechat;
+	private String wechat;// 微信号
 
-    private String registeraddress;
+	private String registeraddress;// 户籍所在地址
 
-    private String currentaddress;
+	private String currentaddress;// 现居住地址(用于与场所地址比较)
 
-    private String workdunit;
+	private String workdunit;// 工作单位名称
 
-    private String workdunitaddress;
+	private String workdunitaddress;// 工作单位地址(用于与场所地址比较)
 
-    private String telphone;
+	private String telphone;// 联系电话
 
-    private Integer ispermit;
+	private Integer ispermit;// 是否办理居住证(0:否 1：是)
 
-    private String belongplace;
+	private String belongplace;// 所属派出所或社区
 
-    private String uploadtime;
+	private String remark;// 备注
 
-    private String remark;
+	private String uploadtime;//上传时间
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getRtype() {
-        return rtype;
-    }
+	public Integer getRtype() {
+		return rtype;
+	}
 
-    public void setRtype(Integer rtype) {
-        this.rtype = rtype;
-    }
+	public void setRtype(Integer rtype) {
+		this.rtype = rtype;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 
-    public Integer getSex() {
-        return sex;
-    }
+	public Integer getSex() {
+		return sex;
+	}
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
 
-    public String getNation() {
-        return nation;
-    }
+	public String getNation() {
+		return nation;
+	}
 
-    public void setNation(String nation) {
-        this.nation = nation == null ? null : nation.trim();
-    }
+	public void setNation(String nation) {
+		this.nation = nation == null ? null : nation.trim();
+	}
 
-    public String getIdcard() {
-        return idcard;
-    }
+	public String getIdcard() {
+		return idcard;
+	}
 
-    public void setIdcard(String idcard) {
-        this.idcard = idcard == null ? null : idcard.trim();
-    }
+	public void setIdcard(String idcard) {
+		this.idcard = idcard == null ? null : idcard.trim();
+	}
 
-    public String getBirthday() {
-        return birthday;
-    }
+	public String getBirthday() {
+		return birthday;
+	}
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday == null ? null : birthday.trim();
-    }
+	public void setBirthday(String birthday) {
+		this.birthday = birthday == null ? null : birthday.trim();
+	}
 
-    public String getQq() {
-        return qq;
-    }
+	public String getQq() {
+		return qq;
+	}
 
-    public void setQq(String qq) {
-        this.qq = qq == null ? null : qq.trim();
-    }
+	public void setQq(String qq) {
+		this.qq = qq == null ? null : qq.trim();
+	}
 
-    public String getWechat() {
-        return wechat;
-    }
+	public String getWechat() {
+		return wechat;
+	}
 
-    public void setWechat(String wechat) {
-        this.wechat = wechat == null ? null : wechat.trim();
-    }
+	public void setWechat(String wechat) {
+		this.wechat = wechat == null ? null : wechat.trim();
+	}
 
-    public String getRegisteraddress() {
-        return registeraddress;
-    }
+	public String getRegisteraddress() {
+		return registeraddress;
+	}
 
-    public void setRegisteraddress(String registeraddress) {
-        this.registeraddress = registeraddress == null ? null : registeraddress.trim();
-    }
+	public void setRegisteraddress(String registeraddress) {
+		this.registeraddress = registeraddress == null ? null : registeraddress.trim();
+	}
 
-    public String getCurrentaddress() {
-        return currentaddress;
-    }
+	public String getCurrentaddress() {
+		return currentaddress;
+	}
 
-    public void setCurrentaddress(String currentaddress) {
-        this.currentaddress = currentaddress == null ? null : currentaddress.trim();
-    }
+	public void setCurrentaddress(String currentaddress) {
+		this.currentaddress = currentaddress == null ? null : currentaddress.trim();
+	}
 
-    public String getWorkdunit() {
-        return workdunit;
-    }
+	public String getWorkdunit() {
+		return workdunit;
+	}
 
-    public void setWorkdunit(String workdunit) {
-        this.workdunit = workdunit == null ? null : workdunit.trim();
-    }
+	public void setWorkdunit(String workdunit) {
+		this.workdunit = workdunit == null ? null : workdunit.trim();
+	}
 
-    public String getWorkdunitaddress() {
-        return workdunitaddress;
-    }
+	public String getWorkdunitaddress() {
+		return workdunitaddress;
+	}
 
-    public void setWorkdunitaddress(String workdunitaddress) {
-        this.workdunitaddress = workdunitaddress == null ? null : workdunitaddress.trim();
-    }
+	public void setWorkdunitaddress(String workdunitaddress) {
+		this.workdunitaddress = workdunitaddress == null ? null : workdunitaddress.trim();
+	}
 
-    public String getTelphone() {
-        return telphone;
-    }
+	public String getTelphone() {
+		return telphone;
+	}
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone == null ? null : telphone.trim();
-    }
+	public void setTelphone(String telphone) {
+		this.telphone = telphone == null ? null : telphone.trim();
+	}
 
-    public Integer getIspermit() {
-        return ispermit;
-    }
+	public Integer getIspermit() {
+		return ispermit;
+	}
 
-    public void setIspermit(Integer ispermit) {
-        this.ispermit = ispermit;
-    }
+	public void setIspermit(Integer ispermit) {
+		this.ispermit = ispermit;
+	}
 
-    public String getBelongplace() {
-        return belongplace;
-    }
+	public String getBelongplace() {
+		return belongplace;
+	}
 
-    public void setBelongplace(String belongplace) {
-        this.belongplace = belongplace == null ? null : belongplace.trim();
-    }
+	public void setBelongplace(String belongplace) {
+		this.belongplace = belongplace == null ? null : belongplace.trim();
+	}
 
-    public String getUploadtime() {
-        return uploadtime;
-    }
+	public String getUploadtime() {
+		return uploadtime;
+	}
 
-    public void setUploadtime(String uploadtime) {
-        this.uploadtime = uploadtime == null ? null : uploadtime.trim();
-    }
+	public void setUploadtime(String uploadtime) {
+		this.uploadtime = uploadtime == null ? null : uploadtime.trim();
+	}
 
-    public String getRemark() {
-        return remark;
-    }
+	public String getRemark() {
+		return remark;
+	}
 
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
-    }
+	public void setRemark(String remark) {
+		this.remark = remark == null ? null : remark.trim();
+	}
 }

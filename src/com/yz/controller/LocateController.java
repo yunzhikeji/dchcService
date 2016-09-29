@@ -33,6 +33,7 @@ public class LocateController {
 	@RequestMapping("/list")
 	public ModelAndView list(HttpServletRequest request) throws Exception {
 		List<Locate> locateList = locateService.findLocateList();
+		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("locateList", locateList);
 		modelAndView.setViewName("locates");
@@ -43,6 +44,13 @@ public class LocateController {
 	public String delete(Integer id) throws Exception {
 		locateService.deleteLocateById(id);
 		return "redirect:/locate/list";
+	}
+	
+	@RequestMapping("/toAdd")
+	public String toAdd() throws Exception {
+		
+		return "redirect:/locate/list";
+		
 	}
 	
 	
