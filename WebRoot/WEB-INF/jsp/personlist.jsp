@@ -11,18 +11,21 @@
 <meta charset="utf-8">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport"
-	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<link href="${pageContext.request.contextPath }/css/H-ui.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath }/css/H-ui.admin.css"
-	rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath }/css/ncss.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="${pageContext.request.contextPath }/css/Hui-iconfont/1.0.1/iconfont.css"
-	rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="hui/html5.js"></script>
+<script type="text/javascript" src="hui/respond.min.js"></script>
+<script type="text/javascript" src="hui/PIE_IE678.js"></script>
+<![endif]-->
+<link href="${pageContext.request.contextPath }/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/hui/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
 <title>人员信息列表</title>
 
 <script type="text/javascript">
@@ -39,7 +42,10 @@
 </script>
 </head>
 <body>
-
+	
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><span class="c-gray en">&gt;</span>人员信息导出
+<a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l"><a
 			href="${pageContext.request.contextPath }/person/export.action"
@@ -83,51 +89,9 @@
 							<td>${person.regaddress }</td>
 							<td class="f-14 td-manage">			
 							
-							<a style="text-decoration:none;" class="ml-5" onClick="article_del(this,'10001')" href="${pageContext.request.contextPath }/person/delete.action?id=${person.id}" title="删除"><i class="Hui-iconfont">&#xe6dd;</i></a></td>
+							<a style="text-decoration:none;" class="ml-5"  onclick="return confirm('你确定删除该信息吗？')"  href="${pageContext.request.contextPath }/person/delete.action?id=${person.id}" title="删除"><i class="Hui-iconfont">&#xe6dd;</i></a></td>
 						</tr>
 					</c:forEach>
-
-					<!--	<tr class="text-c">
-					<td><input type="checkbox" value="" name=""></td>
-					<td>10001</td>
-					<td class="text-l"><u style="cursor: pointer"
-						class="text-primary"
-						onClick=""
-						title="查看">资讯标题</u></td>
-					<td>&nbsp;</td>
-					<td>城北派出所</td>
-					<td>21212</td>
-					<td class="f-14 td-manage"></td>
-					<td class="f-14 td-manage">&nbsp;</td>
-					<td class="f-14 td-manage">张然</td>
-					<td class="f-14 td-manage"><a style="text-decoration: none"
-						class="ml-5" onClick="article_edit('编辑信息','run-add.html','10001')"
-						href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-						<a style="text-decoration: none" class="ml-5"
-						onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i
-							class="Hui-iconfont">&#xe6e2;</i></a></td>
-				</tr>
-				<tr class="text-c">
-					<td><input type="checkbox" value="" name=""></td>
-					<td>10001</td>
-					<td class="text-l"><u style="cursor: pointer"
-						class="text-primary"
-						onClick="article_edit('查看','article-zhang.html','10001')"
-						title="查看">资讯标题</u></td>
-					<td>&nbsp;</td>
-					<td>城北派出所</td>
-					<td>21212</td>
-					<td class="f-14 td-manage"></td>
-					<td class="f-14 td-manage">&nbsp;</td>
-					<td class="f-14 td-manage">&nbsp;</td>
-					<td class="f-14 td-manage"><a style="text-decoration: none"
-						class="ml-5"
-						onClick=""
-						href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-						<a style="text-decoration: none" class="ml-5"
-						onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i
-							class="Hui-iconfont">&#xe6e2;</i></a></td>
-				</tr>   -->
 				</tbody>
 			</table>
 		</form>
