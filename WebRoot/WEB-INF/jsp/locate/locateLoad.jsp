@@ -32,7 +32,6 @@
 
 		<form name="locateForm" action="${pageContext.request.contextPath }/locate/update"
 			method="post" class="form form-horizontal" id="locateForm ">
-			
 			<input type="hidden" name="id"  value="${locate.id}"/>
 <div class="pd-20">
 <div  class="row cl">
@@ -81,7 +80,7 @@
 </table>
 
   </div>
-  <div id="nolease" class="row cl mt-15" style="display:block;">
+  <div id="nolease" class="row cl mt-15" <c:if test="${locate.islethouse==0}">style="display:block;"</c:if> <c:if test="${locate.islethouse==1}">style="display:none;"</c:if>   >
    <div class="col-12 mb-15 c-primary f-16" style="border-bottom: solid 2px #2DABF7 ">非出租房相关信息</div>
   <div  class="row cl">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="line-height:45px;">

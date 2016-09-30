@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yz.po.Locate;
 import com.yz.service.LocateService;
 import com.yz.utils.DateTimeKit;
+import com.yz.vo.UploadResult;
 
 @Controller
 @RequestMapping("/locate")
@@ -22,20 +23,20 @@ public class LocateController {
 	private LocateService locateService;
 
 	@RequestMapping("/addLocate")
-	public @ResponseBody Locate addLocate(Locate locate)
+	public @ResponseBody UploadResult addLocate(Locate locate)
 			throws Exception {
 		locate.setUploadtime(DateTimeKit.getLocal_Time());//设置上传时间
 		locateService.insert(locate);
-		Locate ps = new Locate();
-		ps.setId(-1);
-		return ps;
+		
+		UploadResult uploadResult = new UploadResult();
+		uploadResult.setUploadResult(1);
+		return uploadResult;
 	}
 
 
 	@RequestMapping("/list")
 	public ModelAndView list(HttpServletRequest request) throws Exception {
 		List<Locate> locateList = locateService.findLocateList();
-		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("locateList", locateList);
 		modelAndView.setViewName("locate/locates");

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yz.po.Relperson;
 import com.yz.service.RelpersonService;
+import com.yz.vo.UploadResult;
 
 @Controller
 @RequestMapping("/relperson")
@@ -22,12 +23,12 @@ public class RelpersonController {
 	private RelpersonService relpersonService;
 
 	@RequestMapping("/addRelperson")
-	public @ResponseBody Relperson addRelperson(Relperson relperson)
+	public @ResponseBody UploadResult addRelperson(Relperson relperson)
 			throws Exception {
 		relpersonService.insert(relperson);
-		Relperson ps = new Relperson();
-		ps.setId(-1); 
-		return ps;
+		UploadResult uploadResult = new UploadResult();
+		uploadResult.setUploadResult(1);
+		return uploadResult;
 	}
 
 	@RequestMapping("/toEdit")
