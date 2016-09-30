@@ -42,4 +42,14 @@ public class RelpersonServiceImpl implements RelpersonService {
 		relpersonMapper.updateByPrimaryKeySelective(relperson);
 	}
 
+	@Override
+	public Relperson findRelpersonById(Integer id) {
+		return relpersonMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public List<Relperson> findRelpersonListByRelpersonQuery(Relperson relperson) {
+		return relpersonMapperCustom.findRelpersonListByRelpersonQuery(relperson);
+	}
+
 }

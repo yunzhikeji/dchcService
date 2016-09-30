@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yz.mapper.RelpersonMapperCustom" >
+<mapper namespace="com.yz.mapper.RelpersonMapperCustom">
 
 	<select id="findRelpersonList" resultType="com.yz.po.Relperson">
-		select * from relperson
+		select * from
+		relperson
 	</select>
 
+	<select id="findRelpersonListByRelpersonQuery" parameterType="com.yz.po.Relperson"
+		resultType="com.yz.po.Relperson">
+		select * from relperson where
+		<if test="name != null and name != '' ">
+			name like concat('%',#{name},'%') and
+		</if>
+		<if test="workdunitaddress != null and workdunitaddress != '' ">
+			workdunitaddress like concat('%',#{workdunitaddress},'%') and
+		</if>
+		<if test="currentaddress != null and currentaddress != '' ">
+			currentaddress like concat('%',#{currentaddress},'%') and
+		</if>
+
+		1=1
+	</select>
 </mapper>

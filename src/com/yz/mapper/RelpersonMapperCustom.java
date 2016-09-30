@@ -8,4 +8,6 @@ public interface RelpersonMapperCustom {
 
 	List<Relperson> findRelpersonList();
 
+	List<Relperson> findRelpersonListByRelpersonQuery(Relperson relperson);
+
 }

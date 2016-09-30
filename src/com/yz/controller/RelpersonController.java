@@ -2,10 +2,12 @@ package com.yz.controller;
 
 import java.util.List;
 
+import javax.management.Query;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,15 +26,28 @@ public class RelpersonController {
 			throws Exception {
 		relpersonService.insert(relperson);
 		Relperson ps = new Relperson();
-		ps.setId(-1);
+		ps.setId(-1); 
 		return ps;
 	}
 
-	@RequestMapping("/toAdd")
-	public String toAdd() throws Exception {
-		return "relperson/relpersonAdd";
+	@RequestMapping("/toEdit")
+	public String toEdit(HttpServletRequest request, Model model, Integer id) throws Exception {
+		Relperson relperson = relpersonService.findRelpersonById(id);
+		model.addAttribute("relperson", relperson);
+		return "relperson/relpersonUpdate";
 	}
 
+
+	@RequestMapping("/query")
+	public ModelAndView Query(HttpServletRequest request,Relperson relperson) throws Exception {
+		List<Relperson> relpersonList = relpersonService.findRelpersonListByRelpersonQuery(relperson);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("relpersonList", relpersonList);
+		modelAndView.setViewName("relperson/relpersonList");
+		return modelAndView;
+		
+	}
+	
 	@RequestMapping("/list")
 	public ModelAndView list(HttpServletRequest request) throws Exception {
 		List<Relperson> relpersonList = relpersonService.findRelpersonList();
@@ -49,6 +64,7 @@ public class RelpersonController {
 	}
 	
 	
+	
 	@RequestMapping("/update")
 	public String update(Integer id,Relperson relperson) throws Exception {
 		relpersonService.updateRelpersonById(id,relperson);
@@ -56,4 +72,9 @@ public class RelpersonController {
 	}
 
 
+	@RequestMapping("/editRelpersonSubmit")
+	public  String editRelpersonSubmit(Model model, HttpServletRequest request, Integer id,Relperson relperson) throws Exception {
+		relpersonService.updateRelpersonById(id, relperson);
+		return "redirect:/relperson/list";
+	}
 }
