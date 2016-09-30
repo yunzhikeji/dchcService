@@ -50,7 +50,6 @@ public class LocateController {
 	
 	@RequestMapping("/toAdd")
 	public String toAdd() throws Exception {
-		
 		return "locate/locateAdd";
 		
 	}
@@ -63,11 +62,20 @@ public class LocateController {
 		return "op_success_child";
 	}
 	
+	@RequestMapping("/load")
+	public ModelAndView load(Integer id) throws Exception {
+		Locate locate = locateService.findLocateById(id);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("locate", locate);
+		modelAndView.setViewName("locate/locateLoad");
+		return modelAndView;
+	}
+	
 	
 	@RequestMapping("/update")
 	public String update(Integer id,Locate locate) throws Exception {
 		locateService.updateLocateById(id,locate);
-		return "redirect:/locate/list";
+		return "op_success_child";
 	}
 
 

@@ -108,10 +108,10 @@
 							<td class="f-14 td-manage">${locate.uploadtime }</td>
 							<td class="f-14 td-manage"><a style="text-decoration: none"
 								class="ml-5"
-								onClick="article_edit('场所行业信息登记','${pageContext.request.contextPath }/address-add.html','10001')"
+								onClick="article_edit('场所行业信息登记','${pageContext.request.contextPath }/locate/load?id=${locate.id}','10001')"
 								href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
 								<a style="text-decoration: none" class="ml-5"
-								onClick="article_del(this,'10001')" href="javascript:;"
+								onClick="return confirm('您确认要删除信息吗?')" href="${pageContext.request.contextPath }/locate/delete?id=${locate.id}"
 								title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 						</tr>
 					</c:forEach>

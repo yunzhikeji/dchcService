@@ -42,4 +42,10 @@ public class LocateServiceImpl implements LocateService {
 		locateMapper.updateByPrimaryKeySelective(locate);
 	}
 
+	@Override
+	public Locate findLocateById(Integer id) {
+		// TODO Auto-generated method stub
+		return locateMapper.selectByPrimaryKey(id);
+	}
+
 }

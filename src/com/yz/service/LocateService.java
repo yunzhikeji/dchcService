@@ -18,4 +18,7 @@ public interface LocateService {
 	//根据id修改场所
 	public void updateLocateById(Integer id,Locate locate);
 
+	//根据id查找场所
+	public Locate findLocateById(Integer id);
+
 }
