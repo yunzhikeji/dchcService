@@ -76,6 +76,6 @@ public class RelpersonController {
 	@RequestMapping("/editRelpersonSubmit")
 	public  String editRelpersonSubmit(Model model, HttpServletRequest request, Integer id,Relperson relperson) throws Exception {
 		relpersonService.updateRelpersonById(id, relperson);
-		return "redirect:/relperson/list";
+		return "op_success_child";
 	}
 }

@@ -2,6 +2,7 @@ package com.yz.service;
 
 import java.util.List;
 
+import com.yz.po.Locate;
 import com.yz.po.Relperson;
 
 public interface RelpersonService {
@@ -22,5 +23,9 @@ public interface RelpersonService {
 	public Relperson findRelpersonById(Integer id);
 
 	public List<Relperson> findRelpersonListByRelpersonQuery(Relperson relperson);
+
+	public 	Locate findLocateByCurrentAddress(String currentaddress);
+
+	public Locate findLocateByWorkdunitAddress(String workdunitaddress);
 
 }

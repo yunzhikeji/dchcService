@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.yz.mapper.RelpersonMapper;
 import com.yz.mapper.RelpersonMapperCustom;
+import com.yz.po.Locate;
 import com.yz.po.Relperson;
 import com.yz.service.RelpersonService;
 
@@ -50,6 +51,17 @@ public class RelpersonServiceImpl implements RelpersonService {
 	@Override
 	public List<Relperson> findRelpersonListByRelpersonQuery(Relperson relperson) {
 		return relpersonMapperCustom.findRelpersonListByRelpersonQuery(relperson);
+	}
+
+	@Override
+	public Locate findLocateByCurrentAddress(String currentaddress) {
+		
+		return relpersonMapperCustom.findLocateByCurrentAddress(currentaddress);
+	}
+
+	@Override
+	public Locate findLocateByWorkdunitAddress(String workdunitaddress) {
+		return relpersonMapperCustom.findLocateByWorkdunitAddress(workdunitaddress);
 	}
 
 }
