@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yz.po.Locate;
 import com.yz.service.LocateService;
+import com.yz.utils.DateTimeKit;
 
 @Controller
 @RequestMapping("/locate")
@@ -23,6 +24,7 @@ public class LocateController {
 	@RequestMapping("/addLocate")
 	public @ResponseBody Locate addLocate(Locate locate)
 			throws Exception {
+		locate.setUploadtime(DateTimeKit.getLocal_Time());//设置上传时间
 		locateService.insert(locate);
 		Locate ps = new Locate();
 		ps.setId(-1);
@@ -36,7 +38,7 @@ public class LocateController {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("locateList", locateList);
-		modelAndView.setViewName("locates");
+		modelAndView.setViewName("locate/locates");
 		return modelAndView;
 	}
 
@@ -49,8 +51,17 @@ public class LocateController {
 	@RequestMapping("/toAdd")
 	public String toAdd() throws Exception {
 		
-		return "redirect:/locate/list";
+		return "locate/locateAdd";
 		
+	}
+	
+	@RequestMapping("/add")
+	public String add(Locate locate) throws Exception {
+		
+		locate.setUploadtime(DateTimeKit.getLocal_Time());//设置上传时间
+		
+		locateService.insert(locate);
+		return "redirect:/locate/list";
 	}
 	
 	
