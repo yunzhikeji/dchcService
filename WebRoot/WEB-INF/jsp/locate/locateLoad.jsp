@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -261,19 +262,19 @@
     <td><label class="form-label text-r"><span class="c-red">*</span>是否配备以下消防设施：</label></td>
     <td colspan="3"><div class="skin-minimal ">
   <div  class="check-box">
-    <input type="checkbox" name="firefacilities"  id="checkbox-41">
+    <input type="checkbox" name="firefacilities"  id="checkbox-41" ${fn:contains(locate.firefacilities, '灭火器')?'checked':''}>
     <label for="checkbox-41">灭火器</label>
   </div>
   <div class="check-box">
-    <input type="checkbox" name="firefacilities" id="checkbox-42">
+    <input type="checkbox" name="firefacilities" id="checkbox-42" ${fn:contains(locate.firefacilities, '应急灯')?'checked':''}>
     <label for="checkbox-42">应急灯</label>
   </div>
   <div class="check-box">
-    <input type="checkbox"  name="firefacilities" id="checkbox-43" >
+    <input type="checkbox"  name="firefacilities" id="checkbox-43" ${fn:contains(locate.firefacilities, '消防拴')?'checked':''}>
     <label for="checkbox-43">消防拴</label>
   </div>
   <div class="check-box">
-    <input type="checkbox" name="firefacilities" id="checkbox-44" >
+    <input type="checkbox" name="firefacilities" id="checkbox-44" ${fn:contains(locate.firefacilities, '其他')?'checked':''}>
     <label for="checkbox-44">其他</label>
   </div>
   </div></td>
@@ -287,42 +288,42 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="line-height:45px;">
   <tr>
     <td width="30%"><label class="form-label text-r"><span class="c-red">*</span>保安负责人姓名：</label></td>
-    <td width="20%"><input name="chargepersonname" type="text" class="input-text radius size-M " style="width:200px;">
+    <td width="20%"><input name="chargepersonname" value="${locate.chargepersonname}" type="text" class="input-text radius size-M " style="width:200px;">
          </td>
   <td width="15%"><label class="form-label text-r"><span class="c-red">*</span>保安负责人电话：</label></td>
-    <td><input type="text" name="chargepersonphone" class="input-text radius size-M " style="width:200px;"></td>
+    <td><input type="text" name="chargepersonphone" value="${locate.chargepersonphone}" class="input-text radius size-M " style="width:200px;"></td>
   </tr>
   <tr>
     <td width="30%"><label class="form-label text-r">保安人数：</label></td>
-    <td width="20%"><input name="numberofexternalmonitor" type="text" class="input-text radius size-M " style="width:200px;">
+    <td width="20%"><input name="numberofexternalmonitor" value="${locate.numberofexternalmonitor}" type="text" class="input-text radius size-M " style="width:200px;">
          </td>
   <td width="15%"></td>
     <td></td>   
   </tr>
   <tr>
     <td width="30%"><label class="form-label text-r">外部监控数量：</label></td>
-    <td width="20%"><input name="numberofinsidemonitor" type="text" class="input-text radius size-M " style="width:200px;">
+    <td width="20%"><input name="numberofinsidemonitor" value="${locate.numberofinsidemonitor}" type="text" class="input-text radius size-M " style="width:200px;">
          </td>
   <td width="15%"><label class="form-label text-r">内部监控数量：</label></td>
-    <td><input type="text" name="numberofinsidemonitor" class="input-text radius size-M " style="width:200px;"></td>   
+    <td><input type="text" name="numberofinsidemonitor" value="${locate.numberofinsidemonitor}" class="input-text radius size-M " style="width:200px;"></td>   
   </tr>
       <tr>
     <td><label class="form-label text-r"><span class="c-red">*</span>物防情况：</label></td>
     <td colspan="3"><div class="skin-minimal ">
   <div class="check-box" >
-    <input type="checkbox" name="protectcondition" value="防盗门"  id="checkbox-45" >
+    <input type="checkbox" name="protectcondition" value="防盗门"  id="checkbox-45" ${fn:contains(locate.protectcondition, '防盗门')?'checked':''}>
     <label for="checkbox-45">防盗门</label>
   </div>
   <div class="check-box">
-    <input type="checkbox" name="protectcondition" value="防盗窗" id="checkbox-46">
+    <input type="checkbox" name="protectcondition" value="防盗窗" id="checkbox-46" ${fn:contains(locate.protectcondition, '防盗窗')?'checked':''}>
     <label for="checkbox-46">防盗窗</label>
   </div>
   <div class="check-box">
-    <input type="checkbox" name="protectcondition" value="报警器" id="checkbox-47" >
+    <input type="checkbox" name="protectcondition" value="报警器" id="checkbox-47" ${fn:contains(locate.protectcondition, '报警器')?'checked':''}>
     <label for="checkbox-47">报警器</label>
   </div>
   <div class="check-box">
-    <input type="checkbox" name="protectcondition" value="其他" id="checkbox-48" >
+    <input type="checkbox" name="protectcondition" value="其他" id="checkbox-48" ${fn:contains(locate.protectcondition, '其他')?'checked':''}>
     <label for="checkbox-48">其他</label>
   </div>
   </div></td>
