@@ -144,7 +144,7 @@
       物流快递
     </td>
     </tr>
-     <tr id="y1" >
+     <tr id="y1" <c:if test="${locate.placetype==1}">style="display:''"</c:if><c:if test="${locate.placetype!=1}">style="display:none"</c:if> >
     <td><label class="form-label text-r"><span class="c-red">*</span>娱乐场所：</label></td>
     <td colspan="3">
     <input name="entertainmentplacetype" value="1" type="radio" tabindex="8" checked="checked" ${(locate.entertainmentplacetype==1)?'checked' : ''}>
@@ -163,7 +163,7 @@
     其他
 </td>
     </tr>
-    <tr id="f2" style="display:none">
+    <tr id="f2" <c:if test="${locate.placetype==2}">style="display:''"</c:if><c:if test="${locate.placetype!=2}">style="display:none"</c:if> >
     <td><label class="form-label text-r"><span class="c-red">*</span>服务场所：</label></td>
     <td colspan="3">
     <input name="serviceplacetype" value="1" type="radio" tabindex="15" checked="checked" ${(locate.serviceplacetype==1)?'checked' : ''}>
@@ -185,7 +185,7 @@
     <input name="serviceplacetype" value="9" type="radio" tabindex="23" ${(locate.serviceplacetype==9)?'checked' : ''}>
     其他</td>
     </tr>
-    <tr id="t3" style="display:none">
+    <tr id="t3"  <c:if test="${locate.placetype==3}">style="display:''"</c:if><c:if test="${locate.placetype!=3}">style="display:none"</c:if>>
     <td><label class="form-label text-r"><span class="c-red">*</span>特种行业：</label></td>
     <td colspan="3"><input name="specialplacetype" value="1" type="radio" tabindex="24" checked="checked" ${(locate.specialplacetype==1)?'checked' : ''}>
     旅馆&nbsp;&nbsp;&nbsp;
@@ -206,7 +206,7 @@
     <input name="specialplacetype" value="9" type="radio" tabindex="32" ${(locate.specialplacetype==9)?'checked' : ''}>
     机动车电动车修理</td>
     </tr>
-    <tr id="j4" style="display:none">
+    <tr id="j4" <c:if test="${locate.placetype==4}">style="display:''"</c:if><c:if test="${locate.placetype!=4}">style="display:none"</c:if>>
     <td><label class="form-label text-r"><span class="c-red">*</span>九小场所：</label></td>
     <td colspan="3"><input name="ninesmallplacetype" value="1" type="radio" tabindex="33" checked="checked" ${(locate.ninesmallplacetype==1)?'checked' : ''}>
     小学校&nbsp;&nbsp;&nbsp;
@@ -261,19 +261,19 @@
     <td><label class="form-label text-r"><span class="c-red">*</span>是否配备以下消防设施：</label></td>
     <td colspan="3"><div class="skin-minimal ">
   <div  class="check-box">
-    <input type="checkbox" name="firefacilities"  id="checkbox-41" ${fn:contains(locate.firefacilities, '灭火器')?'checked':''}>
+    <input type="checkbox" name="firefacilities" value="灭火器"   id="checkbox-41" ${fn:contains(locate.firefacilities, '灭火器')?'checked':''}>
     <label for="checkbox-41">灭火器</label>
   </div>
   <div class="check-box">
-    <input type="checkbox" name="firefacilities" id="checkbox-42" ${fn:contains(locate.firefacilities, '应急灯')?'checked':''}>
+    <input type="checkbox" name="firefacilities" value="应急灯"  id="checkbox-42" ${fn:contains(locate.firefacilities, '应急灯')?'checked':''}>
     <label for="checkbox-42">应急灯</label>
   </div>
   <div class="check-box">
-    <input type="checkbox"  name="firefacilities" id="checkbox-43" ${fn:contains(locate.firefacilities, '消防拴')?'checked':''}>
+    <input type="checkbox"  name="firefacilities" value="消防拴"  id="checkbox-43" ${fn:contains(locate.firefacilities, '消防拴')?'checked':''}>
     <label for="checkbox-43">消防拴</label>
   </div>
   <div class="check-box">
-    <input type="checkbox" name="firefacilities" id="checkbox-44" ${fn:contains(locate.firefacilities, '其他')?'checked':''}>
+    <input type="checkbox" name="firefacilities" value="其他"  id="checkbox-44" ${fn:contains(locate.firefacilities, '其他')?'checked':''}>
     <label for="checkbox-44">其他</label>
   </div>
   </div></td>

@@ -5,5 +5,16 @@
 	<select id="findLocateList" resultType="com.yz.po.Locate">
 		select * from locate
 	</select>
+	
+	
+	<select id="findLocateListByQueryMessage"  parameterType="java.lang.String"  resultType="com.yz.po.Locate">
+		select * from locate where
+		
+		<if test="queryMessage != null and queryMessage != '' ">
+			address like concat('%',#{queryMessage},'%')  and
+		</if>
+		
+		1=1
+	</select>
 
 </mapper>

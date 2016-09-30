@@ -35,8 +35,8 @@ public class LocateController {
 
 
 	@RequestMapping("/list")
-	public ModelAndView list(HttpServletRequest request) throws Exception {
-		List<Locate> locateList = locateService.findLocateList();
+	public ModelAndView list(String  queryMessage) throws Exception {
+		List<Locate> locateList = locateService.findLocateListByQueryMessage(queryMessage);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("locateList", locateList);
 		modelAndView.setViewName("locate/locates");
@@ -68,7 +68,7 @@ public class LocateController {
 		Locate locate = locateService.findLocateById(id);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("locate", locate);
-		modelAndView.setViewName("locate/locateLoad");
+		modelAndView.setViewName("locate/locateUpdate");
 		return modelAndView;
 	}
 	

@@ -21,4 +21,7 @@ public interface LocateService {
 	//根据id查找场所
 	public Locate findLocateById(Integer id);
 
+	//查询条件
+	public List<Locate> findLocateListByQueryMessage(String queryMessage);
+
 }

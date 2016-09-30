@@ -48,4 +48,10 @@ public class LocateServiceImpl implements LocateService {
 		return locateMapper.selectByPrimaryKey(id);
 	}
 
+	@Override
+	public List<Locate> findLocateListByQueryMessage(String queryMessage) {
+		// TODO Auto-generated method stub
+		return locateMapperCustom.findLocateListByQueryMessage(queryMessage);
+	}
+
 }

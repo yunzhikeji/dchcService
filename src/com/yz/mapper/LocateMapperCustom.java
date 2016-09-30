@@ -6,6 +6,10 @@ import com.yz.po.Locate;
 
 public interface LocateMapperCustom {
 
+	//查询地点列表
 	List<Locate> findLocateList();
+
+	//根据查询条件，查询地点列表
+	List<Locate> findLocateListByQueryMessage(String queryMessage);
 
 }

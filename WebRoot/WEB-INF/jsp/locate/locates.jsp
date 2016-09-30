@@ -43,17 +43,16 @@
 
 	<div class="pd-20">
 		<div class="text-c">
-			<form class="Huiform" method="post" action="" target="_self">
+			<form class="Huiform" method="post" action="${pageContext.request.contextPath }/locate/list" target="_self">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0"
 					style="line-height: 35px;">
 					<tr height="35">
-						<td width="21%" align="left">地址： <input type="text"
-							placeholder="详细地址" value="" class="input-text"
+						<td width="21%" align="left">地址： <input type="text" name="queryMessage"
+							placeholder="详细地址"  class="input-text"
 							style="width: 300px"></td>
-						<td align="left"><button type="button"
-								class="btn btn-success" id="button2" name="" onClick="">
-								<i class="Hui-iconfont">&#xe665;</i> 查询
-							</button></td>
+						<td align="left"><input type="submit"
+								class="btn btn-success" id="button2" value="查询" onClick="">
+							</input></td>
 					</tr>
 				</table>
 			</form>
