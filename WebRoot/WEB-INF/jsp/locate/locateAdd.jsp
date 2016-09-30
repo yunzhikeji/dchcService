@@ -34,7 +34,7 @@
 <div class="pd-20">
 <div  class="row cl">
   <div class="col-6 col-offset-6 ">
-      <div class="col-2 f-r"><input type="submit" class="btn btn-success radius" value="确认保存" id="submit" name="" onClick="article_save(this,'10001')"></input></div>
+      <div class="col-2 f-r"><input type="submit" class="btn btn-success radius" value="确认保存" id="submit"  onClick="article_save(this,'10001')"></input></div>
       
   </div>
 </div>
@@ -124,110 +124,25 @@
     <td colspan="3">
       <input name="placetype" type="radio" checked="checked" tabindex="3" onclick="document.getElementById('y1').style.display='';
       document.getElementById('f2').style.display='none';document.getElementById('t3').style.display='none';
-      document.getElementById('j4').style.display='none';">
+      document.getElementById('j4').style.display='none';" value="1">
       娱乐场所&nbsp;&nbsp;&nbsp;
       <input type="radio" name="placetype" tabindex="4"  onclick="document.getElementById('y1').style.display='none';
       document.getElementById('f2').style.display='';document.getElementById('t3').style.display='none';
-      document.getElementById('j4').style.display='none';">
+      document.getElementById('j4').style.display='none';" value="2">
       服务场所&nbsp;&nbsp;&nbsp;
       <input type="radio" name="placetype" tabindex="5"  onclick="document.getElementById('y1').style.display='none';
       document.getElementById('f2').style.display='none';document.getElementById('t3').style.display='';
-      document.getElementById('j4').style.display='none';">
+      document.getElementById('j4').style.display='none';" value="3">
       特种行业&nbsp;&nbsp;&nbsp;
       <input type="radio" name="placetype" tabindex="6" onclick="document.getElementById('y1').style.display='none';
       document.getElementById('f2').style.display='none';document.getElementById('t3').style.display='none';
-      document.getElementById('j4').style.display='';">
+      document.getElementById('j4').style.display='';" value="4">
       九小场所&nbsp;&nbsp;&nbsp;
       <input type="radio" name="placetype" tabindex="7" onclick="document.getElementById('y1').style.display='none';
       document.getElementById('f2').style.display='none';document.getElementById('t3').style.display='none';
-      document.getElementById('j4').style.display='none';">
+      document.getElementById('j4').style.display='none';" value="5">
       物流快递
     </td>
-    </tr>
-    <tr id="y1" >
-    <td><label class="form-label text-r"><span class="c-red">*</span>娱乐场所：</label></td>
-    <td colspan="3">
-    <input name="entertainmentplacetype" value="1" type="radio" tabindex="8" checked="checked">
-    歌厅&nbsp;&nbsp;&nbsp;
-    <input name="entertainmentplacetype" value="2" type="radio" tabindex="9" >
-    卡拉OK厅&nbsp;&nbsp;&nbsp;
-    <input name="entertainmentplacetype" value="3" type="radio" tabindex="10" >
-    迪吧&nbsp;&nbsp;&nbsp;
-    <input name="entertainmentplacetype" value="4" type="radio" tabindex="11" >
-    夜总会&nbsp;&nbsp;&nbsp;
-    <input name="entertainmentplacetype" value="5" type="radio" tabindex="12" >
-    电子游戏厅&nbsp;&nbsp;&nbsp;
-    <input name="entertainmentplacetype" value="6" type="radio" tabindex="13" >
-    棋牌&nbsp;&nbsp;&nbsp;
-    <input name="entertainmentplacetype" value="7" type="radio" tabindex="14" >
-    其他
-</td>
-    </tr>
-    <tr id="f2" style="display:none">
-    <td><label class="form-label text-r"><span class="c-red">*</span>服务场所：</label></td>
-    <td colspan="3">
-    <input name="serviceplacetype" value="1" type="radio" tabindex="15" checked="checked">
-    桑拿洗浴&nbsp;&nbsp;&nbsp;
-    <input name="serviceplacetype" value="2" type="radio" tabindex="16" >
-    美容美发&nbsp;&nbsp;&nbsp;
-    <input name="serviceplacetype" value="3" type="radio" tabindex="17" >
-    足疗按摩&nbsp;&nbsp;&nbsp;
-    <input name="serviceplacetype" value="4" type="radio" tabindex="18" >
-    咖啡馆&nbsp;&nbsp;&nbsp;
-    <input name="serviceplacetype" value="5" type="radio" tabindex="19" >
-    小餐桌&nbsp;&nbsp;&nbsp;
-    <input name="serviceplacetype" value="6" type="radio" tabindex="20" >
-    网吧&nbsp;&nbsp;&nbsp;
-    <input name="serviceplacetype" value="7" type="radio" tabindex="21" >
-    娱乐城&nbsp;&nbsp;&nbsp;
-    <input name="serviceplacetype" value="8" type="radio" tabindex="22" >
-    茶馆&nbsp;&nbsp;&nbsp;
-    <input name="serviceplacetype" value="9" type="radio" tabindex="23" >
-    其他</td>
-    </tr>
-    <tr id="t3" style="display:none">
-    <td><label class="form-label text-r"><span class="c-red">*</span>特种行业：</label></td>
-    <td colspan="3"><input name="specialplacetype" value="1" type="radio" tabindex="24" checked="checked">
-    旅馆&nbsp;&nbsp;&nbsp;
-    <input name="specialplacetype" value="2" type="radio" tabindex="25" >
-    开锁&nbsp;&nbsp;&nbsp;
-    <input name="specialplacetype" value="3" type="radio" tabindex="26" >
-    刻字印刷&nbsp;&nbsp;&nbsp;
-    <input name="specialplacetype" value="4" type="radio" tabindex="27" >
-    复印&nbsp;&nbsp;&nbsp;
-    <input name="specialplacetype" value="5" type="radio" tabindex="28" >
-    废旧金属回收&nbsp;&nbsp;&nbsp;
-    <input name="specialplacetype" value="6" type="radio" tabindex="29" >
-    二手机动车交易&nbsp;&nbsp;&nbsp;
-    <input name="specialplacetype" value="7" type="radio" tabindex="30" >
-    机动车拆解&nbsp;&nbsp;&nbsp;
-    <input name="specialplacetype" value="8" type="radio" tabindex="31" >
-    旧货业回收&nbsp;&nbsp;&nbsp;
-    <input name="specialplacetype" value="9" type="radio" tabindex="32" >
-    机动车电动车修理</td>
-    </tr>
-    <tr id="j4" style="display:none">
-    <td><label class="form-label text-r"><span class="c-red">*</span>九小场所：</label></td>
-    <td colspan="3"><input name="ninesmallplacetype" value="1" type="radio" tabindex="33" checked="checked">
-    小学校&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype"  type="radio" value="2" tabindex="34" >
-    小商场&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="3" tabindex="35" >
-    小医院&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="4" tabindex="36" >
-    小旅馆&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="5" tabindex="37" >
-    小歌舞娱乐&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="6" tabindex="38" >
-    小餐饮&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="7" tabindex="39" >
-    小网吧&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="8" tabindex="40" >
-    小美容洗浴&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="9" tabindex="41" >
-    小生产加工&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="10" tabindex="42" >
-    其他</td>
     </tr>
 </table>
 
@@ -411,7 +326,6 @@ function difficult_start(title,url,w,h){
 function article_save(obj,id){
 	layer.confirm('确认要保存吗？',function(index){
 		
-		document.locateForm.submit();
 		layer.msg('已保存!',{icon: 6,time:1000});
 	});
 }

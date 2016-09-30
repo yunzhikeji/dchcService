@@ -59,9 +59,8 @@ public class LocateController {
 	public String add(Locate locate) throws Exception {
 		
 		locate.setUploadtime(DateTimeKit.getLocal_Time());//设置上传时间
-		
 		locateService.insert(locate);
-		return "redirect:/locate/list";
+		return "op_success_child";
 	}
 	
 	
