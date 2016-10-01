@@ -7,7 +7,7 @@
 	</select>
 	
 	
-	<select id="findLocateListByQueryMessage"  parameterType="java.lang.String"  resultType="com.yz.po.Locate">
+	<select id="findLocateListByQueryMessage"  parameterType="com.yz.po.LocateQuery"  resultType="com.yz.po.Locate">
 		select * from locate where
 		
 		<if test="queryMessage != null and queryMessage != '' ">

@@ -54,7 +54,7 @@ public class Locate {
 
 	private Integer numberofholdperson;// 容纳人数
 
-	private Integer certificateofqualification;// 合格证号
+	private String certificateofqualification;// 合格证号
 
 	private String firefacilities;// 是否配备以下消防设施（灭火器 应急灯 消防拴 其他）多选
 
@@ -259,11 +259,11 @@ public class Locate {
 		this.numberofholdperson = numberofholdperson;
 	}
 
-	public Integer getCertificateofqualification() {
+	public String getCertificateofqualification() {
 		return certificateofqualification;
 	}
 
-	public void setCertificateofqualification(Integer certificateofqualification) {
+	public void setCertificateofqualification(String certificateofqualification) {
 		this.certificateofqualification = certificateofqualification;
 	}
 

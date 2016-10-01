@@ -3,6 +3,7 @@ package com.yz.service;
 import java.util.List;
 
 import com.yz.po.Locate;
+import com.yz.po.LocateQuery;
 
 public interface LocateService {
 
@@ -22,6 +23,6 @@ public interface LocateService {
 	public Locate findLocateById(Integer id);
 
 	//查询条件
-	public List<Locate> findLocateListByQueryMessage(String queryMessage);
+	public List<Locate> findLocateListByQueryMessage(LocateQuery locateQuery);
 
 }

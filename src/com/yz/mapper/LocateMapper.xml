@@ -25,7 +25,7 @@
     <result column="numberOfChannelport" property="numberofchannelport" jdbcType="INTEGER" />
     <result column="numberOfRoom" property="numberofroom" jdbcType="INTEGER" />
     <result column="numberOfHoldperson" property="numberofholdperson" jdbcType="INTEGER" />
-    <result column="certificateOfQualification" property="certificateofqualification" jdbcType="INTEGER" />
+    <result column="certificateOfQualification" property="certificateofqualification" jdbcType="VARCHAR" />
     <result column="fireFacilities" property="firefacilities" jdbcType="VARCHAR" />
     <result column="chargePersonName" property="chargepersonname" jdbcType="VARCHAR" />
     <result column="chargePersonPhone" property="chargepersonphone" jdbcType="VARCHAR" />
@@ -178,7 +178,7 @@
       #{placetype,jdbcType=INTEGER}, #{entertainmentplacetype,jdbcType=INTEGER}, #{serviceplacetype,jdbcType=INTEGER}, 
       #{specialplacetype,jdbcType=INTEGER}, #{ninesmallplacetype,jdbcType=INTEGER}, #{placearea,jdbcType=VARCHAR}, 
       #{numberoffloor,jdbcType=INTEGER}, #{numberofchannelport,jdbcType=INTEGER}, #{numberofroom,jdbcType=INTEGER}, 
-      #{numberofholdperson,jdbcType=INTEGER}, #{certificateofqualification,jdbcType=INTEGER}, 
+      #{numberofholdperson,jdbcType=INTEGER}, #{certificateofqualification,jdbcType=VARCHAR}, 
       #{firefacilities,jdbcType=VARCHAR}, #{chargepersonname,jdbcType=VARCHAR}, #{chargepersonphone,jdbcType=VARCHAR}, 
       #{numberofstaffperson,jdbcType=INTEGER}, #{numberofexternalmonitor,jdbcType=INTEGER}, 
       #{numberofinsidemonitor,jdbcType=INTEGER}, #{protectcondition,jdbcType=VARCHAR}, 
@@ -256,7 +256,7 @@
       <if test="numberofholdperson != null" >
         numberOfHoldperson,
       </if>
-      <if test="certificateofqualification != null" >
+      <if test="certificateofqualification != null and certificateofqualification !='' " >
         certificateOfQualification,
       </if>
       <if test="firefacilities != null" >
@@ -357,8 +357,8 @@
       <if test="numberofholdperson != null" >
         #{numberofholdperson,jdbcType=INTEGER},
       </if>
-      <if test="certificateofqualification != null" >
-        #{certificateofqualification,jdbcType=INTEGER},
+      <if test="certificateofqualification != null and certificateofqualification != '' " >
+        #{certificateofqualification,jdbcType=VARCHAR},
       </if>
       <if test="firefacilities != null" >
         #{firefacilities,jdbcType=VARCHAR},
@@ -467,8 +467,8 @@
       <if test="record.numberofholdperson != null" >
         numberOfHoldperson = #{record.numberofholdperson,jdbcType=INTEGER},
       </if>
-      <if test="record.certificateofqualification != null" >
-        certificateOfQualification = #{record.certificateofqualification,jdbcType=INTEGER},
+      <if test="record.certificateofqualification != null and record.certificateofqualification != ''" >
+        certificateOfQualification = #{record.certificateofqualification,jdbcType=VARCHAR},
       </if>
       <if test="record.firefacilities != null" >
         fireFacilities = #{record.firefacilities,jdbcType=VARCHAR},
@@ -527,7 +527,7 @@
       numberOfChannelport = #{record.numberofchannelport,jdbcType=INTEGER},
       numberOfRoom = #{record.numberofroom,jdbcType=INTEGER},
       numberOfHoldperson = #{record.numberofholdperson,jdbcType=INTEGER},
-      certificateOfQualification = #{record.certificateofqualification,jdbcType=INTEGER},
+      certificateOfQualification = #{record.certificateofqualification,jdbcType=VARCHAR},
       fireFacilities = #{record.firefacilities,jdbcType=VARCHAR},
       chargePersonName = #{record.chargepersonname,jdbcType=VARCHAR},
       chargePersonPhone = #{record.chargepersonphone,jdbcType=VARCHAR},
@@ -566,7 +566,7 @@
       numberOfChannelport = #{record.numberofchannelport,jdbcType=INTEGER},
       numberOfRoom = #{record.numberofroom,jdbcType=INTEGER},
       numberOfHoldperson = #{record.numberofholdperson,jdbcType=INTEGER},
-      certificateOfQualification = #{record.certificateofqualification,jdbcType=INTEGER},
+      certificateOfQualification = #{record.certificateofqualification,jdbcType=VARCHAR},
       fireFacilities = #{record.firefacilities,jdbcType=VARCHAR},
       chargePersonName = #{record.chargepersonname,jdbcType=VARCHAR},
       chargePersonPhone = #{record.chargepersonphone,jdbcType=VARCHAR},
@@ -648,8 +648,8 @@
       <if test="numberofholdperson != null" >
         numberOfHoldperson = #{numberofholdperson,jdbcType=INTEGER},
       </if>
-      <if test="certificateofqualification != null" >
-        certificateOfQualification = #{certificateofqualification,jdbcType=INTEGER},
+      <if test="certificateofqualification != null and certificateofqualification != ''" >
+        certificateOfQualification = #{certificateofqualification,jdbcType=VARCHAR},
       </if>
       <if test="firefacilities != null" >
         fireFacilities = #{firefacilities,jdbcType=VARCHAR},
@@ -705,7 +705,7 @@
       numberOfChannelport = #{numberofchannelport,jdbcType=INTEGER},
       numberOfRoom = #{numberofroom,jdbcType=INTEGER},
       numberOfHoldperson = #{numberofholdperson,jdbcType=INTEGER},
-      certificateOfQualification = #{certificateofqualification,jdbcType=INTEGER},
+      certificateOfQualification = #{certificateofqualification,jdbcType=VARCHAR},
       fireFacilities = #{firefacilities,jdbcType=VARCHAR},
       chargePersonName = #{chargepersonname,jdbcType=VARCHAR},
       chargePersonPhone = #{chargepersonphone,jdbcType=VARCHAR},
@@ -741,7 +741,7 @@
       numberOfChannelport = #{numberofchannelport,jdbcType=INTEGER},
       numberOfRoom = #{numberofroom,jdbcType=INTEGER},
       numberOfHoldperson = #{numberofholdperson,jdbcType=INTEGER},
-      certificateOfQualification = #{certificateofqualification,jdbcType=INTEGER},
+      certificateOfQualification = #{certificateofqualification,jdbcType=VARCHAR},
       fireFacilities = #{firefacilities,jdbcType=VARCHAR},
       chargePersonName = #{chargepersonname,jdbcType=VARCHAR},
       chargePersonPhone = #{chargepersonphone,jdbcType=VARCHAR},

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.yz.mapper.LocateMapper;
 import com.yz.mapper.LocateMapperCustom;
 import com.yz.po.Locate;
+import com.yz.po.LocateQuery;
 import com.yz.service.LocateService;
 
 public class LocateServiceImpl implements LocateService {
@@ -49,9 +50,9 @@ public class LocateServiceImpl implements LocateService {
 	}
 
 	@Override
-	public List<Locate> findLocateListByQueryMessage(String queryMessage) {
+	public List<Locate> findLocateListByQueryMessage(LocateQuery locateQuery) {
 		// TODO Auto-generated method stub
-		return locateMapperCustom.findLocateListByQueryMessage(queryMessage);
+		return locateMapperCustom.findLocateListByQueryMessage(locateQuery);
 	}
 
 }

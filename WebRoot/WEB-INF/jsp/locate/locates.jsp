@@ -47,7 +47,7 @@
 				<table width="100%" border="0" cellspacing="0" cellpadding="0"
 					style="line-height: 35px;">
 					<tr height="35">
-						<td width="21%" align="left">地址： <input type="text" name="queryMessage"
+						<td align="left">地址： <input type="text" name="queryMessage"
 							placeholder="详细地址"  class="input-text"
 							style="width: 300px"></td>
 						<td align="left"><input type="submit"

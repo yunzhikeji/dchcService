@@ -117,6 +117,8 @@
 		<mvc:exclude-mapping path="/person/addPerson"/>
 		<mvc:exclude-mapping path="/checkCount/**"/>
 		<mvc:exclude-mapping path="/clientList/**"/>
+		<mvc:exclude-mapping path="/locate/addLocate"/>
+		<mvc:exclude-mapping path="/relperson/addRelperson"/>
 		<bean class="com.yz.interceptor.LoginInterceptor"></bean>
 		
 	</mvc:interceptor>
