@@ -64,4 +64,10 @@ public class RelpersonServiceImpl implements RelpersonService {
 		return relpersonMapperCustom.findLocateByWorkdunitAddress(workdunitaddress);
 	}
 
+	@Override
+	public List<Relperson> findRelpersonListByAddress(String address) {
+		// TODO Auto-generated method stub
+		return relpersonMapperCustom.findRelpersonListByAddress(address);
+	}
+
 }

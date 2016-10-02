@@ -15,4 +15,6 @@ public interface RelpersonMapperCustom {
 
 	Locate findLocateByWorkdunitAddress(String workdunitaddress);
 
+	List<Relperson> findRelpersonListByAddress(String address);
+
 }
