@@ -10,9 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yz.po.Locate;
 import com.yz.po.LocateQuery;
-import com.yz.po.Relperson;
 import com.yz.service.LocateService;
-import com.yz.service.RelpersonService;
 import com.yz.utils.DateTimeKit;
 import com.yz.vo.UploadResult;
 
@@ -22,9 +20,6 @@ public class LocateController {
 	
 	@Autowired
 	private LocateService locateService;
-	
-	@Autowired
-	private RelpersonService relpersonService;
 
 	@RequestMapping("/addLocate")
 	public @ResponseBody UploadResult addLocate(Locate locate)
@@ -40,6 +35,8 @@ public class LocateController {
 
 	@RequestMapping("/list")
 	public ModelAndView list(LocateQuery locateQuery) throws Exception {
+		
+		System.out.println(locateQuery.getQueryMessage());
 		
 		List<Locate> locateList = locateService.findLocateListByQueryMessage(locateQuery);
 		ModelAndView modelAndView = new ModelAndView();
@@ -74,20 +71,6 @@ public class LocateController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("locate", locate);
 		modelAndView.setViewName("locate/locateUpdate");
-		return modelAndView;
-	}
-	
-	@RequestMapping("/view")
-	public ModelAndView view(Integer id) throws Exception {
-		Locate locate = locateService.findLocateById(id);
-		
-		
-		List<Relperson> relpersons = relpersonService.findRelpersonListByAddress(locate.getAddress());
-		
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("locate", locate);
-		modelAndView.addObject("relpersons", relpersons);
-		modelAndView.setViewName("locate/locateView");
 		return modelAndView;
 	}
 	

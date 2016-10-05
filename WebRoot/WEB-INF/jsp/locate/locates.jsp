@@ -91,13 +91,7 @@
 						<tr class="text-c">
 							<th><input type="checkbox" name="" value=""></th>
 							<td class="f-14 td-manage">${index.count }</td>
-							<td>
-							
-							<a style="text-decoration: none"
-								class="ml-5"
-								onClick="article_edit('查看场所行业信息','${pageContext.request.contextPath }/locate/view?id=${locate.id}','10001')"
-								href="javascript:;" title="编辑">${locate.address }</a>
-							</td>
+							<td>${locate.address }</td>
 							<td><c:if test="${locate.islethouse ==0 }">否</c:if> <c:if
 									test="${locate.islethouse ==1 }">是</c:if></td>
 							<td>${locate.belongplace }</td>
