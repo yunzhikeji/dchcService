@@ -288,7 +288,7 @@
 								<c:if test="${relpersons==null||relpersons.size()<1}">
 										暂未录入相关人员信息
 										</c:if>
-								<c:if test="${relpersons.size()>1}">
+								<c:if test="${relpersons.size()>0}">
 									<table class="table table-border table-bg mb-10">
 										<thead>
 											<tr>
