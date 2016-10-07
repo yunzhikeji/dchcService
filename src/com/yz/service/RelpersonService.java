@@ -22,10 +22,16 @@ public interface RelpersonService {
 	//根据id查询相关人员
 	public Relperson findRelpersonById(Integer id);
 
+	//根据人员查询相关人员列表
 	public List<Relperson> findRelpersonListByRelpersonQuery(Relperson relperson);
 
+	//根据现居住地址查询相关人员
 	public 	Locate findLocateByCurrentAddress(String currentaddress);
 
+	//根据工作单位地址查询相关人员
 	public Locate findLocateByWorkdunitAddress(String workdunitaddress);
+
+	//根据场所地址查询相关人员列表
+	public List<Relperson> findRelpersonListByAddress(String address);
 
 }

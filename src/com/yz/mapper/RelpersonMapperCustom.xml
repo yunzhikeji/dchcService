@@ -19,7 +19,20 @@
 		<if test="currentaddress != null and currentaddress != '' ">
 			currentaddress like concat('%',#{currentaddress},'%') and
 		</if>
-
 		1=1
 	</select>
+	
+	<select id="findRelpersonListByAddress" parameterType="java.lang.String"
+		resultType="com.yz.po.Relperson">
+		select * from relperson where
+			currentaddress = #{address,jdbcType=VARCHAR} or
+			
+			workdunitaddress =#{address,jdbcType=VARCHAR} 
+	</select>
+	
+	
+	
+	
+	
+	
 </mapper>
