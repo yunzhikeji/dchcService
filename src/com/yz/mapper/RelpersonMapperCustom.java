@@ -11,10 +11,6 @@ public interface RelpersonMapperCustom {
 
 	List<Relperson> findRelpersonListByRelpersonQuery(Relperson relperson);
 
-	Locate findLocateByCurrentAddress(String currentaddress);
-
-	Locate findLocateByWorkdunitAddress(String workdunitaddress);
-
 	List<Relperson> findRelpersonListByAddress(String address);
 
 }

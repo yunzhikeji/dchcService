@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yz.po.Locate;
 import com.yz.po.LocateQuery;
+import com.yz.po.Relperson;
 
 public interface LocateMapperCustom {
 
@@ -12,5 +13,8 @@ public interface LocateMapperCustom {
 
 	//根据查询条件，查询地点列表
 	List<Locate> findLocateListByQueryMessage(LocateQuery locateQuery);
+
+	//根据人员，查询地点列表
+	List<Locate> findLocateListByRelperson(Relperson relperson);
 
 }

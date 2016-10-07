@@ -8,6 +8,7 @@ import com.yz.mapper.LocateMapper;
 import com.yz.mapper.LocateMapperCustom;
 import com.yz.po.Locate;
 import com.yz.po.LocateQuery;
+import com.yz.po.Relperson;
 import com.yz.service.LocateService;
 
 public class LocateServiceImpl implements LocateService {
@@ -53,6 +54,32 @@ public class LocateServiceImpl implements LocateService {
 	public List<Locate> findLocateListByQueryMessage(LocateQuery locateQuery) {
 		// TODO Auto-generated method stub
 		return locateMapperCustom.findLocateListByQueryMessage(locateQuery);
+	}
+	
+	@Override
+	public Locate getRealLocate(Integer addressType,String addressMsg) {
+		// TODO Auto-generated method stub
+		
+		Locate locate = null;
+		
+		if(addressMsg!=null&&!addressMsg.trim().equals(""))
+		{
+			Relperson relperson = new Relperson();
+			if(addressType==1)
+			{
+				relperson.setCurrentaddress(addressMsg);
+			}
+			else
+			{
+				relperson.setWorkdunitaddress(addressMsg);
+			}
+			 List<Locate> locates = locateMapperCustom.findLocateListByRelperson(relperson);
+			 if(locates!=null&&locates.size()>0)
+			 {
+				 locate = locates.get(0);
+			 }
+		}
+		return locate;
 	}
 
 }

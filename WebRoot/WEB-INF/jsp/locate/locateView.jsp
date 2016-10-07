@@ -305,7 +305,12 @@
 												varStatus="index">
 												<tr>
 													<td>${index.count }</td>
-													<td>${relperson.name }</td>
+													<td>
+													<a style="text-decoration: none" class="ml-5"
+									href="${pageContext.request.contextPath }/relperson/view?id=${relperson.id}" title="查看人员信息">
+													${relperson.name }
+													</a>
+													</td>
 													<td><c:if test="${relperson.sex==1 }">男</c:if> <c:if
 															test="${relperson.sex==2 }">女</c:if></td>
 													<td><c:if test="${relperson.rtype==1 }">房东</c:if> <c:if
@@ -355,74 +360,14 @@
 			} // 制定列不参与排序
 			]
 		});
-		/*新增关系人*/
-		function addgxr(title, url, w, h) {
-			layer.open({
-				type : 2,
-				area : [ '900px', '520px' ],
-				fix : true, //不固定
-				title : title,
-				maxmin : true,
-				content : url
-			});
-		}
-
-		$(function() {
-			$('.skin-minimal input').iCheck({
-				checkboxClass : 'icheckbox-blue',
-				radioClass : 'iradio-blue',
-				increaseArea : '10%'
-			});
-		});
-
-		/*布控人-添加*/
-		function bukongman_add(title, url, w, h) {
+		/*信息-编辑*/
+		function article_edit(title, url, id, w, h) {
 			var index = layer.open({
 				type : 2,
-				area : [ '800px', '500px' ],
 				title : title,
 				content : url
 			});
-
-		}
-		/*部门流转*/
-		function Department_change(title, url, w, h) {
-			var index = layer.open({
-				type : 2,
-				area : [ '800px', '500px' ],
-				title : title,
-				content : url
-			});
-
-		}
-		/*案例-发布*/
-		function article_start(obj, id) {
-			layer.confirm('确认要发布吗？', function(index) {
-				layer.msg('已发布!', {
-					icon : 6,
-					time : 1000
-				});
-			});
-		}
-		/*案例-疑难*/
-		function difficult_start(title, url, w, h) {
-			var index = layer.open({
-				type : 2,
-				area : [ '800px', '500px' ],
-				title : title,
-				content : url
-			});
-
-		}
-		/*案例-保存*/
-		function article_save(obj, id) {
-			layer.confirm('确认要保存吗？', function(index) {
-
-				layer.msg('已保存!', {
-					icon : 6,
-					time : 1000
-				});
-			});
+			layer.full(index);
 		}
 	</script>
 

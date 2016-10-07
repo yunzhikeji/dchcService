@@ -36,113 +36,178 @@
 </head>
 <body>
 
-		<div class="pd-20">
-			<div class="row cl">
-				<div class="col-6 col-offset-6 ">
-				</div>
-			</div>
+	<div class="pd-20">
+		<div class="row cl">
+			<div class="col-6 col-offset-6 "></div>
+		</div>
 
-			<div style="width: 100%">
-				<div id="tab_demo" class="HuiTab">
-					<div class="tabBar cl"></div>
-					<div class="tabCon">
-						<div class="row cl text-c">
-							<h1 style="line-height: 80px; margin-bottom: 10px;">
-								<small style="color: #000;">相关人员人口登记</small>
-							</h1>
-						</div>
-						<div class="row cl">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0"
-								style="line-height: 45px;">
-								<tr>
-									<input type="hidden" value="${relperson.id }">
-									<td width="40%"><label class="form-label text-r"><span
-											class="c-red">*</span>相关人员类别：</label></td>
-									<td colspan="3" width="55%"><c:if
-											test="${relperson.rtype ==1 }">房东</c:if>
-										<c:if test="${relperson.rtype ==2 }">房客</c:if>
-										<c:if test="${relperson.rtype ==3 }">业主</c:if>
-										<c:if test="${relperson.rtype ==4 }">从业人员</c:if>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>姓名：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.name }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>性别：</label></td>
-									<td><c:if test="${relperson.sex==1 }">男</c:if><c:if test="${relperson.sex==2 }">女</c:if></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>民族：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.nation }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>身份证号：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.idcard }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r">出生日期：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.birthday }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r">QQ：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.qq }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r">微信号：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.wechat }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>户籍所在地址：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.registeraddress }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>现居住地址：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.currentaddress }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>工作单位名称：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.workdunit }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>工作单位地址：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.workdunitaddress }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>联系电话：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.telphone }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>是否办理居住证：</label></td>
-									<td><c:if test="${relperson.ispermit== 1 }">是</c:if><c:if test="${relperson.ispermit== 0 }">否</c:if></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r">所属派出所或社区：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.belongplace }</span></td>
-								</tr>
-								<tr>
-									<td><label class="form-label text-r">备注：</label></td>
-									<td><span class="input-text radius size-M ">${relperson.remark }</span></td>
-								</tr>
-							</table>
-
-						</div>
-
-
+		<div style="width: 100%">
+			<div id="tab_demo" class="HuiTab">
+				<div class="tabBar cl"></div>
+				<div class="tabCon">
+					<div class="row cl text-c">
+						<h1 style="line-height: 80px; margin-bottom: 10px;">
+							<small style="color: #000;">相关人员人口登记</small>
+						</h1>
+					</div>
+					<div class="row cl">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0"
+							style="line-height: 45px;">
+							<tr>
+								<td width="40%"><label class="form-label text-r"><span
+										class="c-red">*</span>相关人员类别：</label></td>
+								<td colspan="3" width="55%"><c:if
+										test="${relperson.rtype ==1 }">房东</c:if> <c:if
+										test="${relperson.rtype ==2 }">房客</c:if> <c:if
+										test="${relperson.rtype ==3 }">业主</c:if> <c:if
+										test="${relperson.rtype ==4 }">从业人员</c:if>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>姓名：</label></td>
+								<td>${relperson.name }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>性别：</label></td>
+								<td><c:if test="${relperson.sex==1 }">男</c:if> <c:if
+										test="${relperson.sex==2 }">女</c:if></td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>民族：</label></td>
+								<td>${relperson.nation }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>身份证号：</label></td>
+								<td>${relperson.idcard }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r">出生日期：</label></td>
+								<td>${relperson.birthday }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r">QQ：</label></td>
+								<td>${relperson.qq }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r">微信号：</label></td>
+								<td>${relperson.wechat }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>户籍所在地址：</label></td>
+								<td>${relperson.registeraddress }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>现居住地址：</label></td>
+								<td>${relperson.currentaddress }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>工作单位名称：</label></td>
+								<td>${relperson.workdunit }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>工作单位地址：</label></td>
+								<td>${relperson.workdunitaddress }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>联系电话：</label></td>
+								<td>${relperson.telphone }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>是否办理居住证：</label></td>
+								<td><c:if test="${relperson.ispermit== 1 }">是</c:if> <c:if
+										test="${relperson.ispermit== 0 }">否</c:if></td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r">所属派出所或社区：</label></td>
+								<td>${relperson.belongplace }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r">备注：</label></td>
+								<td>${relperson.remark }</td>
+							</tr>
+						</table>
 					</div>
 				</div>
-			</div>
 
+				<div class="row cl mt-20">
+					<div class="col-12 mb-0 c-primary f-16"
+						style="border-bottom: solid 2px #2DABF7; line-height: 43px;">
+						相关场所信息</div>
+					<div class="col-12">
+							<table class="table table-border table-bg mb-10">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>类型</th>
+										<th>场所地址</th>
+										<th>场所性质</th>
+									</tr>
+								</thead>
+								<tbody>
+										<c:if test="${currentLocate!=null}">
+										<tr>
+											<td>1</td>
+											<td>现居住地址</td>
+											<td>	<a style="text-decoration: none" class="ml-5"
+									href="${pageContext.request.contextPath }/locate/view?id=${currentLocate.id}" title="查看场所行业信息">${currentLocate.address}</a>
+									</td>
+											
+											<td><c:if
+										test="${currentLocate.placetype ==0 ||currentLocate.placetype ==null  }">出租房</c:if>
+									<c:if test="${currentLocate.placetype ==1 }">娱乐场所</c:if> <c:if
+										test="${currentLocate.placetype ==2 }">服务场所</c:if> <c:if
+										test="${currentLocate.placetype ==3 }">特种行业</c:if> <c:if
+										test="${currentLocate.placetype ==4 }">九小场所</c:if> <c:if
+										test="${currentLocate.placetype ==5 }">物流快递</c:if></td>
+										</tr>
+										</c:if>
+										<c:if test="${currentLocate==null}">
+											<td>1</td>
+											<td>现居住地址</td>
+											<td colspan="2">暂无登记该场所</td>
+										</c:if>
+										
+										
+										<c:if test="${workdunitLocate!=null}">
+										<tr>
+											<td>2</td>
+											<td>工作单位地址</td>
+											<td>
+											<a style="text-decoration: none" class="ml-5"
+									href="${pageContext.request.contextPath }/locate/view?id=${workdunitLocate.id}" title="查看场所行业信息">${workdunitLocate.address}</a>
+											</td>
+											<td><c:if
+										test="${workdunitLocate.placetype ==0 ||workdunitLocate.placetype ==null  }">出租房</c:if>
+									<c:if test="${workdunitLocate.placetype ==1 }">娱乐场所</c:if> <c:if
+										test="${workdunitLocate.placetype ==2 }">服务场所</c:if> <c:if
+										test="${workdunitLocate.placetype ==3 }">特种行业</c:if> <c:if
+										test="${workdunitLocate.placetype ==4 }">九小场所</c:if> <c:if
+										test="${workdunitLocate.placetype ==5 }">物流快递</c:if></td>
+										</tr>
+										</c:if>
+										<c:if test="${workdunitLocate==null}">
+											<td>2</td>
+											<td>工作单位地址</td>
+											<td colspan="2">暂无登记该场所</td>
+										</c:if>
+								</tbody>
+							</table>
+					</div>
+
+				</div>
+
+			</div>
 		</div>
+
+	</div>
 
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath }/hui/jquery/1.9.1/jquery.min.js"></script>
@@ -169,73 +234,14 @@
 			]
 		});
 
-		/*新增关系人*/
-		function addgxr(title, url, w, h) {
-			layer.open({
-				type : 2,
-				area : [ '900px', '520px' ],
-				fix : true, //不固定
-				title : title,
-				maxmin : true,
-				content : url
-			});
-		}
-
-		$(function() {
-			$('.skin-minimal input').iCheck({
-				checkboxClass : 'icheckbox-blue',
-				radioClass : 'iradio-blue',
-				increaseArea : '10%'
-			});
-		});
-
-		/*布控人-添加*/
-		function bukongman_add(title, url, w, h) {
+		/*信息-编辑*/
+		function article_edit(title, url, id, w, h) {
 			var index = layer.open({
 				type : 2,
-				area : [ '800px', '500px' ],
 				title : title,
 				content : url
 			});
-
-		}
-		/*部门流转*/
-		function Department_change(title, url, w, h) {
-			var index = layer.open({
-				type : 2,
-				area : [ '800px', '500px' ],
-				title : title,
-				content : url
-			});
-
-		}
-		/*案例-发布*/
-		function article_start(obj, id) {
-			layer.confirm('确认要发布吗？', function(index) {
-				layer.msg('已发布!', {
-					icon : 6,
-					time : 1000
-				});
-			});
-		}
-		/*案例-疑难*/
-		function difficult_start(title, url, w, h) {
-			var index = layer.open({
-				type : 2,
-				area : [ '800px', '500px' ],
-				title : title,
-				content : url
-			});
-
-		}
-		/*案例-保存*/
-		function article_save(obj, id) {
-			layer.confirm('确认要保存吗？', function(index) {
-				layer.msg('已保存!', {
-					icon : 6,
-					time : 1000
-				});
-			});
+			layer.full(index);
 		}
 	</script>
 

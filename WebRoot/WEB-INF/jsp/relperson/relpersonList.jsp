@@ -43,7 +43,9 @@
 
 	<div class="pd-20">
 		<div class="text-c">
-			<form class="Huiform" method="post" action="${pageContext.request.contextPath }/relperson/query" target="_self">
+			<form class="Huiform" method="post"
+				action="${pageContext.request.contextPath }/relperson/query"
+				target="_self">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0"
 					style="line-height: 35px;">
 					<tr height="35">
@@ -56,9 +58,8 @@
 						<td width="21%" align="left">现居住地址： <input type="text"
 							placeholder="现居住地址" name="currentaddress" value=""
 							class="input-text" style="width: 200px"></td>
-						<td align="left"><input type="submit" class="btn btn-success" 
-								 style="margin-left: 5px;" value="查询">
-							</input></td>
+						<td align="left"><input type="submit" class="btn btn-success"
+							style="margin-left: 5px;" value="查询"> </input></td>
 
 					</tr>
 
@@ -75,6 +76,10 @@
 			</span>
 		</div> --%>
 		<div class="mt-20">
+		<c:if test="${relpersonList==null||relpersonList.size()<1}">
+										暂无此类相关人员信息
+										</c:if>
+					<c:if test="${relpersonList.size()>1}">
 			<table class="table table-border table-bordered table-bg">
 				<thead>
 					<tr class="text-c">
@@ -91,37 +96,39 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${relpersonList }" var="relperson"
-						varStatus="index">
-						<tr class="text-c">
-							<!-- <td><input type="checkbox" value="" name=""></td> -->
-							<td>${index.count }</td>
-							<td><c:if test="${relperson.rtype == 1}">房东</c:if> <c:if
-									test="${relperson.rtype == 2}">房客</c:if> <c:if
-									test="${relperson.rtype == 3}">业主</c:if> <c:if
-									test="${relperson.rtype == 4}">从业人员</c:if></td>
-							<td>${relperson.name}</td>
-							<td><c:if test="${relperson.sex == 1}">男</c:if> <c:if
-									test="${relperson.sex == 2}">女</c:if></td>
-							<td class="f-14 td-manage">${relperson.nation}</td>
-							<td class="f-14 td-manage">${relperson.workdunit}</td>
-							<td class="f-14 td-manage">${relperson.telphone}</td>
-							<td class="f-14 td-manage"><c:if
-									test="${relperson.ispermit == 0}">否</c:if> <c:if
-									test="${relperson.ispermit == 1}">是</c:if></td>
-							<td class="f-14 td-manage"><a style="text-decoration: none"
-								class="ml-5"
-								onClick="article_edit('相关人员人口登记','${pageContext.request.contextPath }/relperson/toEdit?id=${relperson.id}','10001')"
-								href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-								<a style="text-decoration: none" class="ml-5"
-								onClick="article_del(this,'10001')"
-								href="${pageContext.request.contextPath }/relperson/delete?id=${relperson.id}"
-								title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-						</tr>
-					</c:forEach>
-
+						<c:forEach items="${relpersonList }" var="relperson"
+							varStatus="index">
+							<tr class="text-c">
+								<!-- <td><input type="checkbox" value="" name=""></td> -->
+								<td>${index.count }</td>
+								<td><c:if test="${relperson.rtype == 1}">房东</c:if> <c:if
+										test="${relperson.rtype == 2}">房客</c:if> <c:if
+										test="${relperson.rtype == 3}">业主</c:if> <c:if
+										test="${relperson.rtype == 4}">从业人员</c:if></td>
+								<td><a style="text-decoration: none" class="ml-5"
+									onClick="article_edit('查看人员信息','${pageContext.request.contextPath }/relperson/view?id=${relperson.id}','10001')"
+									href="javascript:;" title="查看">${relperson.name}</a></td>
+								<td><c:if test="${relperson.sex == 1}">男</c:if> <c:if
+										test="${relperson.sex == 2}">女</c:if></td>
+								<td class="f-14 td-manage">${relperson.nation}</td>
+								<td class="f-14 td-manage">${relperson.workdunit}</td>
+								<td class="f-14 td-manage">${relperson.telphone}</td>
+								<td class="f-14 td-manage"><c:if
+										test="${relperson.ispermit == 0}">否</c:if> <c:if
+										test="${relperson.ispermit == 1}">是</c:if></td>
+								<td class="f-14 td-manage"><a style="text-decoration: none"
+									class="ml-5"
+									onClick="article_edit('相关人员人口登记','${pageContext.request.contextPath }/relperson/toEdit?id=${relperson.id}','10001')"
+									href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+									<a style="text-decoration: none" class="ml-5"
+									onClick="return confirm('您确认要删除信息吗?')"
+									href="${pageContext.request.contextPath }/relperson/delete?id=${relperson.id}"
+									title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+							</tr>
+						</c:forEach>
 				</tbody>
 			</table>
+				</c:if>
 		</div>
 
 	</div>

@@ -53,16 +53,6 @@ public class RelpersonServiceImpl implements RelpersonService {
 		return relpersonMapperCustom.findRelpersonListByRelpersonQuery(relperson);
 	}
 
-	@Override
-	public Locate findLocateByCurrentAddress(String currentaddress) {
-		
-		return relpersonMapperCustom.findLocateByCurrentAddress(currentaddress);
-	}
-
-	@Override
-	public Locate findLocateByWorkdunitAddress(String workdunitaddress) {
-		return relpersonMapperCustom.findLocateByWorkdunitAddress(workdunitaddress);
-	}
 
 	@Override
 	public List<Relperson> findRelpersonListByAddress(String address) {

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yz.po.Locate;
 import com.yz.po.Relperson;
+import com.yz.service.LocateService;
 import com.yz.service.RelpersonService;
 import com.yz.vo.UploadResult;
 
@@ -21,6 +23,9 @@ import com.yz.vo.UploadResult;
 public class RelpersonController {
 	@Autowired
 	private RelpersonService relpersonService;
+	
+	@Autowired
+	private LocateService locateService;
 
 	@RequestMapping("/addRelperson")
 	public @ResponseBody UploadResult addRelperson(Relperson relperson)
@@ -36,6 +41,22 @@ public class RelpersonController {
 		Relperson relperson = relpersonService.findRelpersonById(id);
 		model.addAttribute("relperson", relperson);
 		return "relperson/relpersonUpdate";
+	}
+	
+	@RequestMapping("/view")
+	public ModelAndView view(Integer id) throws Exception {
+		Relperson relperson = relpersonService.findRelpersonById(id);
+		
+		Locate currentLocate = locateService.getRealLocate(1,relperson.getCurrentaddress());
+		Locate workdunitLocate = locateService.getRealLocate(2,relperson.getWorkdunitaddress());
+		
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("relperson", relperson);
+		modelAndView.addObject("workdunitLocate", workdunitLocate);
+		modelAndView.addObject("currentLocate", currentLocate);
+		modelAndView.setViewName("relperson/relpersonView");
+		return modelAndView;
 	}
 
 

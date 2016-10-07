@@ -43,95 +43,98 @@
 
 	<div class="pd-20">
 		<div class="text-c">
-			<form class="Huiform" method="post" action="${pageContext.request.contextPath }/locate/list" target="_self">
+			<form class="Huiform" method="post"
+				action="${pageContext.request.contextPath }/locate/list"
+				target="_self">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0"
 					style="line-height: 35px;">
 					<tr height="35">
 						<td align="left">地址： <input type="text" name="queryMessage"
-							placeholder="详细地址"  class="input-text"
-							style="width: 300px"></td>
-						<td align="left"><input type="submit"
-								class="btn btn-success" id="button2" value="查询" onClick="">
-							</input></td>
+							placeholder="详细地址" class="input-text" style="width: 300px"></td>
+						<td align="left"><input type="submit" class="btn btn-success"
+							id="button2" value="查询" onClick=""> </input></td>
 					</tr>
 				</table>
 			</form>
 		</div>
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="l">
-			<!--
+			<span class="l"> <!--
 			<a href="javascript:;" onclick="datadel()"
 				class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
 					批量删除</a> 
-				  -->	
-					<a class="btn btn-primary radius"
+				  --> <a class="btn btn-primary radius"
 				onclick="article_add('场所行业信息登记','${pageContext.request.contextPath }/locate/toAdd')"
 				href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a></span> <span
 				class="r">共有数据：<strong>${locateList.size()}</strong> 条
 			</span>
 		</div>
 		<div class="mt-20">
-			<table class="table table-border table-bordered table-bg">
-				<thead>
-					<tr class="text-c">
-						<th width="25"><input type="checkbox" name="" value=""></th>
-						<th width="80">流水编号</th>
-						<th>场所地址（详细地址，门牌号）</th>
-						<th width="120">是否出租房</th>
-						<th width="120">所属派出所或社区</th>
-						<th width="75">社区民警姓名</th>
-						<th width="120">场所性质</th>
-						<th width="120">上传时间</th>
-						<th width="120">操作</th>
-					</tr>
-				</thead>
-				<tbody>
-
-					<c:forEach items="${locateList}" var="locate" varStatus="index">
+			<c:if test="${locateList==null||locateList.size()<1}">
+										暂无此类场所信息
+										</c:if>
+			<c:if test="${locateList.size()>1}">
+				<table class="table table-border table-bordered table-bg">
+					<thead>
 						<tr class="text-c">
-							<th><input type="checkbox" name="" value=""></th>
-							<td class="f-14 td-manage">${index.count }</td>
-							<td>
-							
-							<a style="text-decoration: none"
-								class="ml-5"
-								onClick="article_edit('查看场所行业信息','${pageContext.request.contextPath }/locate/view?id=${locate.id}','10001')"
-								href="javascript:;" title="编辑">${locate.address }</a>
-							</td>
-							<td><c:if test="${locate.islethouse ==0 }">否</c:if> <c:if
-									test="${locate.islethouse ==1 }">是</c:if></td>
-							<td>${locate.belongplace }</td>
-							<td class="f-14 td-manage">${locate.policename }</td>
-							<td class="f-14 td-manage">
-								<c:if test="${locate.placetype ==0 ||locate.placetype ==null  }">出租房</c:if>
-								<c:if test="${locate.placetype ==1 }">娱乐场所</c:if>
-								<c:if test="${locate.placetype ==2 }">服务场所</c:if>
-								<c:if test="${locate.placetype ==3 }">特种行业</c:if>
-								<c:if test="${locate.placetype ==4 }">九小场所</c:if>
-								<c:if test="${locate.placetype ==5 }">物流快递</c:if>
-							</td>
-							<td class="f-14 td-manage">${locate.uploadtime }</td>
-							<td class="f-14 td-manage"><a style="text-decoration: none"
-								class="ml-5"
-								onClick="article_edit('场所行业信息登记','${pageContext.request.contextPath }/locate/load?id=${locate.id}','10001')"
-								href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-								<a style="text-decoration: none" class="ml-5"
-								onClick="return confirm('您确认要删除信息吗?')" href="${pageContext.request.contextPath }/locate/delete?id=${locate.id}"
-								title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+							<th width="25"><input type="checkbox" name="" value=""></th>
+							<th width="80">流水编号</th>
+							<th>场所地址（详细地址，门牌号）</th>
+							<th width="120">是否出租房</th>
+							<th width="120">所属派出所或社区</th>
+							<th width="75">社区民警姓名</th>
+							<th width="120">场所性质</th>
+							<th width="120">上传时间</th>
+							<th width="120">操作</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<c:forEach items="${locateList}" var="locate" varStatus="index">
+							<tr class="text-c">
+								<th><input type="checkbox" name="" value=""></th>
+								<td class="f-14 td-manage">${index.count }</td>
+								<td><a style="text-decoration: none" class="ml-5"
+									onClick="article_edit('查看场所行业信息','${pageContext.request.contextPath }/locate/view?id=${locate.id}','10001')"
+									href="javascript:;" title="查看">${locate.address }</a></td>
+								<td><c:if test="${locate.islethouse ==0 }">否</c:if> <c:if
+										test="${locate.islethouse ==1 }">是</c:if></td>
+								<td>${locate.belongplace }</td>
+								<td class="f-14 td-manage">${locate.policename }</td>
+								<td class="f-14 td-manage"><c:if
+										test="${locate.placetype ==0 ||locate.placetype ==null  }">出租房</c:if>
+									<c:if test="${locate.placetype ==1 }">娱乐场所</c:if> <c:if
+										test="${locate.placetype ==2 }">服务场所</c:if> <c:if
+										test="${locate.placetype ==3 }">特种行业</c:if> <c:if
+										test="${locate.placetype ==4 }">九小场所</c:if> <c:if
+										test="${locate.placetype ==5 }">物流快递</c:if></td>
+								<td class="f-14 td-manage">${locate.uploadtime }</td>
+								<td class="f-14 td-manage"><a style="text-decoration: none"
+									class="ml-5"
+									onClick="article_edit('场所行业信息登记','${pageContext.request.contextPath }/locate/load?id=${locate.id}','10001')"
+									href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+									<a style="text-decoration: none" class="ml-5"
+									onClick="return confirm('您确认要删除信息吗?')"
+									href="${pageContext.request.contextPath }/locate/delete?id=${locate.id}"
+									title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
 		</div>
 
 	</div>
-	<script type="text/javascript" src="${pageContext.request.contextPath }/hui/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath }/hui/layer/1.9.3/layer.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath }/hui/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath }/hui/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath }/hui/layer/1.9.3/layer.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath }/hui/My97DatePicker/WdatePicker.js"></script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath }/hui/datatables/1.10.0/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath }/js/H-ui.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath }/js/H-ui.admin.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath }/js/H-ui.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath }/js/H-ui.admin.js"></script>
 	<script type="text/javascript">
 		$('.table-sort').dataTable({
 			"aaSorting" : [ [ 1, "desc" ] ],//默认第几个排序

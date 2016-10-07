@@ -25,4 +25,7 @@ public interface LocateService {
 	//查询条件
 	public List<Locate> findLocateListByQueryMessage(LocateQuery locateQuery);
 
+	//根据传入的地址查询场所,传入addressType(1:表示现住地址 2:表示工作单位地址)
+	public Locate getRealLocate(Integer addressType,String addressMsg);
+
 }
