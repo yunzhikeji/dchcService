@@ -72,7 +72,7 @@
 			<c:if test="${locateList==null||locateList.size()<1}">
 										暂无此类场所信息
 										</c:if>
-			<c:if test="${locateList.size()>1}">
+			<c:if test="${locateList.size()>0}">
 				<table class="table table-border table-bordered table-bg">
 					<thead>
 						<tr class="text-c">
