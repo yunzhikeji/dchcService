@@ -12,9 +12,9 @@
 	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="hui/html5.js"></script>
-<script type="text/javascript" src="hui/respond.min.js"></script>
-<script type="text/javascript" src="hui/PIE_IE678.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/html5.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/respond.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/PIE_IE678.js"></script>
 <![endif]-->
 <link href="${pageContext.request.contextPath }/css/H-ui.min.css"
 	rel="stylesheet" type="text/css" />
@@ -46,22 +46,23 @@
 			<form class="Huiform" method="post"
 				action="${pageContext.request.contextPath }/relperson/query"
 				target="_self">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0"
-					style="line-height: 35px;">
-					<tr height="35">
-						<td width="10%" align="left">姓名： <input type="text"
-							placeholder="姓名" name="name" value="" class="input-text"
+				<table border="0" cellspacing="0" cellpadding="0" style="line-height: 35px;">
+					<tr height="35" align="left">
+						<td width="50px">姓名：</td>
+                                                <td width="80px"><input type="text" placeholder="姓名" name="name" value="" class="input-text"
 							style="width: 80px"></td>
-						<td width="21%" align="left">工作单位地址： <input type="text"
-							placeholder="工作单位地址" name="workdunitaddress" value=""
+						<td width="100px" style="padding-left: 10px;">工作单位地址：</td>
+                                                <td width="200px"><input type="text" placeholder="工作单位地址" name="workdunitaddress" value=""
 							class="input-text" style="width: 200px"></td>
-						<td width="21%" align="left">现居住地址： <input type="text"
-							placeholder="现居住地址" name="currentaddress" value=""
+						<td width="100px" style="padding-left: 10px;">现居住地址：</td>
+                                                <td width="200px"><input type="text" placeholder="现居住地址" name="currentaddress" value=""
 							class="input-text" style="width: 200px"></td>
-						<td align="left"><input type="submit" class="btn btn-success"
-							style="margin-left: 5px;" value="查询"> </input></td>
+						<td style="padding-left: 10px;"><input type="submit" class="btn btn-success"
+							 value="查询"> </input></td>
+                                                </tr>
 
-					</tr>
+				</table>
+
 
 				</table>
 			</form>
@@ -73,7 +74,7 @@
 					批量删除</a> 
 				  <a class="btn btn-primary radius"
 				onclick="article_add('场所行业信息登记','${pageContext.request.contextPath }/locate/toAdd')"
-				href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a>--></span>  <span
+				href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a> --></span>  <span
 				class="r">共有数据：<strong>${relpersonList.size()}</strong> 条
 			</span>
 		</div>

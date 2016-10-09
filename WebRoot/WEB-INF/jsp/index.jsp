@@ -13,9 +13,9 @@
 <LINK rel="Bookmark" href="/favicon.ico" >
 <LINK rel="Shortcut Icon" href="/favicon.ico" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="hui/html5.js"></script>
-<script type="text/javascript" src="hui/respond.min.js"></script>
-<script type="text/javascript" src="hui/PIE_IE678.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/html5.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/respond.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/hui/PIE_IE678.js"></script>
 <![endif]-->
 <link href="${pageContext.request.contextPath }/css/H-ui.min.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath }/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
