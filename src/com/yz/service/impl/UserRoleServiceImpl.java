@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.yz.mapper.UserRoleMapperCustom;
 import com.yz.mapper.UserroleMapper;
 import com.yz.po.Userrole;
+import com.yz.po.UserroleQuery;
 import com.yz.service.UserRoleService;
 
 public class UserRoleServiceImpl implements UserRoleService {
@@ -41,6 +42,48 @@ public class UserRoleServiceImpl implements UserRoleService {
 	public List<Userrole> findUserRoleByType(int type) {
 		
 		return userRoleMapperCustom.findUserRoleByType(type);
+	}
+
+	@Override
+	public List<Userrole> findUserroleListByQueryMessage(UserroleQuery userroleQuery) {
+		// TODO Auto-generated method stub
+		return userRoleMapperCustom.findUserroleListByQueryMessage(userroleQuery);
+	}
+
+	@Override
+	public void deleteUserroleById(Integer id) {
+		// TODO Auto-generated method stub
+		userRoleMapper.deleteByPrimaryKey(id);
+		
+	}
+
+	@Override
+	public void insert(Userrole userrole) {
+		// TODO Auto-generated method stub
+		userRoleMapper.insert(userrole);
+		
+	}
+
+	@Override
+	public Userrole findUserroleById(Integer id) {
+		// TODO Auto-generated method stub
+		return userRoleMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public void updateUserroleById(Integer id, Userrole userrole) {
+		// TODO Auto-generated method stub
+		userrole.setId(id);
+		userRoleMapper.updateByPrimaryKeySelective(userrole);
+		
+		
+		
+	}
+
+	@Override
+	public Userrole findUserRoleByUsername(UserroleQuery userroleQuery) {
+		// TODO Auto-generated method stub
+		return userRoleMapperCustom.findUserRoleByUsername(userroleQuery);
 	}
 
 }

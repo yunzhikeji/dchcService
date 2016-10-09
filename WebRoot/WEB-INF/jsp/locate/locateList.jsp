@@ -16,6 +16,10 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/hui/respond.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/hui/PIE_IE678.js"></script>
 <![endif]-->
+	<!--[if IE 6]>
+		<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+		<script>DD_belatedPNG.fix('*');</script>
+		<![endif]-->
 <link href="${pageContext.request.contextPath }/css/H-ui.min.css"
 	rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath }/css/H-ui.admin.css"

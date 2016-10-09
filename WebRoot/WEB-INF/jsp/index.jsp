@@ -52,7 +52,9 @@
 			<dt><i class="Hui-iconfont ">&#xe616;</i> 日常工作<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd >
 			  <ul>
-			  	 	<li><a href="${pageContext.request.contextPath }/userrole/list.action" target="myiframe">用户管理 </a></li>
+			  		<c:if test="${type==1}">
+			  	 	<li><a href="${pageContext.request.contextPath }/user/list.action" target="myiframe">用户管理 </a></li>
+			  	 	</c:if>
 					<li><a href="${pageContext.request.contextPath }/jcheck.action" target="myiframe">人员信息检测 </a></li>
 					<li><a href="${pageContext.request.contextPath }/person/list.action" target="myiframe">人员信息导出</a></li>
                     <li><a href="${pageContext.request.contextPath }/locate/list.action" target="myiframe">地点(场所)</a></li>

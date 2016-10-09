@@ -2,6 +2,8 @@ package com.yz.mapper;
 
 import com.yz.po.Userrole;
 import com.yz.po.UserroleExample;
+import com.yz.po.UserroleQuery;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

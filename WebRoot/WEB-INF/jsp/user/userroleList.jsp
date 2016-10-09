@@ -16,10 +16,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/hui/respond.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/hui/PIE_IE678.js"></script>
 <![endif]-->
-	<!--[if IE 6]>
-		<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
-		<script>DD_belatedPNG.fix('*');</script>
-		<![endif]-->
 <link href="${pageContext.request.contextPath }/css/H-ui.min.css"
 	rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath }/css/H-ui.admin.css"
@@ -33,11 +29,11 @@
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>相关人员</title>
+<title>用户管理</title>
 </head>
 <body>
 	<nav class="breadcrumb">
-		<i class="Hui-iconfont">&#xe67f;</i><span class="c-gray en">&gt;</span>相关人员
+		<i class="Hui-iconfont">&#xe67f;</i><span class="c-gray en">&gt;</span>用户管理
 		<a class="btn btn-success radius r mr-20"
 			style="line-height: 1.6em; margin-top: 3px"
 			href="javascript:location.replace(location.href);" title="刷新"><i
@@ -48,26 +44,16 @@
 	<div class="pd-20">
 		<div class="text-c">
 			<form class="Huiform" method="post"
-				action="${pageContext.request.contextPath }/relperson/query"
+				action="${pageContext.request.contextPath }/user/list"
 				target="_self">
-				<table border="0" cellspacing="0" cellpadding="0" style="line-height: 35px;">
-					<tr height="35" align="left">
-						<td width="50px">姓名：</td>
-                                                <td width="80px"><input type="text" placeholder="姓名" name="name" value="" class="input-text"
-							style="width: 80px"></td>
-						<td width="100px" style="padding-left: 10px;">工作单位地址：</td>
-                                                <td width="200px"><input type="text" placeholder="工作单位地址" name="workdunitaddress" value=""
-							class="input-text" style="width: 200px"></td>
-						<td width="100px" style="padding-left: 10px;">现居住地址：</td>
-                                                <td width="200px"><input type="text" placeholder="现居住地址" name="currentaddress" value=""
-							class="input-text" style="width: 200px"></td>
-						<td style="padding-left: 10px;"><input type="submit" class="btn btn-success"
-							 value="查询"> </input></td>
-                                                </tr>
-
-				</table>
-
-
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+					style="line-height: 35px;">
+					<tr height="35">
+						<td align="left">真实姓名： <input type="text" name="realname"
+							placeholder="真实姓名" class="input-text" style="width: 300px"></td>
+						<td align="left"><input type="submit" class="btn btn-success"
+							id="button2" value="查询" onClick=""> </input></td>
+					</tr>
 				</table>
 			</form>
 		</div>
@@ -75,61 +61,50 @@
 			<span class="l"> <!--
 			<a href="javascript:;" onclick="datadel()"
 				class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
-					批量删除</a> 
+					批量删除</a> -->
 				  <a class="btn btn-primary radius"
-				onclick="article_add('场所行业信息登记','${pageContext.request.contextPath }/locate/toAdd')"
-				href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a> --></span>  <span
-				class="r">共有数据：<strong>${relpersonList.size()}</strong> 条
+				onclick="article_add('用户管理','${pageContext.request.contextPath }/user/toAdd')"
+				href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a> </span>  <span
+				class="r">共有数据：<strong>${userroleList.size()}</strong> 条
 			</span>
 		</div>
 		<div class="mt-20">
-		<c:if test="${relpersonList==null||relpersonList.size()<1}">
-										暂无此类相关人员信息
+		<c:if test="${userroleList==null||userroleList.size()<1}">
+										暂无用户
 										</c:if>
-					<c:if test="${relpersonList.size()>0}">
+					<c:if test="${userroleList.size()>0}">
 			<table class="table table-border table-bordered table-bg">
 				<thead>
 					<tr class="text-c">
-						<!-- <th width="25"><input type="checkbox" name="" value=""></th> -->
+						 <th width="25"><input type="checkbox" name="" value=""></th> 
 						<th width="80">流水编号</th>
-						<th width="120">相关人员类别</th>
-						<th width="120">姓名</th>
-						<th width="120">性别</th>
-						<th width="75">民族</th>
-						<th>工作单位名称</th>
+						<th width="120">用户类别</th>
+						<th width="120">用户名</th>
+						<th width="120">密码</th>
+						<th width="75">真实姓名</th>
 						<th width="120">联系电话</th>
-						<th width="120">是否办理居住证</th>
 						<th width="120">操作</th>
 					</tr>
 				</thead>
 				<tbody>
-						<c:forEach items="${relpersonList }" var="relperson"
+						<c:forEach items="${userroleList }" var="userrole"
 							varStatus="index">
 							<tr class="text-c">
-								<!-- <td><input type="checkbox" value="" name=""></td> -->
+								 <td><input type="checkbox" value="" name=""></td>
 								<td>${index.count }</td>
-								<td><c:if test="${relperson.rtype == 1}">房东</c:if> <c:if
-										test="${relperson.rtype == 2}">房客</c:if> <c:if
-										test="${relperson.rtype == 3}">业主</c:if> <c:if
-										test="${relperson.rtype == 4}">从业人员</c:if></td>
-								<td><a style="text-decoration: none" class="ml-5"
-									onClick="article_edit('查看人员信息','${pageContext.request.contextPath }/relperson/view?id=${relperson.id}','10001')"
-									href="javascript:;" title="查看">${relperson.name}</a></td>
-								<td><c:if test="${relperson.sex == 1}">男</c:if> <c:if
-										test="${relperson.sex == 2}">女</c:if></td>
-								<td class="f-14 td-manage">${relperson.nation}</td>
-								<td class="f-14 td-manage">${relperson.workdunit}</td>
-								<td class="f-14 td-manage">${relperson.telphone}</td>
-								<td class="f-14 td-manage"><c:if
-										test="${relperson.ispermit == 0}">否</c:if> <c:if
-										test="${relperson.ispermit == 1}">是</c:if></td>
+								<td><c:if test="${userrole.type == 1}">大厅用户</c:if> <c:if
+										test="${userrole.type == 2}">外勤用户</c:if> </td>
+								<td>${userrole.username}</td>
+								<td class="f-14 td-manage">${userrole.password}</td>
+								<td class="f-14 td-manage">${userrole.realname}</td>
+								<td class="f-14 td-manage">${userrole.telephone}</td>
 								<td class="f-14 td-manage"><a style="text-decoration: none"
 									class="ml-5"
-									onClick="article_edit('相关人员人口登记','${pageContext.request.contextPath }/relperson/toEdit?id=${relperson.id}','10001')"
+									onClick="article_edit('用户信息','${pageContext.request.contextPath }/user/load?id=${userrole.id}','10001')"
 									href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
 									<a style="text-decoration: none" class="ml-5"
 									onClick="return confirm('您确认要删除信息吗?')"
-									href="${pageContext.request.contextPath }/relperson/delete?id=${relperson.id}"
+									href="${pageContext.request.contextPath }/user/delete?id=${userrole.id}"
 									title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 							</tr>
 						</c:forEach>

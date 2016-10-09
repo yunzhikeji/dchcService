@@ -42,6 +42,9 @@ public class Relperson {
     private String position; //职务
 
     private String platenumber;//车牌号码
+    
+    
+    
 
 	public Integer getId() {
 		return id;

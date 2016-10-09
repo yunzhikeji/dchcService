@@ -17,7 +17,7 @@ public class Userrole {
 
     private String photo;
 
-    private Integer type;
+    private Integer type;//1:大厅 0:其他
 
     public Integer getId() {
         return id;
