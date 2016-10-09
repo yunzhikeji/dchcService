@@ -93,7 +93,7 @@
 								 <td><input type="checkbox" value="" name=""></td>
 								<td>${index.count }</td>
 								<td><c:if test="${userrole.type == 1}">大厅用户</c:if> <c:if
-										test="${userrole.type == 2}">外勤用户</c:if> </td>
+										test="${userrole.type != 1}">外勤用户</c:if> </td>
 								<td>${userrole.username}</td>
 								<td class="f-14 td-manage">${userrole.password}</td>
 								<td class="f-14 td-manage">${userrole.realname}</td>

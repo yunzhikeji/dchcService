@@ -44,6 +44,7 @@
 function checkUserRole()
 {
 	var username = $("#username").val();
+	var password = $("#password").val();
 	var id = $("#uid").val();
 	var booleanBack =true;
 	
@@ -55,6 +56,12 @@ function checkUserRole()
 	if(username==''||username==null)
 	{
 		alert("用户名不能为空.");
+		return false;
+	}
+	
+	if(password==''||password==null)
+	{
+		alert("密码不能为空.");
 		return false;
 	}
 	
@@ -139,7 +146,7 @@ function checkUserRole()
 								<tr>
 									<td width="30%"><label class="form-label text-r"><span
 											class="c-red">*</span>密码：</label></td>
-									<td width="25%"><input name="password" type="text" value="${userrole.password }"
+									<td width="25%"><input name="password" id="password" type="text" value="${userrole.password }"
 										class="input-text radius size-M " style="width: 200px;">
 									</td>
 									<td>&nbsp;</td>
