@@ -280,7 +280,10 @@
 								</table>
 							</div>
 						</div>
-						<div class="row cl mt-20">
+						
+
+					</div>
+					<div class="row cl mt-20">
 							<div class="col-12 mb-0 c-primary f-16"
 								style="border-bottom: solid 2px #2DABF7; line-height: 43px;">
 								相关人员基本信息</div>
@@ -325,10 +328,7 @@
 									</table>
 								</c:if>
 							</div>
-
 						</div>
-
-					</div>
 				</div>
 			</div>
 

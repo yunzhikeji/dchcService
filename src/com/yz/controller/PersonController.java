@@ -35,7 +35,7 @@ public class PersonController {
 	public @ResponseBody Person addPerson(Person person, MultipartFile facepic, MultipartFile bodyphoto)
 			throws Exception {
 		// 存储图片的物理路径
-		String pic_path = "C:\\develop\\upload\\temp\\";
+		String pic_path = "/home/develop/upload/temp/";
 		if (facepic != null) {
 			String originalFacepicFilename = facepic.getOriginalFilename();
 			// 上传图片

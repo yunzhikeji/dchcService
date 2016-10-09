@@ -48,7 +48,7 @@ public class JPushController {
 		// 存储图片的物理路径
 
 		JPushResult jPushResult = new JPushResult();
-		String pic_path = "C:\\develop\\upload\\temp\\";
+		String pic_path = "/home/develop/upload/temp/";
 		if (facepic != null) {
 			String filename = facepic.getOriginalFilename();
 			if (filename != null && filename.length() > 0) {

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -84,7 +85,10 @@
 							</tr>
 							<tr>
 								<td><label class="form-label text-r">出生日期：</label></td>
-								<td>${relperson.birthday }</td>
+								<td>
+								<c:if test="${relperson.birthday=='请选择'}"></c:if>
+								<c:if test="${relperson.birthday!='请选择'}">${relperson.birthday}</c:if>
+								</td>
 							</tr>
 							<tr>
 								<td><label class="form-label text-r">QQ：</label></td>
@@ -170,9 +174,11 @@
 										</tr>
 										</c:if>
 										<c:if test="${currentLocate==null}">
+										<tr>
 											<td>1</td>
 											<td>现居住地址</td>
 											<td colspan="2">暂无登记该场所</td>
+											</tr>
 										</c:if>
 										
 										
@@ -194,9 +200,11 @@
 										</tr>
 										</c:if>
 										<c:if test="${workdunitLocate==null}">
+											<tr>
 											<td>2</td>
 											<td>工作单位地址</td>
 											<td colspan="2">暂无登记该场所</td>
+											</tr>
 										</c:if>
 								</tbody>
 							</table>

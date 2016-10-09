@@ -42,7 +42,7 @@
 				<div class="col-6 col-offset-6 ">
 					<div class="col-2 f-r">
 						<button type="submit" class="btn btn-success radius" id="button"
-							name="" >
+							name="">
 							<i class="Hui-iconfont">&#xe636;</i> 确认保存
 						</button>
 					</div>
@@ -113,8 +113,9 @@
 								</tr>
 								<tr>
 									<td><label class="form-label text-r">出生日期：</label></td>
-									<td><input type="text"
-										onFocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})"
+									<td>
+										<input type="text"
+										onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})"
 										id="logmax1" name="birthday" value="${relperson.birthday }"
 										class="input-text Wdate" style="width: 200px;"></td>
 								</tr>
