@@ -131,6 +131,12 @@
 										style="width: 200px;"></td>
 								</tr>
 								<tr>
+									<td><label class="form-label text-r">车牌号：</label></td>
+									<td><input type="text" name="platenumber"
+										value="${relperson.platenumber }" class="input-text radius size-M "
+										style="width: 200px;"></td>
+								</tr>
+								<tr>
 									<td><label class="form-label text-r"><span
 											class="c-red">*</span>户籍所在地址：</label></td>
 									<td><input type="text" name="registeraddress"
@@ -149,6 +155,13 @@
 											class="c-red">*</span>工作单位名称：</label></td>
 									<td><input type="text" name="workdunit"
 										value="${relperson.workdunit }"
+										class="input-text radius size-M " style="width: 400px;"></td>
+								</tr>
+								<tr>
+									<td><label class="form-label text-r"><span
+											class="c-red">*</span>职务：</label></td>
+									<td><input type="text" name="position"
+										value="${relperson.position }"
 										class="input-text radius size-M " style="width: 400px;"></td>
 								</tr>
 								<tr>
@@ -184,12 +197,19 @@
 								</tr>
 								<tr>
 									<td><label class="form-label text-r">备注：</label></td>
-									<td><input type="text" name="remark"
-										value="${relperson.remark }" class="input-text radius size-M "
-										style="width: 400px;"></td>
+									<td>
+									<textarea  name="remark" cols="3" rows="8" style="width:400px;" >${relperson.remark}</textarea>
+									</td>
 								</tr>
+								<!-- 
+								<tr>
+									<td><label class="form-label text-r">测试固定资产：</label></td>
+									<td>
+									<textarea  name="propertyandequipment" cols="3" rows="8" style="width:400px;" >${relperson.propertyandequipment}</textarea>
+									</td>
+								</tr>
+								 -->
 							</table>
-
 						</div>
 
 

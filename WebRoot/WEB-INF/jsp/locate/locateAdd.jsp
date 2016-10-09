@@ -204,29 +204,36 @@
     <input name="specialplacetype" value="8" type="radio" tabindex="31" >
     旧货业回收&nbsp;&nbsp;&nbsp;
     <input name="specialplacetype" value="9" type="radio" tabindex="32" >
-    机动车电动车修理</td>
+    机动车电动车修理
+     <input name="specialplacetype" value="10" type="radio" tabindex="33" >
+   二手手机经营&nbsp;&nbsp;&nbsp;
+    <input name="specialplacetype" value="11" type="radio" tabindex="34" >
+   金店&nbsp;&nbsp;&nbsp;
+    <input name="specialplacetype" value="12" type="radio" tabindex="35" >
+  典当行
+    </td>
     </tr>
     <tr id="j4" style="display:none">
     <td><label class="form-label text-r"><span class="c-red">*</span>九小场所：</label></td>
-    <td colspan="3"><input name="ninesmallplacetype" value="1" type="radio" tabindex="33" checked="checked">
+    <td colspan="3"><input name="ninesmallplacetype" value="1" type="radio" tabindex="36" checked="checked">
     小学校&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype"  type="radio" value="2" tabindex="34" >
+    <input name="ninesmallplacetype"  type="radio" value="2" tabindex="37" >
     小商场&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="3" tabindex="35" >
+    <input name="ninesmallplacetype" type="radio" value="3" tabindex="38" >
     小医院&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="4" tabindex="36" >
+    <input name="ninesmallplacetype" type="radio" value="4" tabindex="39" >
     小旅馆&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="5" tabindex="37" >
+    <input name="ninesmallplacetype" type="radio" value="5" tabindex="40" >
     小歌舞娱乐&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="6" tabindex="38" >
+    <input name="ninesmallplacetype" type="radio" value="6" tabindex="41" >
     小餐饮&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="7" tabindex="39" >
+    <input name="ninesmallplacetype" type="radio" value="7" tabindex="42" >
     小网吧&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="8" tabindex="40" >
+    <input name="ninesmallplacetype" type="radio" value="8" tabindex="43" >
     小美容洗浴&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="9" tabindex="41" >
+    <input name="ninesmallplacetype" type="radio" value="9" tabindex="44" >
     小生产加工&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="10" tabindex="42" >
+    <input name="ninesmallplacetype" type="radio" value="10" tabindex="45" >
     其他</td>
     </tr>
 </table>

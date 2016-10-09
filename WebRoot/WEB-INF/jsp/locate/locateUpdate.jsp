@@ -199,34 +199,44 @@
     废旧金属回收&nbsp;&nbsp;&nbsp;
     <input name="specialplacetype" value="6" type="radio" tabindex="29" ${(locate.specialplacetype==6)?'checked' : ''}>
     二手机动车交易&nbsp;&nbsp;&nbsp;
-    <input name="specialplacetype" value="7" type="radio" tabindex="30" ${(locate.specialplacetype==7)?'checked' : ''}>
+     <input name="specialplacetype" value="7" type="radio" tabindex="30" ${(locate.specialplacetype==7)?'checked' : ''}>
     机动车拆解&nbsp;&nbsp;&nbsp;
     <input name="specialplacetype" value="8" type="radio" tabindex="31" ${(locate.specialplacetype==8)?'checked' : ''}>
     旧货业回收&nbsp;&nbsp;&nbsp;
     <input name="specialplacetype" value="9" type="radio" tabindex="32" ${(locate.specialplacetype==9)?'checked' : ''}>
-    机动车电动车修理</td>
+    机动车电动车修理
+      <input name="specialplacetype" value="10" type="radio" tabindex="33" ${(locate.specialplacetype==10)?'checked' : ''}>
+   二手手机经营&nbsp;&nbsp;&nbsp;
+    <input name="specialplacetype" value="11" type="radio" tabindex="34" ${(locate.specialplacetype==11)?'checked' : ''}>
+    金店&nbsp;&nbsp;&nbsp;
+    <input name="specialplacetype" value="12" type="radio" tabindex="35" ${(locate.specialplacetype==12)?'checked' : ''}>
+ 典当行
+    
+    
+    
+    </td>
     </tr>
     <tr id="j4" <c:if test="${locate.placetype==4}">style="display:''"</c:if><c:if test="${locate.placetype!=4}">style="display:none"</c:if>>
     <td><label class="form-label text-r"><span class="c-red">*</span>九小场所：</label></td>
-    <td colspan="3"><input name="ninesmallplacetype" value="1" type="radio" tabindex="33" checked="checked" ${(locate.ninesmallplacetype==1)?'checked' : ''}>
+    <td colspan="3"><input name="ninesmallplacetype" value="1" type="radio" tabindex="36" checked="checked" ${(locate.ninesmallplacetype==1)?'checked' : ''}>
     小学校&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype"  type="radio" value="2" tabindex="34" ${(locate.ninesmallplacetype==2)?'checked' : ''}>
+    <input name="ninesmallplacetype"  type="radio" value="2" tabindex="37" ${(locate.ninesmallplacetype==2)?'checked' : ''}>
     小商场&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="3" tabindex="35" ${(locate.ninesmallplacetype==3)?'checked' : ''}>
+    <input name="ninesmallplacetype" type="radio" value="3" tabindex="38" ${(locate.ninesmallplacetype==3)?'checked' : ''}>
     小医院&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="4" tabindex="36" ${(locate.ninesmallplacetype==4)?'checked' : ''}>
+    <input name="ninesmallplacetype" type="radio" value="4" tabindex="39" ${(locate.ninesmallplacetype==4)?'checked' : ''}>
     小旅馆&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="5" tabindex="37" ${(locate.ninesmallplacetype==5)?'checked' : ''}>
+    <input name="ninesmallplacetype" type="radio" value="5" tabindex="40" ${(locate.ninesmallplacetype==5)?'checked' : ''}>
     小歌舞娱乐&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="6" tabindex="38" ${(locate.ninesmallplacetype==6)?'checked' : ''}>
+    <input name="ninesmallplacetype" type="radio" value="6" tabindex="41" ${(locate.ninesmallplacetype==6)?'checked' : ''}>
     小餐饮&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="7" tabindex="39" ${(locate.ninesmallplacetype==7)?'checked' : ''}>
+    <input name="ninesmallplacetype" type="radio" value="7" tabindex="42" ${(locate.ninesmallplacetype==7)?'checked' : ''}>
     小网吧&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="8" tabindex="40" ${(locate.ninesmallplacetype==8)?'checked' : ''}>
+    <input name="ninesmallplacetype" type="radio" value="8" tabindex="43" ${(locate.ninesmallplacetype==8)?'checked' : ''}>
     小美容洗浴&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="9" tabindex="41" ${(locate.ninesmallplacetype==9)?'checked' : ''}>
+    <input name="ninesmallplacetype" type="radio" value="9" tabindex="44" ${(locate.ninesmallplacetype==9)?'checked' : ''}>
     小生产加工&nbsp;&nbsp;&nbsp;
-    <input name="ninesmallplacetype" type="radio" value="10" tabindex="42" ${(locate.ninesmallplacetype==10)?'checked' : ''}>
+    <input name="ninesmallplacetype" type="radio" value="10" tabindex="45" ${(locate.ninesmallplacetype==10)?'checked' : ''}>
     其他</td>
     </tr>
 </table>

@@ -85,9 +85,8 @@
 							</tr>
 							<tr>
 								<td><label class="form-label text-r">出生日期：</label></td>
-								<td>
-								<c:if test="${relperson.birthday=='请选择'}"></c:if>
-								<c:if test="${relperson.birthday!='请选择'}">${relperson.birthday}</c:if>
+								<td><c:if test="${relperson.birthday=='请选择'}"></c:if> <c:if
+										test="${relperson.birthday!='请选择'}">${relperson.birthday}</c:if>
 								</td>
 							</tr>
 							<tr>
@@ -97,6 +96,10 @@
 							<tr>
 								<td><label class="form-label text-r">微信号：</label></td>
 								<td>${relperson.wechat }</td>
+							</tr>
+							<tr>
+								<td><label class="form-label text-r">车牌号：</label></td>
+								<td>${relperson.platenumber }</td>
 							</tr>
 							<tr>
 								<td><label class="form-label text-r"><span
@@ -113,6 +116,11 @@
 										class="c-red">*</span>工作单位名称：</label></td>
 								<td>${relperson.workdunit }</td>
 							</tr>
+							<tr>
+									<td><label class="form-label text-r"><span
+											class="c-red">*</span>职务：</label></td>
+									<td>${relperson.position }</td>
+								</tr>
 							<tr>
 								<td><label class="form-label text-r"><span
 										class="c-red">*</span>工作单位地址：</label></td>
@@ -146,68 +154,67 @@
 						style="border-bottom: solid 2px #2DABF7; line-height: 43px;">
 						相关场所信息</div>
 					<div class="col-12">
-							<table class="table table-border table-bg mb-10">
-								<thead>
+						<table class="table table-border table-bg mb-10">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>类型</th>
+									<th>场所地址</th>
+									<th>场所性质</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:if test="${currentLocate!=null}">
 									<tr>
-										<th>序号</th>
-										<th>类型</th>
-										<th>场所地址</th>
-										<th>场所性质</th>
+										<td>1</td>
+										<td>现居住地址</td>
+										<td><a style="text-decoration: none" class="ml-5"
+											href="${pageContext.request.contextPath }/locate/view?id=${currentLocate.id}"
+											title="查看场所行业信息">${currentLocate.address}</a></td>
+
+										<td><c:if
+												test="${currentLocate.placetype ==0 ||currentLocate.placetype ==null  }">出租房</c:if>
+											<c:if test="${currentLocate.placetype ==1 }">娱乐场所</c:if> <c:if
+												test="${currentLocate.placetype ==2 }">服务场所</c:if> <c:if
+												test="${currentLocate.placetype ==3 }">特种行业</c:if> <c:if
+												test="${currentLocate.placetype ==4 }">九小场所</c:if> <c:if
+												test="${currentLocate.placetype ==5 }">物流快递</c:if></td>
 									</tr>
-								</thead>
-								<tbody>
-										<c:if test="${currentLocate!=null}">
-										<tr>
-											<td>1</td>
-											<td>现居住地址</td>
-											<td>	<a style="text-decoration: none" class="ml-5"
-									href="${pageContext.request.contextPath }/locate/view?id=${currentLocate.id}" title="查看场所行业信息">${currentLocate.address}</a>
-									</td>
-											
-											<td><c:if
-										test="${currentLocate.placetype ==0 ||currentLocate.placetype ==null  }">出租房</c:if>
-									<c:if test="${currentLocate.placetype ==1 }">娱乐场所</c:if> <c:if
-										test="${currentLocate.placetype ==2 }">服务场所</c:if> <c:if
-										test="${currentLocate.placetype ==3 }">特种行业</c:if> <c:if
-										test="${currentLocate.placetype ==4 }">九小场所</c:if> <c:if
-										test="${currentLocate.placetype ==5 }">物流快递</c:if></td>
-										</tr>
-										</c:if>
-										<c:if test="${currentLocate==null}">
-										<tr>
-											<td>1</td>
-											<td>现居住地址</td>
-											<td colspan="2">暂无登记该场所</td>
-											</tr>
-										</c:if>
-										
-										
-										<c:if test="${workdunitLocate!=null}">
-										<tr>
-											<td>2</td>
-											<td>工作单位地址</td>
-											<td>
-											<a style="text-decoration: none" class="ml-5"
-									href="${pageContext.request.contextPath }/locate/view?id=${workdunitLocate.id}" title="查看场所行业信息">${workdunitLocate.address}</a>
-											</td>
-											<td><c:if
-										test="${workdunitLocate.placetype ==0 ||workdunitLocate.placetype ==null  }">出租房</c:if>
-									<c:if test="${workdunitLocate.placetype ==1 }">娱乐场所</c:if> <c:if
-										test="${workdunitLocate.placetype ==2 }">服务场所</c:if> <c:if
-										test="${workdunitLocate.placetype ==3 }">特种行业</c:if> <c:if
-										test="${workdunitLocate.placetype ==4 }">九小场所</c:if> <c:if
-										test="${workdunitLocate.placetype ==5 }">物流快递</c:if></td>
-										</tr>
-										</c:if>
-										<c:if test="${workdunitLocate==null}">
-											<tr>
-											<td>2</td>
-											<td>工作单位地址</td>
-											<td colspan="2">暂无登记该场所</td>
-											</tr>
-										</c:if>
-								</tbody>
-							</table>
+								</c:if>
+								<c:if test="${currentLocate==null}">
+									<tr>
+										<td>1</td>
+										<td>现居住地址</td>
+										<td colspan="2">暂无登记该场所</td>
+									</tr>
+								</c:if>
+
+
+								<c:if test="${workdunitLocate!=null}">
+									<tr>
+										<td>2</td>
+										<td>工作单位地址</td>
+										<td><a style="text-decoration: none" class="ml-5"
+											href="${pageContext.request.contextPath }/locate/view?id=${workdunitLocate.id}"
+											title="查看场所行业信息">${workdunitLocate.address}</a></td>
+										<td><c:if
+												test="${workdunitLocate.placetype ==0 ||workdunitLocate.placetype ==null  }">出租房</c:if>
+											<c:if test="${workdunitLocate.placetype ==1 }">娱乐场所</c:if> <c:if
+												test="${workdunitLocate.placetype ==2 }">服务场所</c:if> <c:if
+												test="${workdunitLocate.placetype ==3 }">特种行业</c:if> <c:if
+												test="${workdunitLocate.placetype ==4 }">九小场所</c:if> <c:if
+												test="${workdunitLocate.placetype ==5 }">物流快递</c:if></td>
+									</tr>
+								</c:if>
+								<c:if test="${workdunitLocate==null}">
+									<tr>
+										<td>2</td>
+										<td>工作单位地址</td>
+										<td colspan="2">暂无登记该场所</td>
+									</tr>
+								</c:if>
+							</tbody>
+						</table>
 					</div>
 
 				</div>

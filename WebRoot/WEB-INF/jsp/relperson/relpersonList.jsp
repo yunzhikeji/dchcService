@@ -73,7 +73,7 @@
 					批量删除</a> 
 				  <a class="btn btn-primary radius"
 				onclick="article_add('场所行业信息登记','${pageContext.request.contextPath }/locate/toAdd')"
-				href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a></span> --> <span
+				href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a>--></span>  <span
 				class="r">共有数据：<strong>${relpersonList.size()}</strong> 条
 			</span>
 		</div>

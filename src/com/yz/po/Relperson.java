@@ -36,6 +36,12 @@ public class Relperson {
 	private String remark;// 备注
 
 	private String uploadtime;//上传时间
+	
+    private String propertyandequipment;//资产
+
+    private String position; //职务
+
+    private String platenumber;//车牌号码
 
 	public Integer getId() {
 		return id;
@@ -180,4 +186,30 @@ public class Relperson {
 	public void setRemark(String remark) {
 		this.remark = remark == null ? null : remark.trim();
 	}
+
+	public String getPropertyandequipment() {
+		return propertyandequipment;
+	}
+
+	public void setPropertyandequipment(String propertyandequipment) {
+		this.propertyandequipment = propertyandequipment == null ? null : propertyandequipment.trim();
+	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position == null ? null : position.trim();
+	}
+
+	public String getPlatenumber() {
+		return platenumber;
+	}
+
+	public void setPlatenumber(String platenumber) {
+		this.platenumber = platenumber == null ? null : platenumber.trim();
+	}
+	
+	
 }
