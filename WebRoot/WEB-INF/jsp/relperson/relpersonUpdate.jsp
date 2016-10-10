@@ -70,16 +70,36 @@
 									<input type="hidden" name="id" value="${relperson.id }">
 									<td width="40%"><label class="form-label text-r"><span
 											class="c-red">*</span>相关人员类别：</label></td>
-									<td colspan="3" width="55%"><input name="rtype"
+									<td colspan="3" width="55%">
+									
+									<input name="rtype" 
+									
+									onclick="document.getElementById('gx').style.display='none';
+      document.getElementById('fc').style.display='';document.getElementById('cy').style.display='none';"
+      
 										type="radio" tabindex="1" value="1"
 										<c:if test="${relperson.rtype ==1 }">checked="checked"</c:if> />
-										房东&nbsp;&nbsp;&nbsp; <input type="radio" name="rtype"
+										房东&nbsp;&nbsp;&nbsp; 
+										
+										<input type="radio" name="rtype"
+										
+										onclick="document.getElementById('gx').style.display='';
+      document.getElementById('fc').style.display='none';document.getElementById('cy').style.display='none';"
+										
 										tabindex="2" value="2"
 										<c:if test="${relperson.rtype==2 }">checked="checked"</c:if> />
-										房客&nbsp;&nbsp;&nbsp; <input type="radio" name="rtype"
+										房客&nbsp;&nbsp;&nbsp; 
+										
+										<input type="radio" name="rtype"
+										
+										onclick="document.getElementById('gx').style.display='none';
+      document.getElementById('fc').style.display='none';document.getElementById('cy').style.display='';"
+      
 										tabindex="3" value="3"
 										<c:if test="${relperson.rtype ==3 }">checked="checked"</c:if> />
-										业主&nbsp;&nbsp;&nbsp; <input type="radio" name="rtype"
+										业主&nbsp;&nbsp;&nbsp; 
+										
+										<input type="radio" name="rtype"
 										tabindex="4" value="4"
 										<c:if test="${relperson.rtype==4 }">checked="checked"</c:if> />
 										从业人员</td>
@@ -154,6 +174,40 @@
 										value="${relperson.currentaddress }"
 										class="input-text radius size-M " style="width: 400px;"></td>
 								</tr>
+								
+								
+								
+								<tr id="gx"  <c:if test="${relperson.rtype==2}">style="display:''"</c:if><c:if test="${relperson.rtype!=2}">style="display:none"</c:if>>
+									<td><label class="form-label text-r"><span
+											class="c-red">*</span>与承租人关系：</label></td>
+									<td><input type="text" name="relationshipwithlandlord"
+										value="${relperson.relationshipwithlandlord }"
+										class="input-text radius size-M " style="width: 400px;"></td>
+								</tr>
+								
+								
+								
+								
+								<tr id="fc"   <c:if test="${relperson.rtype==1}">style="display:''"</c:if><c:if test="${relperson.rtype!=1}">style="display:none"</c:if>  >
+									<td><label class="form-label text-r"><span
+											class="c-red">*(请填写主要的三处地址)</span>
+											所拥有房产地址：
+											</label></td>
+									<td>
+									<textarea  name="propertyandequipment" cols="3" rows="8" style="width:400px;" >${relperson.propertyandequipment}</textarea>
+								</tr>
+								
+								<tr id="cy"   <c:if test="${relperson.rtype==3}">style="display:''"</c:if><c:if test="${relperson.rtype!=3}">style="display:none"</c:if>  >
+									<td><label class="form-label text-r"><span
+											class="c-red">*(请填写主要的三处地址)</span>
+											所拥有产业地址：
+											</label></td>
+									<td>
+									<textarea  name="propertyandequipment" cols="3" rows="8" style="width:400px;" >${relperson.propertyandequipment}</textarea>
+									</td>
+								</tr>
+								
+								
 								<tr>
 									<td><label class="form-label text-r"><span
 											class="c-red">*</span>工作单位名称：</label></td>

@@ -115,16 +115,50 @@
 										class="c-red">*</span>现居住地址：</label></td>
 								<td>${relperson.currentaddress }</td>
 							</tr>
+
+							<tr id="gx"
+								<c:if test="${relperson.rtype==2}">style="display:''"</c:if>
+								<c:if test="${relperson.rtype!=2}">style="display:none"</c:if>>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>与承租人关系：</label></td>
+								<td>${relperson.relationshipwithlandlord }</td>
+							</tr>
+
+							<tr id="fc"
+								<c:if test="${relperson.rtype==1}">style="display:''"</c:if>
+								<c:if test="${relperson.rtype!=1}">style="display:none"</c:if>>
+								<td><label class="form-label text-r"><span
+										class="c-red">*(请填写主要的三处地址)</span> 所拥有房产地址： </label></td>
+								<td>${relperson.propertyandequipment}</td>
+							</tr>
+
+							<tr id="cy"
+								<c:if test="${relperson.rtype==3}">style="display:''"</c:if>
+								<c:if test="${relperson.rtype!=3}">style="display:none"</c:if>>
+								<td><label class="form-label text-r"><span
+										class="c-red">*(请填写主要的三处地址)</span> 所拥有产业地址： </label></td>
+								<td>${relperson.propertyandequipment}</td>
+							</tr>
+
+
+
+
+
+
+
+
+
+
 							<tr>
 								<td><label class="form-label text-r"><span
 										class="c-red">*</span>工作单位名称：</label></td>
 								<td>${relperson.workdunit }</td>
 							</tr>
 							<tr>
-									<td><label class="form-label text-r"><span
-											class="c-red">*</span>职务：</label></td>
-									<td>${relperson.position }</td>
-								</tr>
+								<td><label class="form-label text-r"><span
+										class="c-red">*</span>职务：</label></td>
+								<td>${relperson.position }</td>
+							</tr>
 							<tr>
 								<td><label class="form-label text-r"><span
 										class="c-red">*</span>工作单位地址：</label></td>

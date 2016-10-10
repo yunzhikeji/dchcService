@@ -5,7 +5,7 @@ public class Person {
 
     private String realname;
 
-    private String gender;
+    private String gender;//1:男 2:女
 
     private String birthday;
 

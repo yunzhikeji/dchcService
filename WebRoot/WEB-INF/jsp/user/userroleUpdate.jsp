@@ -162,7 +162,6 @@ function checkUserRole()
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 								</tr>
-
 								<tr>
 									<td width="30%"><label class="form-label text-r"><span
 											class="c-red">*</span>真实姓名：</label></td>

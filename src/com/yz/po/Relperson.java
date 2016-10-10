@@ -43,9 +43,9 @@ public class Relperson {
 
     private String platenumber;//车牌号码
     
+    private String relationshipwithlandlord;//与承租人的关系
     
     
-
 	public Integer getId() {
 		return id;
 	}
@@ -213,6 +213,16 @@ public class Relperson {
 	public void setPlatenumber(String platenumber) {
 		this.platenumber = platenumber == null ? null : platenumber.trim();
 	}
+
+	public String getRelationshipwithlandlord() {
+		return relationshipwithlandlord;
+	}
+
+	public void setRelationshipwithlandlord(String relationshipwithlandlord) {
+		this.relationshipwithlandlord = relationshipwithlandlord == null ? null : relationshipwithlandlord.trim();
+	}
+	
+	
 	
 	
 }

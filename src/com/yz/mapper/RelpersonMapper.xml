@@ -21,8 +21,7 @@
     <result column="uploadTime" property="uploadtime" jdbcType="VARCHAR" />
     <result column="position" property="position" jdbcType="VARCHAR" />
     <result column="platenumber" property="platenumber" jdbcType="VARCHAR" />
-    
-    
+    <result column="relationshipwithlandlord" property="relationshipwithlandlord" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.yz.po.Relperson" extends="BaseResultMap" >
     <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
@@ -88,7 +87,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, rtype, name, sex, nation, IDCard, birthday, QQ, wechat, registerAddress, currentAddress, 
-    workdUnit, workdUnitAddress, telphone, isPermit, belongPlace, uploadTime, position, platenumber
+    workdUnit, workdUnitAddress, telphone, isPermit, belongPlace, uploadTime, position, platenumber,relationshipwithlandlord
   </sql>
   <sql id="Blob_Column_List" >
     remark,propertyAndEquipment
@@ -147,14 +146,14 @@
       birthday, QQ, wechat, 
       registerAddress, currentAddress, workdUnit, 
       workdUnitAddress, telphone, isPermit, 
-      belongPlace, uploadTime, position, platenumber, remark,propertyAndEquipment
+      belongPlace, uploadTime, position, platenumber,relationshipwithlandlord, remark,propertyAndEquipment
       )
     values (#{id,jdbcType=INTEGER}, #{rtype,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{nation,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
       #{birthday,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
       #{registeraddress,jdbcType=VARCHAR}, #{currentaddress,jdbcType=VARCHAR}, #{workdunit,jdbcType=VARCHAR}, 
       #{workdunitaddress,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, #{ispermit,jdbcType=INTEGER}, 
-      #{belongplace,jdbcType=VARCHAR}, #{uploadtime,jdbcType=VARCHAR},#{position,jdbcType=VARCHAR},#{platenumber,jdbcType=VARCHAR}, #{remark,jdbcType=LONGVARCHAR}, #{propertyandequipment,jdbcType=LONGVARCHAR}
+      #{belongplace,jdbcType=VARCHAR}, #{uploadtime,jdbcType=VARCHAR},#{position,jdbcType=VARCHAR},#{platenumber,jdbcType=VARCHAR},#{relationshipwithlandlord,jdbcType=VARCHAR}, #{remark,jdbcType=LONGVARCHAR}, #{propertyandequipment,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.yz.po.Relperson" >
@@ -216,6 +215,9 @@
       </if>
       <if test="platenumber != null" >
         platenumber,
+      </if>
+      <if test="relationshipwithlandlord != null" >
+        relationshipwithlandlord,
       </if>
       <if test="remark != null" >
         remark,
@@ -350,6 +352,9 @@
       <if test="record.platenumber != null" >
         platenumber = #{record.platenumber,jdbcType=VARCHAR},
       </if>
+       <if test="relationshipwithlandlord != null" >
+        relationshipwithlandlord = #{record.relationshipwithlandlord,jdbcType=VARCHAR},
+      </if>
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=LONGVARCHAR},
       </if>
@@ -382,6 +387,7 @@
       uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
       position = #{record.position,jdbcType=VARCHAR},
       platenumber = #{record.platenumber,jdbcType=VARCHAR},
+      relationshipwithlandlord = #{record.relationshipwithlandlord,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=LONGVARCHAR},
       propertyAndEquipment = #{record.propertyandequipment,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
@@ -408,7 +414,8 @@
       belongPlace = #{record.belongplace,jdbcType=VARCHAR},
       uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
       position = #{record.position,jdbcType=VARCHAR},
-      platenumber = #{record.platenumber,jdbcType=VARCHAR}   
+      platenumber = #{record.platenumber,jdbcType=VARCHAR},
+      relationshipwithlandlord = #{record.relationshipwithlandlord,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -470,6 +477,9 @@
       <if test="platenumber != null" >
         platenumber = #{platenumber,jdbcType=VARCHAR},
       </if>
+      <if test="relationshipwithlandlord != null" >
+        relationshipwithlandlord = #{relationshipwithlandlord,jdbcType=VARCHAR},
+      </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=LONGVARCHAR},
       </if>
@@ -499,6 +509,7 @@
       uploadTime = #{uploadtime,jdbcType=VARCHAR},
       position = #{position,jdbcType=VARCHAR},
       platenumber = #{platenumber,jdbcType=VARCHAR},
+      relationshipwithlandlord = #{relationshipwithlandlord,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=LONGVARCHAR},
       propertyAndEquipment = #{propertyandequipment,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
@@ -522,7 +533,8 @@
       belongPlace = #{belongplace,jdbcType=VARCHAR},
       uploadTime = #{uploadtime,jdbcType=VARCHAR},
       position = #{position,jdbcType=VARCHAR},
-      platenumber = #{platenumber,jdbcType=VARCHAR}
+      platenumber = #{platenumber,jdbcType=VARCHAR},
+      relationshipwithlandlord = #{relationshipwithlandlord,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
