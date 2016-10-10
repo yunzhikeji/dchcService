@@ -70,9 +70,8 @@ public class JPushServiceImpl implements JPushService {
 		List<String> aliases = new ArrayList<String>();
 		if(userRoles!=null)
 		{
-			for(Userrole userRole:userRoles)
-			{
-				aliases.add(userRole.getUsername());
+			for (int i = 0; i < userRoles.size(); i++) {
+				aliases.add(userRoles.get(i).getUsername());
 			}
 		}
 		PushPayload payload = buildPushObject_andorid_alias_alert(aliases,content);
