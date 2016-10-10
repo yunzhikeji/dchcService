@@ -140,15 +140,6 @@
 								<td>${relperson.propertyandequipment}</td>
 							</tr>
 
-
-
-
-
-
-
-
-
-
 							<tr>
 								<td><label class="form-label text-r"><span
 										class="c-red">*</span>工作单位名称：</label></td>

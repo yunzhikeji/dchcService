@@ -25,9 +25,13 @@
 	<select id="findRelpersonListByAddress" parameterType="java.lang.String"
 		resultType="com.yz.po.Relperson">
 		select * from relperson where
+		
 			currentaddress = #{address,jdbcType=VARCHAR} or
 			
-			workdunitaddress =#{address,jdbcType=VARCHAR} 
+			workdunitaddress =#{address,jdbcType=VARCHAR} or 
+			
+			propertyandequipment like concat('%',#{address},'%') 
+			
 	</select>
 	
 	
