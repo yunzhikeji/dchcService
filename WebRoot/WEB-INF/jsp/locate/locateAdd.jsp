@@ -59,9 +59,9 @@
   <tr>
     <td width="13%"><label class="form-label text-r"><span class="c-red">*</span>是否出租房：</label></td>
     <td width="20%">
-      <input type="radio"  value="0"  name="islethouse" onclick="document.getElementById('nolease').style.display='block';" tabindex="2" checked="checked">
+      <input type="radio"  value="0"  name="islethouse"  tabindex="2" checked="checked">
       否&nbsp;&nbsp;&nbsp;
-      <input name="islethouse" value="1" type="radio"  tabindex="1" onclick="document.getElementById('nolease').style.display='none';" >
+      <input name="islethouse" value="1" type="radio"  tabindex="1"  >
       是
     
   </td>
@@ -84,8 +84,8 @@
 </table>
 
   </div>
-  <div id="nolease" class="row cl mt-15" style="display:block;">
-   <div class="col-12 mb-15 c-primary f-16" style="border-bottom: solid 2px #2DABF7 ">非出租房相关信息</div>
+  <div id="nolease" class="row cl mt-15">
+   <div class="col-12 mb-15 c-primary f-16" style="border-bottom: solid 2px #2DABF7 ">相关信息</div>
   <div  class="row cl">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="line-height:45px;">
   <tr>
