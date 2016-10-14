@@ -350,8 +350,8 @@
       <if test="record.belongplace != null" >
         belongPlace = #{record.belongplace,jdbcType=INTEGER},
       </if>
-      <if test="record.policeman != null" > 
-        policeman = #{record.policeman,jdbcType=INTEGER},
+      <if test="record.policeroom != null" > 
+        policeroom = #{record.policeroom,jdbcType=INTEGER},
       </if>
       <if test="record.uploadtime != null" >
         uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
@@ -394,7 +394,7 @@
       telphone = #{record.telphone,jdbcType=VARCHAR},
       isPermit = #{record.ispermit,jdbcType=INTEGER},
       belongPlace = #{record.belongplace,jdbcType=INTEGER},
-      policeman = #{record.policeman,jdbcType=INTEGER},
+      policeroom = #{record.policeroom,jdbcType=INTEGER},
       uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
       position = #{record.position,jdbcType=VARCHAR},
       platenumber = #{record.platenumber,jdbcType=VARCHAR},
@@ -423,7 +423,7 @@
       telphone = #{record.telphone,jdbcType=VARCHAR},
       isPermit = #{record.ispermit,jdbcType=INTEGER},
       belongPlace = #{record.belongplace,jdbcType=INTEGER},
-      policeman = #{record.policeman,jdbcType=INTEGER},
+      policeroom = #{record.policeroom,jdbcType=INTEGER},
       uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
       position = #{record.position,jdbcType=VARCHAR},
       platenumber = #{record.platenumber,jdbcType=VARCHAR},
@@ -480,8 +480,8 @@
       <if test="belongplace != null" >
         belongPlace = #{belongplace,jdbcType=INTEGER},
       </if>
-       <if test="policeman != null" >
-        policeman = #{policeman,jdbcType=INTEGER},
+       <if test="policeroom != null" >
+        policeroom = #{policeroom,jdbcType=INTEGER},
       </if>
       <if test="uploadtime != null" >
         uploadTime = #{uploadtime,jdbcType=VARCHAR},
@@ -521,7 +521,7 @@
       telphone = #{telphone,jdbcType=VARCHAR},
       isPermit = #{ispermit,jdbcType=INTEGER},
       belongPlace = #{belongplace,jdbcType=INTEGER},
-      policeman = #{policeman,jdbcType=INTEGER},
+      policeroom = #{policeroom,jdbcType=INTEGER},
       uploadTime = #{uploadtime,jdbcType=VARCHAR},
       position = #{position,jdbcType=VARCHAR},
       platenumber = #{platenumber,jdbcType=VARCHAR},
