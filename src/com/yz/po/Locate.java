@@ -2,14 +2,16 @@ package com.yz.po;
 
 public class Locate {
 
-	private int id;
+	private Integer id;
 
 	private String address;// 场所地址（详细地址,门牌号）
 
 	private Integer islethouse;// 是否出租房(0:否 1：是)
 
-	private String belongplace;// 所属派出所或社区
-
+	private Integer belongplace;// 所属社区派出所 详见“德城分局社区警务室情况（10.14）.xls”
+	
+	private Integer policeroom;// 所属警务室 详见“德城分局社区警务室情况（10.14）.xls”
+	
 	private String policename;// 社区民警姓名
 
 	private String registername;// 注册名称
@@ -98,12 +100,22 @@ public class Locate {
 		this.islethouse = islethouse;
 	}
 
-	public String getBelongplace() {
+	public Integer getBelongplace() {
 		return belongplace;
 	}
 
-	public void setBelongplace(String belongplace) {
-		this.belongplace = belongplace == null ? null : belongplace.trim();
+	public void setBelongplace(Integer belongplace) {
+		this.belongplace = belongplace;
+	}
+	
+	
+
+	public Integer getPoliceroom() {
+		return policeroom;
+	}
+
+	public void setPoliceroom(Integer policeroom) {
+		this.policeroom = policeroom;
 	}
 
 	public String getPolicename() {

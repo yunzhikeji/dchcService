@@ -17,7 +17,8 @@
     <result column="workdUnitAddress" property="workdunitaddress" jdbcType="VARCHAR" />
     <result column="telphone" property="telphone" jdbcType="VARCHAR" />
     <result column="isPermit" property="ispermit" jdbcType="INTEGER" />
-    <result column="belongPlace" property="belongplace" jdbcType="VARCHAR" />
+    <result column="belongPlace" property="belongplace" jdbcType="INTEGER" />
+    <result column="policeroom" property="policeroom" jdbcType="INTEGER" />
     <result column="uploadTime" property="uploadtime" jdbcType="VARCHAR" />
     <result column="position" property="position" jdbcType="VARCHAR" />
     <result column="platenumber" property="platenumber" jdbcType="VARCHAR" />
@@ -87,7 +88,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, rtype, name, sex, nation, IDCard, birthday, QQ, wechat, registerAddress, currentAddress, 
-    workdUnit, workdUnitAddress, telphone, isPermit, belongPlace, uploadTime, position, platenumber,relationshipwithlandlord
+    workdUnit, workdUnitAddress, telphone, isPermit, belongPlace,policeroom, uploadTime, position, platenumber,relationshipwithlandlord
   </sql>
   <sql id="Blob_Column_List" >
     remark,propertyAndEquipment
@@ -146,14 +147,14 @@
       birthday, QQ, wechat, 
       registerAddress, currentAddress, workdUnit, 
       workdUnitAddress, telphone, isPermit, 
-      belongPlace, uploadTime, position, platenumber,relationshipwithlandlord, remark,propertyAndEquipment
+      belongPlace, policeroom,uploadTime, position, platenumber,relationshipwithlandlord, remark,propertyAndEquipment
       )
     values (#{id,jdbcType=INTEGER}, #{rtype,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{nation,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
       #{birthday,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
       #{registeraddress,jdbcType=VARCHAR}, #{currentaddress,jdbcType=VARCHAR}, #{workdunit,jdbcType=VARCHAR}, 
       #{workdunitaddress,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, #{ispermit,jdbcType=INTEGER}, 
-      #{belongplace,jdbcType=VARCHAR}, #{uploadtime,jdbcType=VARCHAR},#{position,jdbcType=VARCHAR},#{platenumber,jdbcType=VARCHAR},#{relationshipwithlandlord,jdbcType=VARCHAR}, #{remark,jdbcType=LONGVARCHAR}, #{propertyandequipment,jdbcType=LONGVARCHAR}
+      #{belongplace,jdbcType=INTEGER},#{policeroom,jdbcType=INTEGER}, #{uploadtime,jdbcType=VARCHAR},#{position,jdbcType=VARCHAR},#{platenumber,jdbcType=VARCHAR},#{relationshipwithlandlord,jdbcType=VARCHAR}, #{remark,jdbcType=LONGVARCHAR}, #{propertyandequipment,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.yz.po.Relperson" >
@@ -206,6 +207,9 @@
       </if>
       <if test="belongplace != null" >
         belongPlace,
+      </if>
+       <if test="policeroom != null" >
+        policeroom,
       </if>
       <if test="uploadtime != null" >
         uploadTime,
@@ -273,7 +277,10 @@
         #{ispermit,jdbcType=INTEGER},
       </if>
       <if test="belongplace != null" >
-        #{belongplace,jdbcType=VARCHAR},
+        #{belongplace,jdbcType=INTEGER},
+      </if>
+      <if test="policeroom != null" >
+        #{policeroom,jdbcType=INTEGER},
       </if>
       <if test="uploadtime != null" >
         #{uploadtime,jdbcType=VARCHAR},
@@ -337,11 +344,14 @@
       <if test="record.telphone != null" >
         telphone = #{record.telphone,jdbcType=VARCHAR},
       </if>
-      <if test="record.ispermit != null" >
+      <if test="record.ispermit != null" > 
         isPermit = #{record.ispermit,jdbcType=INTEGER},
       </if>
       <if test="record.belongplace != null" >
-        belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+        belongPlace = #{record.belongplace,jdbcType=INTEGER},
+      </if>
+      <if test="record.policeman != null" > 
+        policeman = #{record.policeman,jdbcType=INTEGER},
       </if>
       <if test="record.uploadtime != null" >
         uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
@@ -383,7 +393,8 @@
       workdUnitAddress = #{record.workdunitaddress,jdbcType=VARCHAR},
       telphone = #{record.telphone,jdbcType=VARCHAR},
       isPermit = #{record.ispermit,jdbcType=INTEGER},
-      belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      belongPlace = #{record.belongplace,jdbcType=INTEGER},
+      policeman = #{record.policeman,jdbcType=INTEGER},
       uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
       position = #{record.position,jdbcType=VARCHAR},
       platenumber = #{record.platenumber,jdbcType=VARCHAR},
@@ -411,7 +422,8 @@
       workdUnitAddress = #{record.workdunitaddress,jdbcType=VARCHAR},
       telphone = #{record.telphone,jdbcType=VARCHAR},
       isPermit = #{record.ispermit,jdbcType=INTEGER},
-      belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      belongPlace = #{record.belongplace,jdbcType=INTEGER},
+      policeman = #{record.policeman,jdbcType=INTEGER},
       uploadTime = #{record.uploadtime,jdbcType=VARCHAR},
       position = #{record.position,jdbcType=VARCHAR},
       platenumber = #{record.platenumber,jdbcType=VARCHAR},
@@ -466,7 +478,10 @@
         isPermit = #{ispermit,jdbcType=INTEGER},
       </if>
       <if test="belongplace != null" >
-        belongPlace = #{belongplace,jdbcType=VARCHAR},
+        belongPlace = #{belongplace,jdbcType=INTEGER},
+      </if>
+       <if test="policeman != null" >
+        policeman = #{policeman,jdbcType=INTEGER},
       </if>
       <if test="uploadtime != null" >
         uploadTime = #{uploadtime,jdbcType=VARCHAR},
@@ -505,7 +520,8 @@
       workdUnitAddress = #{workdunitaddress,jdbcType=VARCHAR},
       telphone = #{telphone,jdbcType=VARCHAR},
       isPermit = #{ispermit,jdbcType=INTEGER},
-      belongPlace = #{belongplace,jdbcType=VARCHAR},
+      belongPlace = #{belongplace,jdbcType=INTEGER},
+      policeman = #{policeman,jdbcType=INTEGER},
       uploadTime = #{uploadtime,jdbcType=VARCHAR},
       position = #{position,jdbcType=VARCHAR},
       platenumber = #{platenumber,jdbcType=VARCHAR},
@@ -529,8 +545,9 @@
       workdUnit = #{workdunit,jdbcType=VARCHAR},
       workdUnitAddress = #{workdunitaddress,jdbcType=VARCHAR},
       telphone = #{telphone,jdbcType=VARCHAR},
-      isPermit = #{ispermit,jdbcType=INTEGER},
-      belongPlace = #{belongplace,jdbcType=VARCHAR},
+      isPermit = #{ispermit,jdbcType=INTEGER}, 
+      belongPlace = #{belongplace,jdbcType=INTEGER},
+      policeroom = #{policeroom,jdbcType=INTEGER},
       uploadTime = #{uploadtime,jdbcType=VARCHAR},
       position = #{position,jdbcType=VARCHAR},
       platenumber = #{platenumber,jdbcType=VARCHAR},

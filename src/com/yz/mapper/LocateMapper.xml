@@ -5,7 +5,8 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="isLetHouse" property="islethouse" jdbcType="INTEGER" />
-    <result column="belongPlace" property="belongplace" jdbcType="VARCHAR" />
+    <result column="belongPlace" property="belongplace" jdbcType="INTEGER" />
+    <result column="policeroom" property="policeroom" jdbcType="INTEGER" />
     <result column="policeName" property="policename" jdbcType="VARCHAR" />
     <result column="registerName" property="registername" jdbcType="VARCHAR" />
     <result column="realRegisterName" property="realregistername" jdbcType="VARCHAR" />
@@ -97,7 +98,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, address, isLetHouse, belongPlace, policeName, registerName, realRegisterName, 
+    id, address, isLetHouse, belongPlace, policeroom,policeName, registerName, realRegisterName, 
     openTime, wifiPwd, numberOfRelperson, businessLicenseNumber, hygieneLicenseNumber, 
     taxRegistrationCertificateNumber, placeType, entertainmentPlaceType, servicePlaceType, 
     specialPlaceType, nineSmallPlaceType, placeArea, numberOfFloor, numberOfChannelport, 
@@ -158,7 +159,7 @@
   </delete>
   <insert id="insert" parameterType="com.yz.po.Locate" >
     insert into locate (id, address, isLetHouse, 
-      belongPlace, policeName, registerName, 
+      belongPlace,policeroom, policeName, registerName, 
       realRegisterName, openTime, wifiPwd, 
       numberOfRelperson, businessLicenseNumber, 
       hygieneLicenseNumber, taxRegistrationCertificateNumber, 
@@ -171,7 +172,7 @@
       numberOfInsideMonitor, protectCondition, 
       uploadTime, businessScope)
     values (#{id,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{islethouse,jdbcType=INTEGER}, 
-      #{belongplace,jdbcType=VARCHAR}, #{policename,jdbcType=VARCHAR}, #{registername,jdbcType=VARCHAR}, 
+      #{belongplace,jdbcType=INTEGER},#{policeroom,jdbcType=INTEGER}, #{policename,jdbcType=VARCHAR}, #{registername,jdbcType=VARCHAR}, 
       #{realregistername,jdbcType=VARCHAR}, #{opentime,jdbcType=VARCHAR}, #{wifipwd,jdbcType=VARCHAR}, 
       #{numberofrelperson,jdbcType=INTEGER}, #{businesslicensenumber,jdbcType=VARCHAR}, 
       #{hygienelicensenumber,jdbcType=VARCHAR}, #{taxregistrationcertificatenumber,jdbcType=VARCHAR}, 
@@ -198,6 +199,9 @@
       </if>
       <if test="belongplace != null" >
         belongPlace,
+      </if>
+      <if test="policeroom != null" >
+        policeroom,
       </if>
       <if test="policename != null" >
         policeName,
@@ -298,7 +302,10 @@
         #{islethouse,jdbcType=INTEGER},
       </if>
       <if test="belongplace != null" >
-        #{belongplace,jdbcType=VARCHAR},
+        #{belongplace,jdbcType=INTEGER},
+      </if>
+      <if test="policeroom != null" >
+        #{policeroom,jdbcType=INTEGER},
       </if>
       <if test="policename != null" >
         #{policename,jdbcType=VARCHAR},
@@ -408,7 +415,10 @@
         isLetHouse = #{record.islethouse,jdbcType=INTEGER},
       </if>
       <if test="record.belongplace != null" >
-        belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+        belongPlace = #{record.belongplace,jdbcType=INTEGER},
+      </if>
+      <if test="record.policeroom != null" >
+        policeroom = #{record.policeroom,jdbcType=INTEGER},
       </if>
       <if test="record.policename != null" >
         policeName = #{record.policename,jdbcType=VARCHAR},
@@ -507,7 +517,8 @@
     set id = #{record.id,jdbcType=INTEGER},
       address = #{record.address,jdbcType=VARCHAR},
       isLetHouse = #{record.islethouse,jdbcType=INTEGER},
-      belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      belongPlace = #{record.belongplace,jdbcType=INTEGER},
+      policeroom = #{record.policeroom,jdbcType=INTEGER},
       policeName = #{record.policename,jdbcType=VARCHAR},
       registerName = #{record.registername,jdbcType=VARCHAR},
       realRegisterName = #{record.realregistername,jdbcType=VARCHAR},
@@ -546,7 +557,8 @@
     set id = #{record.id,jdbcType=INTEGER},
       address = #{record.address,jdbcType=VARCHAR},
       isLetHouse = #{record.islethouse,jdbcType=INTEGER},
-      belongPlace = #{record.belongplace,jdbcType=VARCHAR},
+      belongPlace = #{record.belongplace,jdbcType=INTEGER},
+      policeroom = #{record.policeroom,jdbcType=INTEGER},
       policeName = #{record.policename,jdbcType=VARCHAR},
       registerName = #{record.registername,jdbcType=VARCHAR},
       realRegisterName = #{record.realregistername,jdbcType=VARCHAR},
@@ -589,7 +601,10 @@
         isLetHouse = #{islethouse,jdbcType=INTEGER},
       </if>
       <if test="belongplace != null" >
-        belongPlace = #{belongplace,jdbcType=VARCHAR},
+        belongPlace = #{belongplace,jdbcType=INTEGER},
+      </if>
+        <if test="policeroom != null" >
+        policeroom = #{policeroom,jdbcType=INTEGER},
       </if>
       <if test="policename != null" >
         policeName = #{policename,jdbcType=VARCHAR},
@@ -685,7 +700,8 @@
     update locate
     set address = #{address,jdbcType=VARCHAR},
       isLetHouse = #{islethouse,jdbcType=INTEGER},
-      belongPlace = #{belongplace,jdbcType=VARCHAR},
+      belongPlace = #{belongplace,jdbcType=INTEGER},
+      policeroom = #{policeroom,jdbcType=INTEGER},
       policeName = #{policename,jdbcType=VARCHAR},
       registerName = #{registername,jdbcType=VARCHAR},
       realRegisterName = #{realregistername,jdbcType=VARCHAR},
@@ -721,7 +737,8 @@
     update locate
     set address = #{address,jdbcType=VARCHAR},
       isLetHouse = #{islethouse,jdbcType=INTEGER},
-      belongPlace = #{belongplace,jdbcType=VARCHAR},
+      belongPlace = #{belongplace,jdbcType=INTEGER},
+      policeroom = #{policeroom,jdbcType=INTEGER},
       policeName = #{policename,jdbcType=VARCHAR},
       registerName = #{registername,jdbcType=VARCHAR},
       realRegisterName = #{realregistername,jdbcType=VARCHAR},

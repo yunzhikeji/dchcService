@@ -31,7 +31,9 @@ public class Relperson {
 
 	private Integer ispermit;// 是否办理居住证(0:否 1：是)
 
-	private String belongplace;// 所属派出所或社区
+	private Integer belongplace;// 所属社区派出所 详见“德城分局社区警务室情况（10.14）.xls”
+	
+	private Integer policeroom; //所属警务室 详见“德城分局社区警务室情况（10.14）.xls”
 
 	private String remark;// 备注
 
@@ -166,12 +168,21 @@ public class Relperson {
 		this.ispermit = ispermit;
 	}
 
-	public String getBelongplace() {
+	public Integer getBelongplace() {
 		return belongplace;
 	}
 
-	public void setBelongplace(String belongplace) {
-		this.belongplace = belongplace == null ? null : belongplace.trim();
+	public void setBelongplace(Integer belongplace) {
+		this.belongplace = belongplace;
+	}
+	
+
+	public Integer getPoliceroom() {
+		return policeroom;
+	}
+
+	public void setPoliceroom(Integer policeroom) {
+		this.policeroom = policeroom;
 	}
 
 	public String getUploadtime() {
