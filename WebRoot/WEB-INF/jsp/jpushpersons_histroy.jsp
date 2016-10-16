@@ -60,6 +60,7 @@
 						<th width="5%">姓名</th>
 						<th width="20%">图片</th>
 						<th width="20%">备注</th>
+						<th width="10%">上传部门</th>
 						<th width="5%">上传时间</th>
 						<th width="5%">返回时间</th>
 						<th width="20%">审核</th>
@@ -76,6 +77,22 @@
 								src="${pageContext.request.contextPath }/pic/${jpushperson.picurl }"
 								width="128" height="128" /></td>
 							<td>${jpushperson.remark}</td>
+							<td>
+								<c:if test="${jpushperson.unitname ==1 }">剪子股派出所</c:if> <c:if
+										test="${jpushperson.unitname ==2 }">黄河涯派出所</c:if> <c:if
+										test="${jpushperson.unitname ==3 }">东地派出所</c:if> <c:if
+										test="${jpushperson.unitname ==4 }">新河东F路派出所</c:if> <c:if
+										test="${jpushperson.unitname ==5 }">于官屯派出所</c:if>
+									<c:if test="${jpushperson.unitname ==6 }">建设街派出所</c:if>
+									<c:if test="${jpushperson.unitname ==7 }">车站街派出所</c:if>
+									<c:if test="${jpushperson.unitname ==8 }">湖滨北路派出所</c:if>
+									<c:if test="${jpushperson.unitname ==9 }">二屯派出所</c:if>
+									<c:if test="${jpushperson.unitname ==10 }">长庄派出所</c:if>
+									<c:if test="${jpushperson.unitname ==11 }">刑警大队</c:if>
+									<c:if test="${jpushperson.unitname ==12 }">巡警大队</c:if>
+									<c:if test="${jpushperson.unitname ==13 }">治安大队</c:if>
+									<c:if test="${jpushperson.unitname ==14 }">经侦大队</c:if>
+									</td>
 							<td>${jpushperson.checkstarttime}</td>
 							<td>${jpushperson.backcheckresulttime}</td>
 							<td class="f-14 td-manage"><c:if test="${jpushperson.istrue ==1 }">

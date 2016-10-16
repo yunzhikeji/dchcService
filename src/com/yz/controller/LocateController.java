@@ -62,7 +62,6 @@ public class LocateController {
 	
 	@RequestMapping("/add")
 	public String add(Locate locate) throws Exception {
-		
 		locate.setUploadtime(DateTimeKit.getLocal_Time());//设置上传时间
 		locateService.insert(locate);
 		return "op_success_child";

@@ -84,7 +84,7 @@
 							<th width="80">流水编号</th>
 							<th>场所地址（详细地址，门牌号）</th>
 							<th width="120">是否出租房</th>
-							<th width="120">所属派出所或社区</th>
+							<th width="120">所属派出所</th>
 							<th width="75">社区民警姓名</th>
 							<th width="120">场所性质</th>
 							<th width="120">上传时间</th>
@@ -101,7 +101,18 @@
 									href="javascript:;" title="查看">${locate.address }</a></td>
 								<td><c:if test="${locate.islethouse ==0 }">否</c:if> <c:if
 										test="${locate.islethouse ==1 }">是</c:if></td>
-								<td>${locate.belongplace }</td>
+								<td>
+								<c:if test="${locate.belongplace ==1 }">剪子股派出所</c:if> <c:if
+										test="${locate.belongplace ==2 }">黄河涯派出所</c:if> <c:if
+										test="${locate.belongplace ==3 }">东地派出所</c:if> <c:if
+										test="${locate.belongplace ==4 }">新河东路派出所</c:if> <c:if
+										test="${locate.belongplace ==5 }">于官屯派出所</c:if><c:if
+										test="${locate.belongplace ==6 }">建设街派出所</c:if><c:if
+										test="${locate.belongplace ==7 }">车站街派出所</c:if><c:if
+										test="${locate.belongplace ==8 }">湖滨北路派出所</c:if><c:if
+										test="${locate.belongplace ==9 }">二屯派出所</c:if><c:if
+										test="${locate.belongplace ==10 }">长庄派出所</c:if>
+								</td>
 								<td class="f-14 td-manage">${locate.policename }</td>
 								<td class="f-14 td-manage"><c:if
 										test="${locate.placetype ==0 ||locate.placetype ==null  }">出租房</c:if>

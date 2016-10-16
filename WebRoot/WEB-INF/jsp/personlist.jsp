@@ -51,7 +51,6 @@
 		<table class="table table-border table-bordered table-bg">
 			<thead>
 				<tr class="text-c">
-					
 					<th width="80">序号ID</th>
 					<th width="200">身份证号</th>
 					<th width="200">姓名</th>
@@ -59,7 +58,6 @@
 					<th width="200">出生日期</th>
                     <th width="200">户籍</th>
 					<th width="100">操作</th>
-					
 				</tr>
 			</thead>
 			<tbody>

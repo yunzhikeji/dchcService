@@ -12,6 +12,7 @@
     <result column="backCheckResultTime" property="backcheckresulttime" jdbcType="VARCHAR" />
     <result column="isOutOfTime" property="isoutoftime" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
+     <result column="unitname" property="unitname" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -72,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, idcard, realname, picUrl, isTrue, userroleid, checkStartTime, backCheckResultTime, 
+    id, idcard, realname, picUrl, isTrue, userroleid, checkStartTime, backCheckResultTime, unitname,
     isOutOfTime,remark
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yz.po.JpushpersonExample" >
@@ -107,11 +108,11 @@
   </delete>
   <insert id="insert" parameterType="com.yz.po.Jpushperson" >
     insert into jpushperson (id, idcard, realname, 
-      picUrl, isTrue, userroleid, 
+      picUrl, isTrue, userroleid, unitname,
       checkStartTime, backCheckResultTime, isOutOfTime,remark
       )
     values (#{id,jdbcType=INTEGER}, #{idcard,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, 
-      #{picurl,jdbcType=VARCHAR}, #{istrue,jdbcType=INTEGER}, #{userroleId,jdbcType=INTEGER}, 
+      #{picurl,jdbcType=VARCHAR}, #{istrue,jdbcType=INTEGER}, #{unitname,jdbcType=INTEGER}, #{userroleId,jdbcType=INTEGER}, 
       #{checkstarttime,jdbcType=VARCHAR}, #{backcheckresulttime,jdbcType=VARCHAR}, #{isoutoftime,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}
       )
   </insert>
@@ -132,6 +133,9 @@
       </if>
       <if test="istrue != null" >
         isTrue,
+      </if>
+      <if test="unitname != null" >
+        unitname,
       </if>
       <if test="userroleId != null" >
         userroleid,
@@ -164,6 +168,9 @@
       </if>
       <if test="istrue != null" >
         #{istrue,jdbcType=INTEGER},
+      </if>
+       <if test="unitname != null" >
+        #{unitname,jdbcType=INTEGER},
       </if>
       <if test="userroleId != null" >
         #{userroleId,jdbcType=INTEGER},
@@ -206,6 +213,9 @@
       <if test="record.istrue != null" >
         isTrue = #{record.istrue,jdbcType=INTEGER},
       </if>
+       <if test="record.unitname != null" >
+        unitname = #{record.unitname,jdbcType=INTEGER},
+      </if>
       <if test="record.userroleId != null" >
         userroleid = #{record.userroleId,jdbcType=INTEGER},
       </if>
@@ -233,6 +243,7 @@
       realname = #{record.realname,jdbcType=VARCHAR},
       picUrl = #{record.picurl,jdbcType=VARCHAR},
       isTrue = #{record.istrue,jdbcType=INTEGER},
+      unitname = #{record.unitname,jdbcType=INTEGER},
       userroleid = #{record.userroleId,jdbcType=INTEGER},
       checkStartTime = #{record.checkstarttime,jdbcType=VARCHAR},
       backCheckResultTime = #{record.backcheckresulttime,jdbcType=VARCHAR},
@@ -256,6 +267,9 @@
       </if>
       <if test="istrue != null" >
         isTrue = #{istrue,jdbcType=INTEGER},
+      </if>
+      <if test="unitname != null" >
+        unitname = #{unitname,jdbcType=INTEGER},
       </if>
       <if test="userroleId != null" >
         userroleid = #{userroleId,jdbcType=INTEGER},
@@ -281,6 +295,7 @@
       realname = #{realname,jdbcType=VARCHAR},
       picUrl = #{picurl,jdbcType=VARCHAR},
       isTrue = #{istrue,jdbcType=INTEGER},
+      unitname = #{unitname,jdbcType=INTEGER},
       userroleid = #{userroleId,jdbcType=INTEGER},
       checkStartTime = #{checkstarttime,jdbcType=VARCHAR},
       backCheckResultTime = #{backcheckresulttime,jdbcType=VARCHAR},
