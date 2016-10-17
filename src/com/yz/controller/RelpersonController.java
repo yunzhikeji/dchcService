@@ -16,6 +16,7 @@ import com.yz.po.Locate;
 import com.yz.po.Relperson;
 import com.yz.service.LocateService;
 import com.yz.service.RelpersonService;
+import com.yz.utils.DateTimeKit;
 import com.yz.vo.UploadResult;
 
 @Controller
@@ -30,6 +31,7 @@ public class RelpersonController {
 	@RequestMapping("/addRelperson")
 	public @ResponseBody UploadResult addRelperson(Relperson relperson)
 			throws Exception {
+		relperson.setUploadtime(DateTimeKit.getLocal_Time());//设置上传时间
 		relpersonService.insert(relperson);
 		UploadResult uploadResult = new UploadResult();
 		uploadResult.setUploadResult(1);
