@@ -99,7 +99,6 @@
 						<th>工作单位名称</th>
 						<th width="120">联系电话</th>
 						<th width="120">所属派出所</th>
-						<th width="75">社区民警姓名</th>
 						<th width="120">上传时间</th>
 						<th width="120">是否办理居住证</th>
 						<th width="120">操作</th>
@@ -135,8 +134,7 @@
 										test="${relperson.belongplace ==9 }">二屯派出所</c:if><c:if
 										test="${relperson.belongplace ==10 }">长庄派出所</c:if>
 								</td>
-								<td class="f-14 td-manage">${relperson.policename }</td>
-								<td class="f-14 td-manage">${relperson.uploadTime}</td>
+								<td class="f-14 td-manage">${relperson.uploadtime}</td>
 								<td class="f-14 td-manage"><c:if
 										test="${relperson.ispermit == 0}">否</c:if> <c:if
 										test="${relperson.ispermit == 1}">是</c:if></td>
