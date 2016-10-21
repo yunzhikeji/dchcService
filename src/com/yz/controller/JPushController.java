@@ -46,7 +46,6 @@ public class JPushController {
 	@RequestMapping("/check")
 	public @ResponseBody JPushResult checkPerson(Jpushperson person, MultipartFile facepic) throws Exception {
 		// 存储图片的物理路径
-
 		JPushResult jPushResult = new JPushResult();
 		String pic_path = "/home/develop/upload/temp/";
 		if (facepic != null) {
@@ -124,9 +123,16 @@ public class JPushController {
 
 		Userrole userRole = userRoleService.findUserRoleById(person.getUserroleId());// 这里是查询，根据person的userroleid查询出Userrole
 
-		jpushService.pushCheckResult(userRole, content, jPushResult);
-
-		return "redirect:/jcheck";// 这里是跳转到一个页面
+		if(userRole!=null)
+		{
+			jpushService.pushCheckResult(userRole, content, jPushResult);
+			return "redirect:/jcheck";// 这里是跳转到一个页面
+		}else
+		{
+			return "error";
+		}
+		
+	
 
 	}
 

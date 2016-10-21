@@ -34,7 +34,6 @@ public class JPushPersonController {
 	}
 
 	@RequestMapping("/jcheck")
-
 	public ModelAndView check(HttpServletRequest request, Jpushperson jpushperson) throws Exception {
 
 		List<Jpushperson> jpushpersonList = jpushpersonService.jpushpersonCheck();

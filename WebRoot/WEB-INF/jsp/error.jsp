@@ -7,6 +7,6 @@
 <title>错误提示</title>
 </head>
 <body>
-${message }
+系统错误.
 </body>
 </html>
