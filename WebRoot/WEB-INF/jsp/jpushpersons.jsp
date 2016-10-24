@@ -118,7 +118,7 @@
 								<c:if test="${jpushperson.unitname ==1 }">剪子股派出所</c:if> <c:if
 										test="${jpushperson.unitname ==2 }">黄河涯派出所</c:if> <c:if
 										test="${jpushperson.unitname ==3 }">东地派出所</c:if> <c:if
-										test="${jpushperson.unitname ==4 }">新河东F路派出所</c:if> <c:if
+										test="${jpushperson.unitname ==4 }">新河东路派出所</c:if> <c:if
 										test="${jpushperson.unitname ==5 }">于官屯派出所</c:if>
 									<c:if test="${jpushperson.unitname ==6 }">建设街派出所</c:if>
 									<c:if test="${jpushperson.unitname ==7 }">车站街派出所</c:if>
