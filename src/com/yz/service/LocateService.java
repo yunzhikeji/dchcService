@@ -5,7 +5,7 @@ import java.util.List;
 import com.yz.po.Locate;
 import com.yz.po.LocateQuery;
 
-public interface LocateService {
+public interface LocateService{
 
 	//新增地点场所
 	public void insert(Locate locate);

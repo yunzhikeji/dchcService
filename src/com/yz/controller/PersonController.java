@@ -20,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yz.po.Jpushperson;
+import com.yz.po.Locate;
+import com.yz.po.LocateQuery;
 import com.yz.po.Person;
 import com.yz.po.Userrole;
 import com.yz.service.PersonService;
@@ -127,6 +129,19 @@ public class PersonController {
 	public String truncate() throws Exception {
 		personService.truncate();
 		return "redirect:/person/list";
+	}
+	
+	@RequestMapping("/count")
+	public ModelAndView count(Person person) throws Exception {
+		List<Person> personList = personService.findPersonList();
+		
+		
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("personList", personList);
+		modelAndView.setViewName("personlist");
+		
+		return modelAndView;
 	}
 
 

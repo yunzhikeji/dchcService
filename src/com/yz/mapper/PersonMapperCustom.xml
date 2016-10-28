@@ -10,5 +10,14 @@
 	<delete id="clean">
 		delete from person 
 	</delete>
+	
+	
+	<select id="findPersonListByPersonQuery" resultType="com.yz.po.Person" parameterType="com.yz.po.PersonQuery">
+		select * from person where
+		<if test="unitname != null and unitname != 0 ">
+			unitname= #{unitname}
+		</if>
+		1=1
+	</select>
 
 </mapper>

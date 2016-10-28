@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.yz.po.Person;
+import com.yz.po.PersonQuery;
 
 public interface PersonService {
 	
@@ -15,6 +16,9 @@ public interface PersonService {
 	
 	//根据id查询人员
 	public Person findPersonById(Integer id) throws Exception;
+	
+	//按条件,人员查询列表
+	public List<Person> findPersonListByPersonQuery(PersonQuery personQuery) throws Exception;
 	
 	//人员查询列表
 	public List<Person> findPersonList() throws Exception;

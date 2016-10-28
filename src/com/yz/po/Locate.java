@@ -9,9 +9,9 @@ public class Locate {
 	private Integer islethouse;// 是否出租房(0:否 1：是)
 
 	private Integer belongplace;// 所属社区派出所 详见“德城分局社区警务室情况（10.14）.xls”
-	
+
 	private Integer policeroom;// 所属警务室 详见“德城分局社区警务室情况（10.14）.xls”
-	
+
 	private String policename;// 社区民警姓名
 
 	private String registername;// 注册名称
@@ -74,7 +74,7 @@ public class Locate {
 
 	private String businessscope;// 经营范围
 
-	private String uploadtime;//上传时间
+	private String uploadtime;// 上传时间
 
 	public Integer getId() {
 		return id;
@@ -107,8 +107,6 @@ public class Locate {
 	public void setBelongplace(Integer belongplace) {
 		this.belongplace = belongplace;
 	}
-	
-	
 
 	public Integer getPoliceroom() {
 		return policeroom;
@@ -349,5 +347,25 @@ public class Locate {
 
 	public void setBusinessscope(String businessscope) {
 		this.businessscope = businessscope == null ? null : businessscope.trim();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		if (!(obj instanceof Locate)) {
+			return false;
+		}
+
+		Locate locate = (Locate) obj;
+
+		if (this.address == null) {
+			if (locate.address != null) {
+				return false;
+			}
+		} else if (!this.address.replace(" ", "").equals(locate.address.replace(" ", ""))) {
+			return false;
+		}
+
+		return true;
 	}
 }

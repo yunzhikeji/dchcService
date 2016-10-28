@@ -95,6 +95,16 @@ public class LocateController {
 		locateService.updateLocateById(id,locate);
 		return "op_success_child";
 	}
+	
+	@RequestMapping("/count")
+	public ModelAndView count(LocateQuery locateQuery) throws Exception {
+		
+		List<Locate> locateList = locateService.findLocateListByQueryMessage(locateQuery);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("locateList", locateList);
+		modelAndView.setViewName("locate/locateList");
+		return modelAndView;
+	}
 
 
 }

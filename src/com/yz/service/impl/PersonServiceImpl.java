@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.yz.mapper.PersonMapper;
 import com.yz.mapper.PersonMapperCustom;
 import com.yz.po.Person;
+import com.yz.po.PersonQuery;
 import com.yz.service.PersonService;
 
 public class PersonServiceImpl implements PersonService {
@@ -88,6 +89,12 @@ public class PersonServiceImpl implements PersonService {
 	public void truncate() {
 		personMapperCustom.clean();
 		
+	}
+
+	@Override
+	public List<Person> findPersonListByPersonQuery(PersonQuery personQuery) throws Exception {
+		// TODO Auto-generated method stub
+		return personMapperCustom.findPersonListByPersonQuery(personQuery);
 	}
 
 }
