@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yz.po.Locate;
 import com.yz.po.Relperson;
+import com.yz.vo.CountVO;
 
 public interface RelpersonService {
 
@@ -27,5 +28,8 @@ public interface RelpersonService {
 
 	//根据场所地址查询相关人员列表
 	public List<Relperson> findRelpersonListByAddress(String address);
+
+	//根据传入的列表，处理统计数据 (countType  2:是否办理居住证  5:人员类别 10:所属派出所类别)
+	public List<CountVO> handleCountByCountType(Integer countType);
 
 }

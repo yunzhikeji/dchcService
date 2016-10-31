@@ -2,34 +2,24 @@ package com.yz.vo;
 
 public class CountVO {
 
-	private String policeStationName;
+	private String countTypeName;
 
-	private int allNumber;
+	private int number;
 
-	private int realNumber;
-
-	public String getPoliceStationName() {
-		return policeStationName;
+	public String getCountTypeName() {
+		return countTypeName;
 	}
 
-	public void setPoliceStationName(String policeStationName) {
-		this.policeStationName = policeStationName;
+	public void setCountTypeName(String countTypeName) {
+		this.countTypeName = countTypeName;
 	}
 
-	public int getAllNumber() {
-		return allNumber;
+	public int getNumber() {
+		return number;
 	}
 
-	public void setAllNumber(int allNumber) {
-		this.allNumber = allNumber;
-	}
-
-	public int getRealNumber() {
-		return realNumber;
-	}
-
-	public void setRealNumber(int realNumber) {
-		this.realNumber = realNumber;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 }

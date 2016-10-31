@@ -42,7 +42,6 @@ public class UserRoleController {
 	
 	@RequestMapping("/add")
 	public String add(Userrole userrole) throws Exception {
-		
 		userrole.setType(0);//大厅type为1
 		userrole.setUnitid(1);//大厅部门为2 
 		userroleService.insert(userrole);

@@ -3,7 +3,7 @@ package com.yz.po;
 public class Relperson {
 	private Integer id;// 相关人员id
 
-	private Integer rtype;// 相关人员类别（1：房东 2：房客 3：业主 4：从业人员）
+	private Integer rtype;// 相关人员类别（0:未选择人员类型,1：房东 2：房客 3：业主 4：从业人员）
 
 	private String name;// 姓名
 

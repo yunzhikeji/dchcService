@@ -1,5 +1,6 @@
 package com.yz.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.management.Query;
@@ -17,6 +18,7 @@ import com.yz.po.Relperson;
 import com.yz.service.LocateService;
 import com.yz.service.RelpersonService;
 import com.yz.utils.DateTimeKit;
+import com.yz.vo.CountVO;
 import com.yz.vo.UploadResult;
 
 @Controller
@@ -100,5 +102,35 @@ public class RelpersonController {
 	public  String editRelpersonSubmit(Model model, HttpServletRequest request, Integer id,Relperson relperson) throws Exception {
 		relpersonService.updateRelpersonById(id, relperson);
 		return "op_success_child";
+	}
+	
+	@RequestMapping("/count")
+	public ModelAndView count(Integer countType) throws Exception {
+		
+		int totalNumber = 0;
+		
+		List<CountVO> countVOs = new ArrayList<CountVO>();
+		
+		countVOs = relpersonService.handleCountByCountType(countType);
+		
+		List<Relperson> relpersons = relpersonService.findRelpersonList();
+		
+		if(relpersons!=null&&relpersons.size()>0)
+		{
+			CountVO countVO = new CountVO();
+			countVO.setCountTypeName("合计");
+			countVO.setNumber(relpersons.size());
+			countVOs.add(countVO);
+			
+			
+			totalNumber = relpersons.size();
+		}
+		
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("countVOs", countVOs);
+		modelAndView.addObject("totalNumber", totalNumber);
+		modelAndView.setViewName("relperson/relpersonCount");
+		return modelAndView;
 	}
 }

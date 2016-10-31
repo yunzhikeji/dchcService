@@ -30,7 +30,7 @@ public class Locate {
 
 	private String taxregistrationcertificatenumber;// 税务登记证
 
-	private Integer placetype;// 场所性质(1:娱乐场所 2：服务场所 3：特种行业 4：九小场所 5：物流快递)
+	private Integer placetype;// 场所性质(0:其他,1:娱乐场所 2：服务场所 3：特种行业 4：九小场所 5：物流快递)
 
 	private Integer entertainmentplacetype;// 娱乐场所(1:歌厅 2：卡拉OK厅 3：迪吧 4：夜总会
 											// 5：电子游戏厅 6：棋牌室

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yz.po.Locate;
 import com.yz.po.LocateQuery;
+import com.yz.vo.CountVO;
 
 public interface LocateService{
 
@@ -27,5 +28,8 @@ public interface LocateService{
 
 	//根据传入的地址查询场所,传入addressType(1:表示现住地址 2:表示工作单位地址)
 	public Locate getRealLocate(Integer addressType,String addressMsg);
+
+	//根据传入的列表，处理统计数据 (countType  2:是否出租房  6:场所性质 10:所属派出所类别)
+	public List<CountVO> handleCountByCountType(Integer countType);
 
 }

@@ -1,5 +1,6 @@
 package com.yz.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import com.yz.po.Relperson;
 import com.yz.service.LocateService;
 import com.yz.service.RelpersonService;
 import com.yz.utils.DateTimeKit;
+import com.yz.vo.CountVO;
 import com.yz.vo.UploadResult;
 
 @Controller
@@ -97,12 +99,32 @@ public class LocateController {
 	}
 	
 	@RequestMapping("/count")
-	public ModelAndView count(LocateQuery locateQuery) throws Exception {
+	public ModelAndView count(Integer countType) throws Exception {
 		
-		List<Locate> locateList = locateService.findLocateListByQueryMessage(locateQuery);
+		int totalNumber = 0;
+		
+		List<CountVO> countVOs = new ArrayList<CountVO>();
+		
+		countVOs = locateService.handleCountByCountType(countType);
+		
+		List<Locate> locates = locateService.findLocateList();
+		
+		if(locates!=null&&locates.size()>0)
+		{
+			CountVO countVO = new CountVO();
+			countVO.setCountTypeName("合计");
+			countVO.setNumber(locates.size());
+			countVOs.add(countVO);
+			
+			
+			totalNumber = locates.size();
+		}
+		
+		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("locateList", locateList);
-		modelAndView.setViewName("locate/locateList");
+		modelAndView.addObject("countVOs", countVOs);
+		modelAndView.addObject("totalNumber", totalNumber);
+		modelAndView.setViewName("locate/locateCount");
 		return modelAndView;
 	}
 

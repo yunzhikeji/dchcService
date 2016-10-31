@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yz.po.Locate;
 import com.yz.po.Relperson;
+import com.yz.po.RelpersonQuery;
 
 public interface RelpersonMapperCustom {
 
@@ -12,5 +13,7 @@ public interface RelpersonMapperCustom {
 	List<Relperson> findRelpersonListByRelpersonQuery(Relperson relperson);
 
 	List<Relperson> findRelpersonListByAddress(String address);
+
+	List<Relperson> findLocateListByQueryMessage(RelpersonQuery relpersonQuery);
 
 }
