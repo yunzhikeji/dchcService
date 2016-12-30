@@ -187,7 +187,7 @@ public class LocateServiceImpl implements LocateService {
 			default:
 				break;
 			}
-			List<Locate> locates = locateMapperCustom.findLocateListByQueryMessage(locateQuery);
+			List<Locate> locates = locateMapperCustom.findLocateListByQueryVO(locateQuery);
 			if (locates != null) {
 				countVO.setNumber(locates.size());
 			}
