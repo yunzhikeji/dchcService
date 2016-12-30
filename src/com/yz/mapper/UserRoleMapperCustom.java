@@ -13,7 +13,9 @@ public interface UserRoleMapperCustom {
 
 	List<Userrole> findUserRoleList();
 
-	List<Userrole> findUserroleListByQueryMessage(UserroleQuery userroleQuery);
+	List<UserroleQuery> findUserroleListByQueryMessage(UserroleQuery userroleQuery);
+	
+	Integer findUserroleListByQueryMessageCount(UserroleQuery userroleQuery);
 	
 	Userrole findUserRoleByUsername(UserroleQuery userroleQuery);
 

@@ -87,7 +87,7 @@
 							href="${pageContext.request.contextPath }/locate/count?countType=10"
 							target="myiframe">地点(场所)统计</a></li>
 						<li><a
-							href="${pageContext.request.contextPath }/relperson/list"
+							href="${pageContext.request.contextPath }/relperson/query"
 							target="myiframe">相关人员</a></li>
 						<li><a
 							href="${pageContext.request.contextPath }/relperson/count?countType=10"

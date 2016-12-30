@@ -11,7 +11,9 @@ import com.yz.po.Locate;
 import com.yz.po.LocateQuery;
 import com.yz.po.Relperson;
 import com.yz.po.RelpersonQuery;
+import com.yz.po.RelpersonVO;
 import com.yz.service.RelpersonService;
+import com.yz.utils.Page;
 import com.yz.vo.CountVO;
 
 public class RelpersonServiceImpl implements RelpersonService {
@@ -53,8 +55,24 @@ public class RelpersonServiceImpl implements RelpersonService {
 	}
 
 	@Override
-	public List<Relperson> findRelpersonListByRelpersonQuery(Relperson relperson) {
-		return relpersonMapperCustom.findRelpersonListByRelpersonQuery(relperson);
+	public Page findRelpersonListByRelpersonQuery(RelpersonVO relpersonVO) {
+		//查询当前条件下的总记录数
+		Integer totalCount = relpersonMapperCustom.findRelpersonListByRelpersonQueryCount(relpersonVO);
+		
+		Page page = new Page();
+		
+		page.setPageNo(relpersonVO.getPageNo());
+		
+		page.setTotalCount(totalCount);
+		//获得开始行号 
+		Integer startNum = page.getStartNum();
+		Integer pageSize = page.getPageSize();
+		
+		relpersonVO.setStartNum(startNum);
+		relpersonVO.setPageSize(pageSize);
+		List<RelpersonVO> relpersonVOList= relpersonMapperCustom.findRelpersonListByRelpersonQuery(relpersonVO);
+		page.setList(relpersonVOList);
+		return page;
 	}
 
 

@@ -1,34 +1,36 @@
 package com.yz.po;
 
-public class UserroleQuery {
+public class UserroleQuery extends Userrole {
 
-	private String username;
+	private Integer startNum;  //开始行号
+	
+	private Integer pageSize; // 每页显示多少条记录
+	
+	private Integer pageNo;
 
-	private String realname;
-
-	private Integer type;
-
-	public String getUsername() {
-		return username;
+	public Integer getStartNum() {
+		return startNum;
 	}
 
-	public void setUsername(String username) {
-		this.username = username == null ? null : username.trim();
+	public void setStartNum(Integer startNum) {
+		this.startNum = startNum;
 	}
 
-	public String getRealname() {
-		return realname;
+	public Integer getPageSize() {
+		return pageSize;
 	}
 
-	public void setRealname(String realname) {
-		this.realname = realname == null ? null : realname.trim();
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
 	}
 
-	public Integer getType() {
-		return type;
+	public Integer getPageNo() {
+		return pageNo;
 	}
 
-	public void setType(Integer type) {
-		this.type = type;
-	}
+	public void setPageNo(Integer pageNo) {
+		this.pageNo = pageNo;
+	}  
+
+	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yz.po.Userrole;
 import com.yz.po.UserroleQuery;
 import com.yz.service.UserRoleService;
+import com.yz.utils.Page;
 
 @Controller
 @RequestMapping("/user")
@@ -19,13 +21,17 @@ public class UserRoleController {
 	private UserRoleService userroleService;
 	
 	@RequestMapping("/list")
-	public ModelAndView list(UserroleQuery userroleQuery) throws Exception {
+	public String list(UserroleQuery userroleQuery,Model model) throws Exception {
 		
-		List<Userrole> userroleList = userroleService.findUserroleListByQueryMessage(userroleQuery);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("userroleList", userroleList);
-		modelAndView.setViewName("user/userroleList");
-		return modelAndView;
+		
+		if (userroleQuery.getPageNo() == null) {
+			userroleQuery.setPageNo(1);
+		}
+		Page page= userroleService.findUserroleListByQueryMessage(userroleQuery);
+
+		model.addAttribute("page", page);
+		model.addAttribute("userroleQuery", userroleQuery);
+		return "user/userroleList";
 	}
 
 	@RequestMapping("/delete")

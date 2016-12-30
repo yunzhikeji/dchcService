@@ -15,9 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yz.po.Locate;
 import com.yz.po.Relperson;
+import com.yz.po.RelpersonVO;
 import com.yz.service.LocateService;
 import com.yz.service.RelpersonService;
 import com.yz.utils.DateTimeKit;
+import com.yz.utils.Page;
 import com.yz.vo.CountVO;
 import com.yz.vo.UploadResult;
 
@@ -65,12 +67,17 @@ public class RelpersonController {
 
 
 	@RequestMapping("/query")
-	public ModelAndView Query(HttpServletRequest request,Relperson relperson) throws Exception {
-		List<Relperson> relpersonList = relpersonService.findRelpersonListByRelpersonQuery(relperson);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("relpersonList", relpersonList);
-		modelAndView.setViewName("relperson/relpersonList");
-		return modelAndView;
+	public String Query(RelpersonVO relpersonVO,Model model) throws Exception {
+		if (relpersonVO.getPageNo() == null) {
+			relpersonVO.setPageNo(1);
+		}
+		
+		Page page = relpersonService.findRelpersonListByRelpersonQuery(relpersonVO);
+		model.addAttribute("page", page);
+		
+		model.addAttribute("relpersonVO", relpersonVO);
+
+		return "relperson/relpersonList";
 		
 	}
 	

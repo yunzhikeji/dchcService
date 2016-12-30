@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yz.po.Userrole;
 import com.yz.po.UserroleQuery;
+import com.yz.utils.Page;
 
 public interface UserRoleService {
 
@@ -21,7 +22,7 @@ public interface UserRoleService {
 	public List<Userrole> findUserRoleByType(int type);
 
 	//根据前台所传查询条件，查询用户列表
-	public List<Userrole> findUserroleListByQueryMessage(UserroleQuery userroleQuery);
+	public Page findUserroleListByQueryMessage(UserroleQuery userroleQuery);
 
 	//根据id删除用户
 	public void deleteUserroleById(Integer id);

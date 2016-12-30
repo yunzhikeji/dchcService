@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.yz.po.Locate;
 import com.yz.po.Relperson;
+import com.yz.po.RelpersonVO;
+import com.yz.utils.Page;
 import com.yz.vo.CountVO;
 
 public interface RelpersonService {
@@ -24,7 +26,7 @@ public interface RelpersonService {
 	public Relperson findRelpersonById(Integer id);
 
 	//根据人员查询相关人员列表
-	public List<Relperson> findRelpersonListByRelpersonQuery(Relperson relperson);
+	public Page findRelpersonListByRelpersonQuery(RelpersonVO relpersonVO);
 
 	//根据场所地址查询相关人员列表
 	public List<Relperson> findRelpersonListByAddress(String address);

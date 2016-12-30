@@ -4,37 +4,57 @@
 
 	<select id="findRelpersonList" resultType="com.yz.po.Relperson">
 		select * from
-		relperson
+		relperson limit 0,10
 	</select>
 
-	<select id="findRelpersonListByRelpersonQuery" parameterType="com.yz.po.Relperson"
-		resultType="com.yz.po.Relperson">
+<!-- 查询当前条件下的相关人员 -->
+	<select id="findRelpersonListByRelpersonQuery" parameterType="com.yz.po.RelpersonVO"
+		resultType="com.yz.po.RelpersonVO">
 		select * from relperson where
 		<if test="name != null and name != '' ">
 			name like concat('%',#{name},'%') and
 		</if>
 		<if test="workdunitaddress != null and workdunitaddress != '' ">
-			workdunitaddress like concat('%',#{workdunitaddress},'%') and
+			workdunitaddress like concat('%',#{workdunitaddress},'%')
+			and
+		</if>
+		<if test="currentaddress != null and currentaddress != '' ">
+			currentaddress like concat('%',#{currentaddress},'%') and
+		</if>
+		1=1 limit #{startNum},#{pageSize}
+	</select>
+
+
+<!-- 查询当前条件下的总记录数 -->
+	<select id="findRelpersonListByRelpersonQueryCount"
+		parameterType="com.yz.po.RelpersonVO" resultType="int">
+		select count(*) from relperson where
+		<if test="name != null and name != '' ">
+			name like concat('%',#{name},'%') and
+		</if>
+		<if test="workdunitaddress != null and workdunitaddress != '' ">
+			workdunitaddress like concat('%',#{workdunitaddress},'%')
+			and
 		</if>
 		<if test="currentaddress != null and currentaddress != '' ">
 			currentaddress like concat('%',#{currentaddress},'%') and
 		</if>
 		1=1
 	</select>
-	
+
 	<select id="findRelpersonListByAddress" parameterType="java.lang.String"
 		resultType="com.yz.po.Relperson">
 		select * from relperson where
-		
-			currentaddress = #{address,jdbcType=VARCHAR} or
-			
-			workdunitaddress =#{address,jdbcType=VARCHAR} or 
-			
-			propertyandequipment like concat('%',#{address},'%') 
-			
+
+		currentaddress = #{address,jdbcType=VARCHAR} or
+
+		workdunitaddress =#{address,jdbcType=VARCHAR} or
+
+		propertyandequipment like concat('%',#{address},'%')
+
 	</select>
-	
-	
+
+
 	<select id="findLocateListByQueryMessage" parameterType="com.yz.po.RelpersonQuery"
 		resultType="com.yz.po.Relperson">
 		select * from relperson where
@@ -52,6 +72,6 @@
 		</if>
 		1=1
 	</select>
-	
+
 
 </mapper>

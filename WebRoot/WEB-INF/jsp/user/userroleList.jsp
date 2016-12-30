@@ -40,12 +40,11 @@
 			class="Hui-iconfont">&#xe68f;</i></a>
 	</nav>
 
+	<form id="form1" class="Huiform" method="post"
+		action="${pageContext.request.contextPath }/user/list" target="_self">
+		<div class="pd-20">
+			<div class="text-c">
 
-	<div class="pd-20">
-		<div class="text-c">
-			<form class="Huiform" method="post"
-				action="${pageContext.request.contextPath }/user/list"
-				target="_self">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0"
 					style="line-height: 35px;">
 					<tr height="35">
@@ -55,65 +54,79 @@
 							id="button2" value="查询" onClick=""> </input></td>
 					</tr>
 				</table>
-			</form>
-		</div>
-		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="l"> <!--
+
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<span class="l"> <!--
 			<a href="javascript:;" onclick="datadel()"
 				class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
-					批量删除</a> -->
-				  <a class="btn btn-primary radius"
-				onclick="article_add('用户管理','${pageContext.request.contextPath }/user/toAdd')"
-				href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a> </span>  <span
-				class="r">共有数据：<strong>${userroleList.size()}</strong> 条
-			</span>
-		</div>
-		<div class="mt-20">
-		<c:if test="${userroleList==null||userroleList.size()<1}">
+					批量删除</a> --> <a class="btn btn-primary radius"
+					onclick="article_add('用户管理','${pageContext.request.contextPath }/user/toAdd')"
+					href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 新增信息</a>
+				</span> <span class="r">当前显示：<strong>${page.list.size()}</strong> 条
+				</span>
+			</div>
+			<div class="mt-20">
+				<c:if test="${page.list==null||page.list.size()<1}">
 										暂无用户
 										</c:if>
-					<c:if test="${userroleList.size()>0}">
-			<table class="table table-border table-bordered table-bg">
-				<thead>
-					<tr class="text-c">
-						 <th width="25"><input type="checkbox" name="" value=""></th> 
-						<th width="80">流水编号</th>
-						<th width="120">用户类别</th>
-						<th width="120">用户名</th>
-						<th width="120">密码</th>
-						<th width="75">真实姓名</th>
-						<th width="120">联系电话</th>
-						<th width="120">操作</th>
-					</tr>
-				</thead>
-				<tbody>
-						<c:forEach items="${userroleList }" var="userrole"
-							varStatus="index">
+				<c:if test="${page.list.size()>0}">
+					<table class="table table-border table-bordered table-bg">
+						<thead>
 							<tr class="text-c">
-								 <td><input type="checkbox" value="" name=""></td>
-								<td>${index.count }</td>
-								<td><c:if test="${userrole.type == 1}">大厅用户</c:if> <c:if
-										test="${userrole.type != 1}">外勤用户</c:if> </td>
-								<td>${userrole.username}</td>
-								<td class="f-14 td-manage">${userrole.password}</td>
-								<td class="f-14 td-manage">${userrole.realname}</td>
-								<td class="f-14 td-manage">${userrole.telephone}</td>
-								<td class="f-14 td-manage"><a style="text-decoration: none"
-									class="ml-5"
-									onClick="article_edit('用户信息','${pageContext.request.contextPath }/user/load?id=${userrole.id}','10001')"
-									href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-									<a style="text-decoration: none" class="ml-5"
-									onClick="return confirm('您确认要删除信息吗?')"
-									href="${pageContext.request.contextPath }/user/delete?id=${userrole.id}"
-									title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+								<th width="25"><input type="checkbox" name="" value=""></th>
+								<th width="80">流水编号</th>
+								<th width="120">用户类别</th>
+								<th width="120">用户名</th>
+								<th width="120">密码</th>
+								<th width="75">真实姓名</th>
+								<th width="120">联系电话</th>
+								<th width="120">操作</th>
 							</tr>
-						</c:forEach>
-				</tbody>
-			</table>
+						</thead>
+						<tbody>
+							<c:forEach items="${page.list }" var="userrole" varStatus="index">
+								<tr class="text-c">
+									<td><input type="checkbox" value="" name=""></td>
+									<td>${index.count }</td>
+									<td><c:if test="${userrole.type == 1}">大厅用户</c:if> <c:if
+											test="${userrole.type != 1}">外勤用户</c:if></td>
+									<td>${userrole.username}</td>
+									<td class="f-14 td-manage">${userrole.password}</td>
+									<td class="f-14 td-manage">${userrole.realname}</td>
+									<td class="f-14 td-manage">${userrole.telephone}</td>
+									<td class="f-14 td-manage"><a
+										style="text-decoration: none" class="ml-5"
+										onClick="article_edit('用户信息','${pageContext.request.contextPath }/user/load?id=${userrole.id}','10001')"
+										href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+										<a style="text-decoration: none" class="ml-5"
+										onClick="return confirm('您确认要删除信息吗?')"
+										href="${pageContext.request.contextPath }/user/delete?id=${userrole.id}"
+										title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 				</c:if>
+			</div>
+			<div class="page_c">
+				<span class="l inb_a"> </span> <span class="r page"> <input
+					type="hidden" id="pageNo" name="pageNo" /> <input type="hidden"
+					value="${page.totalCount}" id="totalCount" name="totalCount" /> <input
+					type="hidden" value="${page.pageNo}" id="currentPageNo"
+					name="currentPageNo" /> <input type="hidden"
+					value="${page.totalPage}" id="totalPage" name="totalPage" /> 共<var
+						id="pagePiece" class="orange">${page.totalCount }</var>条 <var
+						id="pageTotal">${page.pageNo }/${page.totalPage }</var> <a
+					href="javascript:void(0);" id="firstPage">首页</a> <a
+					href="javascript:void(0);" id="previous" title="上一页">上一页</a> <a
+					href="javascript:void(0);" id="next" title="下一页">下一页</a>
+				</span>
+			</div>
 		</div>
+	</form>
 
-	</div>
+
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath }/hui/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript"
@@ -164,6 +177,71 @@
 				layer.msg('已删除!', 1);
 			});
 		}
+	</script>
+	
+		<script type="text/javascript">
+		$(function() {
+
+			/* <div class="page_c">
+			<span class="l inb_a">
+			</span>
+			<span class="r page">
+			    <input type="hidden" id="pageNo" name="pageNo" />
+			    <input type="hidden" value="${page.totalCount}" id="totalCount" name="totalCount" />
+			    <input type="hidden" value="${page.pageNo}" id="currentPageNo" name="currentPageNo" />
+			    <input type="hidden" value="${page.totalPage}" id="totalPage" name="totalPage" />
+			            共<var id="pagePiece" class="orange">${page.totalCount }<ar>条<var id="pageTotal">${page.pageNo }/${page.totalPage }<ar>
+			    <a href="javascript:void(0);" id="previous" class="hidden" title="上一页">上一页</a>
+			    <a href="javascript:void(0);" id="next" class="hidden" title="下一页">下一页</a>
+			</span>
+			</div> */
+			//获得当前页面和总页数
+			var pageNo = parseInt($("#currentPageNo").val());
+			var totalPage = parseInt($("#totalPage").val());
+
+			if (pageNo == 1 && pageNo == totalPage) {
+				$("#previous").hide();
+				$("#next").hide();
+			} else if (pageNo == 1 && pageNo < totalPage) {
+				$("#previous").hide();
+				$("#next").show();
+			} else if (pageNo > 1 && pageNo < totalPage) {
+				$("#previous").show();
+				$("#next").show();
+			} else if (pageNo > 1 && pageNo == totalPage) {
+				$("#previous").show();
+				$("#next").hide();
+			}
+
+			$("#next").click(function() {
+				pageNo++;
+				$("#pageNo").val(pageNo);
+				$("#form1").submit();
+			});
+			$("#previous").click(function() {
+				pageNo--;
+				$("#pageNo").val(pageNo);
+				$("#form1").submit();
+			});
+			$("#firstPage").click(function() {
+
+				$("#pageNo").val(1);
+				$("#form1").submit();
+			});
+			$("#lastPage").click(function() {
+
+				$("#pageNo").val(totalPage);
+				$("#form1").submit();
+			});
+
+			$("#selectPage").change(function() {
+				var page = $(this).val();
+				$("#pageNo").val(page);
+				$("#form1").submit();
+			});
+
+			$("#selectPage").val(pageNo);
+		})
 	</script>
 </body>
 </html>

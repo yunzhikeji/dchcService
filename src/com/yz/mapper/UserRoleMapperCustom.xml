@@ -26,7 +26,7 @@
 </select>
 
 <select id="findUserroleListByQueryMessage"   parameterType="com.yz.po.UserroleQuery"
-		resultType="com.yz.po.Userrole">
+		resultType="com.yz.po.UserroleQuery">
 		select * from userrole where
 		
 		<if test="username != null and username != '' ">
@@ -37,7 +37,24 @@
 			realname like concat('%',#{realname},'%') and
 		</if>
 
-		1=1
+		1=1 limit #{startNum},#{pageSize}
+
+	</select>
+	
+	
+	<select id="findUserroleListByQueryMessageCount"   parameterType="com.yz.po.UserroleQuery"
+		resultType="int">
+		select count(*) from userrole where
+		
+		<if test="username != null and username != '' ">
+			username = #{username} and
+		</if>
+		
+		<if test="realname != null and realname != '' ">
+			realname like concat('%',#{realname},'%') and
+		</if>
+
+		1=1 
 
 	</select>
 	
