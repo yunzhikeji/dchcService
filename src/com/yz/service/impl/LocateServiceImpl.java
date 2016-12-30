@@ -11,6 +11,7 @@ import com.yz.po.Locate;
 import com.yz.po.LocateQuery;
 import com.yz.po.Relperson;
 import com.yz.service.LocateService;
+import com.yz.utils.Page;
 import com.yz.vo.CountVO;
 
 public class LocateServiceImpl implements LocateService {
@@ -53,9 +54,27 @@ public class LocateServiceImpl implements LocateService {
 	}
 
 	@Override
-	public List<Locate> findLocateListByQueryMessage(LocateQuery locateQuery) {
-		// TODO Auto-generated method stub
-		return locateMapperCustom.findLocateListByQueryMessage(locateQuery);
+	public Page findLocateListByQueryMessage(LocateQuery locateQuery) {
+
+		//查询当前条件下的总记录数
+		Integer totalCount = locateMapperCustom.findLocateListByQueryMessageCount(locateQuery);
+		
+		Page page = new Page();
+		
+		page.setPageNo(locateQuery.getPageNo());
+		
+		page.setTotalCount(totalCount);
+		//获得开始行号 
+		Integer startNum = page.getStartNum();
+		Integer pageSize = page.getPageSize();
+		
+		
+		locateQuery.setStartNum(startNum);
+		locateQuery.setPageSize(pageSize);
+		
+		List<Locate> locateList= locateMapperCustom.findLocateListByQueryMessage(locateQuery);
+		page.setList(locateList);
+		return page;
 	}
 
 	@Override

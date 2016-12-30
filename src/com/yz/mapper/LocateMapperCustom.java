@@ -13,6 +13,8 @@ public interface LocateMapperCustom {
 
 	//根据查询条件，查询地点列表
 	List<Locate> findLocateListByQueryMessage(LocateQuery locateQuery);
+	
+	Integer findLocateListByQueryMessageCount(LocateQuery locateQuery);
 
 	//根据人员，查询地点列表
 	List<Locate> findLocateListByRelperson(Relperson relperson);

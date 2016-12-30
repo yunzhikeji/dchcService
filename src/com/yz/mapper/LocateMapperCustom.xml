@@ -22,6 +22,24 @@
 		<if test="placetype != null and queryMessage != 0 ">
 			placetype = #{placetype} and
 		</if>
+		1=1 limit 0,10
+	</select>
+	
+		<select id="findLocateListByQueryMessageCount" parameterType="com.yz.po.LocateQuery"
+		resultType="int">
+		select count(*) from locate where
+		<if test="queryMessage != null and queryMessage != '' ">
+			address like concat('%',#{queryMessage},'%') and
+		</if>
+		<if test="islethouse != null and islethouse != 0 ">
+			islethouse = #{islethouse} and
+		</if>
+		<if test="belongplace != null and belongplace != 0 ">
+			belongplace = #{belongplace} and
+		</if>
+		<if test="placetype != null and queryMessage != 0 ">
+			placetype = #{placetype} and
+		</if>
 		1=1
 	</select>
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,39 +16,41 @@ import com.yz.po.Relperson;
 import com.yz.service.LocateService;
 import com.yz.service.RelpersonService;
 import com.yz.utils.DateTimeKit;
+import com.yz.utils.Page;
 import com.yz.vo.CountVO;
 import com.yz.vo.UploadResult;
 
 @Controller
 @RequestMapping("/locate")
 public class LocateController {
-	
+
 	@Autowired
 	private LocateService locateService;
-	
+
 	@Autowired
 	private RelpersonService relpersonService;
 
 	@RequestMapping("/addLocate")
-	public @ResponseBody UploadResult addLocate(Locate locate)
-			throws Exception {
-		locate.setUploadtime(DateTimeKit.getLocal_Time());//设置上传时间
+	public @ResponseBody UploadResult addLocate(Locate locate) throws Exception {
+		locate.setUploadtime(DateTimeKit.getLocal_Time());// 设置上传时间
 		locateService.insert(locate);
-		
+
 		UploadResult uploadResult = new UploadResult();
 		uploadResult.setUploadResult(1);
 		return uploadResult;
 	}
 
-
 	@RequestMapping("/list")
-	public ModelAndView list(LocateQuery locateQuery) throws Exception {
-		
-		List<Locate> locateList = locateService.findLocateListByQueryMessage(locateQuery);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("locateList", locateList);
-		modelAndView.setViewName("locate/locateList");
-		return modelAndView;
+	public String list(LocateQuery locateQuery, Model model) throws Exception {
+
+		if (locateQuery.getPageNo() == null) {
+			locateQuery.setPageNo(1);
+		}
+		Page page = locateService.findLocateListByQueryMessage(locateQuery);
+		model.addAttribute("page", page);
+
+		model.addAttribute("locateQuery", locateQuery);
+		return "locate/locateList";
 	}
 
 	@RequestMapping("/delete")
@@ -55,20 +58,20 @@ public class LocateController {
 		locateService.deleteLocateById(id);
 		return "redirect:/locate/list";
 	}
-	
+
 	@RequestMapping("/toAdd")
 	public String toAdd() throws Exception {
 		return "locate/locateAdd";
-		
+
 	}
-	
+
 	@RequestMapping("/add")
 	public String add(Locate locate) throws Exception {
-		locate.setUploadtime(DateTimeKit.getLocal_Time());//设置上传时间
+		locate.setUploadtime(DateTimeKit.getLocal_Time());// 设置上传时间
 		locateService.insert(locate);
 		return "op_success_child";
 	}
-	
+
 	@RequestMapping("/load")
 	public ModelAndView load(Integer id) throws Exception {
 		Locate locate = locateService.findLocateById(id);
@@ -77,56 +80,51 @@ public class LocateController {
 		modelAndView.setViewName("locate/locateUpdate");
 		return modelAndView;
 	}
-	
+
 	@RequestMapping("/view")
 	public ModelAndView view(Integer id) throws Exception {
 		Locate locate = locateService.findLocateById(id);
-		
+
 		List<Relperson> relpersons = relpersonService.findRelpersonListByAddress(locate.getAddress());
-		
+
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("locate", locate);
 		modelAndView.addObject("relpersons", relpersons);
 		modelAndView.setViewName("locate/locateView");
 		return modelAndView;
 	}
-	
-	
+
 	@RequestMapping("/update")
-	public String update(Integer id,Locate locate) throws Exception {
-		locateService.updateLocateById(id,locate);
+	public String update(Integer id, Locate locate) throws Exception {
+		locateService.updateLocateById(id, locate);
 		return "op_success_child";
 	}
-	
+
 	@RequestMapping("/count")
 	public ModelAndView count(Integer countType) throws Exception {
-		
+
 		int totalNumber = 0;
-		
+
 		List<CountVO> countVOs = new ArrayList<CountVO>();
-		
+
 		countVOs = locateService.handleCountByCountType(countType);
-		
+
 		List<Locate> locates = locateService.findLocateList();
-		
-		if(locates!=null&&locates.size()>0)
-		{
+
+		if (locates != null && locates.size() > 0) {
 			CountVO countVO = new CountVO();
 			countVO.setCountTypeName("合计");
 			countVO.setNumber(locates.size());
 			countVOs.add(countVO);
-			
-			
+
 			totalNumber = locates.size();
 		}
-		
-		
+
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("countVOs", countVOs);
 		modelAndView.addObject("totalNumber", totalNumber);
 		modelAndView.setViewName("locate/locateCount");
 		return modelAndView;
 	}
-
 
 }

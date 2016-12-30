@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yz.po.Locate;
 import com.yz.po.LocateQuery;
+import com.yz.utils.Page;
 import com.yz.vo.CountVO;
 
 public interface LocateService{
@@ -24,7 +25,7 @@ public interface LocateService{
 	public Locate findLocateById(Integer id);
 
 	//查询条件
-	public List<Locate> findLocateListByQueryMessage(LocateQuery locateQuery);
+	public Page findLocateListByQueryMessage(LocateQuery locateQuery);
 
 	//根据传入的地址查询场所,传入addressType(1:表示现住地址 2:表示工作单位地址)
 	public Locate getRealLocate(Integer addressType,String addressMsg);
