@@ -19,4 +19,18 @@ public interface RelpersonMapperCustom {
 
 	List<Relperson> findLocateListByQueryMessage(RelpersonQuery relpersonQuery);
 
+	
+	Integer findPermitCountByBelongPlace(Integer belongPlace);
+	
+	Integer findNonPermitCountByBelongPlace(Integer belongPlace);
+	
+	Integer findRtype0CountByBelongPlace(Integer belongPlace);
+	
+	Integer findRtype1CountByBelongPlace(Integer belongPlace);
+	
+	Integer findRtype2CountByBelongPlace(Integer belongPlace);
+	
+	Integer findRtype3CountByBelongPlace(Integer belongPlace);
+	
+	Integer findRtype4CountByBelongPlace(Integer belongPlace);
 }

@@ -7,7 +7,7 @@
 	</select>
 
 
-<select id="findLocateListByQueryVO" parameterType="com.yz.po.LocateQuery"
+	<select id="findLocateListByQueryVO" parameterType="com.yz.po.LocateQuery"
 		resultType="com.yz.po.Locate">
 		select * from locate where
 		<if test="queryMessage != null and queryMessage != '' ">
@@ -42,8 +42,8 @@
 		</if>
 		1=1 limit #{startNum},#{pageSize}
 	</select>
-	
-		<select id="findLocateListByQueryMessageCount" parameterType="com.yz.po.LocateQuery"
+
+	<select id="findLocateListByQueryMessageCount" parameterType="com.yz.po.LocateQuery"
 		resultType="int">
 		select count(*) from locate where
 		<if test="queryMessage != null and queryMessage != '' ">
@@ -58,11 +58,11 @@
 		<if test="placetype != null and queryMessage != 0 ">
 			placetype = #{placetype} and
 		</if>
-		1=1 
+		1=1
 	</select>
 
 
-	<select id="findLocateListByRelperson"   parameterType="com.yz.po.Relperson"
+	<select id="findLocateListByRelperson" parameterType="com.yz.po.Relperson"
 		resultType="com.yz.po.Locate">
 		select * from locate where
 
@@ -76,5 +76,70 @@
 
 	</select>
 
+
+	<select id="findLethHouseCountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from locate where
+		islethouse = 1 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findNonLethHouseCountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from locate where
+		islethouse = 0 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findPlaceType0CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from locate where
+		placetype = 0 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findPlaceType1CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from locate where
+		placetype = 1 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findPlaceType2CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from locate where
+		placetype = 2 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findPlaceType3CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from locate where
+		placetype = 3 and
+
+		belongplace = #{belongplace}
+	</select>
+
+
+	<select id="findPlaceType4CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from locate where
+		placetype = 4 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findPlaceType5CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from locate where
+		placetype = 5 and
+
+		belongplace = #{belongplace}
+	</select>
 
 </mapper>

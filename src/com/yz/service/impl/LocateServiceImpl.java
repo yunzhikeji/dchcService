@@ -13,6 +13,7 @@ import com.yz.po.Relperson;
 import com.yz.service.LocateService;
 import com.yz.utils.Page;
 import com.yz.vo.CountVO;
+import com.yz.vo.LocateCount;
 
 public class LocateServiceImpl implements LocateService {
 
@@ -195,6 +196,26 @@ public class LocateServiceImpl implements LocateService {
 		}
 
 		return countVOs;
+	}
+
+	@Override
+	public List<LocateCount> findLocateCount() {
+		List<LocateCount> locateCounts = new ArrayList<>();
+		for(int i=1;i<11;i++){
+			LocateCount locateCount = new LocateCount();
+			locateCount.setBelongPlace(i);
+			locateCount.setLengthHouseCount(locateMapperCustom.findLethHouseCountByBelongPlace(i));
+			locateCount.setNonLengthHouseCount(locateMapperCustom.findNonLethHouseCountByBelongPlace(i));
+			locateCount.setPlaceType0Count(locateMapperCustom.findPlaceType0CountByBelongPlace(i));
+			locateCount.setPlaceType1Count(locateMapperCustom.findPlaceType1CountByBelongPlace(i));
+			locateCount.setPlaceType2Count(locateMapperCustom.findPlaceType2CountByBelongPlace(i));
+			locateCount.setPlaceType3Count(locateMapperCustom.findPlaceType3CountByBelongPlace(i));
+			locateCount.setPlaceType4Count(locateMapperCustom.findPlaceType4CountByBelongPlace(i));
+			locateCount.setPlaceType5Count(locateMapperCustom.findPlaceType5CountByBelongPlace(i));
+			locateCounts.add(locateCount);
+		}
+		
+		return locateCounts;
 	}
 
 }

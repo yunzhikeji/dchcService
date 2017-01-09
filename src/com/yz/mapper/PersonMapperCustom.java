@@ -14,4 +14,6 @@ public interface PersonMapperCustom {
 	
 	//按条件查询人员列表
 	public List<Person> findPersonListByPersonQuery(PersonQuery personQuery);
+	
+
 }

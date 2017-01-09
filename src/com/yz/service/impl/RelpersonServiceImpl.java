@@ -15,6 +15,7 @@ import com.yz.po.RelpersonVO;
 import com.yz.service.RelpersonService;
 import com.yz.utils.Page;
 import com.yz.vo.CountVO;
+import com.yz.vo.RelpersonCount;
 
 public class RelpersonServiceImpl implements RelpersonService {
 
@@ -176,6 +177,27 @@ public class RelpersonServiceImpl implements RelpersonService {
 		}
 
 		return countVOs;
+	}
+
+	@Override
+	public List<RelpersonCount> findRelpersonCount() {
+		List<RelpersonCount> relpersonCounts = new ArrayList<>();
+		for(int i=1;i<11;i++){
+			RelpersonCount relpersonCount = new RelpersonCount();
+			
+			relpersonCount.setBelongPlace(i);
+			relpersonCount.setPermitCount(relpersonMapperCustom.findPermitCountByBelongPlace(i));
+			relpersonCount.setNonPermitCount(relpersonMapperCustom.findNonPermitCountByBelongPlace(i));
+			relpersonCount.setRtype0Count(relpersonMapperCustom.findRtype0CountByBelongPlace(i));
+			relpersonCount.setRtype1Count(relpersonMapperCustom.findRtype1CountByBelongPlace(i));
+			relpersonCount.setRtype2Count(relpersonMapperCustom.findRtype2CountByBelongPlace(i));
+			relpersonCount.setRtype3Count(relpersonMapperCustom.findRtype3CountByBelongPlace(i));
+			relpersonCount.setRtype4Count(relpersonMapperCustom.findRtype4CountByBelongPlace(i));
+			
+			relpersonCounts.add(relpersonCount);
+			
+		}
+		return relpersonCounts;
 	}
 
 }

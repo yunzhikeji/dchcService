@@ -20,5 +20,21 @@ public interface LocateMapperCustom {
 
 	//根据人员，查询地点列表
 	List<Locate> findLocateListByRelperson(Relperson relperson);
+	
+	Integer findLethHouseCountByBelongPlace(Integer belongPlace);
+	
+	Integer findNonLethHouseCountByBelongPlace(Integer belongPlace);
+	
+	Integer findPlaceType0CountByBelongPlace(Integer belongPlace);
+
+	Integer findPlaceType1CountByBelongPlace(Integer belongPlace);
+	
+	Integer findPlaceType2CountByBelongPlace(Integer belongPlace);
+	
+	Integer findPlaceType3CountByBelongPlace(Integer belongPlace);
+	
+	Integer findPlaceType4CountByBelongPlace(Integer belongPlace);
+	
+	Integer findPlaceType5CountByBelongPlace(Integer belongPlace);
 
 }

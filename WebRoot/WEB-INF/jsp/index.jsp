@@ -83,14 +83,24 @@
 						<li><a
 							href="${pageContext.request.contextPath }/locate/list.action"
 							target="myiframe">地点(场所)</a></li>
-						<li><a
+							<!-- 	<li><a
 							href="${pageContext.request.contextPath }/locate/count?countType=10"
+							target="myiframe">地点(场所)统计</a></li> -->
+					
+							
+							<li><a
+							href="${pageContext.request.contextPath }/locate/countnew"
 							target="myiframe">地点(场所)统计</a></li>
 						<li><a
 							href="${pageContext.request.contextPath }/relperson/query"
 							target="myiframe">相关人员</a></li>
-						<li><a
+							<!-- <li><a
 							href="${pageContext.request.contextPath }/relperson/count?countType=10"
+							target="myiframe">相关人员统计</a></li> -->
+						
+							
+							<li><a
+							href="${pageContext.request.contextPath }/relperson/countnew"
 							target="myiframe">相关人员统计</a></li>
 					</ul>
 				</dd>

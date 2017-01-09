@@ -21,6 +21,8 @@ import com.yz.service.RelpersonService;
 import com.yz.utils.DateTimeKit;
 import com.yz.utils.Page;
 import com.yz.vo.CountVO;
+import com.yz.vo.LocateCount;
+import com.yz.vo.RelpersonCount;
 import com.yz.vo.UploadResult;
 
 @Controller
@@ -140,4 +142,13 @@ public class RelpersonController {
 		modelAndView.setViewName("relperson/relpersonCount");
 		return modelAndView;
 	}
+	
+	
+	  @RequestMapping("/countnew")
+	  public String count(Model model) throws Exception {
+		  List<RelpersonCount> relpersonCounts = relpersonService.findRelpersonCount();
+		  model.addAttribute("relpersonCounts", relpersonCounts);
+		  
+		 return "relperson/relpersonCountNew";
+	  }
 }

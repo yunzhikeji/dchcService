@@ -6,6 +6,7 @@ import com.yz.po.Locate;
 import com.yz.po.LocateQuery;
 import com.yz.utils.Page;
 import com.yz.vo.CountVO;
+import com.yz.vo.LocateCount;
 
 public interface LocateService{
 
@@ -32,5 +33,7 @@ public interface LocateService{
 
 	//根据传入的列表，处理统计数据 (countType  2:是否出租房  6:场所性质 10:所属派出所类别)
 	public List<CountVO> handleCountByCountType(Integer countType);
+
+	public List<LocateCount> findLocateCount();
 
 }

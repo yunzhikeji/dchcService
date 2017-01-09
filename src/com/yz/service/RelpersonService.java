@@ -7,6 +7,7 @@ import com.yz.po.Relperson;
 import com.yz.po.RelpersonVO;
 import com.yz.utils.Page;
 import com.yz.vo.CountVO;
+import com.yz.vo.RelpersonCount;
 
 public interface RelpersonService {
 
@@ -33,5 +34,7 @@ public interface RelpersonService {
 
 	//根据传入的列表，处理统计数据 (countType  2:是否办理居住证  5:人员类别 10:所属派出所类别)
 	public List<CountVO> handleCountByCountType(Integer countType);
+
+	public List<RelpersonCount> findRelpersonCount();
 
 }

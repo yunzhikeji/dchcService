@@ -7,7 +7,7 @@
 		relperson limit 0,10
 	</select>
 
-<!-- 查询当前条件下的相关人员 -->
+	<!-- 查询当前条件下的相关人员 -->
 	<select id="findRelpersonListByRelpersonQuery" parameterType="com.yz.po.RelpersonVO"
 		resultType="com.yz.po.RelpersonVO">
 		select * from relperson where
@@ -25,7 +25,7 @@
 	</select>
 
 
-<!-- 查询当前条件下的总记录数 -->
+	<!-- 查询当前条件下的总记录数 -->
 	<select id="findRelpersonListByRelpersonQueryCount"
 		parameterType="com.yz.po.RelpersonVO" resultType="int">
 		select count(*) from relperson where
@@ -46,11 +46,14 @@
 		resultType="com.yz.po.Relperson">
 		select * from relperson where
 
-		currentaddress = #{address,jdbcType=VARCHAR} or
+		currentaddress =
+		#{address,jdbcType=VARCHAR} or
 
-		workdunitaddress =#{address,jdbcType=VARCHAR} or
+		workdunitaddress
+		=#{address,jdbcType=VARCHAR} or
 
-		propertyandequipment like concat('%',#{address},'%')
+		propertyandequipment like
+		concat('%',#{address},'%')
 
 	</select>
 
@@ -73,5 +76,62 @@
 		1=1
 	</select>
 
+
+	<select id="findPermitCountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from relperson where
+		ispermit = 1 and
+
+		belongplace = #{belongplace}
+	</select>
+
+
+	<select id="findNonPermitCountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from relperson where
+		ispermit = 0 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findRtype0CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from relperson where
+		rtype = 0 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findRtype1CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from relperson where
+		rtype = 1 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findRtype2CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from relperson where
+		rtype = 2 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findRtype3CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from relperson where
+		rtype = 3 and
+
+		belongplace = #{belongplace}
+	</select>
+
+	<select id="findRtype4CountByBelongPlace" parameterType="int"
+		resultType="int">
+		select count(*) from relperson where
+		rtype = 4 and
+
+		belongplace = #{belongplace}
+	</select>
 
 </mapper>

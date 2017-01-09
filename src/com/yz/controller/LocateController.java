@@ -18,6 +18,7 @@ import com.yz.service.RelpersonService;
 import com.yz.utils.DateTimeKit;
 import com.yz.utils.Page;
 import com.yz.vo.CountVO;
+import com.yz.vo.LocateCount;
 import com.yz.vo.UploadResult;
 
 @Controller
@@ -126,5 +127,14 @@ public class LocateController {
 		modelAndView.setViewName("locate/locateCount");
 		return modelAndView;
 	}
+	
+	
+  @RequestMapping("/countnew")
+  public String count(Model model) throws Exception {
+	  List<LocateCount> locateCounts = locateService.findLocateCount();
+	  model.addAttribute("locateCounts", locateCounts);
+	  
+	 return "locate/locateCountNew";
+  }
 
 }
